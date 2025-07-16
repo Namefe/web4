@@ -460,66 +460,158 @@ const yDevR = useTransform(scrollYProgress, [0.3, 0.4, 0.5], [5, 0, -5]);
 
   </div>
 </div>
-<div className='list'>
-  <div className='awards'>
-<svg className="absolute top-0 left-0 w-full h-auto" viewBox="0 0 300 100">
-    <path 
-      d="M3,50 L150,50 L170,60 L297,60" 
-      stroke="white" 
-      opacity="0.3"
-      strokeWidth="0.2"
-      fill="none"
-    />
-  </svg>
-  <div className='awardsName'>
-      <div>
-      <svg 
-  width={"1.5rem"} 
-  viewBox={"0 0 33 32"} 
-  fill={"none"}
->
-  <path 
-    d="M16.5039 0L18.2236 14.2803L32.5039 16L18.2236 17.7197L16.5039 32L14.7842 17.7197L0.503906 16L14.7842 14.2803L16.5039 0Z" 
-    fill="white"
-  />
-</svg>
-<div className='text-white' >AWWWARDS</div>
-    </div>
+<div className='list relative h-[100vh]'>
+  {/* svg 선 */}
+  <div className='list1'>
+    <svg className="absolute top-0 left-0 w-full h-auto" viewBox="0 0 300 100">
+      <path 
+        d="M10,50 L140,50 L160,60 L290,60" 
+        stroke="white" 
+        opacity="0.3"
+        strokeWidth="0.3"
+        fill="none"
+      />
+    </svg>
   </div>
-  <div className='awardsList'>
-      <div>
 
-      </div>
+  {/* 어워즈 타이틀 */}
+  <div className='awwwwards absolute top-[35%] left-20 flex items-center'>
+    <div className='inline-block mr-4'>
+      <svg width={"1.5rem"} viewBox={"0 0 33 32"} fill={"none"}>
+        <path 
+          d="M16.5039 0L18.2236 14.2803L32.5039 16L18.2236 17.7197L16.5039 32L14.7842 17.7197L0.503906 16L14.7842 14.2803L16.5039 0Z" 
+          fill="white"
+        />
+      </svg>
+    </div>
+    <div className='text-white leading-none text-3xl'>AWWWWARDS</div>
   </div>
+
+  {/* 어워드 리스트 */}
+  <div className='awardList absolute top-[32%] left-[60rem] mt-20 flex flex-col gap-6 w-[700px] ml-20'>
+<div class="w-full mb-2">
+  <div class="flex justify-between items-center text-white">
+    <span class="text-5xl">GTQ</span>
+    <span class="opacity-50">2010</span>
   </div>
-<svg className="absolute top-4 left-0 w-full h-auto" viewBox="0 0 300 100">
-    <path 
-      d="M3,50 L150,50 L170,60 L297,60" 
-      stroke="white" 
-      opacity="0.3"
-      strokeWidth="0.2"
-      fill="none"
-    />
-  </svg>
-<svg className="absolute top-8 left-0 w-full h-auto" viewBox="0 0 300 100">
-    <path 
-      d="M3,50 L150,50 L170,60 L297,60" 
-      stroke="white" 
-      opacity="0.3"
-      strokeWidth="0.2"
-      fill="none"
-    />
-  </svg>
-<svg className="absolute top-12 left-0 w-full h-auto" viewBox="0 0 300 100">
-    <path 
-      d="M3,50 L150,50 L170,60 L297,60" 
-      stroke="white" 
-      opacity="0.3"
-      strokeWidth="0.2"
-      fill="none"
-    />
-  </svg>
+  <div class="w-full h-[1px] bg-white/30 mt-5"></div>
 </div>
+<div class="w-full mb-2">
+  <div class="flex justify-between items-center text-white">
+    <span class="text-5xl">ITQ</span>
+    <span class="opacity-50">2010</span>
+  </div>
+  <div class="w-full h-[1px] bg-white/30 mt-5"></div>
+</div>
+<div class="w-full mb-2">
+  <div class="flex justify-between items-center text-white">
+    <span class="text-5xl">워드프로세서</span>
+    <span class="opacity-50">2020</span>
+  </div>
+  <div class="w-full h-[1px] bg-white/30 mt-5"></div>
+</div>
+<div class="w-full mb-2">
+  <div class="flex justify-between items-center text-white">
+    <span class="text-5xl">SMAT 3급</span>
+    <span class="opacity-50">2023</span>
+  </div>
+  <div class="w-full h-[1px] bg-white/30 mt-5"></div>
+</div>
+<div class="w-full mb-2">
+  <div class="flex justify-between items-center text-white">
+    <span class="text-5xl">ACP PHOTOSHOP</span>
+    <span class="opacity-50">2024</span>
+  </div>
+  <div class="w-full h-[1px] bg-white/30 mt-5"></div>
+</div>
+<div class="w-full mb-2">
+  <div class="flex justify-between items-center text-white">
+    <span class="text-5xl">ACP ILLUSTRATION</span>
+    <span class="opacity-50">2024</span>
+  </div>
+  <div class="w-full h-[1px] bg-white/30 mt-5"></div>
+</div>
+<div class="w-full mb-2">
+  <div class="flex justify-between items-center text-white">
+    <span class="text-5xl">SQLD</span>
+    <span class="opacity-50">2025</span>
+  </div>
+  <div class="w-full h-[1px] bg-white/30 mt-5"></div>
+</div>
+<div class="w-full mb-2">
+  <div class="flex justify-between items-center text-white">
+    <span class="text-5xl">웹디자인 기능사</span>
+    <span class="opacity-50">2025</span>
+  </div>
+</div>
+  </div>
+</div>
+ <div className='list2'>
+    <svg className="absolute top-[17%] left-0 w-full h-auto" viewBox="0 0 300 100">
+      <path 
+        d="M10,50 L140,50 L160,60 L290,60" 
+        stroke="white" 
+        opacity="0.3"
+        strokeWidth="0.2"
+        fill="none"
+      />
+    </svg>
+  </div>
+
+  <div className='awwwwards absolute top-[23%] left-20 flex items-center'>
+    <div className='inline-block mr-4'>
+      <svg width={"1.5rem"} viewBox={"0 0 33 32"} fill={"none"}>
+        <path 
+          d="M16.5039 0L18.2236 14.2803L32.5039 16L18.2236 17.7197L16.5039 32L14.7842 17.7197L0.503906 16L14.7842 14.2803L16.5039 0Z" 
+          fill="white"
+        />
+      </svg>
+    </div>
+    <div className='text-white leading-none text-3xl'>TITLE</div>
+  </div>
+
+  <div className='awardList absolute top-[23%] left-[60rem] mt-20 flex flex-col gap-6 w-[700px] ml-20'>
+<div class="w-full mb-2">
+  <div class="flex justify-between items-center text-white">
+    <span class="text-5xl">운전면허 1종 보통</span>
+    <span class="opacity-50">2019</span>
+  </div>
+</div>
+  </div>
+
+   <div className='list3'>
+    <svg className="absolute top-[20%] left-0 w-full h-auto" viewBox="0 0 300 100">
+      <path 
+        d="M10,50 L140,50 L160,60 L290,60" 
+        stroke="white" 
+        opacity="0.3"
+        strokeWidth="0.2"
+        fill="none"
+      />
+    </svg>
+  </div>
+
+  <div className='awwwwards absolute top-[26%] left-20 flex items-center'>
+    <div className='inline-block mr-4'>
+      <svg width={"1.5rem"} viewBox={"0 0 33 32"} fill={"none"}>
+        <path 
+          d="M16.5039 0L18.2236 14.2803L32.5039 16L18.2236 17.7197L16.5039 32L14.7842 17.7197L0.503906 16L14.7842 14.2803L16.5039 0Z" 
+          fill="white"
+        />
+      </svg>
+    </div>
+    <div className='text-white leading-none text-3xl'>TRAINING</div>
+  </div>
+
+  <div className='awardList absolute top-[26%] left-[60rem] mt-20 flex flex-col gap-6 w-[700px] ml-20'>
+<div class="w-full mb-2">
+  <div class="flex justify-between items-center text-white">
+    <span class="text-5xl">SBS 컴퓨터 아카데미</span>
+    <span class="opacity-50">2024~</span>
+  </div>
+  <div class="w-full h-[1px] bg-white/30 mt-5"></div>
+</div>
+  </div>
 </section>
 
 
