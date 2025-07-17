@@ -3,17 +3,32 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import '../App.css'; 
 
 const View01 = () => {
-        const [time, setTime] = useState(new Date());
-        const targetRef = useRef(null);
-        const { scrollYProgress } = useScroll({
+  const [time, setTime] = useState(new Date());
+
+  const targetRef = useRef(null);
+  const { scrollYProgress } = useScroll({
           target: targetRef,
           offset: ["start end", "end start"], 
         });
-const opacity = useTransform(scrollYProgress, [0.2, 0.3, 0.4], [0, 1, 0]);
 
 const lineopacity = useTransform(scrollYProgress, [0,0.5,0.6],[1,0,1])
 
 
+const full1 = "since";
+const full2 = "1999";
+const full3 = "SIMPLIFY";
+const full4 = "MOTION";
+const full5 = "CREATIONS";
+
+const [line1, setLine1] = useState(full1);
+const [line2, setLine2] = useState(full2);
+const [line3, setLine3] = useState(full3);
+const [line4, setLine4] = useState(full4);
+const [line5, setLine5] = useState(full5);
+const [isErased, setIsErased] = useState(false);
+
+const divY = useTransform(scrollYProgress, [0.3, 0.33], [0, -100]);
+const divY2 = useTransform(scrollYProgress, [0.4, 0.44], [0, -150]);
 
 const yF = useTransform(scrollYProgress, [0.2, 0.3, 0.4], [-40, 0, 40]);
 const yA = useTransform(scrollYProgress, [0.2, 0.3, 0.4], [30, 0, -30]);
@@ -39,7 +54,6 @@ const yE2 = useTransform(scrollYProgress, [0.2, 0.3, 0.4], [-30, 0, 30]);
 const yR3 = useTransform(scrollYProgress, [0.2, 0.3, 0.4], [10, 0, -10]);
 
 
-const opacityDev = useTransform(scrollYProgress, [0.3, 0.4, 0.5], [0, 1, 0]);
 
 // FRONT
 const yFrontF = useTransform(scrollYProgress, [0.3, 0.4, 0.5], [-40, 0, 40]);
@@ -66,10 +80,121 @@ const yDevP = useTransform(scrollYProgress, [0.3, 0.4, 0.5], [20, 0, -20]);
 const yDevE3 = useTransform(scrollYProgress, [0.3, 0.4, 0.5], [-15, 0, 15]);
 const yDevR = useTransform(scrollYProgress, [0.3, 0.4, 0.5], [5, 0, -5]);
 
+const opacityF   = useTransform(scrollYProgress, [0.10, 0.3, 0.42], [0, 1, 0]);
+const opacityA   = useTransform(scrollYProgress, [0.12, 0.3, 0.425], [0, 1, 0]);
+const opacityI   = useTransform(scrollYProgress, [0.14, 0.3, 0.43], [0, 1, 0]);
+const opacityL   = useTransform(scrollYProgress, [0.16, 0.3, 0.435], [0, 1, 0]);
+const opacitySp1 = useTransform(scrollYProgress, [0.18, 0.3, 0.437], [0, 1, 0]);
+const opacityF2  = useTransform(scrollYProgress, [0.20, 0.3, 0.438], [0, 1, 0]);
+const opacityA2  = useTransform(scrollYProgress, [0.21, 0.3, 0.439], [0, 1, 0]);
+const opacityS   = useTransform(scrollYProgress, [0.22, 0.3, 0.441], [0, 1, 0]);
+const opacityT   = useTransform(scrollYProgress, [0.23, 0.3, 0.443], [0, 1, 0]);
+
+const opacityL2  = useTransform(scrollYProgress, [0.24, 0.3, 0.444], [0, 1, 0]);
+const opacityE   = useTransform(scrollYProgress, [0.245, 0.3, 0.445], [0, 1, 0]);
+const opacityA3  = useTransform(scrollYProgress, [0.25, 0.3, 0.446], [0, 1, 0]);
+const opacityR2  = useTransform(scrollYProgress, [0.255, 0.3, 0.447], [0, 1, 0]);
+const opacityN2  = useTransform(scrollYProgress, [0.26, 0.3, 0.448], [0, 1, 0]);
+const opacitySp2 = useTransform(scrollYProgress, [0.265, 0.3, 0.449], [0, 1, 0]);
+const opacityF3  = useTransform(scrollYProgress, [0.27, 0.3, 0.450], [0, 1, 0]);
+const opacityA4  = useTransform(scrollYProgress, [0.275, 0.3, 0.451], [0, 1, 0]);
+const opacityS2  = useTransform(scrollYProgress, [0.28, 0.3, 0.452], [0, 1, 0]);
+const opacityT2  = useTransform(scrollYProgress, [0.285, 0.3, 0.453], [0, 1, 0]);
+const opacityE2  = useTransform(scrollYProgress, [0.29, 0.3, 0.454], [0, 1, 0]);
+const opacityR3  = useTransform(scrollYProgress, [0.295, 0.3, 0.455], [0, 1, 0]);
+
+const opacityFrontF = useTransform(scrollYProgress, [0.1, 0.4, 0.5], [0, 1, 0]);
+const opacityFrontR = useTransform(scrollYProgress, [0.11, 0.4, 0.51], [0, 1, 0]);
+const opacityFrontO = useTransform(scrollYProgress, [0.12, 0.4, 0.52], [0, 1, 0]);
+const opacityFrontN = useTransform(scrollYProgress, [0.13, 0.4, 0.53], [0, 1, 0]);
+const opacityFrontT = useTransform(scrollYProgress, [0.14, 0.4, 0.54], [0, 1, 0]);
+const opacityFrontSpace = useTransform(scrollYProgress, [0.15, 0.4, 0.45], [0, 1, 0]);
+
+const opacityEndE = useTransform(scrollYProgress, [0.16, 0.4, 0.46], [0, 1, 0]);
+const opacityEndN = useTransform(scrollYProgress, [0.17, 0.4, 0.47], [0, 1, 0]);
+const opacityEndD = useTransform(scrollYProgress, [0.18, 0.4, 0.48], [0, 1, 0]);
+
+const opacityDevD = useTransform(scrollYProgress, [0.19, 0.4, 0.49], [0, 1, 0]);
+const opacityDevE = useTransform(scrollYProgress, [0.20, 0.4, 0.50], [0, 1, 0]);
+const opacityDevV = useTransform(scrollYProgress, [0.21, 0.4, 0.51], [0, 1, 0]);
+const opacityDevE2 = useTransform(scrollYProgress, [0.22, 0.4, 0.52], [0, 1, 0]);
+const opacityDevL = useTransform(scrollYProgress, [0.23, 0.4, 0.53], [0, 1, 0]);
+const opacityDevO = useTransform(scrollYProgress, [0.24, 0.4, 0.54], [0, 1, 0]);
+const opacityDevP = useTransform(scrollYProgress, [0.25, 0.4, 0.55], [0, 1, 0]);
+const opacityDevE3 = useTransform(scrollYProgress, [0.26, 0.4, 0.56], [0, 1, 0]);
+const opacityDevR = useTransform(scrollYProgress, [0.27, 0.4, 0.57], [0, 1, 0]);
 
 
 
+useEffect(() => {
+  const unsubscribe = scrollYProgress.on("change", (v) => {
+    if (v > 0.2 && !isErased) {
+      setIsErased(true);
+      eraseText();
+    }
+    if (v < 0.2 && isErased) {
+      setIsErased(false);
+      restoreText();
+    }
+  });
 
+  return () => unsubscribe();
+}, [scrollYProgress, isErased]);
+
+
+const eraseText = () => {
+  let i = full2.length;
+  let j = full1.length;
+  let k = full3.length;
+  let l = full4.length;
+  let m = full5.length;
+
+  const interval = setInterval(() => {
+    if (m > 0) {
+      m--;
+      setLine5(full5.slice(0, m));
+    } else if (l > 0) {
+      l--;
+      setLine4(full4.slice(0, l));
+    } else if (k > 0) {
+      k--;
+      setLine3(full3.slice(0, k));
+    } else if (i > 0) {
+      i--;
+      setLine2(full2.slice(0, i));
+    } else if (j > 0) {
+      j--;
+      setLine1(full1.slice(0, j));
+    } else {
+      clearInterval(interval);
+    }
+  }, 80);
+};
+
+const restoreText = () => {
+  let j = 0, i = 0, k = 0, l = 0, m = 0;
+
+  const interval = setInterval(() => {
+    if (j <= full1.length) {
+      setLine1(full1.slice(0, j));
+      j++;
+    } else if (i <= full2.length) {
+      setLine2(full2.slice(0, i));
+      i++;
+    } else if (k <= full3.length) {
+      setLine3(full3.slice(0, k));
+      k++;
+    } else if (l <= full4.length) {
+      setLine4(full4.slice(0, l));
+      l++;
+    } else if (m <= full5.length) {
+      setLine5(full5.slice(0, m));
+      m++;
+    } else {
+      clearInterval(interval);
+    }
+  }, 80);
+};
 
       
         useEffect(() => {
@@ -120,13 +245,59 @@ const yDevR = useTransform(scrollYProgress, [0.3, 0.4, 0.5], [5, 0, -5]);
 
 <div className="absolute top-0 left-1/2 -translate-x-1/2 z-10 flex gap-6 justify-center items-center text-white text-opacity-50 font-bold px-6">
   <ul className="flex gap-6">
-    <li><a href="#" className="hover:text-white">HOME</a></li>
-    <li><a href="#" className="hover:text-white">PORTFOLIO</a></li>
-    <li><a href="#" className="hover:text-white">CERTIFICATION</a></li>
-    <li><a href="#" className="hover:text-white">ACADEMICS</a></li>
-    <li><a href="#" className="hover:text-white">CONTACT</a></li>
+    <li>
+      <a href="#" className="relative group overflow-hidden block h-[1em]">
+        <span className="block group-hover:-translate-y-full transition-all duration-300">
+          HOME
+        </span>
+        <span className="block absolute top-0 left-0 translate-y-full group-hover:translate-y-0 transition-all duration-300 text-white">
+          HØME
+        </span>
+      </a>
+    </li>
+    <li>
+      <a href="#" className="relative group overflow-hidden block h-[1em]">
+        <span className="block group-hover:-translate-y-full transition-all duration-300">
+          PORTFOLIO
+        </span>
+        <span className="block absolute top-0 left-0 translate-y-full group-hover:translate-y-0 transition-all duration-300 text-white">
+          PØRTFØLIØ
+        </span>
+      </a>
+    </li>
+    <li>
+      <a href="#" className="relative group overflow-hidden block h-[1em]">
+        <span className="block group-hover:-translate-y-full transition-all duration-300">
+          CERTIFICATION
+        </span>
+        <span className="block absolute top-0 left-0 translate-y-full group-hover:translate-y-0 transition-all duration-300 text-white">
+          ÇERTIFY
+        </span>
+      </a>
+    </li>
+    <li>
+      <a href="#" className="relative group overflow-hidden block h-[1em]">
+        <span className="block group-hover:-translate-y-full transition-all duration-300">
+          ACADEMICS
+        </span>
+        <span className="block absolute top-0 left-0 translate-y-full group-hover:translate-y-0 transition-all duration-300 text-white">
+          STÜDIES
+        </span>
+      </a>
+    </li>
+    <li>
+      <a href="#" className="relative group overflow-hidden block h-[1em]">
+        <span className="block group-hover:-translate-y-full transition-all duration-300">
+          CONTACT
+        </span>
+        <span className="block absolute top-0 left-0 translate-y-full group-hover:translate-y-0 transition-all duration-300 text-white">
+          HELLO!
+        </span>
+      </a>
+    </li>
   </ul>
 </div>
+
 
 </div>
 
@@ -246,15 +417,15 @@ const yDevR = useTransform(scrollYProgress, [0.3, 0.4, 0.5], [5, 0, -5]);
 
 
       {/* 글자 1 */}
-        <div className='text-white fixed top-[60%] left-20 text-opacity-70 w-[150px]'>
-            <div className=''>since</div>
-            <div className='ml-5'>1999<span className='opacity-0'>사라지는</span>&lt;</div>
-        </div>
+    <div className="fixed top-[60%] left-20 w-[80px] text-white text-xl text-opacity-70  z-[999] leading-snug whitespace-nowrap">
+      <div className='text-left'>{line1}</div>
+      <div className='text-right'>{line2}</div>
+    </div>
 
         <div className='text-white fixed top-[60%] right-20 text-opacity-70 w-[120px]'>
-            <div className='text-right'>SIMPLIFY</div>
-            <div className='text-right'>MOTION</div>
-            <div className='text-leftt'>CREATIONS</div>
+          <div className="text-right">{line3}</div>
+          <div className="text-right">{line4}</div>
+          <div className="text-left">{line5}</div>
         </div>
         
       {/* front end developer */}
@@ -275,60 +446,61 @@ const yDevR = useTransform(scrollYProgress, [0.3, 0.4, 0.5], [5, 0, -5]);
 
         </div>
       {/* 코딩관련 좌우명 */}
-<div className='fixed top-[20%] left-[10%]'>
-        <div className="flex gap-1 text-5xl font-bold text-white">
-        <motion.span style={{ y: yF, opacity }}>F</motion.span>
-        <motion.span style={{ y: yA, opacity }}>a</motion.span>
-        <motion.span style={{ y: yI, opacity }}>i</motion.span>
-        <motion.span style={{ y: yL, opacity }}>l</motion.span>
-        <motion.span style={{ y: ySpace, opacity }}>&nbsp;</motion.span>
-        <motion.span style={{ y: yF2, opacity }}>f</motion.span>
-        <motion.span style={{ y: yA2, opacity }}>a</motion.span>
-        <motion.span style={{ y: yS, opacity }}>s</motion.span>
-        <motion.span style={{ y: yT, opacity }}>t</motion.span>
-      </div>
-      <div className="flex gap-1 text-5xl font-bold text-white">
-        <motion.span style={{ y: yL2, opacity }}>l</motion.span>
-        <motion.span style={{ y: yE, opacity }}>e</motion.span>
-        <motion.span style={{ y: yA3, opacity }}>a</motion.span>
-        <motion.span style={{ y: yR2, opacity }}>r</motion.span>
-        <motion.span style={{ y: yN2, opacity }}>n</motion.span>
-        <motion.span style={{ y: ySpace2, opacity }}>&nbsp;</motion.span>
-        <motion.span style={{ y: yF3, opacity }}>f</motion.span>
-        <motion.span style={{ y: yA4, opacity }}>a</motion.span>
-        <motion.span style={{ y: yS2, opacity }}>s</motion.span>
-        <motion.span style={{ y: yT2, opacity }}>t</motion.span>
-        <motion.span style={{ y: yE2, opacity }}>e</motion.span>
-        <motion.span style={{ y: yR3, opacity }}>r</motion.span>
-      </div>
-      </div>
+<motion.div className='fixed top-[20%] left-[10%]' style={{ y: divY }}>
+  <div className="flex gap-1 text-5xl font-bold text-white">
+    <motion.span style={{ y: yF, opacity: opacityF }}>F</motion.span>
+    <motion.span style={{ y: yA, opacity: opacityA }}>a</motion.span>
+    <motion.span style={{ y: yI, opacity: opacityI }}>i</motion.span>
+    <motion.span style={{ y: yL, opacity: opacityL }}>l</motion.span>
+    <motion.span style={{ y: ySpace, opacity: opacitySp1 }}>&nbsp;</motion.span>
+    <motion.span style={{ y: yF2, opacity: opacityF2 }}>f</motion.span>
+    <motion.span style={{ y: yA2, opacity: opacityA2 }}>a</motion.span>
+    <motion.span style={{ y: yS, opacity: opacityS }}>s</motion.span>
+    <motion.span style={{ y: yT, opacity: opacityT }}>t</motion.span>
+  </div>
+  <div className="flex gap-1 text-5xl font-bold text-white">
+    <motion.span style={{ y: yL2, opacity: opacityL2 }}>l</motion.span>
+    <motion.span style={{ y: yE, opacity: opacityE }}>e</motion.span>
+    <motion.span style={{ y: yA3, opacity: opacityA3 }}>a</motion.span>
+    <motion.span style={{ y: yR2, opacity: opacityR2 }}>r</motion.span>
+    <motion.span style={{ y: yN2, opacity: opacityN2 }}>n</motion.span>
+    <motion.span style={{ y: ySpace2, opacity: opacitySp2 }}>&nbsp;</motion.span>
+    <motion.span style={{ y: yF3, opacity: opacityF3 }}>f</motion.span>
+    <motion.span style={{ y: yA4, opacity: opacityA4 }}>a</motion.span>
+    <motion.span style={{ y: yS2, opacity: opacityS2 }}>s</motion.span>
+    <motion.span style={{ y: yT2, opacity: opacityT2 }}>t</motion.span>
+    <motion.span style={{ y: yE2, opacity: opacityE2 }}>e</motion.span>
+    <motion.span style={{ y: yR3, opacity: opacityR3 }}>r</motion.span>
+  </div>
+</motion.div>
+
 
 
       {/* 프런트앤드 개발자 */}
-<div className='fixed bottom-[10%] left-1/2 -translate-x-1/2'>
-  <div className="flex gap-1 text-5xl font-bold text-white">
-    <motion.span style={{ y: yFrontF, opacity: opacityDev }}>F</motion.span>
-    <motion.span style={{ y: yFrontR, opacity: opacityDev }}>R</motion.span>
-    <motion.span style={{ y: yFrontO, opacity: opacityDev }}>O</motion.span>
-    <motion.span style={{ y: yFrontN, opacity: opacityDev }}>N</motion.span>
-    <motion.span style={{ y: yFrontT, opacity: opacityDev }}>T</motion.span>
-    <motion.span style={{ y: yFrontSpace, opacity: opacityDev }}>&nbsp;</motion.span>
-    <motion.span style={{ y: yEndE, opacity: opacityDev }}>E</motion.span>
-    <motion.span style={{ y: yEndN, opacity: opacityDev }}>N</motion.span>
-    <motion.span style={{ y: yEndD, opacity: opacityDev }}>D</motion.span>
-  </div>
-  <div className="flex gap-1 text-5xl font-bold text-white">
-    <motion.span style={{ y: yDevD, opacity: opacityDev }}>D</motion.span>
-    <motion.span style={{ y: yDevE, opacity: opacityDev }}>E</motion.span>
-    <motion.span style={{ y: yDevV, opacity: opacityDev }}>V</motion.span>
-    <motion.span style={{ y: yDevE2, opacity: opacityDev }}>E</motion.span>
-    <motion.span style={{ y: yDevL, opacity: opacityDev }}>L</motion.span>
-    <motion.span style={{ y: yDevO, opacity: opacityDev }}>O</motion.span>
-    <motion.span style={{ y: yDevP, opacity: opacityDev }}>P</motion.span>
-    <motion.span style={{ y: yDevE3, opacity: opacityDev }}>E</motion.span>
-    <motion.span style={{ y: yDevR, opacity: opacityDev }}>R</motion.span>
-  </div>
+<motion.div className='fixed bottom-[10%] left-1/2 -translate-x-1/2' style={{ y: divY2 }}>
+<div className="flex gap-1 text-5xl font-bold text-white">
+  <motion.span style={{ y: yFrontF, opacity: opacityFrontF }}>F</motion.span>
+  <motion.span style={{ y: yFrontR, opacity: opacityFrontR }}>R</motion.span>
+  <motion.span style={{ y: yFrontO, opacity: opacityFrontO }}>O</motion.span>
+  <motion.span style={{ y: yFrontN, opacity: opacityFrontN }}>N</motion.span>
+  <motion.span style={{ y: yFrontT, opacity: opacityFrontT }}>T</motion.span>
+  <motion.span style={{ y: yFrontSpace, opacity: opacityFrontSpace }}>&nbsp;</motion.span>
+  <motion.span style={{ y: yEndE, opacity: opacityEndE }}>E</motion.span>
+  <motion.span style={{ y: yEndN, opacity: opacityEndN }}>N</motion.span>
+  <motion.span style={{ y: yEndD, opacity: opacityEndD }}>D</motion.span>
 </div>
+<div className="flex gap-1 text-5xl font-bold text-white">
+  <motion.span style={{ y: yDevD, opacity: opacityDevD }}>D</motion.span>
+  <motion.span style={{ y: yDevE, opacity: opacityDevE }}>E</motion.span>
+  <motion.span style={{ y: yDevV, opacity: opacityDevV }}>V</motion.span>
+  <motion.span style={{ y: yDevE2, opacity: opacityDevE2 }}>E</motion.span>
+  <motion.span style={{ y: yDevL, opacity: opacityDevL }}>L</motion.span>
+  <motion.span style={{ y: yDevO, opacity: opacityDevO }}>O</motion.span>
+  <motion.span style={{ y: yDevP, opacity: opacityDevP }}>P</motion.span>
+  <motion.span style={{ y: yDevE3, opacity: opacityDevE3 }}>E</motion.span>
+  <motion.span style={{ y: yDevR, opacity: opacityDevR }}>R</motion.span>
+</div>
+</motion.div>
 
 
 
