@@ -1,13 +1,13 @@
+import Particles from 'react-tsparticles';
 import './App.css';
 import './css/reset.css';
-import Header from './view/header';
 import View01 from './view/view01';
 
 function App() {
   return (
-    <div>
-      <Header/>
-      <View01/>
+    <div className="relative w-full h-screen bg-black">
+      <Particles /> 
+      <View01 />
     </div>
   );
 }

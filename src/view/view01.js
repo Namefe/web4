@@ -246,51 +246,51 @@ const restoreText = () => {
 <div className="absolute top-0 left-1/2 -translate-x-1/2 z-10 flex gap-6 justify-center items-center text-white text-opacity-50 font-bold px-6">
   <ul className="flex gap-6">
     <li>
-      <a href="#" className="relative group overflow-hidden block h-[1em]">
-        <span className="block group-hover:-translate-y-full transition-all duration-300">
+      <a href="#" className="relative group overflow-hidden inline-block">
+        <span className="block transition-all duration-300 group-hover:-translate-x-full">
           HOME
         </span>
-        <span className="block absolute top-0 left-0 translate-y-full group-hover:translate-y-0 transition-all duration-300 text-white">
+        <span className="block absolute top-0 left-0 translate-x-full group-hover:translate-x-0 transition-all duration-300 text-white">
           HØME
         </span>
       </a>
     </li>
     <li>
-      <a href="#" className="relative group overflow-hidden block h-[1em]">
-        <span className="block group-hover:-translate-y-full transition-all duration-300">
+      <a href="#" className="relative group overflow-hidden inline-block">
+        <span className="block transition-all duration-300 group-hover:-translate-x-full">
           PORTFOLIO
         </span>
-        <span className="block absolute top-0 left-0 translate-y-full group-hover:translate-y-0 transition-all duration-300 text-white">
+        <span className="block absolute top-0 left-0 translate-x-full group-hover:translate-x-0 transition-all duration-300 text-white">
           PØRTFØLIØ
         </span>
       </a>
     </li>
     <li>
-      <a href="#" className="relative group overflow-hidden block h-[1em]">
-        <span className="block group-hover:-translate-y-full transition-all duration-300">
+      <a href="#" className="relative group overflow-hidden inline-block">
+        <span className="block transition-all duration-300 group-hover:-translate-x-full  ">
           CERTIFICATION
         </span>
-        <span className="block absolute top-0 left-0 translate-y-full group-hover:translate-y-0 transition-all duration-300 text-white">
+        <span className="block  absolute top-0 left-0 translate-x-full group-hover:translate-x-0 transition-all duration-300 text-white">
           ÇERTIFY
         </span>
       </a>
     </li>
     <li>
-      <a href="#" className="relative group overflow-hidden block h-[1em]">
-        <span className="block group-hover:-translate-y-full transition-all duration-300">
+      <a href="#" className="relative group overflow-hidden inline-block">
+        <span className="block transition-all duration-300 group-hover:-translate-x-full">
           ACADEMICS
         </span>
-        <span className="block absolute top-0 left-0 translate-y-full group-hover:translate-y-0 transition-all duration-300 text-white">
+        <span className="block absolute top-0 left-0 translate-x-full group-hover:translate-x-0 transition-all duration-300 text-white">
           STÜDIES
         </span>
       </a>
     </li>
     <li>
-      <a href="#" className="relative group overflow-hidden block h-[1em]">
-        <span className="block group-hover:-translate-y-full transition-all duration-300">
+      <a href="#" className="relative group overflow-hidden inline-block">
+        <span className="block transition-all duration-300 group-hover:-translate-x-full">
           CONTACT
         </span>
-        <span className="block absolute top-0 left-0 translate-y-full group-hover:translate-y-0 transition-all duration-300 text-white">
+        <span className="block absolute top-0 left-0 translate-x-full group-hover:translate-x-0 transition-all duration-300 text-white">
           HELLO!
         </span>
       </a>
@@ -417,12 +417,12 @@ const restoreText = () => {
 
 
       {/* 글자 1 */}
-    <div className="fixed top-[60%] left-20 w-[80px] text-white text-xl text-opacity-70  z-[999] leading-snug whitespace-nowrap">
+    <div className="fixed top-[60%] left-20 w-[80px] text-[#f5f5f5] text-xl z-[999] leading-snug whitespace-nowrap">
       <div className='text-left'>{line1}</div>
       <div className='text-right'>{line2}</div>
     </div>
 
-        <div className='text-white fixed top-[60%] right-20 text-opacity-70 w-[120px]'>
+        <div className='text-[#f5f5f5] fixed top-[60%] right-20  w-[120px]'>
           <div className="text-right">{line3}</div>
           <div className="text-right">{line4}</div>
           <div className="text-left">{line5}</div>
