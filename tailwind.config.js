@@ -9,6 +9,7 @@ module.exports = {
       fontFamily: {
         tektur: ['Tektur', 'sans-serif'],
         gridular: ['Gridular', 'cursive'],
+        pptelegraf: ['Pptelegraf', 'sans-serif'],
       },
     },
   },

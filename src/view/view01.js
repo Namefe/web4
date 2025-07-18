@@ -1,5 +1,5 @@
 import React, { useEffect, useState ,useRef} from 'react'
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useAnimation, useInView } from "framer-motion";
 import '../App.css'; 
 
 const View01 = () => {
@@ -209,94 +209,209 @@ const restoreText = () => {
         const minutes = time.getMinutes().toString().padStart(2, '0');
         const seconds = time.getSeconds().toString().padStart(2, '0');
         const ampm = hours >= 12 ? 'PM' : 'AM';
+
+        const titleRef = useRef(null);
+        const isInView = useInView(titleRef, { once: false });
+        const controls = useAnimation();
+
+        useEffect(() => {
+          if (isInView) {
+            controls.start((i) => ({
+              rotateX: 0,
+              opacity: 1,
+              transition: {
+                duration: 0.5,
+                delay: i * 0.1,
+                ease: "easeOut",
+              },
+            }));
+          } else {
+            controls.set((i) => ({
+              rotateX: 90,
+              opacity: 0,
+            }));
+          }
+        }, [isInView]);
+
+        const textRef = useRef(null);
+        const isInView2 = useInView(textRef, { once: false, threshold: 0.1, });
+        const controls2 = useAnimation();
+      
+        useEffect(() => {
+          if (isInView2) {
+            controls2.start((i) => ({
+              opacity: 1,
+              y: 0,
+              transition: {
+                delay: i * 0.3,
+                duration: 0.5,
+                ease: "easeOut",
+              },
+            }));
+          } else {
+            controls2.set((i) => ({
+              opacity: 0,
+              y: 20,
+            }));
+          }
+        }, [isInView]);
+
+        
     
 
   return (
     <section ref={targetRef} className='bg-black w-full h-[3000vh] relative '>
       {/* local time & 좌표 */}
         <div>
-            <div  className='text-[#f5f5f5] text-opacity-50 '>
-                <div className='fixed  top-10 left-10 inline-block text-[16px]'>ANYANG    37°23′42.7″N    126°56′44.3″E</div>
+            <div  className='text-[#f5f5f5] text-opacity-50 flex gap-4'>
+                <div className='fixed top-10 left-[50px] inline-block text-[16px]'>ANYANG</div>
+                <div className='fixed top-10 left-[160px]  text-[16px]'>37°23′42.7″N</div>
+                <div className='fixed top-10 left-[300px]  text-[16px]'>126°56′44.3″E</div>
                 <div className="fixed top-10 right-10 text-xl font-light text-center inline-block">
                  Local Time : {hours}:{minutes}:{seconds}({hours}:{minutes}{ampm})
                 </div>           
             </div>
 
       {/* line & 메뉴 바 */}
-<motion.div style={{opacity: lineopacity}} className="fixed inset-0  z-50">
-  <div className="top absolute top-0 left-0 w-full flex items-start">
+      <motion.div style={{opacity: lineopacity}} className="fixed inset-0  z-50">
+        <div className="top absolute top-0 left-0 w-full flex items-start">
 
-    <div className="top-left-plus relative w-4 h-4 ml-2 mt-2">
-      <div className="top-left-ver absolute left-1/2 top-0 h-4 w-[1px] bg-white opacity-50 -translate-x-1/2"></div>
-      <div className="top-left-col absolute top-1/2 left-0 w-4 h-[1px] bg-white opacity-50 -translate-y-1/2"></div>
-    </div>
+          <div className="top-left-plus relative w-4 h-4 ml-2 mt-2">
+            <div className="top-left-ver absolute left-1/2 top-0 h-4 w-[1px] bg-white opacity-50 -translate-x-1/2"></div>
+            <div className="top-left-col absolute top-1/2 left-0 w-4 h-[1px] bg-white opacity-50 -translate-y-1/2"></div>
+          </div>
 
-    <div className="relative w-full h-20 top-4">
+          <div className="relative w-full h-20 top-4">
 
-    <svg className="absolute top-0 left-0 w-full h-auto" viewBox="0 0 300 100">
-    <path 
-      d="M1,0 L100,0 L105,7 L195,7 L200,0 L299,0 " 
-      stroke="white" 
-      opacity="0.3"
-      strokeWidth="0.4"
-      fill="none"
-    />
-  </svg>
+          <svg className="absolute top-0 left-0 w-full h-auto" viewBox="0 0 300 100">
+          <path 
+            d="M1,0 L100,0 L105,7 L195,7 L200,0 L299,0 " 
+            stroke="white" 
+            opacity="0.3"
+            strokeWidth="0.4"
+            fill="none"
+          />
+        </svg>
 
-<div className="absolute top-0 left-1/2 -translate-x-1/2 z-10 flex gap-6 justify-center items-center text-white text-opacity-50 font-bold px-6">
+  <div className="absolute top-0 left-1/2 -translate-x-1/2 z-10 flex gap-6 justify-center items-center text-white text-opacity-50  px-6">
   <ul className="flex gap-6">
-    <li>
-      <a href="#" className="relative group overflow-hidden inline-block">
-        <span className="block transition-all duration-300 group-hover:-translate-x-full">
-          HOME
-        </span>
-        <span className="block absolute top-0 left-0 translate-x-full group-hover:translate-x-0 transition-all duration-300 text-white">
-          HØME
-        </span>
-      </a>
-    </li>
-    <li>
-      <a href="#" className="relative group overflow-hidden inline-block">
-        <span className="block transition-all duration-300 group-hover:-translate-x-full">
-          PORTFOLIO
-        </span>
-        <span className="block absolute top-0 left-0 translate-x-full group-hover:translate-x-0 transition-all duration-300 text-white">
-          PØRTFØLIØ
-        </span>
-      </a>
-    </li>
-    <li>
-      <a href="#" className="relative group overflow-hidden inline-block">
-        <span className="block transition-all duration-300 group-hover:-translate-x-full  ">
-          CERTIFICATION
-        </span>
-        <span className="block  absolute top-0 left-0 translate-x-full group-hover:translate-x-0 transition-all duration-300 text-white">
-          ÇERTIFY
-        </span>
-      </a>
-    </li>
-    <li>
-      <a href="#" className="relative group overflow-hidden inline-block">
-        <span className="block transition-all duration-300 group-hover:-translate-x-full">
-          ACADEMICS
-        </span>
-        <span className="block absolute top-0 left-0 translate-x-full group-hover:translate-x-0 transition-all duration-300 text-white">
-          STÜDIES
-        </span>
-      </a>
-    </li>
-    <li>
-      <a href="#" className="relative group overflow-hidden inline-block">
-        <span className="block transition-all duration-300 group-hover:-translate-x-full">
-          CONTACT
-        </span>
-        <span className="block absolute top-0 left-0 translate-x-full group-hover:translate-x-0 transition-all duration-300 text-white">
-          HELLO!
-        </span>
-      </a>
-    </li>
-  </ul>
+  {/* HOME (항상 흰색) */}
+  <li>
+    <a href="#" className="relative group inline-block h-[1em] leading-none">
+      <div className="flex gap-[0.05em]">
+        {"HOME".split("").map((char, i) => (
+          <span key={i} className="text-white">{char}</span>
+        ))}
+      </div>
+    </a>
+  </li>
+
+  {/* PORTFOLIO */}
+  <li>
+    <a href="#" className="relative group inline-block h-[1em] leading-none">
+      <div className="flex gap-[0.05em]">
+        {"PORTFOLIO".split("").map((char, i) => (
+          <span key={i} className="text-white text-opacity-50 group-hover:opacity-0 transition-opacity duration-300">
+            {char}
+          </span>
+        ))}
+      </div>
+      <div className="flex gap-[0.05em] absolute top-0 left-0">
+        {["P", "Ø", "R", "T", "F", "Ø", "L", "I", "Ø"].map((char, i) => (
+          <span
+            key={i}
+            className="opacity-0 group-hover:opacity-100 text-white transition-opacity duration-100"
+            style={{ transitionDelay: `${i * 80}ms` }}
+          >
+            {char}
+          </span>
+        ))}
+      </div>
+    </a>
+  </li>
+
+  {/* CERTIFICATION */}
+  <li>
+    <a href="#" className="relative group inline-block h-[1em] leading-none">
+      <div className="flex gap-[0.05em]">
+        {"CERTIFICATION".split("").map((char, i) => (
+          <span key={i} className="text-white text-opacity-50 group-hover:opacity-0 transition-opacity duration-300">
+            {char}
+          </span>
+        ))}
+      </div>
+      <div className="flex gap-[0.05em] absolute top-0 left-0">
+        {["C", "E", "R", "T", "I", "F", "I", "C", "A", "T", "I", "O", "N"].map((char, i) => (
+          <span
+            key={i}
+            className={`opacity-0 group-hover:opacity-100 text-white transition-opacity duration-100 ${
+              char === "" ? "invisible" : ""
+            }`}
+            style={{ transitionDelay: `${i * 80}ms` }}
+          >
+            {char || "_"}
+          </span>
+        ))}
+      </div>
+    </a>
+  </li>
+
+  {/* ACADEMICS */}
+  <li>
+    <a href="#" className="relative group inline-block h-[1em] leading-none">
+      <div className="flex gap-[0.05em]">
+        {"ACADEMICS".split("").map((char, i) => (
+          <span key={i} className="text-white text-opacity-50 group-hover:opacity-0 transition-opacity duration-300">
+            {char}
+          </span>
+        ))}
+      </div>
+      <div className="flex gap-[0.05em] absolute top-0 left-0">
+        {["A", "C", "A", "D", "E", "M", "I", "C", "S"].map((char, i) => (
+          <span
+            key={i}
+            className={`opacity-0 group-hover:opacity-100 text-white transition-opacity duration-100 ${
+              char === "" ? "invisible" : ""
+            }`}
+            style={{ transitionDelay: `${i * 80}ms` }}
+          >
+            {char || "_"}
+          </span>
+        ))}
+      </div>
+    </a>
+  </li>
+
+  {/* CONTACT */}
+  <li>
+    <a href="#" className="relative group inline-block h-[1em] leading-none">
+      <div className="flex gap-[0.05em]">
+        {"CONTACT".split("").map((char, i) => (
+          <span key={i} className="text-white text-opacity-50 group-hover:opacity-0 transition-opacity duration-300">
+            {char}
+          </span>
+        ))}
+      </div>
+      <div className="flex gap-[0.05em] absolute top-0 left-0">
+        {["C", "O", "N", "T", "A", "C", "T"].map((char, i) => (
+          <span
+            key={i}
+            className={`opacity-0 group-hover:opacity-100 text-white transition-opacity duration-100 ${
+              char === "" ? "invisible" : ""
+            }`}
+            style={{ transitionDelay: `${i * 80}ms` }}
+          >
+            {char || "_"}
+          </span>
+        ))}
+      </div>
+    </a>
+  </li>
+</ul>
+
 </div>
+
+
 
 
 </div>
@@ -417,12 +532,12 @@ const restoreText = () => {
 
 
       {/* 글자 1 */}
-    <div className="fixed top-[60%] left-20 w-[80px] text-[#f5f5f5] text-xl z-[999] leading-snug whitespace-nowrap">
+    <div className="fixed top-[60%] left-20 w-[80px] text-[#f5f5f5] font-pptelegraf  text-xl z-[999] leading-snug whitespace-nowrap">
       <div className='text-left'>{line1}</div>
       <div className='text-right'>{line2}</div>
     </div>
 
-        <div className='text-[#f5f5f5] fixed top-[60%] right-20  w-[120px]'>
+        <div className='text-[#f5f5f5] fixed top-[60%] font-pptelegraf right-20  w-[120px]'>
           <div className="text-right">{line3}</div>
           <div className="text-right">{line4}</div>
           <div className="text-left">{line5}</div>
@@ -446,27 +561,27 @@ const restoreText = () => {
 
         </div>
       {/* 코딩관련 좌우명 */}
-<motion.div className='fixed top-[20%] left-[10%]' style={{ y: divY }}>
-  <div className="flex gap-1 text-5xl font-bold text-white">
-    <motion.span style={{ y: yF, opacity: opacityF }}>F</motion.span>
+<motion.div className='fixed top-[20%] left-[10%] ' style={{ y: divY }}>
+  <div className="flex gap-1 text-left text-7xl font-bold text-white text-opacity-50">
+    <motion.span className="font-gridular" style={{ y: yF, opacity: opacityF }}>F</motion.span>
     <motion.span style={{ y: yA, opacity: opacityA }}>a</motion.span>
     <motion.span style={{ y: yI, opacity: opacityI }}>i</motion.span>
     <motion.span style={{ y: yL, opacity: opacityL }}>l</motion.span>
     <motion.span style={{ y: ySpace, opacity: opacitySp1 }}>&nbsp;</motion.span>
-    <motion.span style={{ y: yF2, opacity: opacityF2 }}>f</motion.span>
+    <motion.span className="font-gridular" style={{ y: yF2, opacity: opacityF2 }}>f</motion.span>
     <motion.span style={{ y: yA2, opacity: opacityA2 }}>a</motion.span>
     <motion.span style={{ y: yS, opacity: opacityS }}>s</motion.span>
     <motion.span style={{ y: yT, opacity: opacityT }}>t</motion.span>
   </div>
-  <div className="flex gap-1 text-5xl font-bold text-white">
+  <div className="flex gap-1 text-7xl font-bold text-white">
     <motion.span style={{ y: yL2, opacity: opacityL2 }}>l</motion.span>
     <motion.span style={{ y: yE, opacity: opacityE }}>e</motion.span>
-    <motion.span style={{ y: yA3, opacity: opacityA3 }}>a</motion.span>
+    <motion.span className="font-gridular" style={{ y: yA3, opacity: opacityA3 }}>a</motion.span>
     <motion.span style={{ y: yR2, opacity: opacityR2 }}>r</motion.span>
     <motion.span style={{ y: yN2, opacity: opacityN2 }}>n</motion.span>
     <motion.span style={{ y: ySpace2, opacity: opacitySp2 }}>&nbsp;</motion.span>
     <motion.span style={{ y: yF3, opacity: opacityF3 }}>f</motion.span>
-    <motion.span style={{ y: yA4, opacity: opacityA4 }}>a</motion.span>
+    <motion.span className="font-gridular" style={{ y: yA4, opacity: opacityA4 }}>a</motion.span>
     <motion.span style={{ y: yS2, opacity: opacityS2 }}>s</motion.span>
     <motion.span style={{ y: yT2, opacity: opacityT2 }}>t</motion.span>
     <motion.span style={{ y: yE2, opacity: opacityE2 }}>e</motion.span>
@@ -478,25 +593,25 @@ const restoreText = () => {
 
       {/* 프런트앤드 개발자 */}
 <motion.div className='fixed bottom-[10%] left-1/2 -translate-x-1/2' style={{ y: divY2 }}>
-<div className="flex gap-1 text-5xl font-bold text-white">
+<div className="flex gap-1 text-7xl text-opacity-50 font-bold text-white">
   <motion.span style={{ y: yFrontF, opacity: opacityFrontF }}>F</motion.span>
   <motion.span style={{ y: yFrontR, opacity: opacityFrontR }}>R</motion.span>
   <motion.span style={{ y: yFrontO, opacity: opacityFrontO }}>O</motion.span>
-  <motion.span style={{ y: yFrontN, opacity: opacityFrontN }}>N</motion.span>
+  <motion.span className="font-gridular" style={{ y: yFrontN, opacity: opacityFrontN }}>N</motion.span>
   <motion.span style={{ y: yFrontT, opacity: opacityFrontT }}>T</motion.span>
   <motion.span style={{ y: yFrontSpace, opacity: opacityFrontSpace }}>&nbsp;</motion.span>
-  <motion.span style={{ y: yEndE, opacity: opacityEndE }}>E</motion.span>
+  <motion.span className="font-gridular" style={{ y: yEndE, opacity: opacityEndE }}>E</motion.span>
   <motion.span style={{ y: yEndN, opacity: opacityEndN }}>N</motion.span>
   <motion.span style={{ y: yEndD, opacity: opacityEndD }}>D</motion.span>
 </div>
-<div className="flex gap-1 text-5xl font-bold text-white">
+<div className="flex gap-1 text-7xl font-bold text-white">
   <motion.span style={{ y: yDevD, opacity: opacityDevD }}>D</motion.span>
   <motion.span style={{ y: yDevE, opacity: opacityDevE }}>E</motion.span>
-  <motion.span style={{ y: yDevV, opacity: opacityDevV }}>V</motion.span>
+  <motion.span className="font-gridular" style={{ y: yDevV, opacity: opacityDevV }}>V</motion.span>
   <motion.span style={{ y: yDevE2, opacity: opacityDevE2 }}>E</motion.span>
   <motion.span style={{ y: yDevL, opacity: opacityDevL }}>L</motion.span>
   <motion.span style={{ y: yDevO, opacity: opacityDevO }}>O</motion.span>
-  <motion.span style={{ y: yDevP, opacity: opacityDevP }}>P</motion.span>
+  <motion.span className="font-gridular" style={{ y: yDevP, opacity: opacityDevP }}>P</motion.span>
   <motion.span style={{ y: yDevE3, opacity: opacityDevE3 }}>E</motion.span>
   <motion.span style={{ y: yDevR, opacity: opacityDevR }}>R</motion.span>
 </div>
@@ -543,16 +658,65 @@ const restoreText = () => {
     </div>
   </div>
   <div className='text-white w-full absolute mt-[22%] flex justify-between items-between'>
-  <div className='absolute top-0 left-20'>
-  Game, Entertainment, Medical <br/>
-  다양한 분야를 설계하고 움직였습니다.<br/>
-  Netmarble Games, SM Entertainment, 그리고 Trauma Center까지.<br/>
-  차이를 만드는 경험을 디자인합니다.
-  </div>
-<div className='absolute top-0 right-20 flex items-start gap-4'>
-  <div class="text-base">MY</div>
-  <h2 class='text-gray-400 text-8xl font-bold leading-none -translate-y-5'>PORTFOLIO</h2>
-</div>
+  <div className="absolute top-0 left-20" ref={textRef}>
+      <motion.p custom={0} initial={{ opacity: 0, y: 20 }} animate={controls2}>
+        Game, Entertainment, Medical
+      </motion.p>
+      <motion.p custom={1} initial={{ opacity: 0, y: 20 }} animate={controls2}>
+        다양한 분야를 설계하고 움직였습니다.
+      </motion.p>
+      <motion.p custom={2} initial={{ opacity: 0, y: 20 }} animate={controls2}>
+        Netmarble Games, SM Entertainment, 그리고 Trauma Center까지.
+      </motion.p>
+      <motion.p custom={3} initial={{ opacity: 0, y: 20 }} animate={controls2}>
+        차이를 만드는 경험을 디자인합니다.
+      </motion.p>
+    </div>
+<div className='absolute top-0 right-20 flex items-start gap-8'>
+  <div class="text-[30px] leading-none">MY</div>
+  <h2
+      ref={titleRef}
+      className="text-9xl font-bold leading-none -translate-y-5 flex text-opacity-50 perspective-[1000px]"
+    >
+      <motion.span custom={0} initial={{ rotateX: 90, opacity: 0 }} animate={controls}>
+        P
+      </motion.span>
+      <motion.span custom={1} initial={{ rotateX: 90, opacity: 0 }} animate={controls}>
+        O
+      </motion.span>
+      <motion.span custom={2} initial={{ rotateX: 90, opacity: 0 }} animate={controls}>
+        R
+      </motion.span>
+      <motion.span
+        custom={3}
+        initial={{ rotateX: 90, opacity: 0 }}
+        animate={controls}
+        className="font-gridular relative top-[10px]"
+      >
+        T
+      </motion.span>
+      <motion.span custom={4} initial={{ rotateX: 90, opacity: 0 }} animate={controls}>
+        F
+      </motion.span>
+      <motion.span custom={5} initial={{ rotateX: 90, opacity: 0 }} animate={controls}>
+        O
+      </motion.span>
+      <motion.span custom={6} initial={{ rotateX: 90, opacity: 0 }} animate={controls}>
+        L
+      </motion.span>
+      <motion.span custom={7} initial={{ rotateX: 90, opacity: 0 }} animate={controls}>
+        I
+      </motion.span>
+      <motion.span
+        custom={8}
+        initial={{ rotateX: 90, opacity: 0 }}
+        animate={controls}
+        className="font-gridular relative top-[10px]"
+      >
+        O
+      </motion.span>
+    </h2>
+    </div>
   </div>
   <div>
   <svg className="absolute top-60 left-0 w-full h-auto" viewBox="0 0 300 100">
