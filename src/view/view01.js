@@ -256,11 +256,29 @@ const restoreText = () => {
           }
         }, [isInView]);
 
-        
+      const sectionRef = useRef(null);
+
+      const { scrollYProgress: zoomProgress } = useScroll({
+        target: sectionRef,
+        offset: ["start start", "end end"],
+      });
+
+      const scale1 = useTransform(zoomProgress, [0, 0.1, 0.2], [1, 4, 6]);
+      const opacity1 = useTransform(zoomProgress, [0.15, 0.25], [1, 0]);
+
+      const scale2 = useTransform(zoomProgress, [0, 0.1,0.3], [0.4, 1,6]);
+      const opacity2 = useTransform(zoomProgress, [0.1, 0.2], [0.6, 1]);
+
+      const scale3 = useTransform(zoomProgress, [0, 0.1,0.4], [0.6, 1,6]);
+      const opacity3 = useTransform(zoomProgress, [0.2, 0.3], [0.6, 1]);
+
+      const scale4 = useTransform(zoomProgress, [0, 0.1,0.6], [0.8, 1,6]);
+      const opacity4 = useTransform(zoomProgress, [0.3, 0.4], [0.6, 1]);
+
     
 
   return (
-    <section ref={targetRef} className='bg-black w-full h-[3000vh] relative '>
+    <section ref={targetRef} className='bg-black w-full h-[10000vh] relative '>
       {/* local time & 좌표 */}
         <div>
             <div  className='text-[#f5f5f5] text-opacity-50 flex gap-4'>
@@ -621,7 +639,7 @@ const restoreText = () => {
 
 
       {/* SECTION2 */}
-<div className="relative w-full top-[50%] ">
+<section className="relative w-full top-[50%] ">
   <svg className="absolute top-0 left-0 w-full h-auto" viewBox="0 0 300 100">
     <path 
       d="M3,50 L20,50 L40,60 L297,60" 
@@ -729,32 +747,49 @@ const restoreText = () => {
     />
   </svg>
   </div>
-</div>
+</section>
 {/* -----------------------<section3>----------------------- */}
 
-<div className='absolute top-[52%] w-full h-[500vh]'>
-  <div className='flex gap-4 text-white absolute left-20 mt-20'>
-  <div>3+</div>
-  <div>SUCCESSFULLPROJECTS</div>
-  <div>2024-2025</div>
-  </div>
-  <div>
-  <div className='text-white absolute left-20 mt-80'>
-    <div>Start project = </div>
-    <div className='ml-32'>3</div>
-  </div>
-  <div className='w-full h-auto'>
-  <img 
-      src={`${process.env.PUBLIC_URL}/netmable.png`} 
-      alt="logo" 
-      className="w-128 h-auto absolute top-[10%] left-[20%]"
-    />
-  </div>
-  </div>
-</div>
+    <section ref={sectionRef} className="absolute top-[52%] w-full h-[1500vh] ">
+      {/* 텍스트는 고정 */}
+      <div className="absolute top-20 left-20 z-20 text-white flex gap-6">
+        <div>3+</div>
+        <div>SUCCESSFULLPROJECTS</div>
+        <div>2024-2025</div>
+      </div>
+
+      <div className="absolute top-80 left-20 z-20 text-white">
+        <div>Start project =</div>
+        <div className="ml-32">3</div>
+      </div>
+
+      {/* 이미지 영역 */}
+      <div className="sticky top-20 h-screen w-full flex items-center justify-center">
+        <motion.img
+          src={`${process.env.PUBLIC_URL}/netmable.png`}
+          style={{ scale: scale1, opacity: opacity1 }}
+          className="absolute top-[40%] left-[18%] w-[280px] z-10 	origin-bottom-right"
+        />
+        <motion.img
+          src={`${process.env.PUBLIC_URL}/netmable.png`}
+          style={{ scale: scale2, opacity: opacity2 }}
+          className="absolute top-[65%] left-[60%] w-[260px] z-20 origin-top-left"
+        />
+        <motion.img
+          src={`${process.env.PUBLIC_URL}/netmable.png`}
+          style={{ scale: scale3, opacity: opacity3 }}
+          className="absolute top-[75%] left-[25%] w-[240px] z-30 origin-bottom-right"
+        />
+        <motion.img
+          src={`${process.env.PUBLIC_URL}/netmable.png`}
+          style={{ scale: scale4, opacity: opacity4 }}
+          className="absolute top-[70%] left-[40%] w-[220px] z-40 origin-top-left"
+        />
+      </div>
+    </section>
 
 {/* SECTION04 - AWARDS */}
-<section className='w-full h-[600vh] relative top-[60%]'>
+<section className='w-full h-[600vh] absolute top-[70%]'>
 <div className="waveform">
   <div className="waveform-container">
     <canvas 
