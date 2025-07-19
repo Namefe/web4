@@ -9,7 +9,7 @@ const ParticleBackground = () => {
 
   return (
     <Particles
-      className="fixed top-0 left-0 w-full h-full z-[-1]"
+      className="fixed w-full h-screen z-20 mix-blend-lighten"
       id="tsparticles"
       init={particlesInit}
       options={{
@@ -18,10 +18,10 @@ const ParticleBackground = () => {
         fpsLimit: 60,
         particles: {
           color: { value: "#ffffff" },
-          number: { value: 150, density: { enable: true, area: 800 } },
-          size: { value: { min: 1, max: 2 } },
-          move: { enable: true, speed: 0.3 },
-          opacity: { value: 0.5 },
+          number: { value: 50, density: { enable: true, area: 800 } },
+          size: { value: { min: 0.1, max: 2 } },
+          move: { enable: true, speed: 0.5 },
+          opacity: { value: 0.2 },
         },
       }}
     />
