@@ -7,7 +7,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        tektur: ['Tektur', 'sans-serif'],
+        Teko: ['Teko', 'sans-serif'],
         gridular: ['Gridular', 'cursive'],
         pptelegraf: ['Pptelegraf', 'sans-serif'],
       },

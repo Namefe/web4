@@ -266,19 +266,38 @@ const restoreText = () => {
       const scale1 = useTransform(zoomProgress, [0, 0.1, 0.2], [1, 4, 6]);
       const opacity1 = useTransform(zoomProgress, [0.15, 0.25], [1, 0]);
 
-      const scale2 = useTransform(zoomProgress, [0, 0.1,0.3], [0.4, 1,6]);
-      const opacity2 = useTransform(zoomProgress, [0.1, 0.2], [0.6, 1]);
 
-      const scale3 = useTransform(zoomProgress, [0, 0.1,0.4], [0.6, 1,6]);
-      const opacity3 = useTransform(zoomProgress, [0.2, 0.3], [0.6, 1]);
+      const wrapperRef = useRef(null);
+      const [scrollY, setScrollY] = useState(0);
+    
+      useEffect(() => {
+        const handleScroll = () => {
+          if (!wrapperRef.current) return;
+    
+          const rect = wrapperRef.current.getBoundingClientRect();
+          const windowHeight = window.innerHeight;
+    
+          if (rect.top < windowHeight && rect.bottom > 0) {
+            const progress = 1 - rect.top / windowHeight;
+            setScrollY(progress);
+          }
+        };
+    
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+      }, []);
+    
+      const rotateX = 20; 
+      const translateY = -scrollY * 700; 
 
-      const scale4 = useTransform(zoomProgress, [0, 0.1,0.6], [0.8, 1,6]);
-      const opacity4 = useTransform(zoomProgress, [0.3, 0.4], [0.6, 1]);
+
+      
+    
 
     
 
   return (
-    <section ref={targetRef} className='bg-black w-full h-[10000vh] relative '>
+    <section ref={targetRef} className='bg-black w-full h-[5000vh] relative '>
       {/* local time & 좌표 */}
         <div>
             <div  className='text-[#f5f5f5] text-opacity-50 flex gap-4'>
@@ -311,7 +330,7 @@ const restoreText = () => {
           />
         </svg>
 
-  <div className="absolute top-0 left-1/2 -translate-x-1/2 z-10 flex gap-6 justify-center items-center text-white text-opacity-50  px-6">
+  <div className="absolute top-0 left-1/2 -translate-x-1/2 z-50 flex gap-6 justify-center items-center text-white text-opacity-50  px-6">
   <ul className="flex gap-6">
   {/* HOME (항상 흰색) */}
   <li>
@@ -374,18 +393,17 @@ const restoreText = () => {
     </a>
   </li>
 
-  {/* ACADEMICS */}
   <li>
     <a href="#" className="relative group inline-block h-[1em] leading-none">
       <div className="flex gap-[0.05em]">
-        {"ACADEMICS".split("").map((char, i) => (
+        {"EDUCATION".split("").map((char, i) => (
           <span key={i} className="text-white text-opacity-50 group-hover:opacity-0 transition-opacity duration-300">
             {char}
           </span>
         ))}
       </div>
       <div className="flex gap-[0.05em] absolute top-0 left-0">
-        {["A", "C", "A", "D", "E", "M", "I", "C", "S"].map((char, i) => (
+        {["E", "D", "U", "C", "A", "T", "I", "O", "N"].map((char, i) => (
           <span
             key={i}
             className={`opacity-0 group-hover:opacity-100 text-white transition-opacity duration-100 ${
@@ -494,68 +512,68 @@ const restoreText = () => {
 
 
 {/* NAME */}      
-<h1 className="absolute font-tektur top-[250px] left-1/2 -translate-x-1/2 flex gap-[0.5vw] z-10 pointer-events-none">
-  <div className="font-bold font-tektur text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
+<h1 className="absolute font-Teko top-[300px] left-1/2 -translate-x-1/2 flex gap-[1vw] z-10 pointer-events-none">
+  <div className="font-bold font-Teko text-[10vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)' , transformOrigin: 'center' }}>
     S
   </div>
-  <div className="font-bold font-tektur text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
+  <div className="font-bold font-Teko text-[10vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
     O
   </div>
-  <div className="font-bold font-tektur text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
+  <div className="font-bold font-Teko text-[10vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
     U
   </div>
-  <div className="font-bold font-tektur text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
+  <div className="font-bold font-Teko text-[10vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
     N
   </div>
-  <div className="font-bold font-tektur text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
+  <div className="font-bold font-Teko text-[10vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
     G
   </div>
-  <div className="font-bold font-tektur text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
+  <div className="font-bold font-Teko text-[10vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
     &nbsp;
   </div>
-  <div className="font-bold font-tektur text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
+  <div className="font-bold font-Teko text-[10vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
     M
   </div>
-  <div className="font-bold font-tektur text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
+  <div className="font-bold font-Teko text-[10vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
     Y
   </div>
-  <div className="font-bold font-tektur text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
+  <div className="font-bold font-Teko text-[10vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
     E
   </div>
-  <div className="font-bold font-tektur text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
+  <div className="font-bold font-Teko text-[10vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
     O
   </div>
-  <div className="font-bold font-tektur text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
+  <div className="font-bold font-Teko text-[10vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
     N
   </div>
-  <div className="font-bold font-tektur text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
+  <div className="font-bold font-Teko text-[10vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
     G
   </div>
-  <div className="font-bold font-tektur text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
+  <div className="font-bold font-Teko text-[10vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
     &nbsp;
   </div>
-  <div className="font-bold font-tektur text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
+  <div className="font-bold font-Teko text-[10vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
     C
   </div>
-  <div className="font-bold font-tektur text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
+  <div className="font-bold font-Teko text-[10vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
     H
   </div>
-  <div className="font-bold font-tektur text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
+  <div className="font-bold font-Teko text-[10vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
     U
   </div>
-  <div className="font-bold font-tektur text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
+  <div className="font-bold font-Teko text-[10vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
     L
   </div>
 </h1>
 
 
       {/* 글자 1 */}
-    <div className="fixed top-[60%] left-20 w-[80px] text-[#f5f5f5] font-pptelegraf  text-xl z-[999] leading-snug whitespace-nowrap">
+    <div className="fixed top-[65%] left-20 w-[80px] text-[#f5f5f5] font-pptelegraf  text-xl z-[999] leading-snug whitespace-nowrap">
       <div className='text-left'>{line1}</div>
       <div className='text-right'>{line2}</div>
     </div>
 
-        <div className='text-[#f5f5f5] fixed top-[60%] font-pptelegraf right-20  w-[120px]'>
+        <div className='text-[#f5f5f5] fixed top-[65%] font-pptelegraf right-20  w-[120px]'>
           <div className="text-right">{line3}</div>
           <div className="text-right">{line4}</div>
           <div className="text-left">{line5}</div>
@@ -563,47 +581,47 @@ const restoreText = () => {
         
       {/* front end developer */}
         <div 
-  style={{ fontSize: 'clamp(1.625rem, 2.1vw, 2.125rem)' }} 
-  className='text-white fixed top-[85%] left-12 text-[24px] leading-9'
->
-  <div>
-    F<span className="font-gridular">R</span>ONT
-  </div>
-  <div>
-    EN<span className="font-gridular">D</span>
-  </div>
-  <div>
-    DE<span className="font-gridular">V</span>EOPER <span className="font-gridular"></span>
-  </div>
-</div>
+      style={{ fontSize: 'clamp(1.625rem, 2.1vw, 2.125rem)' }} 
+      className='text-white fixed top-[85%] left-12 text-[24px] leading-9'
+    >
+      <div>
+        F<span className="font-gridular">R</span>ONT
+      </div>
+      <div>
+        EN<span className="font-gridular">D</span>
+      </div>
+      <div>
+        DE<span className="font-gridular">V</span>EOPER <span className="font-gridular"></span>
+      </div>
+    </div>
 
         </div>
       {/* 코딩관련 좌우명 */}
 <motion.div className='fixed top-[20%] left-[10%] ' style={{ y: divY }}>
   <div className="flex gap-1 text-left text-7xl font-bold text-white text-opacity-50">
     <motion.span className="font-gridular" style={{ y: yF, opacity: opacityF }}>F</motion.span>
-    <motion.span style={{ y: yA, opacity: opacityA }}>a</motion.span>
-    <motion.span style={{ y: yI, opacity: opacityI }}>i</motion.span>
-    <motion.span style={{ y: yL, opacity: opacityL }}>l</motion.span>
+    <motion.span style={{ y: yA, opacity: opacityA }}>A</motion.span>
+    <motion.span style={{ y: yI, opacity: opacityI }}>I</motion.span>
+    <motion.span style={{ y: yL, opacity: opacityL }}>L</motion.span>
     <motion.span style={{ y: ySpace, opacity: opacitySp1 }}>&nbsp;</motion.span>
-    <motion.span className="font-gridular" style={{ y: yF2, opacity: opacityF2 }}>f</motion.span>
-    <motion.span style={{ y: yA2, opacity: opacityA2 }}>a</motion.span>
-    <motion.span style={{ y: yS, opacity: opacityS }}>s</motion.span>
-    <motion.span style={{ y: yT, opacity: opacityT }}>t</motion.span>
+    <motion.span className="font-gridular" style={{ y: yF2, opacity: opacityF2 }}>F</motion.span>
+    <motion.span style={{ y: yA2, opacity: opacityA2 }}>A</motion.span>
+    <motion.span style={{ y: yS, opacity: opacityS }}>S</motion.span>
+    <motion.span style={{ y: yT, opacity: opacityT }}>T</motion.span>
   </div>
   <div className="flex gap-1 text-7xl font-bold text-white">
-    <motion.span style={{ y: yL2, opacity: opacityL2 }}>l</motion.span>
-    <motion.span style={{ y: yE, opacity: opacityE }}>e</motion.span>
-    <motion.span className="font-gridular" style={{ y: yA3, opacity: opacityA3 }}>a</motion.span>
-    <motion.span style={{ y: yR2, opacity: opacityR2 }}>r</motion.span>
-    <motion.span style={{ y: yN2, opacity: opacityN2 }}>n</motion.span>
+    <motion.span style={{ y: yL2, opacity: opacityL2 }}>L</motion.span>
+    <motion.span style={{ y: yE, opacity: opacityE }}>E</motion.span>
+    <motion.span className="font-gridular" style={{ y: yA3, opacity: opacityA3 }}>A</motion.span>
+    <motion.span style={{ y: yR2, opacity: opacityR2 }}>R</motion.span>
+    <motion.span style={{ y: yN2, opacity: opacityN2 }}>N</motion.span>
     <motion.span style={{ y: ySpace2, opacity: opacitySp2 }}>&nbsp;</motion.span>
-    <motion.span style={{ y: yF3, opacity: opacityF3 }}>f</motion.span>
-    <motion.span className="font-gridular" style={{ y: yA4, opacity: opacityA4 }}>a</motion.span>
-    <motion.span style={{ y: yS2, opacity: opacityS2 }}>s</motion.span>
-    <motion.span style={{ y: yT2, opacity: opacityT2 }}>t</motion.span>
-    <motion.span style={{ y: yE2, opacity: opacityE2 }}>e</motion.span>
-    <motion.span style={{ y: yR3, opacity: opacityR3 }}>r</motion.span>
+    <motion.span style={{ y: yF3, opacity: opacityF3 }}>F</motion.span>
+    <motion.span className="font-gridular" style={{ y: yA4, opacity: opacityA4 }}>A</motion.span>
+    <motion.span style={{ y: yS2, opacity: opacityS2 }}>S</motion.span>
+    <motion.span style={{ y: yT2, opacity: opacityT2 }}>T</motion.span>
+    <motion.span style={{ y: yE2, opacity: opacityE2 }}>E</motion.span>
+    <motion.span style={{ y: yR3, opacity: opacityR3 }}>R</motion.span>
   </div>
 </motion.div>
 
@@ -770,220 +788,296 @@ const restoreText = () => {
           style={{ scale: scale1, opacity: opacity1 }}
           className="absolute top-[40%] left-[18%] w-[280px] z-10 	origin-bottom-right"
         />
-        <motion.img
-          src={`${process.env.PUBLIC_URL}/netmable.png`}
-          style={{ scale: scale2, opacity: opacity2 }}
-          className="absolute top-[65%] left-[60%] w-[260px] z-20 origin-top-left"
-        />
-        <motion.img
-          src={`${process.env.PUBLIC_URL}/netmable.png`}
-          style={{ scale: scale3, opacity: opacity3 }}
-          className="absolute top-[75%] left-[25%] w-[240px] z-30 origin-bottom-right"
-        />
-        <motion.img
-          src={`${process.env.PUBLIC_URL}/netmable.png`}
-          style={{ scale: scale4, opacity: opacity4 }}
-          className="absolute top-[70%] left-[40%] w-[220px] z-40 origin-top-left"
-        />
+      </div>
+
+      <div className='이미지 전체 div'>
+        <div className='이미지1'>
+          <a>
+            <div className='이미지'>
+              <div>
+                <img/>
+              </div>
+            </div>
+            <div className='텍스트'>
+              <div>
+                <div>여기는 문구</div>
+                <div>
+                  <div>여기는 숨겨진 문구</div>
+                </div>
+              </div>
+              <h3>
+                <div>
+                  <div>여기도 숨겨진문구</div>
+                </div>
+              </h3>
+              <svg></svg>
+              <svg></svg>
+            </div>
+          </a>
+          <svg></svg>
+          <svg></svg>
+        </div>
+        <div className='이미지2'>
+          <a>
+            <div className='이미지'>
+              <div>
+                <img/>
+              </div>
+            </div>
+            <div className='텍스트'>
+              <div>
+                <div>여기는 문구</div>
+                <div>
+                  <div>여기는 숨겨진 문구</div>
+                </div>
+              </div>
+              <h3>
+                <div>
+                  <div>여기도 숨겨진문구</div>
+                </div>
+              </h3>
+              <svg></svg>
+              <svg></svg>
+            </div>
+          </a>
+          <svg></svg>
+          <svg></svg>
+        </div>
+        <div className='이미지3'>
+          <a>
+            <div className='이미지'>
+              <div>
+                <img/>
+              </div>
+            </div>
+            <div className='텍스트'>
+              <div>
+                <div>여기는 문구</div>
+                <div>
+                  <div>여기는 숨겨진 문구</div>
+                </div>
+              </div>
+              <h3>
+                <div>
+                  <div>여기도 숨겨진문구</div>
+                </div>
+              </h3>
+              <svg></svg>
+              <svg></svg>
+            </div>
+          </a>
+          <svg></svg>
+          <svg></svg>
+        </div>
+
+      </div>
+
+      <div className='w-full h-[600vh] absolute top-[70%] px-[3vw]'>
+      <div className="wave-line flex items-end gap-[5px] w-full h-[10px]">
+  {[...Array(300)].map((_, i) => (
+    <motion.div
+      key={i}
+      className="bg-white w-[1px] origin-bottom opacity-50"
+      animate={{
+        height: [5, 8, 5], 
+      }}
+      transition={{
+        duration: 3,
+        repeat: Infinity,
+        repeatType: "loop",
+        delay: i * 0.05,
+        ease: "easeInOut",
+      }}
+    />
+  ))}
+</div>
+
+  {/* AWWWWARDS 섹션 */}
+  <div className='relative'>
+    <div className='text-white text-[clamp(3rem,8vw,8rem)] text-left pt-10 relative z-10'>
+      <h2><span className='font-gridular'>C</span>ER<span className='font-gridular'>T</span>I<span className='font-gridular'>F</span>IC<span className='font-gridular'>A</span>TION</h2>
+      <div className='absolute right-0 top-0 flex gap-2'>
+        {[...Array(2)].map((_, i) => (
+          <svg key={i} width='1.5rem' viewBox='0 0 33 32' fill='none'>
+            <path d='M16.5039 0L18.2236 14.2803L32.5039 16L18.2236 17.7197L16.5039 32L14.7842 17.7197L0.503906 16L14.7842 14.2803L16.5039 0Z' fill='white' />
+          </svg>
+        ))}
+      </div>
+    </div>
+
+    <div className='line mt-4'>
+  <svg viewBox='0 0 300 30' className='w-full h-auto'>
+    <path d='M0,10 L120,10 L130,25 L300,25' stroke='white' opacity='0.3' strokeWidth='0.5' fill='none' />
+  </svg>
+</div>
+
+    <div className='grid grid-cols-9 '>
+      <div className='col-span-4 flex items-start'>
+        <svg width='1.5rem' viewBox='0 0 33 32' fill='none' className='mr-4'>
+          <path d='M16.5039 0L18.2236 14.2803L32.5039 16L18.2236 17.7197L16.5039 32L14.7842 17.7197L0.503906 16L14.7842 14.2803L16.5039 0Z' fill='white' />
+        </svg>
+        <div className='text-white text-[clamp(1.25rem,2vw,2rem)] leading-none'>AWWWWARDS</div>
+      </div>
+      <div className='col-span-5 text-white'>
+        {[
+          ['GTQ', '2010'],
+          ['ITQ', '2010'],
+          ['워드프로세서', '2020'],
+          ['SMAT 3급', '2023'],
+          ['ACP PHOTOSHOP', '2024'],
+          ['ACP ILLUSTRATION', '2024'],
+          ['SQLD', '2025'],
+          ['웹디자인 기능사', '2025']
+        ].map(([label, year], i, arr) => (
+          <div key={i} className='w-full '>
+            <div className='flex justify-between items-center'>
+              <span className='text-[clamp(1.5rem,4vw,3.5rem)] break-keep'>{label}</span>
+              <span className='opacity-50 text-[clamp(1rem,2vw,1.2rem)]'>{year}</span>
+            </div>
+            {i !== arr.length - 1 && <div className='w-full h-[1px] bg-white/30 mt-5'></div>}
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+
+  {/* TITLE 섹션 */}
+  <div className='relative'>
+  <div className='line'>
+  <svg viewBox='0 0 300 10' className='w-full h-auto'>
+    <path d='M0,0 L100,0 L130,8 L300,8' stroke='white' opacity='0.3' strokeWidth='0.5' fill='none' />
+  </svg>
+</div>
+    <div className='grid grid-cols-9'>
+      <div className='col-span-4 flex items-start'>
+        <svg width='1.5rem' viewBox='0 0 33 32' fill='none' className='mr-4'>
+          <path d='M16.5039 0L18.2236 14.2803L32.5039 16L18.2236 17.7197L16.5039 32L14.7842 17.7197L0.503906 16L14.7842 14.2803L16.5039 0Z' fill='white' />
+        </svg>
+        <div className='text-white text-[clamp(1.25rem,2vw,2rem)] leading-none'>TITLE</div>
+      </div>
+      <div className='col-span-5 text-white'>
+        <div className='w-full'>
+          <div className='flex justify-between items-center'>
+            <span className='text-[clamp(1.5rem,4vw,3.5rem)] break-keep'>운전면허 1종 보통</span>
+            <span className='opacity-50 text-[clamp(1rem,2vw,1.2rem)]'>2019</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {/* TRAINING 섹션 */}
+  <div className='relative'>
+  <div className='line'>
+  <svg viewBox='0 0 300 10' className='w-full h-auto'>
+    <path d='M0,0 L100,0 L130,8 L300,8' stroke='white' opacity='0.3' strokeWidth='0.5' fill='none' />
+  </svg>
+</div>
+    <div className='grid grid-cols-9'>
+      <div className='col-span-4 flex items-start'>
+        <svg width='1.5rem' viewBox='0 0 33 32' fill='none' className='mr-4'>
+          <path d='M16.5039 0L18.2236 14.2803L32.5039 16L18.2236 17.7197L16.5039 32L14.7842 17.7197L0.503906 16L14.7842 14.2803L16.5039 0Z' fill='white' />
+        </svg>
+        <div className='text-white text-[clamp(1.25rem,2vw,2rem)] leading-none'>TRAINING</div>
+      </div>
+      <div className='col-span-5 text-white'>
+        <div className='w-full '>
+          <div className='flex justify-between items-center'>
+            <span className='text-[clamp(1.5rem,4vw,3.5rem)] break-keep'>SBS 컴퓨터 아카데미</span>
+            <span className='opacity-50 text-[clamp(1rem,2vw,1.2rem)]'>2024~</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+        {/*skill영역 */}
+
+        <div className='relative'>
+  <div className='line'>
+  <svg viewBox='0 0 300 10' className='w-full h-auto'>
+    <path d='M0,0 L100,0 L130,8 L300,8' stroke='white' opacity='0.3' strokeWidth='0.5' fill='none' />
+  </svg>
+</div>
+        <div className='grid grid-cols-9 '>
+      <div className='col-span-4 flex items-start'>
+        <svg width='1.5rem' viewBox='0 0 33 32' fill='none' className='mr-4'>
+          <path d='M16.5039 0L18.2236 14.2803L32.5039 16L18.2236 17.7197L16.5039 32L14.7842 17.7197L0.503906 16L14.7842 14.2803L16.5039 0Z' fill='white' />
+        </svg>
+        <div className='text-white text-[clamp(1.25rem,2vw,2rem)] leading-none'>SKILL</div>
+      </div>
+      <div className='col-span-5 text-white'>
+        {[
+          ['HTML'],
+          ['CSS'],
+          ['JAVA-SCRIPT'],
+          ['J-QUERY'],
+          ['PHOTOSHOP'],
+          ['ILLUSTRATION'],
+          ['GITHUB'],
+        ].map(([skill], i, arr) => (
+          <div key={i} className='w-full '>
+            <div className='flex justify-between items-center'>
+              <span className='text-[clamp(1.5rem,4vw,3.5rem)] break-keep'>{skill}</span>
+            </div>
+            {i !== arr.length - 1 && <div className='w-full h-[1px] bg-white/30 mt-5'></div>}
+          </div>
+        ))}
+      </div>
+    </div>
+</div>
+</div>
+    </section>
+{/*section5 학력사항 */}
+<section
+      ref={wrapperRef}
+      className="absolute top-[80%] left-1/2 -translate-x-1/2 text-white w-full h-screen z-40 "
+      style={{
+        perspective: "800px",
+        transformStyle: "preserve-3d"
+      }}
+    >
+      <div
+        className="max-w-[90rem] mx-auto px-6"
+        style={{
+          transform: `rotateX(${rotateX}deg) translate3d(0, ${translateY}px, 0)`,
+          transition: "transform 0.1s linear"
+        }}
+      >
+        <div className="text-center">
+          <h2 className="text-7xl font-bold text-white/50 inline-block mb-20">
+            ED<span className="font-gridular">U</span>CAT<span className="font-gridular">I</span>ON
+          </h2>
+          <h2 className="text-7xl font-bold inline-block relative top-20">
+            HI<span className="font-gridular">S</span>T<span className="font-gridular">O</span>RY
+          </h2>
+        </div>
+
+        <div className="space-y-10 mt-20">
+          {[
+            ["Graduated from Buan Middle School, Anyang", "Jan 2015"],
+            ["Graduated from Buhung High School, Anyang", "Jan 2018"],
+            ["Completed Military Service (Army Sergeant)", "Feb 2022"],
+            ["Graduated from Eulji University", "Jan 2024"]
+          ].map(([title, date], i) => (
+            <div
+              key={i}
+              className="grid grid-cols-12 items-center border-b border-white/20 pt-[56px] pb-[56px] gap-4"
+            >
+              <div className="col-span-7 text-[56px] font-semibold">{title}</div>
+              <div className="col-span-3 flex justify-center">
+                <img
+                  src={`${process.env.PUBLIC_URL}/star.svg`}
+                  alt="Certificate"
+                  className="w-8 h-8 object-contain"
+                />
+              </div>
+              <div className="col-span-2 text-[50px] text-right">{date}</div>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
 
-{/* SECTION04 - AWARDS */}
-<section className='w-full h-[600vh] absolute top-[70%]'>
-<div className="waveform">
-  <div className="waveform-container">
-    <canvas 
-      width="1004" 
-      height="31"
-      style={{
-        width: "100%",
-        height: "100%",
-        color: 'red',
-        transformOrigin: "0px 0px 0px",
-        contentVisibility: "visible"
-      }}
-    ></canvas>
-  </div>
-</div>
-<div className='text-white text-8xl ml-20' >
-  <h2>AWA<span>RD</span></h2>
-  <div className='absolute right-20 flex gap-2'>
-  <svg 
-  width={"1.5rem"} 
-  viewBox={"0 0 33 32"} 
-  fill={"none"}
->
-  <path 
-    d="M16.5039 0L18.2236 14.2803L32.5039 16L18.2236 17.7197L16.5039 32L14.7842 17.7197L0.503906 16L14.7842 14.2803L16.5039 0Z" 
-    fill="white"
-  />
-</svg>
-  <svg 
-  width={"1.5rem"} 
-  viewBox={"0 0 33 32"} 
-  fill={"none"}
->
-  <path 
-    d="M16.5039 0L18.2236 14.2803L32.5039 16L18.2236 17.7197L16.5039 32L14.7842 17.7197L0.503906 16L14.7842 14.2803L16.5039 0Z" 
-    fill="white"
-  />
-</svg>
-
-  </div>
-</div>
-<div className='list relative h-[100vh]'>
-  {/* svg 선 */}
-  <div className='list1'>
-    <svg className="absolute top-0 left-0 w-full h-auto" viewBox="0 0 300 100">
-      <path 
-        d="M10,50 L140,50 L160,60 L290,60" 
-        stroke="white" 
-        opacity="0.3"
-        strokeWidth="0.3"
-        fill="none"
-      />
-    </svg>
-  </div>
-
-  {/* 어워즈 타이틀 */}
-  <div className='awwwwards absolute top-[35%] left-20 flex items-center'>
-    <div className='inline-block mr-4'>
-      <svg width={"1.5rem"} viewBox={"0 0 33 32"} fill={"none"}>
-        <path 
-          d="M16.5039 0L18.2236 14.2803L32.5039 16L18.2236 17.7197L16.5039 32L14.7842 17.7197L0.503906 16L14.7842 14.2803L16.5039 0Z" 
-          fill="white"
-        />
-      </svg>
-    </div>
-    <div className='text-white leading-none text-3xl'>AWWWWARDS</div>
-  </div>
-
-  {/* 어워드 리스트 */}
-  <div className='awardList absolute top-[32%] left-[60rem] mt-20 flex flex-col gap-6 w-[700px] ml-20'>
-<div class="w-full mb-2">
-  <div class="flex justify-between items-center text-white">
-    <span class="text-5xl">GTQ</span>
-    <span class="opacity-50">2010</span>
-  </div>
-  <div class="w-full h-[1px] bg-white/30 mt-5"></div>
-</div>
-<div class="w-full mb-2">
-  <div class="flex justify-between items-center text-white">
-    <span class="text-5xl">ITQ</span>
-    <span class="opacity-50">2010</span>
-  </div>
-  <div class="w-full h-[1px] bg-white/30 mt-5"></div>
-</div>
-<div class="w-full mb-2">
-  <div class="flex justify-between items-center text-white">
-    <span class="text-5xl">워드프로세서</span>
-    <span class="opacity-50">2020</span>
-  </div>
-  <div class="w-full h-[1px] bg-white/30 mt-5"></div>
-</div>
-<div class="w-full mb-2">
-  <div class="flex justify-between items-center text-white">
-    <span class="text-5xl">SMAT 3급</span>
-    <span class="opacity-50">2023</span>
-  </div>
-  <div class="w-full h-[1px] bg-white/30 mt-5"></div>
-</div>
-<div class="w-full mb-2">
-  <div class="flex justify-between items-center text-white">
-    <span class="text-5xl">ACP PHOTOSHOP</span>
-    <span class="opacity-50">2024</span>
-  </div>
-  <div class="w-full h-[1px] bg-white/30 mt-5"></div>
-</div>
-<div class="w-full mb-2">
-  <div class="flex justify-between items-center text-white">
-    <span class="text-5xl">ACP ILLUSTRATION</span>
-    <span class="opacity-50">2024</span>
-  </div>
-  <div class="w-full h-[1px] bg-white/30 mt-5"></div>
-</div>
-<div class="w-full mb-2">
-  <div class="flex justify-between items-center text-white">
-    <span class="text-5xl">SQLD</span>
-    <span class="opacity-50">2025</span>
-  </div>
-  <div class="w-full h-[1px] bg-white/30 mt-5"></div>
-</div>
-<div class="w-full mb-2">
-  <div class="flex justify-between items-center text-white">
-    <span class="text-5xl">웹디자인 기능사</span>
-    <span class="opacity-50">2025</span>
-  </div>
-</div>
-  </div>
-</div>
- <div className='list2'>
-    <svg className="absolute top-[17%] left-0 w-full h-auto" viewBox="0 0 300 100">
-      <path 
-        d="M10,50 L140,50 L160,60 L290,60" 
-        stroke="white" 
-        opacity="0.3"
-        strokeWidth="0.2"
-        fill="none"
-      />
-    </svg>
-  </div>
-
-  <div className='awwwwards absolute top-[23%] left-20 flex items-center'>
-    <div className='inline-block mr-4'>
-      <svg width={"1.5rem"} viewBox={"0 0 33 32"} fill={"none"}>
-        <path 
-          d="M16.5039 0L18.2236 14.2803L32.5039 16L18.2236 17.7197L16.5039 32L14.7842 17.7197L0.503906 16L14.7842 14.2803L16.5039 0Z" 
-          fill="white"
-        />
-      </svg>
-    </div>
-    <div className='text-white leading-none text-3xl'>TITLE</div>
-  </div>
-
-  <div className='awardList absolute top-[23%] left-[60rem] mt-20 flex flex-col gap-6 w-[700px] ml-20'>
-<div class="w-full mb-2">
-  <div class="flex justify-between items-center text-white">
-    <span class="text-5xl">운전면허 1종 보통</span>
-    <span class="opacity-50">2019</span>
-  </div>
-</div>
-  </div>
-
-   <div className='list3'>
-    <svg className="absolute top-[20%] left-0 w-full h-auto" viewBox="0 0 300 100">
-      <path 
-        d="M10,50 L140,50 L160,60 L290,60" 
-        stroke="white" 
-        opacity="0.3"
-        strokeWidth="0.2"
-        fill="none"
-      />
-    </svg>
-  </div>
-
-  <div className='awwwwards absolute top-[26%] left-20 flex items-center'>
-    <div className='inline-block mr-4'>
-      <svg width={"1.5rem"} viewBox={"0 0 33 32"} fill={"none"}>
-        <path 
-          d="M16.5039 0L18.2236 14.2803L32.5039 16L18.2236 17.7197L16.5039 32L14.7842 17.7197L0.503906 16L14.7842 14.2803L16.5039 0Z" 
-          fill="white"
-        />
-      </svg>
-    </div>
-    <div className='text-white leading-none text-3xl'>TRAINING</div>
-  </div>
-
-  <div className='awardList absolute top-[26%] left-[60rem] mt-20 flex flex-col gap-6 w-[700px] ml-20'>
-<div class="w-full mb-2">
-  <div class="flex justify-between items-center text-white">
-    <span class="text-5xl">SBS 컴퓨터 아카데미</span>
-    <span class="opacity-50">2024~</span>
-  </div>
-  <div class="w-full h-[1px] bg-white/30 mt-5"></div>
-</div>
-  </div>
-</section>
 
 
 
