@@ -310,7 +310,7 @@ const restoreText = () => {
             </div>
 
       {/* line & 메뉴 바 */}
-      <motion.div style={{opacity: lineopacity}} className="fixed inset-0  z-50">
+      <motion.div style={{opacity: lineopacity}} className="fixed w-full h-auto inset-0 z-50">
         <div className="top absolute top-0 left-0 w-full flex items-start">
 
           <div className="top-left-plus relative w-4 h-4 ml-2 mt-2">
@@ -332,7 +332,6 @@ const restoreText = () => {
 
   <div className="absolute top-0 left-1/2 -translate-x-1/2 z-50 flex gap-6 justify-center items-center text-white text-opacity-50  px-6">
   <ul className="flex gap-6">
-  {/* HOME (항상 흰색) */}
   <li>
     <a href="#" className="relative group inline-block h-[1em] leading-none">
       <div className="flex gap-[0.05em]">
@@ -343,7 +342,6 @@ const restoreText = () => {
     </a>
   </li>
 
-  {/* PORTFOLIO */}
   <li>
     <a href="#" className="relative group inline-block h-[1em] leading-none">
       <div className="flex gap-[0.05em]">
@@ -367,7 +365,6 @@ const restoreText = () => {
     </a>
   </li>
 
-  {/* CERTIFICATION */}
   <li>
     <a href="#" className="relative group inline-block h-[1em] leading-none">
       <div className="flex gap-[0.05em]">
@@ -418,7 +415,6 @@ const restoreText = () => {
     </a>
   </li>
 
-  {/* CONTACT */}
   <li>
     <a href="#" className="relative group inline-block h-[1em] leading-none">
       <div className="flex gap-[0.05em]">
@@ -459,7 +455,7 @@ const restoreText = () => {
 
   </div>
 
-<div className="mid absolute top-0 left-0 w-full h-full flex justify-between pointer-events-none z-0">
+<div className="mid absolute top-0 left-0 w-full h-screen flex justify-between pointer-events-none z-0">
   <div className="left absolute top-8 bottom-8 left-4 w-[1px] bg-white opacity-50"></div>
   <div className="right absolute top-8 bottom-8 right-4 w-[1px] bg-white opacity-50"></div>
 </div>
@@ -480,7 +476,6 @@ const restoreText = () => {
 
   </div>
   
-  {/* CONTACT */}
   <div 
   className="
     group z-[5000] absolute bottom-6 right-6 w-40 h-40 rounded-full 

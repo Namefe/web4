@@ -1,9 +1,9 @@
 import Particles from 'react-tsparticles';
-import { loadFull } from 'tsparticles'; // 
+import { loadFull } from 'tsparticles'; 
 import './App.css';
 import './css/reset.css';
 import View01 from './view/view01';
-import ParticleBackground from './view/paricles'; // ✅ 파일명 맞으면 OK
+import ParticleBackground from './view/paricles'; 
 
 function App() {
   return (
