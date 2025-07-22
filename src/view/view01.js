@@ -1,5 +1,5 @@
 import React, { useEffect, useState ,useRef} from 'react'
-import { motion, useScroll, useTransform, useAnimation, useInView } from "framer-motion";
+import { motion, useScroll, useTransform, useAnimation, useInView, useMotionTemplate } from "framer-motion";
 import '../App.css'; 
 
 const View01 = () => {
@@ -263,9 +263,13 @@ const restoreText = () => {
         offset: ["start start", "end end"],
       });
 
-      const scale1 = useTransform(zoomProgress, [0, 0.1, 0.2], [1, 4, 6]);
-      const opacity1 = useTransform(zoomProgress, [0.15, 0.25], [1, 0]);
-
+      const scales = [
+        useTransform(zoomProgress, [0, 1], [0.8, 1.2]),
+        useTransform(zoomProgress, [0, 1], [0.7, 1.3]),
+        useTransform(zoomProgress, [0, 1], [0.6, 1.4]),
+        useTransform(zoomProgress, [0, 1], [0.9, 1.1]),
+        useTransform(zoomProgress, [0, 1], [0.85, 1.25]),
+      ];
 
       const wrapperRef = useRef(null);
       const [scrollY, setScrollY] = useState(0);
@@ -291,9 +295,106 @@ const restoreText = () => {
       const translateY = -scrollY * 700; 
 
 
-      
-    
 
+
+      const fullTop1 = "3+";
+      const fullTop2 = "SUCCESSFULLPROJECTS";
+      const fullTop3 = "2024-2025";
+
+      const [lineTop1, setLineTop1] = useState("");
+      const [lineTop2, setLineTop2] = useState("");
+      const [lineTop3, setLineTop3] = useState("");
+      const [isTopErased, setIsTopErased] = useState(true);
+      const [brand1, setBrand1] = useState("");
+      const [brand2, setBrand2] = useState("");
+      const [ux1, setUx1] = useState("");
+      const [ux2, setUx2] = useState("");
+
+      const topTextRef = useRef(null);
+
+      const { scrollYProgress: topTextProgress } = useScroll({
+        target: topTextRef,
+        offset: ["start end", "end start"], 
+        
+      });
+      const [isTyped, setIsTyped] = useState(false);
+
+      useEffect(() => {
+        const unsubscribe = scrollYProgress.on("change", (v) => {
+          if (v > 0.2 && !isTyped) {
+            setIsTyped(true);
+            showTyping(fullTop1, setLineTop1, 40);
+            showTyping(fullTop2, setLineTop2, 40, fullTop1.length * 40);
+            showTyping(fullTop3, setLineTop3, 40, (fullTop1.length + fullTop2.length) * 40);
+            showTyping("BRAND", setBrand1, 50, 500);
+            showTyping("IDENTIY", setBrand2, 50, 900);
+            showTyping("UX/UI", setUx1, 50, 1300);
+            showTyping("WEB", setUx2, 50, 1800);
+          }
+    
+          if (v < 0.15 && isTyped) {
+            setIsTyped(false); 
+            setLineTop1("");
+            setLineTop2("");
+            setLineTop3("");
+            setBrand1("");
+            setBrand2("");
+            setUx1("");
+            setUx2("");
+          }
+        });
+    
+        return () => unsubscribe();
+      }, [scrollYProgress, isTyped]);
+    
+      const showTyping = (text, setter, speed = 50, delay = 0) => {
+        let i = 0;
+        setTimeout(() => {
+          const interval = setInterval(() => {
+            setter(text.slice(0, i));
+            i++;
+            if (i > text.length) clearInterval(interval);
+          }, speed);
+        }, delay);
+      };
+
+      const imageRef = useRef(null);
+      const { scrollYProgress: zoomProgress2 } = useScroll({
+        target: imageRef,
+        offset: ['start end', 'end start'],
+      });
+    
+      const transforms = [
+        {
+          z: useTransform(zoomProgress, [0, 1], [-2000, 800]),
+          y: useTransform(zoomProgress, [0, 1], [0, -100]),
+          scale: useTransform(zoomProgress, [0, 1], [0.3, 2]),
+          opacity: useTransform(zoomProgress, [0, 0.1, 0.9, 1], [0, 1, 1, 0]),
+          x: '10%',
+          yInit: '10%',
+          size: 'w-[220px]',
+        },
+        {
+          z: useTransform(zoomProgress, [0.1, 1], [-2500, 1000]),
+          y: useTransform(zoomProgress, [0.1, 1], [50, -200]),
+          scale: useTransform(zoomProgress, [0.1, 1], [0.2, 1.8]),
+          opacity: useTransform(zoomProgress, [0.1, 0.2, 0.9, 1], [0, 1, 1, 0]),
+          x: '60%',
+          yInit: '20%',
+          size: 'w-[180px]',
+        },
+        {
+          z: useTransform(zoomProgress, [0.2, 1], [-3000, 1200]),
+          y: useTransform(zoomProgress, [0.2, 1], [100, -300]),
+          scale: useTransform(zoomProgress, [0.2, 1], [0.15, 1.5]),
+          opacity: useTransform(zoomProgress, [0.2, 0.3, 0.9, 1], [0, 1, 1, 0]),
+          x: '30%',
+          yInit: '60%',
+          size: 'w-[200px]',
+        },
+        // 추가 이미지 필요 시 여기에 더 추가
+      ];
+    
     
 
   return (
@@ -652,7 +753,7 @@ const restoreText = () => {
 
 
       {/* SECTION2 */}
-<section className="relative w-full top-[50%] ">
+<section className="absolute w-full top-[50%] ">
   <svg className="absolute top-0 left-0 w-full h-auto" viewBox="0 0 300 100">
     <path 
       d="M3,50 L20,50 L40,60 L297,60" 
@@ -765,107 +866,51 @@ const restoreText = () => {
 
     <section ref={sectionRef} className="absolute top-[52%] w-full h-[1500vh] ">
       {/* 텍스트는 고정 */}
-      <div className="absolute top-20 left-20 z-20 text-white flex gap-6">
-        <div>3+</div>
-        <div>SUCCESSFULLPROJECTS</div>
-        <div>2024-2025</div>
+      <div ref={topTextRef} className="absolute top-0 left-20 z-20 opacity-50 text-white flex gap-6 text-16px">
+      <div>{lineTop1}</div>
+      <div>{lineTop2}</div>
+      <div>{lineTop3}</div>
       </div>
 
-      <div className="absolute top-80 left-20 z-20 text-white">
+      <div className="absolute top-80 left-20 z-20 text-white opacity-50">
         <div>Start project =</div>
         <div className="ml-32">3</div>
       </div>
 
+      <div className="absolute top-50 left-[40%] z-20 text-white opacity-50">
+      <div>{brand1}</div>
+      <div>{brand2}</div>
+    </div>
+
+    <div className="absolute top-60 right-40 z-20 text-white opacity-50">
+      <div>{ux1}</div>
+      <div>{ux2}</div>
+    </div>
+
       {/* 이미지 영역 */}
-      <div className="sticky top-20 h-screen w-full flex items-center justify-center">
-        <motion.img
-          src={`${process.env.PUBLIC_URL}/netmable.png`}
-          style={{ scale: scale1, opacity: opacity1 }}
-          className="absolute top-[40%] left-[18%] w-[280px] z-10 	origin-bottom-right"
-        />
+      <section ref={imageRef} className="h-[300vh] bg-black relative">
+      <div
+        className="fixed top-0 h-screen w-full overflow-hidden"
+        style={{ perspective: "1200px" }}
+      >
+        <div className="relative h-full w-full">
+          {transforms.map((data, idx) => (
+            <motion.img
+              key={idx}
+              src={`${process.env.PUBLIC_URL}/netmable.png`}
+              className={`absolute ${data.size}`}
+              style={{
+                transform: useMotionTemplate`translate3d(0, ${data.y}px, ${data.z}px)`,
+                left: data.x,
+                top: data.yInit,
+                scale: data.scale,
+                opacity: data.opacity,
+              }}
+            />
+          ))}
+        </div>
       </div>
-
-      <div className='이미지 전체 div'>
-        <div className='이미지1'>
-          <a>
-            <div className='이미지'>
-              <div>
-                <img/>
-              </div>
-            </div>
-            <div className='텍스트'>
-              <div>
-                <div>여기는 문구</div>
-                <div>
-                  <div>여기는 숨겨진 문구</div>
-                </div>
-              </div>
-              <h3>
-                <div>
-                  <div>여기도 숨겨진문구</div>
-                </div>
-              </h3>
-              <svg></svg>
-              <svg></svg>
-            </div>
-          </a>
-          <svg></svg>
-          <svg></svg>
-        </div>
-        <div className='이미지2'>
-          <a>
-            <div className='이미지'>
-              <div>
-                <img/>
-              </div>
-            </div>
-            <div className='텍스트'>
-              <div>
-                <div>여기는 문구</div>
-                <div>
-                  <div>여기는 숨겨진 문구</div>
-                </div>
-              </div>
-              <h3>
-                <div>
-                  <div>여기도 숨겨진문구</div>
-                </div>
-              </h3>
-              <svg></svg>
-              <svg></svg>
-            </div>
-          </a>
-          <svg></svg>
-          <svg></svg>
-        </div>
-        <div className='이미지3'>
-          <a>
-            <div className='이미지'>
-              <div>
-                <img/>
-              </div>
-            </div>
-            <div className='텍스트'>
-              <div>
-                <div>여기는 문구</div>
-                <div>
-                  <div>여기는 숨겨진 문구</div>
-                </div>
-              </div>
-              <h3>
-                <div>
-                  <div>여기도 숨겨진문구</div>
-                </div>
-              </h3>
-              <svg></svg>
-              <svg></svg>
-            </div>
-          </a>
-          <svg></svg>
-          <svg></svg>
-        </div>
-
-      </div>
+    </section>
 
       <div className='w-full h-[600vh] absolute top-[70%] px-[3vw]'>
       <div className="wave-line flex items-end gap-[5px] w-full h-[10px]">
