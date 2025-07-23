@@ -1,6 +1,8 @@
-import React, { useEffect, useState ,useRef} from 'react'
+import React, { useEffect, useState ,useRef,Suspense} from 'react'
 import { motion, useScroll, useTransform, useAnimation, useInView, useMotionTemplate } from "framer-motion";
 import '../App.css'; 
+import { Canvas, useFrame } from '@react-three/fiber';
+import { useGLTF, OrbitControls } from '@react-three/drei';
 
 const View01 = () => {
   const [time, setTime] = useState(new Date());
@@ -394,11 +396,61 @@ const restoreText = () => {
         },
         // 추가 이미지 필요 시 여기에 더 추가
       ];
-    
+
+      function useScrollY() {
+        const [scrollYVal, setScrollYVal] = useState(0);
+        useEffect(() => {
+          const handleScroll = () => setScrollYVal(window.scrollY);
+          window.addEventListener('scroll', handleScroll);
+          return () => window.removeEventListener('scroll', handleScroll);
+        }, []);
+        return scrollYVal;
+      }
+      
+      function SalsaModel() {
+        const { scene } = useGLTF('/models/planet.glb');
+        const modelRef = useRef();
+        const scrollYVal = useScrollY();
+      
+        useEffect(() => {
+          scene.position.set(0, 0, 0);
+          scene.traverse((child) => {
+            if (child.isMesh) {
+              child.geometry.center();
+            }
+          });
+        }, [scene]);
+      
+        useFrame(() => {
+          if (!modelRef.current) return;
+        
+          modelRef.current.rotation.y = scrollYVal * 0.005;
+        
+          const scale = 1 + Math.min(scrollYVal, 500) * 0.0005;
+          modelRef.current.scale.setScalar(scale);
+        
+          const z = scrollYVal > 800 ? (scrollYVal - 800) * 0.01 : 0;
+          modelRef.current.position.z = z;
+        
+          const opacity = scrollYVal > 800 ? Math.max(1 - (scrollYVal - 800) / 200, 0) : 1;
+          modelRef.current.visible = opacity > 0.01;
+        });
+      
+        return (
+          <primitive
+            ref={modelRef}
+            object={scene}
+            scale={1}
+            position={[1, -6, -3]}
+            rotation={[0, 0, 0]}
+          />
+        );
+      }
     
 
   return (
-    <section ref={targetRef} className='bg-black w-full h-[5000vh] relative '>
+    <section  className='bg-black w-full h-[2000vh] relative'>
+      <div ref={targetRef} className='w-full h-[500vh]  absolute top-0 left-0'>
       {/* local time & 좌표 */}
         <div>
             <div  className='text-[#f5f5f5] text-opacity-50 flex gap-4'>
@@ -605,6 +657,24 @@ const restoreText = () => {
 </motion.div>
 
 
+<div id="canvas-wrapper" className="fixed top-[20%] left-0 w-full h-screen z-[999] pointer-events-none">
+  <Canvas
+    camera={{ position: [0, 2, 5], fov: 50 }}
+    style={{ width: '100%', height: '100%' }}
+    gl={{ alpha: true }}
+    onCreated={({ gl }) => {
+      gl.setClearColor('#000000', 0); 
+    }}
+  >
+    <ambientLight intensity={0.5} />
+    <directionalLight position={[2, 2, 2]} />
+    <Suspense fallback={null}>
+      <SalsaModel />
+    </Suspense>
+    <OrbitControls />
+  </Canvas>
+</div>
+
 
 
 {/* NAME */}      
@@ -748,12 +818,13 @@ const restoreText = () => {
   <motion.span style={{ y: yDevR, opacity: opacityDevR }}>R</motion.span>
 </div>
 </motion.div>
+</div>
 
 
 
 
       {/* SECTION2 */}
-<section className="absolute w-full top-[50%] ">
+<section className="absolute w-full h-[500vh]  top-[20%] ">
   <svg className="absolute top-0 left-0 w-full h-auto" viewBox="0 0 300 100">
     <path 
       d="M3,50 L20,50 L40,60 L297,60" 
@@ -861,10 +932,7 @@ const restoreText = () => {
     />
   </svg>
   </div>
-</section>
-{/* -----------------------<section3>----------------------- */}
-
-    <section ref={sectionRef} className="absolute top-[52%] w-full h-[1500vh] ">
+  <section ref={sectionRef} className="absolute top-[15%]  w-full h-[500vh] ">
       {/* 텍스트는 고정 */}
       <div ref={topTextRef} className="absolute top-0 left-20 z-20 opacity-50 text-white flex gap-6 text-16px">
       <div>{lineTop1}</div>
@@ -872,23 +940,23 @@ const restoreText = () => {
       <div>{lineTop3}</div>
       </div>
 
-      <div className="absolute top-80 left-20 z-20 text-white opacity-50">
+      <div className="absolute top-40 left-20 z-20 text-white opacity-50">
         <div>Start project =</div>
         <div className="ml-32">3</div>
       </div>
 
-      <div className="absolute top-50 left-[40%] z-20 text-white opacity-50">
+      <div className="absolute top-10 left-[40%] z-20 text-white opacity-50">
       <div>{brand1}</div>
       <div>{brand2}</div>
     </div>
 
-    <div className="absolute top-60 right-40 z-20 text-white opacity-50">
+    <div className="absolute top-0 right-40 z-20 text-white opacity-50">
       <div>{ux1}</div>
       <div>{ux2}</div>
     </div>
 
       {/* 이미지 영역 */}
-      <section ref={imageRef} className="h-[300vh] bg-black relative">
+      <section ref={imageRef} className="relative">
       <div
         className="fixed top-0 h-screen w-full overflow-hidden"
         style={{ perspective: "1200px" }}
@@ -912,7 +980,7 @@ const restoreText = () => {
       </div>
     </section>
 
-      <div className='w-full h-[600vh] absolute top-[70%] px-[3vw]'>
+      <div className='w-full  absolute top-[70%] px-[3vw]'>
       <div className="wave-line flex items-end gap-[5px] w-full h-[10px]">
   {[...Array(300)].map((_, i) => (
     <motion.div
@@ -1067,10 +1135,14 @@ const restoreText = () => {
 </div>
 </div>
     </section>
+</section>
+{/* -----------------------<section3>----------------------- */}
+
+
 {/*section5 학력사항 */}
 <section
       ref={wrapperRef}
-      className="absolute top-[80%] left-1/2 -translate-x-1/2 text-white w-full h-screen z-40 "
+      className="absolute top-[60%]  left-1/2 -translate-x-1/2 text-white w-full h-[300vh] z-40 "
       style={{
         perspective: "800px",
         transformStyle: "preserve-3d"
