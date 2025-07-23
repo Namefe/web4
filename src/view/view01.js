@@ -15,6 +15,8 @@ const View01 = () => {
 
 const lineopacity = useTransform(scrollYProgress, [0,0.5,0.6],[1,0,1])
 
+const timeopacity = useTransform(scrollYProgress, [0,0.5,0.6],[1,0,0])
+
 
 const full1 = "since";
 const full2 = "1999";
@@ -82,49 +84,50 @@ const yDevP = useTransform(scrollYProgress, [0.3, 0.4, 0.5], [20, 0, -20]);
 const yDevE3 = useTransform(scrollYProgress, [0.3, 0.4, 0.5], [-15, 0, 15]);
 const yDevR = useTransform(scrollYProgress, [0.3, 0.4, 0.5], [5, 0, -5]);
 
-const opacityF   = useTransform(scrollYProgress, [0.10, 0.3, 0.42], [0, 1, 0]);
-const opacityA   = useTransform(scrollYProgress, [0.12, 0.3, 0.425], [0, 1, 0]);
-const opacityI   = useTransform(scrollYProgress, [0.14, 0.3, 0.43], [0, 1, 0]);
-const opacityL   = useTransform(scrollYProgress, [0.16, 0.3, 0.435], [0, 1, 0]);
-const opacitySp1 = useTransform(scrollYProgress, [0.18, 0.3, 0.437], [0, 1, 0]);
-const opacityF2  = useTransform(scrollYProgress, [0.20, 0.3, 0.438], [0, 1, 0]);
-const opacityA2  = useTransform(scrollYProgress, [0.21, 0.3, 0.439], [0, 1, 0]);
-const opacityS   = useTransform(scrollYProgress, [0.22, 0.3, 0.441], [0, 1, 0]);
-const opacityT   = useTransform(scrollYProgress, [0.23, 0.3, 0.443], [0, 1, 0]);
+const opacityF    = useTransform(scrollYProgress, [0.200, 0.250, 0.4, 0.6], [0, 1, 1, 0]);
+const opacityA    = useTransform(scrollYProgress, [0.205, 0.255, 0.4, 0.6], [0, 1, 1, 0]);
+const opacityI    = useTransform(scrollYProgress, [0.210, 0.260, 0.4, 0.6], [0, 1, 1, 0]);
+const opacityL    = useTransform(scrollYProgress, [0.215, 0.265, 0.4, 0.6], [0, 1, 1, 0]);
+const opacitySp1  = useTransform(scrollYProgress, [0.220, 0.270, 0.4, 0.6], [0, 1, 1, 0]);
+const opacityF2   = useTransform(scrollYProgress, [0.225, 0.275, 0.4, 0.6], [0, 1, 1, 0]);
+const opacityA2   = useTransform(scrollYProgress, [0.230, 0.280, 0.4, 0.6], [0, 1, 1, 0]);
+const opacityS    = useTransform(scrollYProgress, [0.235, 0.285, 0.4, 0.6], [0, 1, 1, 0]);
+const opacityT    = useTransform(scrollYProgress, [0.240, 0.290, 0.4, 0.6], [0, 1, 1, 0]);
 
-const opacityL2  = useTransform(scrollYProgress, [0.24, 0.3, 0.444], [0, 1, 0]);
-const opacityE   = useTransform(scrollYProgress, [0.245, 0.3, 0.445], [0, 1, 0]);
-const opacityA3  = useTransform(scrollYProgress, [0.25, 0.3, 0.446], [0, 1, 0]);
-const opacityR2  = useTransform(scrollYProgress, [0.255, 0.3, 0.447], [0, 1, 0]);
-const opacityN2  = useTransform(scrollYProgress, [0.26, 0.3, 0.448], [0, 1, 0]);
-const opacitySp2 = useTransform(scrollYProgress, [0.265, 0.3, 0.449], [0, 1, 0]);
-const opacityF3  = useTransform(scrollYProgress, [0.27, 0.3, 0.450], [0, 1, 0]);
-const opacityA4  = useTransform(scrollYProgress, [0.275, 0.3, 0.451], [0, 1, 0]);
-const opacityS2  = useTransform(scrollYProgress, [0.28, 0.3, 0.452], [0, 1, 0]);
-const opacityT2  = useTransform(scrollYProgress, [0.285, 0.3, 0.453], [0, 1, 0]);
-const opacityE2  = useTransform(scrollYProgress, [0.29, 0.3, 0.454], [0, 1, 0]);
-const opacityR3  = useTransform(scrollYProgress, [0.295, 0.3, 0.455], [0, 1, 0]);
+const opacityL2   = useTransform(scrollYProgress, [0.245, 0.295, 0.4, 0.6], [0, 1, 1, 0]);
+const opacityE    = useTransform(scrollYProgress, [0.250, 0.300, 0.4, 0.6], [0, 1, 1, 0]);
+const opacityA3   = useTransform(scrollYProgress, [0.255, 0.305, 0.4, 0.6], [0, 1, 1, 0]);
+const opacityR2   = useTransform(scrollYProgress, [0.260, 0.310, 0.4, 0.6], [0, 1, 1, 0]);
+const opacityN2   = useTransform(scrollYProgress, [0.265, 0.315, 0.4, 0.6], [0, 1, 1, 0]);
+const opacitySp2  = useTransform(scrollYProgress, [0.270, 0.320, 0.4, 0.6], [0, 1, 1, 0]);
+const opacityF3   = useTransform(scrollYProgress, [0.275, 0.325, 0.4, 0.6], [0, 1, 1, 0]);
+const opacityA4   = useTransform(scrollYProgress, [0.280, 0.330, 0.4, 0.6], [0, 1, 1, 0]);
+const opacityS2   = useTransform(scrollYProgress, [0.285, 0.335, 0.4, 0.6], [0, 1, 1, 0]);
+const opacityT2   = useTransform(scrollYProgress, [0.290, 0.340, 0.4, 0.6], [0, 1, 1, 0]);
+const opacityE2   = useTransform(scrollYProgress, [0.295, 0.345, 0.4, 0.6], [0, 1, 1, 0]);
+const opacityR3   = useTransform(scrollYProgress, [0.300, 0.350, 0.4, 0.6], [0, 1, 1, 0]);
 
-const opacityFrontF = useTransform(scrollYProgress, [0.1, 0.4, 0.5], [0, 1, 0]);
-const opacityFrontR = useTransform(scrollYProgress, [0.11, 0.4, 0.51], [0, 1, 0]);
-const opacityFrontO = useTransform(scrollYProgress, [0.12, 0.4, 0.52], [0, 1, 0]);
-const opacityFrontN = useTransform(scrollYProgress, [0.13, 0.4, 0.53], [0, 1, 0]);
-const opacityFrontT = useTransform(scrollYProgress, [0.14, 0.4, 0.54], [0, 1, 0]);
-const opacityFrontSpace = useTransform(scrollYProgress, [0.15, 0.4, 0.45], [0, 1, 0]);
+const opacityFrontF      = useTransform(scrollYProgress, [0.305, 0.355, 0.4, 0.6], [0, 1, 1, 0]);
+const opacityFrontR      = useTransform(scrollYProgress, [0.310, 0.360, 0.4, 0.6], [0, 1, 1, 0]);
+const opacityFrontO      = useTransform(scrollYProgress, [0.315, 0.365, 0.4, 0.6], [0, 1, 1, 0]);
+const opacityFrontN      = useTransform(scrollYProgress, [0.320, 0.370, 0.4, 0.6], [0, 1, 1, 0]);
+const opacityFrontT      = useTransform(scrollYProgress, [0.325, 0.375, 0.4, 0.6], [0, 1, 1, 0]);
+const opacityFrontSpace  = useTransform(scrollYProgress, [0.330, 0.380, 0.4, 0.6], [0, 1, 1, 0]);
 
-const opacityEndE = useTransform(scrollYProgress, [0.16, 0.4, 0.46], [0, 1, 0]);
-const opacityEndN = useTransform(scrollYProgress, [0.17, 0.4, 0.47], [0, 1, 0]);
-const opacityEndD = useTransform(scrollYProgress, [0.18, 0.4, 0.48], [0, 1, 0]);
+const opacityEndE        = useTransform(scrollYProgress, [0.335, 0.385, 0.4, 0.6], [0, 1, 1, 0]);
+const opacityEndN        = useTransform(scrollYProgress, [0.340, 0.390, 0.4, 0.6], [0, 1, 1, 0]);
+const opacityEndD        = useTransform(scrollYProgress, [0.345, 0.395, 0.4, 0.6], [0, 1, 1, 0]);
 
-const opacityDevD = useTransform(scrollYProgress, [0.19, 0.4, 0.49], [0, 1, 0]);
-const opacityDevE = useTransform(scrollYProgress, [0.20, 0.4, 0.50], [0, 1, 0]);
-const opacityDevV = useTransform(scrollYProgress, [0.21, 0.4, 0.51], [0, 1, 0]);
-const opacityDevE2 = useTransform(scrollYProgress, [0.22, 0.4, 0.52], [0, 1, 0]);
-const opacityDevL = useTransform(scrollYProgress, [0.23, 0.4, 0.53], [0, 1, 0]);
-const opacityDevO = useTransform(scrollYProgress, [0.24, 0.4, 0.54], [0, 1, 0]);
-const opacityDevP = useTransform(scrollYProgress, [0.25, 0.4, 0.55], [0, 1, 0]);
-const opacityDevE3 = useTransform(scrollYProgress, [0.26, 0.4, 0.56], [0, 1, 0]);
-const opacityDevR = useTransform(scrollYProgress, [0.27, 0.4, 0.57], [0, 1, 0]);
+const opacityDevD        = useTransform(scrollYProgress, [0.350, 0.400, 0.45, 0.6], [0, 1, 1, 0]);
+const opacityDevE        = useTransform(scrollYProgress, [0.355, 0.405, 0.45, 0.6], [0, 1, 1, 0]);
+const opacityDevV        = useTransform(scrollYProgress, [0.360, 0.410, 0.45, 0.6], [0, 1, 1, 0]);
+const opacityDevE2   = useTransform(scrollYProgress, [0.365, 0.415, 0.45, 0.6], [0, 1, 1, 0]);
+const opacityDevL   = useTransform(scrollYProgress, [0.370, 0.420, 0.45, 0.6], [0, 1, 1, 0]);
+const opacityDevO   = useTransform(scrollYProgress, [0.375, 0.425, 0.45, 0.6], [0, 1, 1, 0]);
+const opacityDevP    = useTransform(scrollYProgress, [0.380, 0.430, 0.45, 0.6], [0, 1, 1, 0]);
+const opacityDevE3   = useTransform(scrollYProgress, [0.385, 0.435, 0.45, 0.6], [0, 1, 1, 0]);
+const opacityDevR   = useTransform(scrollYProgress, [0.390, 0.440, 0.45, 0.6], [0, 1, 1, 0]);
+
 
 
 
@@ -256,7 +259,7 @@ const restoreText = () => {
               y: 20,
             }));
           }
-        }, [isInView]);
+        }, [isInView2]);
 
       const sectionRef = useRef(null);
 
@@ -265,13 +268,7 @@ const restoreText = () => {
         offset: ["start start", "end end"],
       });
 
-      const scales = [
-        useTransform(zoomProgress, [0, 1], [0.8, 1.2]),
-        useTransform(zoomProgress, [0, 1], [0.7, 1.3]),
-        useTransform(zoomProgress, [0, 1], [0.6, 1.4]),
-        useTransform(zoomProgress, [0, 1], [0.9, 1.1]),
-        useTransform(zoomProgress, [0, 1], [0.85, 1.25]),
-      ];
+
 
       const wrapperRef = useRef(null);
       const [scrollY, setScrollY] = useState(0);
@@ -311,14 +308,6 @@ const restoreText = () => {
       const [brand2, setBrand2] = useState("");
       const [ux1, setUx1] = useState("");
       const [ux2, setUx2] = useState("");
-
-      const topTextRef = useRef(null);
-
-      const { scrollYProgress: topTextProgress } = useScroll({
-        target: topTextRef,
-        offset: ["start end", "end start"], 
-        
-      });
       const [isTyped, setIsTyped] = useState(false);
 
       useEffect(() => {
@@ -335,106 +324,101 @@ const restoreText = () => {
           }
     
           if (v < 0.15 && isTyped) {
-            setIsTyped(false); 
-            setLineTop1("");
-            setLineTop2("");
-            setLineTop3("");
-            setBrand1("");
-            setBrand2("");
-            setUx1("");
-            setUx2("");
-          }
+            setIsTyped(false);
+            eraseTyping(setLineTop1, 40);
+            eraseTyping(setLineTop2, 40, 200);
+            eraseTyping(setLineTop3, 40, 400);
+            eraseTyping(setBrand1, 50, 600);
+            eraseTyping(setBrand2, 50, 800);
+            eraseTyping(setUx1, 50, 1000);
+            eraseTyping(setUx2, 50, 1200);
+    }
         });
     
         return () => unsubscribe();
       }, [scrollYProgress, isTyped]);
     
-      const showTyping = (text, setter, speed = 50, delay = 0) => {
-        let i = 0;
-        setTimeout(() => {
-          const interval = setInterval(() => {
-            setter(text.slice(0, i));
-            i++;
-            if (i > text.length) clearInterval(interval);
-          }, speed);
-        }, delay);
-      };
+     const showTyping = (text, setter, speed = 50, delay = 0) => {
+  let i = 0;
+  setTimeout(() => {
+    const interval = setInterval(() => {
+      setter(text.slice(0, i));
+      i++;
+      if (i > text.length) clearInterval(interval);
+    }, speed);
+  }, delay);
+};
 
+const eraseTyping = (setter, speed = 50, delay = 0) => {
+  setTimeout(() => {
+    let text = "";
+    setter((prev) => {
+      text = prev;
+      return prev;
+    });
+    let i = text.length;
+    const interval = setInterval(() => {
+      setter(text.slice(0, i));
+      i--;
+      if (i < 0) clearInterval(interval);
+    }, speed);
+  }, delay);
+};
       const imageRef = useRef(null);
-      const { scrollYProgress: zoomProgress2 } = useScroll({
-        target: imageRef,
-        offset: ['start end', 'end start'],
-      });
-    
-      const transforms = [
-        {
-          z: useTransform(zoomProgress, [0, 1], [-2000, 800]),
-          y: useTransform(zoomProgress, [0, 1], [0, -100]),
-          scale: useTransform(zoomProgress, [0, 1], [0.3, 2]),
-          opacity: useTransform(zoomProgress, [0, 0.1, 0.9, 1], [0, 1, 1, 0]),
-          x: '10%',
-          yInit: '10%',
-          size: 'w-[220px]',
-        },
-        {
-          z: useTransform(zoomProgress, [0.1, 1], [-2500, 1000]),
-          y: useTransform(zoomProgress, [0.1, 1], [50, -200]),
-          scale: useTransform(zoomProgress, [0.1, 1], [0.2, 1.8]),
-          opacity: useTransform(zoomProgress, [0.1, 0.2, 0.9, 1], [0, 1, 1, 0]),
-          x: '60%',
-          yInit: '20%',
-          size: 'w-[180px]',
-        },
-        {
-          z: useTransform(zoomProgress, [0.2, 1], [-3000, 1200]),
-          y: useTransform(zoomProgress, [0.2, 1], [100, -300]),
-          scale: useTransform(zoomProgress, [0.2, 1], [0.15, 1.5]),
-          opacity: useTransform(zoomProgress, [0.2, 0.3, 0.9, 1], [0, 1, 1, 0]),
-          x: '30%',
-          yInit: '60%',
-          size: 'w-[200px]',
-        },
-        // 추가 이미지 필요 시 여기에 더 추가
-      ];
 
-      function useScrollY() {
-        const [scrollYVal, setScrollYVal] = useState(0);
-        useEffect(() => {
-          const handleScroll = () => setScrollYVal(window.scrollY);
-          window.addEventListener('scroll', handleScroll);
-          return () => window.removeEventListener('scroll', handleScroll);
-        }, []);
-        return scrollYVal;
-      }
+    
+  const z1 = useTransform(scrollYProgress, [0, 0.3], [-1000, 0]);
+  const z2 = useTransform(scrollYProgress, [0.1, 0.4], [-1200, 0]);
+  const z3 = useTransform(scrollYProgress, [0.2, 0.5], [-1400, 0]);
+  const z4 = useTransform(scrollYProgress, [0.3, 0.6], [-1600, 0]);
+
+  const scale1 = useTransform(scrollYProgress, [0, 0.3], [0.5, 1]);
+  const scale2 = useTransform(scrollYProgress, [0.1, 0.4], [0.5, 1]);
+  const scale3 = useTransform(scrollYProgress, [0.2, 0.5], [0.5, 1]);
+  const scale4 = useTransform(scrollYProgress, [0.3, 0.6], [0.5, 1]);
+
+  const opacity1 = useTransform(scrollYProgress, [0, 0.25], [0, 1]);
+  const opacity2 = useTransform(scrollYProgress, [0.1, 0.35], [0, 1]);
+  const opacity3 = useTransform(scrollYProgress, [0.2, 0.45], [0, 1]);
+  const opacity4 = useTransform(scrollYProgress, [0.3, 0.55], [0, 1]);
+const scrollYVal = useScrollY(); 
+const isFixed = scrollYVal < 1300; 
+
+function useScrollY() {
+  const [scrollYVal, setScrollYVal] = useState(0);
+  useEffect(() => {
+    const handleScroll = () => setScrollYVal(window.scrollY);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+  return scrollYVal;
+}
       
-      function SalsaModel() {
-        const { scene } = useGLTF('/models/planet.glb');
-        const modelRef = useRef();
-        const scrollYVal = useScrollY();
-      
-        useEffect(() => {
-          scene.position.set(0, 0, 0);
-          scene.traverse((child) => {
-            if (child.isMesh) {
-              child.geometry.center();
-            }
-          });
-        }, [scene]);
-      
-        useFrame(() => {
-          if (!modelRef.current) return;
-        
-          modelRef.current.rotation.y = scrollYVal * 0.005;
-        
-          const scale = 1 + Math.min(scrollYVal, 500) * 0.0005;
-          modelRef.current.scale.setScalar(scale);
-        
-          const z = scrollYVal > 800 ? (scrollYVal - 800) * 0.01 : 0;
-          modelRef.current.position.z = z;
-        
-          const opacity = scrollYVal > 800 ? Math.max(1 - (scrollYVal - 800) / 200, 0) : 1;
-          modelRef.current.visible = opacity > 0.01;
-        });
+    function SalsaModel({ scrollYVal }) {
+  const { scene } = useGLTF('/models/planet.glb');
+  const modelRef = useRef();
+
+  useEffect(() => {
+    scene.position.set(0, 0, 0);
+    scene.traverse((child) => {
+      if (child.isMesh) child.geometry.center();
+    });
+  }, [scene]);
+
+  useFrame(() => {
+    if (!modelRef.current) return;
+
+    modelRef.current.rotation.y = scrollYVal * 0.005;
+
+    const scale = 1 + Math.min(scrollYVal, 500) * 0.0005;
+    modelRef.current.scale.setScalar(scale);
+
+    const z = scrollYVal > 800 ? (scrollYVal - 800) * 0.01 : 0;
+    modelRef.current.position.z = z;
+
+    const opacity = scrollYVal > 800 ? Math.max(1 - (scrollYVal - 800) / 200, 0) : 1;
+    modelRef.current.visible = opacity > 0.01;
+  });
       
         return (
           <primitive
@@ -453,14 +437,14 @@ const restoreText = () => {
       <div ref={targetRef} className='w-full h-[500vh]  absolute top-0 left-0'>
       {/* local time & 좌표 */}
         <div>
-            <div  className='text-[#f5f5f5] text-opacity-50 flex gap-4'>
+            <motion.div style={{opacity: timeopacity}}  className='text-[#f5f5f5] text-opacity-50 flex gap-4'>
                 <div className='fixed top-10 left-[50px] inline-block text-[16px]'>ANYANG</div>
                 <div className='fixed top-10 left-[160px]  text-[16px]'>37°23′42.7″N</div>
                 <div className='fixed top-10 left-[300px]  text-[16px]'>126°56′44.3″E</div>
                 <div className="fixed top-10 right-10 text-xl font-light text-center inline-block">
                  Local Time : {hours}:{minutes}:{seconds}({hours}:{minutes}{ampm})
                 </div>           
-            </div>
+            </motion.div>
 
       {/* line & 메뉴 바 */}
       <motion.div style={{opacity: lineopacity}} className="fixed w-full h-auto inset-0 z-50">
@@ -657,23 +641,28 @@ const restoreText = () => {
 </motion.div>
 
 
-<div id="canvas-wrapper" className="fixed top-[20%] left-0 w-full h-screen z-[999] pointer-events-none">
-  <Canvas
-    camera={{ position: [0, 2, 5], fov: 50 }}
-    style={{ width: '100%', height: '100%' }}
-    gl={{ alpha: true }}
-    onCreated={({ gl }) => {
-      gl.setClearColor('#000000', 0); 
-    }}
-  >
-    <ambientLight intensity={0.5} />
-    <directionalLight position={[2, 2, 2]} />
-    <Suspense fallback={null}>
-      <SalsaModel />
-    </Suspense>
-    <OrbitControls />
-  </Canvas>
-</div>
+ <div
+      id="canvas-wrapper"
+      className={`${
+        isFixed ? 'fixed top-[20%]' : 'relative top-0'
+      } left-0 w-full h-screen z-[999] pointer-events-none transition-all duration-500 ease-in-out`}
+    >
+      <Canvas
+        camera={{ position: [0, 2, 5], fov: 50 }}
+        style={{ width: '100%', height: '100%' }}
+        gl={{ alpha: true }}
+        onCreated={({ gl }) => {
+          gl.setClearColor('#000000', 0); // 배경 투명
+        }}
+      >
+        <ambientLight intensity={0.5} />
+        <directionalLight position={[2, 2, 2]} />
+        <Suspense fallback={null}>
+          <SalsaModel scrollYVal={scrollYVal} />
+        </Suspense>
+        <OrbitControls />
+      </Canvas>
+    </div>
 
 
 
@@ -746,8 +735,8 @@ const restoreText = () => {
         </div>
         
       {/* front end developer */}
-        <div 
-      style={{ fontSize: 'clamp(1.625rem, 2.1vw, 2.125rem)' }} 
+        <motion.div 
+      style={{ opacity: timeopacity, fontSize: 'clamp(1.625rem, 2.1vw, 2.125rem)' }} 
       className='text-white fixed top-[85%] left-12 text-[24px] leading-9'
     >
       <div>
@@ -759,7 +748,7 @@ const restoreText = () => {
       <div>
         DE<span className="font-gridular">V</span>EOPER <span className="font-gridular"></span>
       </div>
-    </div>
+    </motion.div>
 
         </div>
       {/* 코딩관련 좌우명 */}
@@ -934,7 +923,7 @@ const restoreText = () => {
   </div>
   <section ref={sectionRef} className="absolute top-[15%]  w-full h-[500vh] ">
       {/* 텍스트는 고정 */}
-      <div ref={topTextRef} className="absolute top-0 left-20 z-20 opacity-50 text-white flex gap-6 text-16px">
+      <div className="absolute top-0 left-20 z-20 opacity-50 text-white flex gap-6 text-16px">
       <div>{lineTop1}</div>
       <div>{lineTop2}</div>
       <div>{lineTop3}</div>
@@ -956,26 +945,83 @@ const restoreText = () => {
     </div>
 
       {/* 이미지 영역 */}
-      <section ref={imageRef} className="relative">
+ <section ref={imageRef} className="relative h-[300vh] bg-black">
       <div
         className="fixed top-0 h-screen w-full overflow-hidden"
         style={{ perspective: "1200px" }}
       >
-        <div className="relative h-full w-full">
-          {transforms.map((data, idx) => (
-            <motion.img
-              key={idx}
-              src={`${process.env.PUBLIC_URL}/netmable.png`}
-              className={`absolute ${data.size}`}
-              style={{
-                transform: useMotionTemplate`translate3d(0, ${data.y}px, ${data.z}px)`,
-                left: data.x,
-                top: data.yInit,
-                scale: data.scale,
-                opacity: data.opacity,
-              }}
-            />
-          ))}
+        <div className="relative h-full w-full" style={{ transformStyle: "preserve-3d" }}>
+          {/* 이미지 1 */}
+          <motion.div
+            className="absolute w-[250px] h-auto flex flex-col items-center gap-2"
+            style={{
+              transform: useMotionTemplate`
+                translate3d(-200px, 100px, ${z1}px)
+                scale(${scale1})
+              `,
+              opacity: opacity1,
+            }}
+          >
+            <img src={`${process.env.PUBLIC_URL}/netmable.png`} className="w-full" />
+            <p className="text-white text-sm">첫 번째 이미지</p>
+            <svg width="30" height="30" className="fill-white">
+              <circle cx="15" cy="15" r="10" />
+            </svg>
+          </motion.div>
+
+          {/* 이미지 2 */}
+          <motion.div
+            className="absolute w-[250px] h-auto flex flex-col items-center gap-2"
+            style={{
+              transform: useMotionTemplate`
+                translate3d(100px, 200px, ${z2}px)
+                scale(${scale2})
+              `,
+              opacity: opacity2,
+            }}
+          >
+            <img src={`${process.env.PUBLIC_URL}/netmable.png`} className="w-full" />
+            <p className="text-white text-sm">두 번째 이미지</p>
+            <svg width="30" height="30" className="fill-white">
+              <rect x="5" y="5" width="20" height="20" />
+            </svg>
+          </motion.div>
+
+          {/* 이미지 3 */}
+          <motion.div
+            className="absolute w-[250px] h-auto flex flex-col items-center gap-2"
+            style={{
+              transform: useMotionTemplate`
+                translate3d(0px, 350px, ${z3}px)
+                scale(${scale3})
+              `,
+              opacity: opacity3,
+            }}
+          >
+            <img src={`${process.env.PUBLIC_URL}/netmable.png`} className="w-full" />
+            <p className="text-white text-sm">세 번째 이미지</p>
+            <svg width="30" height="30" className="fill-white">
+              <polygon points="15,5 25,25 5,25" />
+            </svg>
+          </motion.div>
+
+          {/* 이미지 4 */}
+          <motion.div
+            className="absolute w-[250px] h-auto flex flex-col items-center gap-2"
+            style={{
+              transform: useMotionTemplate`
+                translate3d(250px, 150px, ${z4}px)
+                scale(${scale4})
+              `,
+              opacity: opacity4,
+            }}
+          >
+            <img src={`${process.env.PUBLIC_URL}/netmable.png`} className="w-full" />
+            <p className="text-white text-sm">네 번째 이미지</p>
+            <svg width="30" height="30" className="fill-white">
+              <line x1="5" y1="25" x2="25" y2="5" stroke="white" strokeWidth="2" />
+            </svg>
+          </motion.div>
         </div>
       </div>
     </section>
