@@ -1,4 +1,4 @@
-import React, { useEffect, useState ,useRef,Suspense} from 'react'
+import React, { useEffect, useState ,useRef,Suspense, useMemo} from 'react'
 import { motion, useScroll, useTransform, useAnimation, useInView, useMotionTemplate } from "framer-motion";
 import '../App.css'; 
 import { Canvas, useFrame } from '@react-three/fiber';
@@ -367,20 +367,20 @@ const eraseTyping = (setter, speed = 50, delay = 0) => {
       const imageRef = useRef(null);
 
     
-  const z1 = useTransform(scrollYProgress, [0, 0.3], [-1000, 0]);
-  const z2 = useTransform(scrollYProgress, [0.1, 0.4], [-1200, 0]);
-  const z3 = useTransform(scrollYProgress, [0.2, 0.5], [-1400, 0]);
-  const z4 = useTransform(scrollYProgress, [0.3, 0.6], [-1600, 0]);
+  const z1 = useTransform(scrollYProgress, [0, 1], [-1000, 0]);
+  const z2 = useTransform(scrollYProgress, [0, 1], [-1200, 0]);
+  const z3 = useTransform(scrollYProgress, [0, 1], [-1500, 0]);
+  const z4 = useTransform(scrollYProgress, [0, 1], [-1300, 0]);
 
-  const scale1 = useTransform(scrollYProgress, [0, 0.3], [0.5, 1]);
-  const scale2 = useTransform(scrollYProgress, [0.1, 0.4], [0.5, 1]);
-  const scale3 = useTransform(scrollYProgress, [0.2, 0.5], [0.5, 1]);
-  const scale4 = useTransform(scrollYProgress, [0.3, 0.6], [0.5, 1]);
+  const scale1 = useTransform(z1, [-1000, 0], [0.5, 1.2]);
+  const scale2 = useTransform(z2, [-1200, 0], [0.5, 1.2]);
+  const scale3 = useTransform(z3, [-1500, 0], [0.5, 1.2]);
+  const scale4 = useTransform(z4, [-1300, 0], [0.5, 1.2]);
 
-  const opacity1 = useTransform(scrollYProgress, [0, 0.25], [0, 1]);
-  const opacity2 = useTransform(scrollYProgress, [0.1, 0.35], [0, 1]);
-  const opacity3 = useTransform(scrollYProgress, [0.2, 0.45], [0, 1]);
-  const opacity4 = useTransform(scrollYProgress, [0.3, 0.55], [0, 1]);
+  const opacity1 = useTransform(z1, [-1000, -200, 0], [0, 0.6, 1]);
+  const opacity2 = useTransform(z2, [-1200, -200, 0], [0, 0.6, 1]);
+  const opacity3 = useTransform(z3, [-1500, -300, 0], [0, 0.6, 1]);
+  const opacity4 = useTransform(z4, [-1300, -250, 0], [0, 0.6, 1]);
 const scrollYVal = useScrollY(); 
 const isFixed = scrollYVal < 1300; 
 
@@ -394,7 +394,7 @@ function useScrollY() {
   return scrollYVal;
 }
       
-    function SalsaModel({ scrollYVal }) {
+  function SalsaModel({ scrollYVal }) {
   const { scene } = useGLTF('/models/planet.glb');
   const modelRef = useRef();
 
@@ -430,8 +430,34 @@ function useScrollY() {
           />
         );
       }
-    
 
+      
+function SalsaModelDance({ scrollYVal }) {
+  const { scene } = useGLTF('/models/model.glb'); // 🎯 여기로 바뀜!
+  const modelRef = useRef();
+
+  useEffect(() => {
+    scene.position.set(0, 0, 0);
+    scene.traverse((child) => {
+      if (child.isMesh) child.geometry.center();
+    });
+  }, [scene]);
+
+  useFrame(() => {
+    if (!modelRef.current) return;
+    modelRef.current.rotation.y = scrollYVal * 0.01;
+    modelRef.current.position.z = (scrollYVal - 1000) * 0.01;
+  });
+
+  return (
+    <primitive
+      ref={modelRef}
+      object={scene}
+      position={[0, 0, 0]}
+      visible={true}
+    />
+  );
+}
   return (
     <section  className='bg-black w-full h-[2000vh] relative'>
       <div ref={targetRef} className='w-full h-[500vh]  absolute top-0 left-0'>
@@ -652,7 +678,7 @@ function useScrollY() {
         style={{ width: '100%', height: '100%' }}
         gl={{ alpha: true }}
         onCreated={({ gl }) => {
-          gl.setClearColor('#000000', 0); // 배경 투명
+          gl.setClearColor('#000000', 0); 
         }}
       >
         <ambientLight intensity={0.5} />
@@ -945,15 +971,15 @@ function useScrollY() {
     </div>
 
       {/* 이미지 영역 */}
- <section ref={imageRef} className="relative h-[300vh] bg-black">
+ <div ref={imageRef} className="relative h-[300vh] bg-black">
       <div
-        className="fixed top-0 h-screen w-full overflow-hidden"
+        className="sticky top-0 h-screen w-full overflow-visible"
         style={{ perspective: "1200px" }}
       >
         <div className="relative h-full w-full" style={{ transformStyle: "preserve-3d" }}>
           {/* 이미지 1 */}
           <motion.div
-            className="absolute w-[250px] h-auto flex flex-col items-center gap-2"
+            className="absolute top-0 left-0 w-[250px] h-auto flex flex-col items-center gap-2"
             style={{
               transform: useMotionTemplate`
                 translate3d(-200px, 100px, ${z1}px)
@@ -971,7 +997,7 @@ function useScrollY() {
 
           {/* 이미지 2 */}
           <motion.div
-            className="absolute w-[250px] h-auto flex flex-col items-center gap-2"
+            className="absolute top-0 left-10 w-[250px] h-auto flex flex-col items-center gap-2"
             style={{
               transform: useMotionTemplate`
                 translate3d(100px, 200px, ${z2}px)
@@ -989,7 +1015,7 @@ function useScrollY() {
 
           {/* 이미지 3 */}
           <motion.div
-            className="absolute w-[250px] h-auto flex flex-col items-center gap-2"
+            className="absolute top-0 right-10 w-[250px] h-auto flex flex-col items-center gap-2"
             style={{
               transform: useMotionTemplate`
                 translate3d(0px, 350px, ${z3}px)
@@ -1007,7 +1033,7 @@ function useScrollY() {
 
           {/* 이미지 4 */}
           <motion.div
-            className="absolute w-[250px] h-auto flex flex-col items-center gap-2"
+            className="absolute top-0 right-20 w-[250px] h-auto flex flex-col items-center gap-2"
             style={{
               transform: useMotionTemplate`
                 translate3d(250px, 150px, ${z4}px)
@@ -1024,7 +1050,7 @@ function useScrollY() {
           </motion.div>
         </div>
       </div>
-    </section>
+    </div>
 
       <div className='w-full  absolute top-[70%] px-[3vw]'>
       <div className="wave-line flex items-end gap-[5px] w-full h-[10px]">
@@ -1045,6 +1071,25 @@ function useScrollY() {
     />
   ))}
 </div>
+
+  <div
+    className="absolute top-0 left-0 w-full h-full z-50 pointer-events-none"
+  >
+    <Canvas
+      camera={{ position: [0, 0, 0], fov: 50 }}
+      style={{ width: '100%', height: '100%' }}
+      gl={{ alpha: true }}
+      onCreated={({ gl }) => {
+        gl.setClearColor('#000000', 0); 
+      }}
+    >
+      <ambientLight intensity={0.5} />
+      <directionalLight position={[0, 0, 0]} />
+      <Suspense fallback={null}>
+        <SalsaModelDance scrollYVal={scrollYVal} />
+      </Suspense>
+    </Canvas>
+  </div>
 
   {/* AWWWWARDS 섹션 */}
   <div className='relative'>
