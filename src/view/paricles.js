@@ -9,7 +9,7 @@ const ParticleBackground = () => {
 
   return (
     <Particles
-      className="fixed w-full h-screen z-20 mix-blend-lighten"
+      className="fixed w-full h-screen z-0 mix-blend-lighten"
       id="tsparticles"
       init={particlesInit}
       options={{

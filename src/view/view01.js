@@ -364,23 +364,31 @@ const eraseTyping = (setter, speed = 50, delay = 0) => {
     }, speed);
   }, delay);
 };
-      const imageRef = useRef(null);
+const imageRef = useRef(null);
+const { scrollYProgress: imageProgress } = useScroll({
+  target: imageRef,
+  offset: ["start end", "end start"],
+});
 
-    
-  const z1 = useTransform(scrollYProgress, [0, 1], [-1000, 0]);
-  const z2 = useTransform(scrollYProgress, [0, 1], [-1200, 0]);
-  const z3 = useTransform(scrollYProgress, [0, 1], [-1500, 0]);
-  const z4 = useTransform(scrollYProgress, [0, 1], [-1300, 0]);
+const z1 = useTransform(imageProgress, [0.00, 0.15, 0.30], [-800, 0, 2000]);
+const scale1 = useTransform(imageProgress, [0.00, 0.15, 0.30], [0.3, 1.2, 4]);
+const opacity1 = useTransform(imageProgress, [0.00, 0.05, 0.10, 0.25], [0, 1, 1, 0]);
 
-  const scale1 = useTransform(z1, [-1000, 0], [0.5, 1.2]);
-  const scale2 = useTransform(z2, [-1200, 0], [0.5, 1.2]);
-  const scale3 = useTransform(z3, [-1500, 0], [0.5, 1.2]);
-  const scale4 = useTransform(z4, [-1300, 0], [0.5, 1.2]);
+const z2 = useTransform(imageProgress, [0.10, 0.25, 0.40], [-700, 0, 2200]);
+const scale2 = useTransform(imageProgress, [0.10, 0.25, 0.40], [0.3, 1.3, 4.2]);
+const opacity2 = useTransform(imageProgress, [0.08, 0.13, 0.25, 0.38], [0, 1, 1, 0]);
 
-  const opacity1 = useTransform(z1, [-1000, -200, 0], [0, 0.6, 1]);
-  const opacity2 = useTransform(z2, [-1200, -200, 0], [0, 0.6, 1]);
-  const opacity3 = useTransform(z3, [-1500, -300, 0], [0, 0.6, 1]);
-  const opacity4 = useTransform(z4, [-1300, -250, 0], [0, 0.6, 1]);
+const z3 = useTransform(imageProgress, [0.20, 0.35, 0.50], [-900, 0, 2400]);
+const scale3 = useTransform(imageProgress, [0.20, 0.35, 0.50], [0.3, 1.4, 4.5]);
+const opacity3 = useTransform(imageProgress, [0.18, 0.23, 0.35, 0.48], [0, 1, 1, 0]);
+
+const z4 = useTransform(imageProgress, [0.30, 0.45, 0.60], [-850, 0, 2600]);
+const scale4 = useTransform(imageProgress, [0.30, 0.45, 0.60], [0.3, 1.5, 4.8]);
+const opacity4 = useTransform(imageProgress, [0.28, 0.33, 0.45, 0.58], [0, 1, 1, 0]);
+
+const nextOpacity = useTransform(imageProgress, [0.65, 0.90], [0, 1]);
+const nextScale = useTransform(imageProgress, [0.65, 0.90], [0.6, 1]);
+
 const scrollYVal = useScrollY(); 
 const isFixed = scrollYVal < 1300; 
 
@@ -431,33 +439,8 @@ function useScrollY() {
         );
       }
 
-      
-function SalsaModelDance({ scrollYVal }) {
-  const { scene } = useGLTF('/models/model.glb'); // 🎯 여기로 바뀜!
-  const modelRef = useRef();
 
-  useEffect(() => {
-    scene.position.set(0, 0, 0);
-    scene.traverse((child) => {
-      if (child.isMesh) child.geometry.center();
-    });
-  }, [scene]);
 
-  useFrame(() => {
-    if (!modelRef.current) return;
-    modelRef.current.rotation.y = scrollYVal * 0.01;
-    modelRef.current.position.z = (scrollYVal - 1000) * 0.01;
-  });
-
-  return (
-    <primitive
-      ref={modelRef}
-      object={scene}
-      position={[0, 0, 0]}
-      visible={true}
-    />
-  );
-}
   return (
     <section  className='bg-black w-full h-[2000vh] relative'>
       <div ref={targetRef} className='w-full h-[500vh]  absolute top-0 left-0'>
@@ -671,7 +654,7 @@ function SalsaModelDance({ scrollYVal }) {
       id="canvas-wrapper"
       className={`${
         isFixed ? 'fixed top-[20%]' : 'relative top-0'
-      } left-0 w-full h-screen z-[999] pointer-events-none transition-all duration-500 ease-in-out`}
+      } left-0 w-full h-screen z-[99] pointer-events-none transition-all duration-500 ease-in-out`}
     >
       <Canvas
         camera={{ position: [0, 2, 5], fov: 50 }}
@@ -969,90 +952,160 @@ function SalsaModelDance({ scrollYVal }) {
       <div>{ux1}</div>
       <div>{ux2}</div>
     </div>
+  
+    </section>
+</section>
+{/* -----------------------<section3>----------------------- */}
+<section ref={imageRef} className="relative top-[25%] w-full h-[500vh] z-50">
+    <div className="pointer-events-none">
+    <div className="fixed top-0 left-0 w-full h-screen z-40 overflow-visible pointer-events-none"
+         style={{ perspective: "1200px", transformStyle: "preserve-3d" }}>
+      {/* 이미지 1 */}
+   <motion.div
+  className="absolute top-1/2 left-1/4 w-[250px] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-2 group pointer-events-auto"
+  style={{
+    transform: useMotionTemplate`translateZ(${z1}px) scale(${scale1})`,
+    opacity: opacity1,
+    transformOrigin: "center",
+  }}
+>
+  <div className="relative w-full">
+    <img
+      src={`${process.env.PUBLIC_URL}/netmable.png`}
+      className="w-full pointer-events-auto"
+      onMouseMove={(e) => {
+        const blur = e.currentTarget.querySelector('.blur-circle');
+        if (blur) {
+          const rect = e.currentTarget.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          blur.style.left = `${x}px`;
+          blur.style.top = `${y}px`;
+        }
+      }}
+    />
+    <div
+      className="blur-circle absolute w-[80px] h-[80px] rounded-full bg-white/30 backdrop-blur-md pointer-events-none opacity-0 group-hover:opacity-100 transition duration-200"
+      style={{ transform: 'translate(-50%, -50%)' }}
+    />
+  </div>
+  <p className="text-white text-sm opacity-0 group-hover:opacity-100 transition duration-300">첫 번째 이미지</p>
+  <svg width="30" height="30" className="fill-white opacity-0 group-hover:opacity-100 transition duration-300">
+    <circle cx="15" cy="15" r="10" />
+  </svg>
+</motion.div>
 
-      {/* 이미지 영역 */}
- <div ref={imageRef} className="relative h-[300vh] bg-black">
-      <div
-        className="sticky top-0 h-screen w-full overflow-visible"
-        style={{ perspective: "1200px" }}
-      >
-        <div className="relative h-full w-full" style={{ transformStyle: "preserve-3d" }}>
-          {/* 이미지 1 */}
-          <motion.div
-            className="absolute top-0 left-0 w-[250px] h-auto flex flex-col items-center gap-2"
-            style={{
-              transform: useMotionTemplate`
-                translate3d(-200px, 100px, ${z1}px)
-                scale(${scale1})
-              `,
-              opacity: opacity1,
-            }}
-          >
-            <img src={`${process.env.PUBLIC_URL}/netmable.png`} className="w-full" />
-            <p className="text-white text-sm">첫 번째 이미지</p>
-            <svg width="30" height="30" className="fill-white">
-              <circle cx="15" cy="15" r="10" />
-            </svg>
-          </motion.div>
+{/* 이미지 2 */}
+<motion.div
+  className="absolute top-1/2 left-1/2 w-[250px] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-2 group pointer-events-auto"
+  style={{
+    transform: useMotionTemplate`translateZ(${z2}px) scale(${scale2})`,
+    opacity: opacity2,
+    transformOrigin: "center",
+  }}
+>
+  <div className="relative w-full">
+    <img
+      src={`${process.env.PUBLIC_URL}/netmable.png`}
+      className="w-full pointer-events-auto"
+      onMouseMove={(e) => {
+        const blur = e.currentTarget.querySelector('.blur-circle');
+        if (blur) {
+          const rect = e.currentTarget.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          blur.style.left = `${x}px`;
+          blur.style.top = `${y}px`;
+        }
+      }}
+    />
+    <div
+      className="blur-circle absolute w-[80px] h-[80px] rounded-full bg-white/30 backdrop-blur-md pointer-events-none opacity-0 group-hover:opacity-100 transition duration-200"
+      style={{ transform: 'translate(-50%, -50%)' }}
+    />
+  </div>
+  <p className="text-white text-sm opacity-0 group-hover:opacity-100 transition duration-300">두 번째 이미지</p>
+  <svg width="30" height="30" className="fill-white opacity-0 group-hover:opacity-100 transition duration-300">
+    <circle cx="15" cy="15" r="10" />
+  </svg>
+</motion.div>
 
-          {/* 이미지 2 */}
-          <motion.div
-            className="absolute top-0 left-10 w-[250px] h-auto flex flex-col items-center gap-2"
-            style={{
-              transform: useMotionTemplate`
-                translate3d(100px, 200px, ${z2}px)
-                scale(${scale2})
-              `,
-              opacity: opacity2,
-            }}
-          >
-            <img src={`${process.env.PUBLIC_URL}/netmable.png`} className="w-full" />
-            <p className="text-white text-sm">두 번째 이미지</p>
-            <svg width="30" height="30" className="fill-white">
-              <rect x="5" y="5" width="20" height="20" />
-            </svg>
-          </motion.div>
+{/* 이미지 3 */}
+<motion.div
+  className="absolute top-1/2 left-[75%] w-[250px] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-2 group pointer-events-auto"
+  style={{
+    transform: useMotionTemplate`translateZ(${z3}px) scale(${scale3})`,
+    opacity: opacity3,
+    transformOrigin: "center",
+  }}
+>
+  <div className="relative w-full">
+    <img
+      src={`${process.env.PUBLIC_URL}/netmable.png`}
+      className="w-full pointer-events-auto"
+      onMouseMove={(e) => {
+        const blur = e.currentTarget.querySelector('.blur-circle');
+        if (blur) {
+          const rect = e.currentTarget.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          blur.style.left = `${x}px`;
+          blur.style.top = `${y}px`;
+        }
+      }}
+    />
+    <div
+      className="blur-circle absolute w-[80px] h-[80px] rounded-full bg-white/30 backdrop-blur-md pointer-events-none opacity-0 group-hover:opacity-100 transition duration-200"
+      style={{ transform: 'translate(-50%, -50%)' }}
+    />
+  </div>
+  <p className="text-white text-sm opacity-0 group-hover:opacity-100 transition duration-300">세 번째 이미지</p>
+  <svg width="30" height="30" className="fill-white opacity-0 group-hover:opacity-100 transition duration-300">
+    <circle cx="15" cy="15" r="10" />
+  </svg>
+</motion.div>
 
-          {/* 이미지 3 */}
-          <motion.div
-            className="absolute top-0 right-10 w-[250px] h-auto flex flex-col items-center gap-2"
-            style={{
-              transform: useMotionTemplate`
-                translate3d(0px, 350px, ${z3}px)
-                scale(${scale3})
-              `,
-              opacity: opacity3,
-            }}
-          >
-            <img src={`${process.env.PUBLIC_URL}/netmable.png`} className="w-full" />
-            <p className="text-white text-sm">세 번째 이미지</p>
-            <svg width="30" height="30" className="fill-white">
-              <polygon points="15,5 25,25 5,25" />
-            </svg>
-          </motion.div>
+{/* 이미지 4 */}
+<motion.div
+  className="absolute top-2/3 left-1/2 w-[250px] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-2 group pointer-events-auto"
+  style={{
+    transform: useMotionTemplate`translateZ(${z4}px) scale(${scale4})`,
+    opacity: opacity4,
+    transformOrigin: "center",
+  }}
+>
+  <div className="relative w-full">
+    <img
+      src={`${process.env.PUBLIC_URL}/netmable.png`}
+      className="w-full pointer-events-auto"
+      onMouseMove={(e) => {
+        const blur = e.currentTarget.querySelector('.blur-circle');
+        if (blur) {
+          const rect = e.currentTarget.getBoundingClientRect();
+          const x = e.clientX - rect.left;
+          const y = e.clientY - rect.top;
+          blur.style.left = `${x}px`;
+          blur.style.top = `${y}px`;
+        }
+      }}
+    />
+    <div
+      className="blur-circle absolute w-[80px] h-[80px] rounded-full bg-white/30 backdrop-blur-md pointer-events-none opacity-0 group-hover:opacity-100 transition duration-200"
+      style={{ transform: 'translate(-50%, -50%)' }}
+    />
+  </div>
+  <p className="text-white text-sm opacity-0 group-hover:opacity-100 transition duration-300">네 번째 이미지</p>
+  <svg width="30" height="30" className="fill-white opacity-0 group-hover:opacity-100 transition duration-300">
+    <circle cx="15" cy="15" r="10" />
+  </svg>
+</motion.div>
 
-          {/* 이미지 4 */}
-          <motion.div
-            className="absolute top-0 right-20 w-[250px] h-auto flex flex-col items-center gap-2"
-            style={{
-              transform: useMotionTemplate`
-                translate3d(250px, 150px, ${z4}px)
-                scale(${scale4})
-              `,
-              opacity: opacity4,
-            }}
-          >
-            <img src={`${process.env.PUBLIC_URL}/netmable.png`} className="w-full" />
-            <p className="text-white text-sm">네 번째 이미지</p>
-            <svg width="30" height="30" className="fill-white">
-              <line x1="5" y1="25" x2="25" y2="5" stroke="white" strokeWidth="2" />
-            </svg>
-          </motion.div>
-        </div>
-      </div>
     </div>
+  </div>
 
-      <div className='w-full  absolute top-[70%] px-[3vw]'>
+
+
+      <motion.div   style={{opacity: nextOpacity, scale: nextScale,}} className='w-full  absolute top-[70%] px-[3vw]'>
       <div className="wave-line flex items-end gap-[5px] w-full h-[10px]">
   {[...Array(300)].map((_, i) => (
     <motion.div
@@ -1072,24 +1125,6 @@ function SalsaModelDance({ scrollYVal }) {
   ))}
 </div>
 
-  <div
-    className="absolute top-0 left-0 w-full h-full z-50 pointer-events-none"
-  >
-    <Canvas
-      camera={{ position: [0, 0, 0], fov: 50 }}
-      style={{ width: '100%', height: '100%' }}
-      gl={{ alpha: true }}
-      onCreated={({ gl }) => {
-        gl.setClearColor('#000000', 0); 
-      }}
-    >
-      <ambientLight intensity={0.5} />
-      <directionalLight position={[0, 0, 0]} />
-      <Suspense fallback={null}>
-        <SalsaModelDance scrollYVal={scrollYVal} />
-      </Suspense>
-    </Canvas>
-  </div>
 
   {/* AWWWWARDS 섹션 */}
   <div className='relative'>
@@ -1224,10 +1259,8 @@ function SalsaModelDance({ scrollYVal }) {
       </div>
     </div>
 </div>
-</div>
-    </section>
+</motion.div>
 </section>
-{/* -----------------------<section3>----------------------- */}
 
 
 {/*section5 학력사항 */}
