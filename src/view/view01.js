@@ -418,7 +418,7 @@ function useScrollY() {
 
     modelRef.current.rotation.y = scrollYVal * 0.005;
 
-    const scale = 1 + Math.min(scrollYVal, 500) * 0.0005;
+    const scale = 2 + Math.min(scrollYVal, 500) * 0.0005;
     modelRef.current.scale.setScalar(scale);
 
     const z = scrollYVal > 800 ? (scrollYVal - 800) * 0.01 : 0;
@@ -669,7 +669,7 @@ function useScrollY() {
         <Suspense fallback={null}>
           <SalsaModel scrollYVal={scrollYVal} />
         </Suspense>
-        <OrbitControls />
+        {/* <OrbitControls /> */}
       </Canvas>
     </div>
 
@@ -748,7 +748,7 @@ function useScrollY() {
       style={{ opacity: timeopacity, fontSize: 'clamp(1.625rem, 2.1vw, 2.125rem)' }} 
       className='text-white fixed top-[85%] left-12 text-[24px] leading-9'
     >
-      <div>
+      <div className=''>
         F<span className="font-gridular">R</span>ONT
       </div>
       <div>
@@ -763,12 +763,12 @@ function useScrollY() {
       {/* 코딩관련 좌우명 */}
 <motion.div className='fixed top-[20%] left-[10%] ' style={{ y: divY }}>
   <div className="flex gap-1 text-left text-7xl font-bold text-white text-opacity-50">
-    <motion.span className="font-gridular" style={{ y: yF, opacity: opacityF }}>F</motion.span>
+    <motion.span className="font-gridular -mr-2" style={{ y: yF, opacity: opacityF }}>F</motion.span>
     <motion.span style={{ y: yA, opacity: opacityA }}>A</motion.span>
     <motion.span style={{ y: yI, opacity: opacityI }}>I</motion.span>
     <motion.span style={{ y: yL, opacity: opacityL }}>L</motion.span>
     <motion.span style={{ y: ySpace, opacity: opacitySp1 }}>&nbsp;</motion.span>
-    <motion.span className="font-gridular" style={{ y: yF2, opacity: opacityF2 }}>F</motion.span>
+    <motion.span className="font-gridular -mr-2" style={{ y: yF2, opacity: opacityF2 }}>F</motion.span>
     <motion.span style={{ y: yA2, opacity: opacityA2 }}>A</motion.span>
     <motion.span style={{ y: yS, opacity: opacityS }}>S</motion.span>
     <motion.span style={{ y: yT, opacity: opacityT }}>T</motion.span>
