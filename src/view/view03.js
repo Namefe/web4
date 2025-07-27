@@ -137,72 +137,173 @@ const textVariants = {
 
 {/* 이미지 2 */}
 <motion.div
-  className="absolute top-1/2 left-1/2 w-[250px] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-2 group pointer-events-auto"
+  className="group relative absolute top-[20%] left-1/2 w-[250px] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center pointer-events-auto"
   style={{
     transform: useMotionTemplate`translateZ(${z2}px) scale(${scale2})`,
     opacity: opacity2,
     transformOrigin: "center",
   }}
 >
-  <div className="relative w-full">
-    <img
-      src={`${process.env.PUBLIC_URL}/netmable.png`}
-      className="w-full pointer-events-auto"
-      onMouseMove={(e) => {
-        const blur = e.currentTarget.querySelector('.blur-circle');
-        if (blur) {
+  <a href="#" className="relative w-full">
+    <div className="w-full relative">
+      <img
+        src={`${process.env.PUBLIC_URL}/netmable.png`}
+        className="w-full block pointer-events-auto"
+        onMouseMove={(e) => {
+          const blurImg = e.currentTarget.parentNode.querySelector(".blur-img");
           const rect = e.currentTarget.getBoundingClientRect();
-          const x = e.clientX - rect.left;
-          const y = e.clientY - rect.top;
-          blur.style.left = `${x}px`;
-          blur.style.top = `${y}px`;
-        }
-      }}
-    />
-    <div
-      className="blur-circle absolute w-[80px] h-[80px] rounded-full bg-white/30 backdrop-blur-md pointer-events-none opacity-0 group-hover:opacity-100 transition duration-200"
-      style={{ transform: 'translate(-50%, -50%)' }}
-    />
-  </div>
-  <p className="text-white text-sm opacity-0 group-hover:opacity-100 transition duration-300">두 번째 이미지</p>
-  <svg width="30" height="30" className="fill-white opacity-0 group-hover:opacity-100 transition duration-300">
-    <circle cx="15" cy="15" r="10" />
-  </svg>
+          const x = e.clientX - rect.left - 30;
+          const y = e.clientY - rect.top - 30;
+          blurImg.style.WebkitMaskPosition = `${x}px ${y}px`;
+          blurImg.style.maskPosition = `${x}px ${y}px`;
+          blurImg.style.opacity = "1";
+        }}
+        onMouseLeave={(e) => {
+          const blurImg = e.currentTarget.parentNode.querySelector(".blur-img");
+          blurImg.style.opacity = "0";
+        }}
+      />
+
+      <img
+        src={`${process.env.PUBLIC_URL}/netmable.png`}
+        className="blur-img w-full absolute top-0 left-0 pointer-events-none z-20"
+        style={{
+          filter: "blur(8px)",
+          opacity: 0,
+          transition: "opacity 0.3s ease, mask-position 0.1s ease",
+          WebkitMaskImage:
+            "radial-gradient(circle 60px at center, black 100%, transparent 100%)",
+          maskImage:
+            "radial-gradient(circle 60px at center, black 100%, transparent 100%)",
+          WebkitMaskRepeat: "no-repeat",
+          maskRepeat: "no-repeat",
+          WebkitMaskPosition: "center",
+          maskPosition: "center",
+        }}
+      />
+    </div>
+
+    <div className="relative mt-3 flex flex-col items-center gap-2 z-10">
+      <div className="text-white text-sm font-semibold tracking-wide opacity-40 group-hover:opacity-100 transition-opacity duration-300">
+        Netmarble
+      </div>
+
+      <div className="flex gap-[2px]">
+        {"NETMARBLEGAMES".split("").map((char, i) => (
+          <motion.div
+            key={i}
+            className="text-white font-bold"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: [0, 1], y: [10, 0] }}
+            exit={{ opacity: 0, y: 10 }}
+            transition={{
+              delay: i * 0.03,
+              duration: 0.3,
+              ease: "easeOut",
+            }}
+            whileHover={{ opacity: 1, y: 0 }}
+          >
+            {char}
+          </motion.div>
+        ))}
+      </div>
+    </div>
+
+    {[
+      { className: "bottom-[-8px] left-[-8px]", path: "M7 6V20H21", delay: 0 },
+      { className: "bottom-[-8px] right-[-8px]", path: "M20 6V20H6", delay: 0.05 },
+      { className: "top-[-15px] left-[-10px]", path: "M7 21V7H21", delay: 0.1 },
+      { className: "top-[-15px] right-[-10px]", path: "M20 21V7H6", delay: 0.15 },
+    ].map((item, i) => (
+      <motion.svg
+        key={i}
+        className={`absolute ${item.className} w-[20px] h-[20px] text-white opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-500`}
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        style={{ zIndex: 20 }}
+      >
+        <path d={item.path} strokeWidth="1.5" />
+      </motion.svg>
+    ))}
+  </a>
 </motion.div>
+
+
+
+
 
 {/* 이미지 3 */}
 <motion.div
-  className="absolute top-1/2 left-[75%] w-[250px] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-2 group pointer-events-auto"
+  className="group relative absolute top-[40%] left-[75%] w-[250px] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center pointer-events-auto"
   style={{
     transform: useMotionTemplate`translateZ(${z3}px) scale(${scale3})`,
     opacity: opacity3,
     transformOrigin: "center",
   }}
 >
-  <div className="relative w-full">
-    <img
-      src={`${process.env.PUBLIC_URL}/netmable.png`}
-      className="w-full pointer-events-auto"
-      onMouseMove={(e) => {
-        const blur = e.currentTarget.querySelector('.blur-circle');
-        if (blur) {
-          const rect = e.currentTarget.getBoundingClientRect();
-          const x = e.clientX - rect.left;
-          const y = e.clientY - rect.top;
-          blur.style.left = `${x}px`;
-          blur.style.top = `${y}px`;
-        }
-      }}
-    />
-    <div
-      className="blur-circle absolute w-[80px] h-[80px] rounded-full bg-white/30 backdrop-blur-md pointer-events-none opacity-0 group-hover:opacity-100 transition duration-200"
-      style={{ transform: 'translate(-50%, -50%)' }}
-    />
-  </div>
-  <p className="text-white text-sm opacity-0 group-hover:opacity-100 transition duration-300">세 번째 이미지</p>
-  <svg width="30" height="30" className="fill-white opacity-0 group-hover:opacity-100 transition duration-300">
-    <circle cx="15" cy="15" r="10" />
-  </svg>
+  <a href="#" className="relative w-full">
+    <div className="w-full">
+      <img
+        src={`${process.env.PUBLIC_URL}/netmable.png`}
+        className="w-full block pointer-events-auto"
+        onMouseMove={(e) => {
+          const blur = e.currentTarget.querySelector(".blur-circle");
+          if (blur) {
+            const rect = e.currentTarget.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            blur.style.left = `${x}px`;
+            blur.style.top = `${y}px`;
+          }
+        }}
+      />
+    </div>
+
+    <div className="relative mt-3 flex flex-col items-center gap-2 z-10">
+      <div className="text-white text-sm font-semibold tracking-wide opacity-40 group-hover:opacity-100 transition-opacity duration-300">
+        Netmarble
+      </div>
+
+      <div className="flex gap-[2px]">
+        {"NETMARBLEGAMES".split("").map((char, i) => (
+          <motion.div
+            key={i}
+            className="text-white font-bold"
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: [0, 1], y: [10, 0] }}
+            exit={{ opacity: 0, y: 10 }}
+            transition={{
+              delay: i * 0.03,
+              duration: 0.3,
+              ease: "easeOut",
+            }}
+            whileHover={{ opacity: 1, y: 0 }}
+          >
+            {char}
+          </motion.div>
+        ))}
+      </div>
+    </div>
+
+    {[
+      { className: "bottom-[-8px] left-[-8px]", path: "M7 6V20H21", delay: 0 },
+      { className: "bottom-[-8px] right-[-8px]", path: "M20 6V20H6", delay: 0.05 },
+      { className: "top-[-15px] left-[-10px]", path: "M7 21V7H21", delay: 0.1 },
+      { className: "top-[-15px] right-[-10px]", path: "M20 21V7H6", delay: 0.15 },
+    ].map((item, i) => (
+      <motion.svg
+        key={i}
+        className={`absolute ${item.className} w-[20px] h-[20px] text-white opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-500`}
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+        style={{ zIndex: 20 }}
+      >
+        <path d={item.path} strokeWidth="1.5" />
+      </motion.svg>
+    ))}
+  </a>
 </motion.div>
 
     </div>
