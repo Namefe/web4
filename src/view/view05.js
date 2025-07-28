@@ -4,6 +4,13 @@ const View05 = () => {
 
 
   const hiddenIndices = [1,3,6,8,11]
+
+  const socials = [
+  { label: "INSTAGRAM", angle: -45 },
+  { label: "BEHANCE", angle: -15 },
+  { label: "FACEBOOK", angle: 15 },
+  { label: "LINKEDIN", angle: 45 },
+];
  
  
   return ( 
@@ -12,27 +19,27 @@ const View05 = () => {
       {/* 반원형 SVG */}
       <svg
         viewBox="0 0 1000 1000"
-        className="absolute bottom-4 left-1/2 -translate-x-1/2 w-[1500px] h-[800px] z-0"
+        className="absolute bottom-4 left-1/2 -translate-x-1/2 w-full h-[800px] z-0"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <defs>
-          <path
-            id="text-arc"
-            d="M 100,500 A 400,400 0 0,1 900,500"
-            fill="none"
-          />
-        </defs>
+  <defs>
+    <path
+      id="text-arc"
+      d="M -405,1000 A 905,905 0 0,1 1404,1000"
+      fill="none"
+    />
+  </defs>
 
-        <text
-          fill="#777"
-          fontSize="55"
-          fontFamily="monospace"
-          letterSpacing="10"
-        >
-          <textPath href="#text-arc" startOffset="50%" textAnchor="middle">
-            SMC9102@NAVER.COM
-          </textPath>
-        </text>
+  <text
+    fill="#777"
+    fontSize="100"
+    fontFamily="monospace"
+    letterSpacing="10"
+  >
+    <textPath className='font-bold' href="#text-arc" startOffset="50%" textAnchor="middle">
+      SMC9102@NAVER.COM
+    </textPath>
+  </text>
 
         {Array.from({ length: 180 }).map((_, i) => {
         const angle = i * 2; 
@@ -56,8 +63,8 @@ const View05 = () => {
           />
         );
       })}
-        {Array.from({ length: 180 }).map((_, i) => {
-        const angle = i * 2; 
+        {Array.from({ length: 360 }).map((_, i) => {
+        const angle = i * 1; 
         const r = 810;       
         const tickLength = 15;
 
@@ -79,8 +86,8 @@ const View05 = () => {
         );
       })}
 
-{Array.from({ length: 180 }).map((_, i) => {
-        const angle = i * 2; 
+{Array.from({ length: 360 }).map((_, i) => {
+        const angle = i * 1; 
         const r = 1000;       
         const tickLength = 15;
 
@@ -168,12 +175,28 @@ const View05 = () => {
       </svg>
 
       {/* 소셜 링크들 - 각도 조절 위치 수동 */}
-      <div className="absolute top-[260px] left-1/2 -translate-x-1/2 z-10 w-[600px] h-[300px]">
-        <div className="absolute left-[60px] top-[90px] rotate-[-45deg] text-xs tracking-widest">INSTAGRAM</div>
-        <div className="absolute left-[200px] top-[40px] rotate-[-15deg] text-xs tracking-widest">BEHANCE</div>
-        <div className="absolute right-[200px] top-[40px] rotate-[15deg] text-xs tracking-widest">FACEBOOK</div>
-        <div className="absolute right-[60px] top-[90px] rotate-[45deg] text-xs tracking-widest">LINKEDIN</div>
-      </div>
+{socials.map(({ label, angle }, i) => {
+  const r = 850;
+  const rad = (angle * Math.PI) / 180;
+  const x = 500 + Math.cos(rad) * r;
+  const y = 1000 + Math.sin(rad) * r;
+
+  return (
+    <div
+      key={i}
+      className="absolute text-xs tracking-widest"
+      style={{
+        left: `${x}px`,
+        top: `${y}px`,
+        transform: `translate(-50%, -50%) rotate(${angle}deg)`,
+        transformOrigin: "center",
+      }}
+    >
+      {label}
+    </div>
+  );
+})}
+
 
 
 
