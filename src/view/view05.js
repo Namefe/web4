@@ -10,6 +10,10 @@ const View05 = () => {
   return ( 
     <>
     <section id="view05" className="relative h-screen w-full  overflow-hidden text-white">
+      <div className='absolute top-10 left-10 text-2xl text-white'>
+        <div>LET'S GET DOWN</div>
+        <div>TO BUSINESS-</div>
+      </div>
       <svg
         viewBox="0 -10 1000 1000"
         className="absolute bottom-4 left-1/2 -translate-x-1/2 w-screen h-[800px] z-0"
