@@ -266,6 +266,63 @@ function useScrollY() {
         );
       }
 
+      const ballRef = useRef(null);
+      const [isActive, setIsActive] = useState(false); // view05 섹션 감지 여부
+      const [isHovered, setIsHovered] = useState(false);
+    
+      const velocity = useRef({ x: 2, y: 2 }); 
+      const position = useRef({ x: window.innerWidth / 2, y: window.innerHeight / 2 });
+      const initialPosition = { x: window.innerWidth - 200, y: window.innerHeight - 200 }; // 원래 자리
+    
+      // view05 감지
+      useEffect(() => {
+        const handleScroll = () => {
+          const section = document.getElementById("view05");
+          if (section) {
+            const rect = section.getBoundingClientRect();
+            setIsActive(rect.top < window.innerHeight && rect.bottom > 0);
+          }
+        };
+    
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+      }, []);
+    
+      // 핀볼 애니메이션
+      useEffect(() => {
+        let animationFrame;
+    
+        const moveBall = () => {
+          const ball = ballRef.current;
+          if (!ball) return;
+    
+          const ballSize = 160;
+    
+          if (isActive && !isHovered) {
+            // 핀볼 이동
+            position.current.x += velocity.current.x;
+            position.current.y += velocity.current.y;
+    
+            if (position.current.x <= 0 || position.current.x + ballSize >= window.innerWidth) {
+              velocity.current.x *= -1;
+            }
+            if (position.current.y <= 0 || position.current.y + ballSize >= window.innerHeight) {
+              velocity.current.y *= -1;
+            }
+          } 
+          else if (!isActive) {
+            // view05에서 벗어나면 원래 자리로 복귀
+            position.current.x += (initialPosition.x - position.current.x) * 0.05;
+            position.current.y += (initialPosition.y - position.current.y) * 0.05;
+          }
+    
+          ball.style.transform = `translate(${position.current.x}px, ${position.current.y}px)`;
+          animationFrame = requestAnimationFrame(moveBall);
+        };
+    
+        animationFrame = requestAnimationFrame(moveBall);
+        return () => cancelAnimationFrame(animationFrame);
+      }, [isActive, isHovered]);
 
 
   return (
@@ -449,30 +506,21 @@ function useScrollY() {
 
   </div>
   
-  <div 
-  className="
-    group z-[5000] absolute bottom-6 right-6 w-40 h-40 rounded-full 
-    flex items-center justify-center 
-    text-white text-lg border border-white/30
-    transition-all duration-500
-    bg-black
-  "
-  style={{
-    boxShadow: "inset 0 0 35px rgba(255,255,255,1), 0 0 20px rgba(255,255,255,0.2)"
-  }}
-  onMouseEnter={(e) => {
-    e.currentTarget.style.boxShadow = "none";
-  }}
-  onMouseLeave={(e) => {
-    e.currentTarget.style.boxShadow = "inset 0 0 35px rgba(255,255,255,1), 0 0 20px rgba(255,255,255,0.2)";
-  }}
->
-  <span className="transition-transform duration-500 group-hover:scale-[1.0]">
-    CONTACT
-  </span>
-</div>
-
-
+  <div
+      ref={ballRef}
+      className="fixed w-40 h-40 rounded-full flex items-center justify-center 
+                 text-white text-lg border border-white/30 bg-black z-[5000]"
+      style={{
+        left: 0,
+        top: 0,
+        position: "fixed",
+        boxShadow: "inset 0 0 35px rgba(255,255,255,1), 0 0 20px rgba(255,255,255,0.2)",
+      }}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+    >
+      CONTACT
+    </div>
 
 </motion.div>
 

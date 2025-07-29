@@ -7,6 +7,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
+        sans: ['Pretendard', 'sans-serif'],
         Teko: ['Teko', 'sans-serif'],
         gridular: ['Gridular', 'cursive'],
         pptelegraf: ['Pptelegraf', 'sans-serif'],
