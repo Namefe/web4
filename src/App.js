@@ -9,6 +9,7 @@ import View03 from './view/view03';
 import View04 from './view/view04';
 import View05 from './view/view05';
 import { useEffect, useState } from 'react';
+import Moblie01 from './view/moblie01';
 
 function App() {
 
@@ -33,7 +34,10 @@ function App() {
   return (
 <div className="relative w-full min-h-screen bg-black">
   <ParticleBackground />
-  <div className="relative z-10">
+  <div className="block lg:hidden">
+    <Moblie01/>
+  </div>
+  <div className="relative z-10 hidden lg:block">
     <View01 isActive={isView05Active} /> 
     <View02 /> 
     <View03 /> 
