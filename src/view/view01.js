@@ -267,14 +267,13 @@ function useScrollY() {
       }
 
       const ballRef = useRef(null);
-      const [isActive, setIsActive] = useState(false); // view05 섹션 감지 여부
+      const [isActive, setIsActive] = useState(false); 
       const [isHovered, setIsHovered] = useState(false);
     
       const velocity = useRef({ x: 2, y: 2 }); 
       const position = useRef({ x: window.innerWidth / 2, y: window.innerHeight / 2 });
-      const initialPosition = { x: window.innerWidth - 200, y: window.innerHeight - 200 }; // 원래 자리
+      const initialPosition = { x: window.innerWidth - 200, y: window.innerHeight - 200 }; 
     
-      // view05 감지
       useEffect(() => {
         const handleScroll = () => {
           const section = document.getElementById("view05");
@@ -288,7 +287,6 @@ function useScrollY() {
         return () => window.removeEventListener("scroll", handleScroll);
       }, []);
     
-      // 핀볼 애니메이션
       useEffect(() => {
         let animationFrame;
     
@@ -299,7 +297,6 @@ function useScrollY() {
           const ballSize = 160;
     
           if (isActive && !isHovered) {
-            // 핀볼 이동
             position.current.x += velocity.current.x;
             position.current.y += velocity.current.y;
     
@@ -311,7 +308,6 @@ function useScrollY() {
             }
           } 
           else if (!isActive) {
-            // view05에서 벗어나면 원래 자리로 복귀
             position.current.x += (initialPosition.x - position.current.x) * 0.05;
             position.current.y += (initialPosition.y - position.current.y) * 0.05;
           }

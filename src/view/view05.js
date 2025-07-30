@@ -209,7 +209,7 @@ const View05 = () => {
 
   }}
 >
-  PHONE NUMBER
+ NUMBER
 </div>
 
 <div

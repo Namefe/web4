@@ -10,6 +10,10 @@ import View04 from './view/view04';
 import View05 from './view/view05';
 import { useEffect, useState } from 'react';
 import Moblie01 from './view/moblie01';
+import Moblie02 from './view/moblie02';
+import Moblie03 from './view/moblie03';
+import Moblie04 from './view/moblie04';
+import Moblie05 from './view/moblie05';
 
 function App() {
 
@@ -34,8 +38,12 @@ function App() {
   return (
 <div className="relative w-full min-h-screen bg-black">
   <ParticleBackground />
-  <div className="block lg:hidden">
+  <div className="block lg:hidden overflow-hidden">
     <Moblie01/>
+    <Moblie02/>
+    <Moblie03/>
+    <Moblie04/>
+    <Moblie05/>
   </div>
   <div className="relative z-10 hidden lg:block">
     <View01 isActive={isView05Active} /> 

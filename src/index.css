@@ -24,3 +24,13 @@ body {
 }
 
 
+.bg-noise {
+  background: url('https://www.transparenttextures.com/patterns/asfalt-dark.png');
+  animation: noise-move 0.2s steps(2) infinite;
+}
+
+@keyframes noise-move {
+  0% { background-position: 0 0; }
+  100% { background-position: 100px 100px; }
+}
+
