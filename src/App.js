@@ -45,7 +45,7 @@ function App() {
     <Moblie04/>
     <Moblie05/>
   </div>
-  <div className="relative z-10 hidden lg:block">
+  <div className="relative z-10 hidden lg:block overflow-hidden">
     <View01 isActive={isView05Active} /> 
     <View02 /> 
     <View03 /> 

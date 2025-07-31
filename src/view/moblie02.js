@@ -232,90 +232,80 @@ const Moblie02 = () => {
       <div>{lineTop3}</div>
       </div>
     </div>
-    <div className="absolute top-[15%]">
-    <div>
-    <div className="relative w-full h-[350px] overflow-hidden px-2">
-    <motion.img
-  src={`${process.env.PUBLIC_URL}/netmable.png`}
-  alt="netmarble"
-  className="w-full h-full object-contain blur-[1.5px] contrast-110"
-  initial={{ scaleY: 0.9, opacity: 0 }}
-  animate={{
-    scaleY: [1, 1.08, 1], 
-    opacity: 1,
-  }}
-  transition={{
-    duration: 1,
-    ease: [0.25, 1, 0.5, 1], 
-  }}
-/>
-  <div className="absolute inset-0 pointer-events-none bg-noise mix-blend-overlay opacity-30"></div>
-  </div>
-  <div className="flex flex-col px-4 text-white">
-    <div className="flex justify-between items-center">
-      <h3 className="text-lg font-bold">NETMARBLEGAMES</h3>
-      <span className="text-sm opacity-70">2025</span>
-    </div>
-    <p className="text-xs opacity-60 mt-1">
-      넷마블게임즈
-    </p>
-  </div>
-  </div>
-  <div>
-      <div className="relative w-full h-[350px] overflow-hidden px-2">
-      <motion.img
-  src={`${process.env.PUBLIC_URL}/netmable.png`}
-  alt="netmarble"
-  className="w-full h-full object-contain blur-[1.5px] contrast-110"
-  initial={{ scaleY: 0.9, opacity: 0 }}
-  animate={{
-    scaleY: [1, 1.08, 1], // Y축만 늘어나고 다시 원래 크기로
-    opacity: 1,
-  }}
-  transition={{
-    duration: 1,
-    ease: [0.25, 1, 0.5, 1], // 자연스러운 튕김
-  }}
-/>
-        <div className="absolute inset-0 pointer-events-none bg-noise mix-blend-overlay opacity-30"></div>
-      </div>
+<div className="absolute top-[15%] w-full flex flex-col items-center gap-10">
 
-      <div className="flex flex-col px-4 text-white">
-        <div className="flex justify-between items-center">
-          <h3 className="text-lg font-bold">NETMARBLEGAMES</h3>
-          <span className="text-sm opacity-70">2025</span>
-        </div>
-        <p className="text-xs opacity-60 mt-1">넷마블게임즈2</p>
-      </div>
-    </div>
-    <div>
-      <div className="relative w-full h-[350px] overflow-hidden px-2">
+  {/* 1번째 이미지 */}
+  <div className="w-full max-w-[700px] flex flex-col items-center text-white px-4">
+    <div className="relative w-full overflow-hidden">
       <motion.img
-  src={`${process.env.PUBLIC_URL}/netmable.png`}
-  alt="netmarble"
-  className="w-full h-full object-contain blur-[1.5px] contrast-110"
-  initial={{ scaleY: 0.9, opacity: 0 }}
-  animate={{
-    scaleY: [1, 1.08, 1], // Y축만 늘어나고 다시 원래 크기로
-    opacity: 1,
-  }}
-  transition={{
-    duration: 1,
-    ease: [0.25, 1, 0.5, 1], // 자연스러운 튕김
-  }}
-/>
-        <div className="absolute inset-0 pointer-events-none bg-noise mix-blend-overlay opacity-30"></div>
+        src={`${process.env.PUBLIC_URL}/netmable.png`}
+        alt="netmarble"
+        className="w-full h-[350px] object-contain blur-[1.5px] contrast-110"
+        initial={{ scaleY: 0.9, y: 20 }}
+        whileInView={{ scaleY: 1, y: 0 }}
+        transition={{ type: "spring", stiffness: 150, damping: 12 }}
+        viewport={{ once: false, amount: 0.6 }}
+      />
+      <div className="absolute inset-0 pointer-events-none bg-noise mix-blend-overlay opacity-30"></div>
+    </div>
+    <div className="w-full mt-2 px-2">
+      <div className="flex justify-between items-center">
+        <h3 className="text-lg font-bold">NETMARBLEGAMES</h3>
+        <span className="text-sm opacity-70">2025</span>
       </div>
+      <p className="text-xs opacity-60 mt-1">넷마블게임즈</p>
+    </div>
+  </div>
 
-      <div className="flex flex-col px-4 text-white">
-        <div className="flex justify-between items-center">
-          <h3 className="text-lg font-bold">NETMARBLEGAMES</h3>
-          <span className="text-sm opacity-70">2025</span>
-        </div>
-        <p className="text-xs opacity-60 mt-1">넷마블게임즈3</p>
+  {/* 2번째 이미지 */}
+  <div className="w-full max-w-[700px] flex flex-col items-center text-white px-4">
+    <div className="relative w-full overflow-hidden">
+      <motion.img
+        src={`${process.env.PUBLIC_URL}/netmable.png`}
+        alt="netmarble"
+        className="w-full h-[350px] object-contain blur-[1.5px] contrast-110"
+        initial={{ scaleY: 0.9, y: 20 }}
+        whileInView={{ scaleY: 1, y: 0 }}
+        transition={{ type: "spring", stiffness: 150, damping: 12 }}
+        viewport={{ once: false, amount: 0.6 }}
+      />
+      <div className="absolute inset-0 pointer-events-none bg-noise mix-blend-overlay opacity-30"></div>
+    </div>
+    <div className="w-full mt-2 px-2">
+      <div className="flex justify-between items-center">
+        <h3 className="text-lg font-bold">NETMARBLEGAMES</h3>
+        <span className="text-sm opacity-70">2025</span>
       </div>
+      <p className="text-xs opacity-60 mt-1">넷마블게임즈</p>
     </div>
+  </div>
+
+  {/* 3번째 이미지 */}
+  <div className="w-full max-w-[700px] flex flex-col items-center text-white px-4">
+    <div className="relative w-full overflow-hidden">
+      <motion.img
+        src={`${process.env.PUBLIC_URL}/netmable.png`}
+        alt="netmarble"
+        className="w-full h-[350px] object-contain blur-[1.5px] contrast-110"
+        initial={{ scaleY: 0.9, y: 20 }}
+        whileInView={{ scaleY: 1, y: 0 }}
+        transition={{ type: "spring", stiffness: 150, damping: 12 }}
+        viewport={{ once: false, amount: 0.6 }}
+      />
+      <div className="absolute inset-0 pointer-events-none bg-noise mix-blend-overlay opacity-30"></div>
     </div>
+    <div className="w-full mt-2 px-2">
+      <div className="flex justify-between items-center">
+        <h3 className="text-lg font-bold">NETMARBLEGAMES</h3>
+        <span className="text-sm opacity-70">2025</span>
+      </div>
+      <p className="text-xs opacity-60 mt-1">넷마블게임즈</p>
+    </div>
+  </div>
+
+</div>
+
+
     </section>
     </>
   )

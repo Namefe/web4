@@ -1,40 +1,38 @@
 import React, { useEffect, useRef, useState } from 'react'
 
 const Moblie = () => {
-  const ballRef = useRef(null);
-  const [isActive, setIsActive] = useState(false); 
-  const [isHovered, setIsHovered] = useState(false);
-
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+ const ballRef = useRef(null);
+const [isActive, setIsActive] = useState(false);
+const [isHovered, setIsHovered] = useState(false);
 
-  const velocity = useRef({ x: 2, y: 2 }); 
-  const position = useRef({ x: window.innerWidth / 2, y: window.innerHeight / 2 });
-  const initialPosition = { x: window.innerWidth - 200, y: window.innerHeight - 200 }; 
+const velocity = useRef({ x: 2, y: 2 });
+const position = useRef({ x: window.innerWidth - 200, y: window.innerHeight - 200 }); // 초기 하단 위치
+const ballSize = 160;
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const section = document.getElementById("view05");
-      if (section) {
-        const rect = section.getBoundingClientRect();
-        setIsActive(rect.top < window.innerHeight && rect.bottom > 0);
-      }
-    };
+useEffect(() => {
+  const handleScroll = () => {
+    const section = document.getElementById("view05");
+    if (section) {
+      const rect = section.getBoundingClientRect();
+      setIsActive(rect.top < window.innerHeight && rect.bottom > 0);
+    }
+  };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  window.addEventListener("scroll", handleScroll);
+  return () => window.removeEventListener("scroll", handleScroll);
+}, []);
 
-  useEffect(() => {
-    let animationFrame;
+useEffect(() => {
+  let animationFrame;
 
-    const moveBall = () => {
-      const ball = ballRef.current;
-      if (!ball) return;
+  const moveBall = () => {
+    const ball = ballRef.current;
+    if (!ball) return;
 
-      const ballSize = 160;
-
-      if (isActive && !isHovered) {
+    if (isActive) {
+      if (!isHovered) {
         position.current.x += velocity.current.x;
         position.current.y += velocity.current.y;
 
@@ -44,19 +42,24 @@ const Moblie = () => {
         if (position.current.y <= 0 || position.current.y + ballSize >= window.innerHeight) {
           velocity.current.y *= -1;
         }
-      } 
-      else if (!isActive) {
-        position.current.x += (initialPosition.x - position.current.x) * 0.05;
-        position.current.y += (initialPosition.y - position.current.y) * 0.05;
       }
 
       ball.style.transform = `translate(${position.current.x}px, ${position.current.y}px)`;
-      animationFrame = requestAnimationFrame(moveBall);
-    };
+      ball.style.bottom = "";
+      ball.style.right = "";
+    } 
+    else {
+      ball.style.transform = "none";
+      ball.style.bottom = "20px";
+      ball.style.right = "20px";
+    }
 
     animationFrame = requestAnimationFrame(moveBall);
-    return () => cancelAnimationFrame(animationFrame);
-  }, [isActive, isHovered]);
+  };
+
+  animationFrame = requestAnimationFrame(moveBall);
+  return () => cancelAnimationFrame(animationFrame);
+}, [isActive, isHovered]);
   return (
     <>
     <section className='relative w-full h-[100vh] text-white'>
@@ -200,20 +203,33 @@ const Moblie = () => {
       </div>
     </div>
 
-    <div
-    ref={ballRef}
-    className="fixed w-[7rem] h-[7rem] rounded-full flex items-center justify-center 
-               text-white text-sm border border-white/30 bg-black z-[6000]"
+<div
+  ref={ballRef}
+  className={`fixed w-[7rem] h-[7rem] rounded-full flex items-center justify-center 
+             text-white text-sm pointer-events-auto z-[99999]
+             transition-transform duration-300 ease-out`}
+  style={{
+    bottom: "40px",
+    right: "60px",
+    position: "fixed",
+    background: "black",
+    boxShadow: "inset 0 0 35px rgba(255,255,255,1), 0 0 20px rgba(255,255,255,0.2)",
+  }}
+  onMouseEnter={() => setIsHovered(true)}
+  onMouseLeave={() => setIsHovered(false)}
+>
+  <span
+    className={`transition-opacity duration-300 ${
+      isHovered ? "opacity-100 scale-110" : "opacity-80"
+    }`}
     style={{
-      top: "40px",
-      left: "60px",
-      boxShadow: "inset 0 0 35px rgba(255,255,255,1), 0 0 20px rgba(255,255,255,0.2)",
+      textShadow: "0 0 10px rgba(255,255,255,0.8)", 
     }}
-    onMouseEnter={() => setIsHovered(true)}
-    onMouseLeave={() => setIsHovered(false)}
   >
     CONTACT
-  </div>
+  </span>
+</div>
+
 
     <div className="relative flex flex-col items-center text-white top-[100px]">
     <h1 className="flex gap-[1vw] font-Teko pointer-events-none">
