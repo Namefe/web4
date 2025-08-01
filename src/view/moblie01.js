@@ -232,27 +232,27 @@ useEffect(() => {
 
 
     <div className="relative flex flex-col items-center text-white top-[100px]">
-    <h1 className="flex gap-[1vw] font-Teko pointer-events-none">
-    <div className="font-bold text-[10vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>S</div>
-    <div className="font-bold text-[10vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>O</div>
-    <div className="font-bold text-[10vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>U</div>
-    <div className="font-bold text-[10vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>N</div>
-    <div className="font-bold text-[10vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>G</div>
-    <div className="font-bold text-[10vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>&nbsp;</div>
-    <div className="font-bold text-[10vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>M</div>
-    <div className="font-bold text-[10vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>Y</div>
-    <div className="font-bold text-[10vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>E</div>
-    <div className="font-bold text-[10vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>O</div>
-    <div className="font-bold text-[10vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>N</div>
-    <div className="font-bold text-[10vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>G</div>
-    <div className="font-bold text-[10vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>&nbsp;</div>
-    <div className="font-bold text-[10vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>C</div>
-    <div className="font-bold text-[10vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>H</div>
-    <div className="font-bold text-[10vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>U</div>
-    <div className="font-bold text-[10vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>L</div>
+    <h1 className="flex font-Teko pointer-events-none">
+    <div className="font-bold text-[8vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>S</div>
+    <div className="font-bold text-[8vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>O</div>
+    <div className="font-bold text-[8vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>U</div>
+    <div className="font-bold text-[8vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>N</div>
+    <div className="font-bold text-[8vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>G</div>
+    <div className="font-bold text-[8vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>&nbsp;</div>
+    <div className="font-bold text-[8vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>M</div>
+    <div className="font-bold text-[8vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>Y</div>
+    <div className="font-bold text-[8vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>E</div>
+    <div className="font-bold text-[8vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>O</div>
+    <div className="font-bold text-[8vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>N</div>
+    <div className="font-bold text-[8vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>G</div>
+    <div className="font-bold text-[8vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>&nbsp;</div>
+    <div className="font-bold text-[8vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>C</div>
+    <div className="font-bold text-[8vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>H</div>
+    <div className="font-bold text-[8vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>U</div>
+    <div className="font-bold text-[8vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>L</div>
   </h1>
 
-  <div className="flex gap-[10vw] mt-[5vh]">
+  <div className="flex gap-[10vw] mt-[10vh]">
     <h4 className="text-[4vw]">Front end</h4>
     <h4 className="text-[4vw]">UI/UX</h4>
     <h4 className="text-[4vw]">DEVELOPE</h4>

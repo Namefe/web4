@@ -546,56 +546,56 @@ function useScrollY() {
 
 
 {/* NAME */}      
-<h1 className="absolute font-Teko top-[300px] left-1/2 -translate-x-1/2 flex gap-[1vw] z-10 pointer-events-none">
-  <div className="font-bold font-Teko text-[10vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)' , transformOrigin: 'center' }}>
+<h1 className="absolute font-Teko top-[250px] left-1/2 -translate-x-1/2 flex gap-2 z-10 pointer-events-none">
+  <div className="font-bold font-Teko text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)' , transformOrigin: 'center' }}>
     S
   </div>
-  <div className="font-bold font-Teko text-[10vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
+  <div className="font-bold font-Teko text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
     O
   </div>
-  <div className="font-bold font-Teko text-[10vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
+  <div className="font-bold font-Teko text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
     U
   </div>
-  <div className="font-bold font-Teko text-[10vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
+  <div className="font-bold font-Teko text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
     N
   </div>
-  <div className="font-bold font-Teko text-[10vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
+  <div className="font-bold font-Teko text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
     G
   </div>
-  <div className="font-bold font-Teko text-[10vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
+  <div className="font-bold font-Teko text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
     &nbsp;
   </div>
-  <div className="font-bold font-Teko text-[10vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
+  <div className="font-bold font-Teko text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
     M
   </div>
-  <div className="font-bold font-Teko text-[10vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
+  <div className="font-bold font-Teko text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
     Y
   </div>
-  <div className="font-bold font-Teko text-[10vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
+  <div className="font-bold font-Teko text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
     E
   </div>
-  <div className="font-bold font-Teko text-[10vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
+  <div className="font-bold font-Teko text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
     O
   </div>
-  <div className="font-bold font-Teko text-[10vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
+  <div className="font-bold font-Teko text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
     N
   </div>
-  <div className="font-bold font-Teko text-[10vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
+  <div className="font-bold font-Teko text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
     G
   </div>
-  <div className="font-bold font-Teko text-[10vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
+  <div className="font-bold font-Teko text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
     &nbsp;
   </div>
-  <div className="font-bold font-Teko text-[10vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
+  <div className="font-bold font-Teko text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
     C
   </div>
-  <div className="font-bold font-Teko text-[10vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
+  <div className="font-bold font-Teko text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
     H
   </div>
-  <div className="font-bold font-Teko text-[10vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
+  <div className="font-bold font-Teko text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
     U
   </div>
-  <div className="font-bold font-Teko text-[10vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
+  <div className="font-bold font-Teko text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
     L
   </div>
 </h1>
