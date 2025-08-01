@@ -130,7 +130,7 @@ useEffect(() => {
           <p>CREATING</p>
           <p>MEMORABLE</p>
           <p>DIGITAL</p>
-          <p>EXPERIENCES</p>
+          <p className='-translate-x-10'>EXPERIENCES</p>
         </div>
 
         <div className="flex flex-col items-start pl-4 pt-20 w-full max-w-[600px]">
@@ -157,7 +157,7 @@ useEffect(() => {
       </div>
 
   <div className="w-full mb-4">
-    <h2 className="text-[40px]  hover:opacity-70">AWA<span className='font-gridular'>R</span>DS</h2>
+    <h2 className="text-[40px]  hover:opacity-70">PORT<span className='font-gridular'>F</span>OLIO</h2>
     <div
     className="w-screen h-[6px] mt-2"
     style={{
@@ -168,7 +168,7 @@ useEffect(() => {
     </div>
 
   <div className="w-full mb-4">
-    <h2 className="text-[40px]  hover:opacity-70"><span className='font-gridular'>T</span>EAM</h2>
+    <h2 className="text-[40px]  hover:opacity-70">CERTI<span className='font-gridular'>F</span>ICATI<span className='font-gridular'>O</span>N</h2>
     <div
     className="w-screen h-[3px] mt-2"
     style={{
@@ -179,7 +179,18 @@ useEffect(() => {
       </div>
 
   <div className="w-full mb-4">
-    <h2 className="text-[40px]  hover:opacity-70">PRI<span className='font-gridular'>C</span>E<span className='font-gridular'>S</span></h2>
+    <h2 className="text-[40px]  hover:opacity-70">EDUCA<span className='font-gridular'>T</span>IO<span className='font-gridular'>N</span></h2>
+    <div
+    className="w-screen h-[1px] mt-2"
+    style={{
+      backgroundImage:
+      "repeating-linear-gradient(to right, rgba(255, 255, 255, 0.5) 0px, transparent 1px 1px)"
+      }}
+    ></div>    
+    </div>
+
+  <div className="w-full mb-4">
+    <h2 className="text-[40px]  hover:opacity-70">CONT<span className='font-gridular'>A</span>CT</h2>
     <div
     className="w-screen h-[1px] mt-2"
     style={{

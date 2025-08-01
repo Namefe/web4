@@ -16,6 +16,8 @@ import Moblie04 from './view/moblie04';
 import Moblie05 from './view/moblie05';
 
 function App() {
+  const mobileRef = useRef()
+  
 
   const [isView05Active, setIsView05Active] = useState(false);
 
