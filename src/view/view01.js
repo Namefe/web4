@@ -357,7 +357,7 @@ function useScrollY() {
         </svg>
 
   <div className="absolute top-0 left-1/2 -translate-x-1/2 z-50 flex gap-6 justify-center items-center text-white text-opacity-50  px-6">
-  <ul className="flex gap-6">
+  <ul className="flex gap-2 xl:gap-4 2xl:gap-6">
   <li>
     <a href="#" className="relative group inline-block h-[1em] leading-none">
       <div className="flex gap-[0.05em]">
