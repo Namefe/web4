@@ -1,7 +1,6 @@
 import Particles from 'react-tsparticles';
 import { loadFull } from 'tsparticles'; 
 import './App.css';
-import './css/reset.css';
 import View01 from './view/view01';
 import ParticleBackground from './view/paricles'; 
 import View02 from './view/view02';

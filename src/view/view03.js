@@ -78,8 +78,8 @@ const textVariants = {
       />
     </div>
 
-    <div className="relative mt-3 flex flex-col items-center gap-2 z-10">
-  <div className="text-white text-sm font-semibold tracking-wide opacity-40 group-hover:opacity-100 transition-opacity duration-300">
+    <div className="relative mt-3 flex flex-col items-start z-10">
+  <div className="text-white text-sm font-extralight tracking-wide opacity-40 group-hover:opacity-100 transition-opacity duration-300">
     Netmarble
   </div>
 
@@ -121,7 +121,7 @@ const textVariants = {
     ].map((item, i) => (
       <motion.svg
         key={i}
-        className={`absolute ${item.className} w-[20px] h-[20px] text-white opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-500`}
+        className={`absolute ${item.className} w-[20px] h-[20px] text-white opacity-0 group-hover:opacity-100  transition-all duration-500`}
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
@@ -183,8 +183,8 @@ const textVariants = {
       />
     </div>
 
-    <div className="relative mt-3 flex flex-col items-center gap-2 z-10">
-      <div className="text-white text-sm font-semibold tracking-wide opacity-40 group-hover:opacity-100 transition-opacity duration-300">
+    <div className="relative mt-3 flex flex-col items-start z-10">
+  <div className="text-white text-sm font-extralight tracking-wide opacity-40 group-hover:opacity-100 transition-opacity duration-300">
         Netmarble
       </div>
 
@@ -217,7 +217,7 @@ const textVariants = {
     ].map((item, i) => (
       <motion.svg
         key={i}
-        className={`absolute ${item.className} w-[20px] h-[20px] text-white opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-500`}
+        className={`absolute ${item.className} w-[20px] h-[20px] text-white opacity-0 group-hover:opacity-100 transition-all duration-500`}
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
@@ -260,8 +260,8 @@ const textVariants = {
       />
     </div>
 
-    <div className="relative mt-3 flex flex-col items-center gap-2 z-10">
-      <div className="text-white text-sm font-semibold tracking-wide opacity-40 group-hover:opacity-100 transition-opacity duration-300">
+    <div className="relative mt-3 flex flex-col items-start z-10">
+  <div className="text-white text-sm font-extralight tracking-wide opacity-40 group-hover:opacity-100 transition-opacity duration-300">
         Netmarble
       </div>
 
@@ -294,7 +294,7 @@ const textVariants = {
     ].map((item, i) => (
       <motion.svg
         key={i}
-        className={`absolute ${item.className} w-[20px] h-[20px] text-white opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-500`}
+        className={`absolute ${item.className} w-[20px] h-[20px] text-white opacity-0 group-hover:opacity-100 transition-all duration-500`}
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"

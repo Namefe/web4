@@ -619,13 +619,13 @@ function useScrollY() {
       className='text-white fixed top-[85%] left-12 text-[24px] leading-9'
     >
       <div className=''>
-        F<span className="font-gridular">R</span>ONT
+        F<span className="font-gridular text-[1.02em] ">R</span>ONT
       </div>
       <div>
-        EN<span className="font-gridular">D</span>
+        EN<span className="font-gridular text-[1.02em] ">D</span>
       </div>
       <div>
-        DE<span className="font-gridular">V</span>EOPER <span className="font-gridular"></span>
+        DE<span className="font-gridular text-[1.02em] ">V</span>EOPER
       </div>
     </motion.div>
 

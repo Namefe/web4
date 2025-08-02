@@ -45,20 +45,20 @@ const View04 = () => {
         <div className="text-center flex justify-center items-center">
         <h2
             style={{ fontSize: "clamp(4.5rem, 7.5vw, 8.375rem)" }}
-            className="font-bold text-white/50 inline-block"
+            className="font-bold text-white/50 inline-block relative left-40"
         >
             ED<span className="font-gridular">U</span>CAT<span className="font-gridular">I</span>ON
         </h2>
 
         <h2
             style={{ fontSize: "clamp(4.5rem, 7.5vw, 8.375rem)" }}
-            className="font-bold inline-block -mb-[200px]"
+            className="font-bold inline-block -mb-[280px] relative right-40"
         >
             HI<span className="font-gridular">S</span>T<span className="font-gridular">O</span>RY
         </h2>
         </div>
 
-        <div className="space-y-10 mt-20">
+        <div className="space-y-10 mt-60">
           {[
             ["Graduated from Buan Middle School, Anyang", "Jan 2015"],
             ["Graduated from Buhung High School, Anyang", "Jan 2018"],
