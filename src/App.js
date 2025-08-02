@@ -8,7 +8,7 @@ import View02 from './view/view02';
 import View03 from './view/view03';
 import View04 from './view/view04';
 import View05 from './view/view05';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Moblie01 from './view/moblie01';
 import Moblie02 from './view/moblie02';
 import Moblie03 from './view/moblie03';
@@ -40,7 +40,7 @@ function App() {
   return (
 <div className="relative w-full min-h-screen bg-black">
   <ParticleBackground />
-  <div className="block lg:hidden overflow-hidden">
+  <div ref={mobileRef} className="block lg:hidden overflow-hidden">
     <Moblie01/>
     <Moblie02/>
     <Moblie03/>
