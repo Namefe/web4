@@ -86,19 +86,18 @@ useEffect(() => {
     <div className="btm-left-col absolute top-1/2 left-0 w-4 h-[1px] bg-white opacity-50 -translate-y-1/2"></div>
     </div>
     
-<div className=''>
-<svg className="absolute bottom-0 left-0 w-full h-auto z-[5000]" viewBox="0 0 300 30" xmlns="http://www.w3.org/2000/svg">
-  <path 
-    d="M 20 20 H 100 L 120 0 H 180 L 200 20 H 280"
-    stroke="white"
-    strokeWidth="0.4"
-    fill="none"
-  />
-</svg>
-<div className="relative">
+<div className='frame-top-bot cc--bot '>
+<div className='frame-top-bot_flex'>
+  <div className='frame-line is--hor'></div>
+  <div className='frame-line is--angle-left_bot'></div>
+</div>
+<div className="relative menu-button">
+<div className='frame-top-bot_middle'>
+    <div className='frame-line is--menu'></div>
+  </div>
       {/* 메뉴 버튼 */}
       <div
-        className="absolute bottom-1 left-1/2 -translate-x-1/2 flex items-center gap-2 cursor-pointer z-[6000] pointer-events-auto"
+        className=" flex items-center gap-2 cursor-pointer z-[6000000] pointer-events-auto"
         onClick={() => setIsMenuOpen(!isMenuOpen)}
       >
         <div className="relative flex flex-col justify-center items-center w-[18px] h-[18px]">
@@ -202,7 +201,12 @@ useEffect(() => {
 
   </div>
   </div>
+
     
+    </div>
+    <div className='frame-top-bot_flex'>
+      <div className='frame-line is--angle-right_bot'></div>
+      <div className='frame-line is--hor'></div>
     </div>
 </div>
 

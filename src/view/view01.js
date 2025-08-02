@@ -20,9 +20,9 @@ const timeopacity = useTransform(scrollYProgress, [0,0.5,0.6],[1,0,0])
 
 const full1 = "since";
 const full2 = "1999";
-const full3 = "SIMPLIFY";
-const full4 = "MOTION";
-const full5 = "CREATIONS";
+const full3 = "SCRIPT";
+const full4 = "MEDIA QUERY";
+const full5 = "COMPONENT";
 
 const [line1, setLine1] = useState(full1);
 const [line2, setLine2] = useState(full2);
@@ -344,7 +344,7 @@ function useScrollY() {
             <div className="top-left-col absolute top-1/2 left-0 w-4 h-[1px] bg-white opacity-50 -translate-y-1/2"></div>
           </div>
 
-          <div className="relative w-full h-20 top-4">
+          {/* <div className="relative w-full h-20 top-4">
 
           <svg className="absolute top-0 left-0 w-full h-auto" viewBox="0 0 300 100">
           <path 
@@ -472,7 +472,131 @@ function useScrollY() {
 
 
 
-</div>
+</div> */}
+      <div className='frame-top-bot cc-top relative w-full h-20 top-4'>
+        <div className='frame-top-bot_flex'>
+          <div className='frame-line is--hor'></div>
+          <div className='frame-line is--angle-left'></div>
+        </div>
+        <div className='frame-top-bot_middle'>
+          <div className='menu_wrapper'>
+          <ul className="flex gap-2 xl:gap-4 2xl:gap-6">
+  <li>
+    <a href="#" className="relative group inline-block h-[1em] leading-none">
+      <div className="flex gap-[0.05em]">
+        {"HOME".split("").map((char, i) => (
+          <span key={i} className="text-white">{char}</span>
+        ))}
+      </div>
+    </a>
+  </li>
+
+  <li>
+    <a href="#" className="relative group inline-block h-[1em] leading-none">
+      <div className="flex gap-[0.05em]">
+        {"PORTFOLIO".split("").map((char, i) => (
+          <span key={i} className="text-white text-opacity-50 group-hover:opacity-0 transition-opacity duration-300">
+            {char}
+          </span>
+        ))}
+      </div>
+      <div className="flex gap-[0.05em] absolute top-0 left-0">
+        {["P", "Ø", "R", "T", "F", "Ø", "L", "I", "Ø"].map((char, i) => (
+          <span
+            key={i}
+            className="opacity-0 group-hover:opacity-100 text-white transition-opacity duration-100"
+            style={{ transitionDelay: `${i * 80}ms` }}
+          >
+            {char}
+          </span>
+        ))}
+      </div>
+    </a>
+  </li>
+
+  <li>
+    <a href="#" className="relative group inline-block h-[1em] leading-none">
+      <div className="flex gap-[0.05em]">
+        {"CERTIFICATION".split("").map((char, i) => (
+          <span key={i} className="text-white text-opacity-50 group-hover:opacity-0 transition-opacity duration-300">
+            {char}
+          </span>
+        ))}
+      </div>
+      <div className="flex gap-[0.05em] absolute top-0 left-0">
+        {["C", "E", "R", "T", "I", "F", "I", "C", "A", "T", "I", "O", "N"].map((char, i) => (
+          <span
+            key={i}
+            className={`opacity-0 group-hover:opacity-100 text-white transition-opacity duration-100 ${
+              char === "" ? "invisible" : ""
+            }`}
+            style={{ transitionDelay: `${i * 80}ms` }}
+          >
+            {char || "_"}
+          </span>
+        ))}
+      </div>
+    </a>
+  </li>
+
+  <li>
+    <a href="#" className="relative group inline-block h-[1em] leading-none">
+      <div className="flex gap-[0.05em]">
+        {"EDUCATION".split("").map((char, i) => (
+          <span key={i} className="text-white text-opacity-50 group-hover:opacity-0 transition-opacity duration-300">
+            {char}
+          </span>
+        ))}
+      </div>
+      <div className="flex gap-[0.05em] absolute top-0 left-0">
+        {["E", "D", "U", "C", "A", "T", "I", "O", "N"].map((char, i) => (
+          <span
+            key={i}
+            className={`opacity-0 group-hover:opacity-100 text-white transition-opacity duration-100 ${
+              char === "" ? "invisible" : ""
+            }`}
+            style={{ transitionDelay: `${i * 80}ms` }}
+          >
+            {char || "_"}
+          </span>
+        ))}
+      </div>
+    </a>
+  </li>
+
+  <li>
+    <a href="#" className="relative group inline-block h-[1em] leading-none">
+      <div className="flex gap-[0.05em]">
+        {"CONTACT".split("").map((char, i) => (
+          <span key={i} className="text-white text-opacity-50 group-hover:opacity-0 transition-opacity duration-300">
+            {char}
+          </span>
+        ))}
+      </div>
+      <div className="flex gap-[0.05em] absolute top-0 left-0">
+        {["C", "O", "N", "T", "A", "C", "T"].map((char, i) => (
+          <span
+            key={i}
+            className={`opacity-0 group-hover:opacity-100 text-white transition-opacity duration-100 ${
+              char === "" ? "invisible" : ""
+            }`}
+            style={{ transitionDelay: `${i * 80}ms` }}
+          >
+            {char || "_"}
+          </span>
+        ))}
+      </div>
+    </a>
+  </li>
+</ul>
+          </div>
+          <div className='frame-line is--mid'></div>
+        </div>
+        <div className='frame-top-bot_flex'>
+        <div className='frame-line is--angle-right'></div>
+        <div className='frame-line is--hor'></div>
+        </div>
+      </div>
 
     <div className="top-right-plus relative w-4 h-4 mr-2 mt-2 ">
       <div className="top-right-ver absolute left-1/2 top-0 h-4 w-[1px] bg-white opacity-50 -translate-x-1/2"></div>

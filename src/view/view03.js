@@ -29,17 +29,6 @@ const blurValue = useTransform(imageProgress, [0.4, 0.53], [60, 0]);
 const blurStyle = useMotionTemplate`blur(${blurValue}px)`;
 
 
-const textVariants = {
-    hidden: { opacity: 0, y: 10 },
-    visible: (i) => ({
-      opacity: 1,
-      y: 0,
-      transition: {
-        delay: i * 0.05,
-        duration: 0.3,
-      },
-    }),
-  };
 
 
 
@@ -353,61 +342,114 @@ const textVariants = {
         ))}
       </div>
     </div>
-
-    <div className='line mt-4'>
-  <svg viewBox='0 0 300 30' className='w-full h-auto'>
-    <path d='M0,10 L120,10 L130,25 L300,25' stroke='white' opacity='0.3' strokeWidth='0.5' fill='none' />
-  </svg>
+<div>
+<div class="grid-line grid-layout">
+<div className='award-line_flex'>
+  <div className='line-wrapper'>
+    <div className='line-divider'></div>
+  </div>
+  <div className='line-divider cc--slanted'></div>
+</div>
+<div className='line-divider column-5'></div>
 </div>
 
-    <div className='grid grid-cols-9 '>
-      <div className='col-span-4 flex items-start'>
-        <svg width='1.5rem' viewBox='0 0 33 32' fill='none' className='mr-4'>
-          <path d='M16.5039 0L18.2236 14.2803L32.5039 16L18.2236 17.7197L16.5039 32L14.7842 17.7197L0.503906 16L14.7842 14.2803L16.5039 0Z' fill='white' />
-        </svg>
-        <div className='text-white text-[clamp(1.25rem,2vw,2rem)] leading-none'>AWWWWARDS</div>
+
+
+    <div class="grid grid-cols-6 w-full">
+  <div class="col-span-3">
+    <div class="flex items-start mt-4">
+      <svg width="1.5rem" viewBox="0 0 33 32" fill="none" class="mr-4">
+        <path d="M16.5039 0L18.2236 14.2803L32.5039 16L18.2236 17.7197L16.5039 32L14.7842 17.7197L0.503906 16L14.7842 14.2803L16.5039 0Z" fill="white" />
+      </svg>
+      <div class="text-white text-[clamp(1.25rem,2vw,2rem)] leading-none">AWWWWARDS</div>
+    </div>
+  </div>
+  <div class="col-span-3 text-white">
+    <div class="space-y-4">
+      <div class="w-full">
+        <div class="flex justify-between items-center">
+          <span class="text-[32px] leading-loose break-keep">GTQ</span>
+          <span class="opacity-50 text-[clamp(1rem,2vw,1.2rem)]">2010</span>
+        </div>
+        <div className='line-divider'></div>
       </div>
-      <div className='col-span-5 text-white'>
-        {[
-          ['GTQ', '2010'],
-          ['ITQ', '2010'],
-          ['워드프로세서', '2020'],
-          ['SMAT 3급', '2023'],
-          ['ACP PHOTOSHOP', '2024'],
-          ['ACP ILLUSTRATION', '2024'],
-          ['SQLD', '2025'],
-          ['웹디자인 기능사', '2025']
-        ].map(([label, year], i, arr) => (
-          <div key={i} className='w-full '>
-            <div className='flex justify-between items-center'>
-              <span className='text-[clamp(1.5rem,4vw,3.5rem)] break-keep'>{label}</span>
-              <span className='opacity-50 text-[clamp(1rem,2vw,1.2rem)]'>{year}</span>
-            </div>
-            {i !== arr.length - 1 && <div className='w-full h-[1px] bg-white/30 mt-5'></div>}
-          </div>
-        ))}
+      <div class="w-full">
+        <div class="flex justify-between items-center">
+          <span class="text-[32px] leading-loose break-keep">ITQ</span>
+          <span class="opacity-50 text-[clamp(1rem,2vw,1.2rem)]">2010</span>
+        </div>
+        <div className='line-divider'></div>
+      </div>
+      <div class="w-full">
+        <div class="flex justify-between items-center">
+          <span class="text-[32px] leading-loose break-keep">워드프로세서</span>
+          <span class="opacity-50 text-[clamp(1rem,2vw,1.2rem)]">2020</span>
+        </div>
+        <div className='line-divider'></div>
+        </div>
+      <div class="w-full">
+        <div class="flex justify-between items-center">
+          <span class="text-[32px] leading-loose break-keep">SMAT 3급</span>
+          <span class="opacity-50 text-[clamp(1rem,2vw,1.2rem)]">2023</span>
+        </div>
+        <div className='line-divider'></div>
+        </div>
+      <div class="w-full">
+        <div class="flex justify-between items-center">
+          <span class="text-[32px] leading-loose break-keep">ACP PHOTOSHOP</span>
+          <span class="opacity-50 text-[clamp(1rem,2vw,1.2rem)]">2024</span>
+        </div>
+        <div className='line-divider'></div>
+        </div>
+      <div class="w-full">
+        <div class="flex justify-between items-center">
+          <span class="text-[32px] leading-loose break-keep">ACP ILLUSTRATION</span>
+          <span class="opacity-50 text-[clamp(1rem,2vw,1.2rem)]">2024</span>
+        </div>
+        <div className='line-divider'></div>
+        </div>
+      <div class="w-full">
+        <div class="flex justify-between items-center">
+          <span class="text-[32px] leading-loose break-keep">SQLD</span>
+          <span class="opacity-50 text-[clamp(1rem,2vw,1.2rem)]">2025</span>
+        </div>
+        <div className='line-divider'></div>
+        </div>
+      <div class="w-full">
+        <div class="flex justify-between items-center">
+          <span class="text-[32px] leading-loose break-keep">웹디자인 기능사</span>
+          <span class="opacity-50 text-[clamp(1rem,2vw,1.2rem)]">2025</span>
+        </div>
       </div>
     </div>
   </div>
+</div>
+</div>
+
+  </div>
 
   {/* TITLE 섹션 */}
-  <div className='relative'>
-  <div className='line'>
-  <svg viewBox='0 0 300 10' className='w-full h-auto'>
-    <path d='M0,0 L100,0 L130,8 L300,8' stroke='white' opacity='0.3' strokeWidth='0.5' fill='none' />
-  </svg>
+  <div className='relative top-[-20px]'>
+  <div class="grid-line grid-layout">
+<div className='award-line_flex'>
+  <div className='line-wrapper'>
+    <div className='line-divider'></div>
+  </div>
+  <div className='line-divider cc--slanted'></div>
 </div>
-    <div className='grid grid-cols-9'>
-      <div className='col-span-4 flex items-start'>
+<div className='line-divider column-5'></div>
+</div>
+    <div className='grid grid-cols-6'>
+      <div className='col-span-3 flex items-start'>
         <svg width='1.5rem' viewBox='0 0 33 32' fill='none' className='mr-4'>
           <path d='M16.5039 0L18.2236 14.2803L32.5039 16L18.2236 17.7197L16.5039 32L14.7842 17.7197L0.503906 16L14.7842 14.2803L16.5039 0Z' fill='white' />
         </svg>
         <div className='text-white text-[clamp(1.25rem,2vw,2rem)] leading-none'>TITLE</div>
       </div>
-      <div className='col-span-5 text-white'>
+      <div className='col-span-3 text-white'>
         <div className='w-full'>
           <div className='flex justify-between items-center'>
-            <span className='text-[clamp(1.5rem,4vw,3.5rem)] break-keep'>운전면허 1종 보통</span>
+            <span className='text-[32px] leading-loose break-keep'>운전면허 1종 보통</span>
             <span className='opacity-50 text-[clamp(1rem,2vw,1.2rem)]'>2019</span>
           </div>
         </div>
@@ -416,23 +458,27 @@ const textVariants = {
   </div>
 
   {/* TRAINING 섹션 */}
-  <div className='relative'>
-  <div className='line'>
-  <svg viewBox='0 0 300 10' className='w-full h-auto'>
-    <path d='M0,0 L100,0 L130,8 L300,8' stroke='white' opacity='0.3' strokeWidth='0.5' fill='none' />
-  </svg>
+  <div className='relative top-[-20px]'>
+  <div class="grid-line grid-layout">
+<div className='award-line_flex'>
+  <div className='line-wrapper'>
+    <div className='line-divider'></div>
+  </div>
+  <div className='line-divider cc--slanted'></div>
 </div>
-    <div className='grid grid-cols-9'>
-      <div className='col-span-4 flex items-start'>
+<div className='line-divider column-5'></div>
+</div>
+    <div className='grid grid-cols-6'>
+      <div className='col-span-3 flex items-start'>
         <svg width='1.5rem' viewBox='0 0 33 32' fill='none' className='mr-4'>
           <path d='M16.5039 0L18.2236 14.2803L32.5039 16L18.2236 17.7197L16.5039 32L14.7842 17.7197L0.503906 16L14.7842 14.2803L16.5039 0Z' fill='white' />
         </svg>
         <div className='text-white text-[clamp(1.25rem,2vw,2rem)] leading-none'>TRAINING</div>
       </div>
-      <div className='col-span-5 text-white'>
+      <div className='col-span-3 text-white'>
         <div className='w-full '>
           <div className='flex justify-between items-center'>
-            <span className='text-[clamp(1.5rem,4vw,3.5rem)] break-keep'>SBS 컴퓨터 아카데미</span>
+            <span className='text-[32px] leading-loose break-keep'>SBS 컴퓨터 아카데미</span>
             <span className='opacity-50 text-[clamp(1rem,2vw,1.2rem)]'>2024~</span>
           </div>
         </div>
@@ -441,20 +487,24 @@ const textVariants = {
   </div>
         {/*skill영역 */}
 
-        <div className='relative'>
-  <div className='line'>
-  <svg viewBox='0 0 300 10' className='w-full h-auto'>
-    <path d='M0,0 L100,0 L130,8 L300,8' stroke='white' opacity='0.3' strokeWidth='0.5' fill='none' />
-  </svg>
+        <div className='relative top-[-20px]'>
+        <div class="grid-line grid-layout">
+<div className='award-line_flex'>
+  <div className='line-wrapper'>
+    <div className='line-divider'></div>
+  </div>
+  <div className='line-divider cc--slanted'></div>
 </div>
-        <div className='grid grid-cols-9 '>
-      <div className='col-span-4 flex items-start'>
+<div className='line-divider column-5'></div>
+</div>
+        <div className='grid grid-cols-6 '>
+      <div className='col-span-3 flex items-start'>
         <svg width='1.5rem' viewBox='0 0 33 32' fill='none' className='mr-4'>
           <path d='M16.5039 0L18.2236 14.2803L32.5039 16L18.2236 17.7197L16.5039 32L14.7842 17.7197L0.503906 16L14.7842 14.2803L16.5039 0Z' fill='white' />
         </svg>
         <div className='text-white text-[clamp(1.25rem,2vw,2rem)] leading-none'>SKILL</div>
       </div>
-      <div className='col-span-5 text-white'>
+      <div className='col-span-3 text-white'>
         {[
           ['HTML'],
           ['CSS'],
@@ -466,10 +516,10 @@ const textVariants = {
         ].map(([skill], i, arr) => (
           <div key={i} className='w-full '>
             <div className='flex justify-between items-center'>
-              <span className='text-[clamp(1.5rem,4vw,3.5rem)] break-keep'>{skill}</span>
+              <span className='text-[32px] leading-loose break-keep'>{skill}</span>
             </div>
-            {i !== arr.length - 1 && <div className='w-full h-[1px] bg-white/30 mt-5'></div>}
-          </div>
+            <div className='line-divider'></div>
+            </div>
         ))}
       </div>
     </div>
