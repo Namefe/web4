@@ -45,20 +45,24 @@ const Moblie03 = () => {
       </div>
     </div>
 
-    <div className='line mt-4'>
-  <svg viewBox='0 0 300 30' className='w-full h-auto'>
-    <path d='M0,10 L120,10 L130,25 L300,25' stroke='white' opacity='0.3' strokeWidth='0.5' fill='none' />
-  </svg>
+<div class="grid-line grid-layout">
+<div className='award-line_flex'>
+  <div className='line-wrapper'>
+    <div className='line-divider'></div>
+  </div>
+  <div className='line-divider cc--slanted'></div>
+</div>
+<div className='line-divider column-5'></div>
 </div>
 
-    <div className='grid grid-cols-9 '>
-      <div className='col-span-4 flex items-start'>
+    <div className='grid grid-cols-6 '>
+      <div className='col-span-3 flex items-start'>
         <svg width='1.5rem' viewBox='0 0 33 32' fill='none' className='mr-1'>
           <path d='M16.5039 0L18.2236 14.2803L32.5039 16L18.2236 17.7197L16.5039 32L14.7842 17.7197L0.503906 16L14.7842 14.2803L16.5039 0Z' fill='white' />
         </svg>
         <div className='text-white text-[clamp(1.25rem,2vw,2rem)] leading-none'>AWWWWARDS</div>
       </div>
-      <div className='col-span-5 text-white'>
+      <div className='col-span-3 text-white'>
         {[
           ['GTQ', '2010'],
           ['ITQ', '2010'],
@@ -74,7 +78,7 @@ const Moblie03 = () => {
               <span className='text-[clamp(1.5rem,4vw,3.5rem)] break-keep'>{label}</span>
               <span className='opacity-50 text-[clamp(1rem,2vw,1.2rem)]'>{year}</span>
             </div>
-            {i !== arr.length - 1 && <div className='w-full h-[1px] bg-white/30 mt-5'></div>}
+         <div className='line-divider'></div>
           </div>
         ))}
       </div>
@@ -83,19 +87,23 @@ const Moblie03 = () => {
 
   {/* TITLE 섹션 */}
   <div className='relative'>
-  <div className='line'>
-  <svg viewBox='0 0 300 10' className='w-full h-auto'>
-    <path d='M0,0 L100,0 L130,8 L300,8' stroke='white' opacity='0.3' strokeWidth='0.5' fill='none' />
-  </svg>
+<div class="grid-line grid-layout">
+<div className='award-line_flex'>
+  <div className='line-wrapper'>
+    <div className='line-divider'></div>
+  </div>
+  <div className='line-divider cc--slanted'></div>
 </div>
-    <div className='grid grid-cols-9'>
-      <div className='col-span-4 flex items-start'>
+<div className='line-divider column-5'></div>
+</div>
+    <div className='grid grid-cols-6'>
+      <div className='col-span-3 flex items-start'>
         <svg width='1.5rem' viewBox='0 0 33 32' fill='none' className='mr-1'>
           <path d='M16.5039 0L18.2236 14.2803L32.5039 16L18.2236 17.7197L16.5039 32L14.7842 17.7197L0.503906 16L14.7842 14.2803L16.5039 0Z' fill='white' />
         </svg>
         <div className='text-white text-[clamp(1.25rem,2vw,2rem)] leading-none'>TITLE</div>
       </div>
-      <div className='col-span-5 text-white'>
+      <div className='col-span-3 text-white'>
         <div className='w-full'>
           <div className='flex justify-between items-center'>
             <span className='text-[clamp(1.5rem,4vw,3.5rem)] break-keep'>운전면허 1종 보통</span>
@@ -108,19 +116,23 @@ const Moblie03 = () => {
 
   {/* TRAINING 섹션 */}
   <div className='relative'>
-  <div className='line'>
-  <svg viewBox='0 0 300 10' className='w-full h-auto'>
-    <path d='M0,0 L100,0 L130,8 L300,8' stroke='white' opacity='0.3' strokeWidth='0.5' fill='none' />
-  </svg>
+<div class="grid-line grid-layout">
+<div className='award-line_flex'>
+  <div className='line-wrapper'>
+    <div className='line-divider'></div>
+  </div>
+  <div className='line-divider cc--slanted'></div>
 </div>
-    <div className='grid grid-cols-9'>
-      <div className='col-span-4 flex items-start'>
+<div className='line-divider column-5'></div>
+</div>
+    <div className='grid grid-cols-6'>
+      <div className='col-span-3 flex items-start'>
         <svg width='1.5rem' viewBox='0 0 33 32' fill='none' className='mr-1'>
           <path d='M16.5039 0L18.2236 14.2803L32.5039 16L18.2236 17.7197L16.5039 32L14.7842 17.7197L0.503906 16L14.7842 14.2803L16.5039 0Z' fill='white' />
         </svg>
         <div className='text-white text-[clamp(1.25rem,2vw,2rem)] leading-none'>TRAINING</div>
       </div>
-      <div className='col-span-5 text-white'>
+      <div className='col-span-3 text-white'>
         <div className='w-full '>
           <div className='flex justify-between items-center'>
             <span className='text-[clamp(1.5rem,4vw,3.5rem)] break-keep'>SBS 컴퓨터 아카데미</span>
@@ -133,19 +145,23 @@ const Moblie03 = () => {
         {/*skill영역 */}
 
         <div className='relative'>
-  <div className='line'>
-  <svg viewBox='0 0 300 10' className='w-full h-auto'>
-    <path d='M0,0 L100,0 L130,8 L300,8' stroke='white' opacity='0.3' strokeWidth='0.5' fill='none' />
-  </svg>
+<div class="grid-line grid-layout">
+<div className='award-line_flex'>
+  <div className='line-wrapper'>
+    <div className='line-divider'></div>
+  </div>
+  <div className='line-divider cc--slanted'></div>
 </div>
-        <div className='grid grid-cols-9 '>
-      <div className='col-span-4 flex items-start'>
+<div className='line-divider column-5'></div>
+</div>
+        <div className='grid grid-cols-6 '>
+      <div className='col-span-3 flex items-start'>
         <svg width='1.5rem' viewBox='0 0 33 32' fill='none' className='mr-1'>
           <path d='M16.5039 0L18.2236 14.2803L32.5039 16L18.2236 17.7197L16.5039 32L14.7842 17.7197L0.503906 16L14.7842 14.2803L16.5039 0Z' fill='white' />
         </svg>
         <div className='text-white text-[clamp(1.25rem,2vw,2rem)] leading-none'>SKILL</div>
       </div>
-      <div className='col-span-5 text-white'>
+      <div className='col-span-3 text-white'>
         {[
           ['HTML'],
           ['CSS'],
@@ -159,7 +175,7 @@ const Moblie03 = () => {
             <div className='flex justify-between items-center'>
               <span className='text-[clamp(1.5rem,4vw,3.5rem)] break-keep'>{skill}</span>
             </div>
-            {i !== arr.length - 1 && <div className='w-full h-[1px] bg-white/30 mt-5'></div>}
+    <div className='line-divider'></div>
           </div>
         ))}
       </div>
