@@ -3,13 +3,15 @@ import React, { useEffect, useRef, useState } from 'react'
 const Moblie = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
- const ballRef = useRef(null);
+const ballRef = useRef(null);
 const [isActive, setIsActive] = useState(false);
 const [isHovered, setIsHovered] = useState(false);
-
+const ballSize = 140;
 const velocity = useRef({ x: 2, y: 2 });
-const position = useRef({ x: window.innerWidth - 200, y: window.innerHeight - 200 }); // 초기 하단 위치
-const ballSize = 160;
+const position = useRef({
+  x: window.innerWidth - ballSize - 20, 
+  y: window.innerHeight - ballSize - 20 
+});
 
 useEffect(() => {
   const handleScroll = () => {
@@ -44,14 +46,17 @@ useEffect(() => {
         }
       }
 
-      ball.style.transform = `translate(${position.current.x}px, ${position.current.y}px)`;
+      ball.style.left = `${position.current.x}px`;
+      ball.style.top = `${position.current.y}px`;
       ball.style.bottom = "";
       ball.style.right = "";
     } 
     else {
-      ball.style.transform = "none";
-      ball.style.bottom = "20px";
-      ball.style.right = "20px";
+      position.current.x = window.innerWidth - ballSize ;
+      position.current.y = window.innerHeight - ballSize ;
+    
+      ball.style.left = `${position.current.x}px`;
+      ball.style.top = `${position.current.y}px`;
     }
 
     animationFrame = requestAnimationFrame(moveBall);
@@ -68,22 +73,22 @@ useEffect(() => {
       <div className="fixed w-full h-auto inset-0 z-[5000] pointer-events-none">
       <div className="top absolute top-0 left-0 w-full flex items-start justify-between">
     <div className="top-left-plus relative w-4 h-4 top-2 left-2">
-    <div className="top-left-ver absolute left-1/2  top-0 h-4 w-[1px] bg-white opacity-50 -translate-x-1/2"></div>
-    <div className="top-left-col absolute top-1/2 left-0 w-4 h-[1px] bg-white opacity-50 -translate-y-1/2"></div>
+    <div className="top-left-ver absolute left-1/2  top-0 h-4 w-[.5px] bg-white opacity-50 -translate-x-1/2"></div>
+    <div className="top-left-col absolute top-1/2 left-0 w-4 h-[.5px] bg-white opacity-50 -translate-y-1/2"></div>
     </div>
 
       <div className="top-right-plus relative w-4 h-4 top-2 right-2  ">
-      <div className="top-right-ver absolute left-1/2 top-0 h-4 w-[1px] bg-white opacity-50 -translate-x-1/2"></div>
-      <div className="top-right-col absolute top-1/2 right-0 w-4 h-[1px] bg-white opacity-50 -translate-y-1/2"></div>
+      <div className="top-right-ver absolute left-1/2 top-0 h-4 w-[.5px] bg-white opacity-50 -translate-x-1/2"></div>
+      <div className="top-right-col absolute top-1/2 right-0 w-4 h-[.5px] bg-white opacity-50 -translate-y-1/2"></div>
     </div>
 </div>
       </div>
       {/*라인 아랫줄*/}
       <div className="fixed w-full h-auto inset-0 z-[999]">
       <div className="top absolute bottom-0 left-0 w-full flex items-start justify-between">
-    <div className="btm-left-plus relative w-4 h-4 bottom-2 left-2 z-[5000]">
-    <div className="btm-left-ver absolute left-1/2 top-0 h-4 w-[1px] bg-white opacity-50 -translate-x-1/2"></div>
-    <div className="btm-left-col absolute top-1/2 left-0 w-4 h-[1px] bg-white opacity-50 -translate-y-1/2"></div>
+    <div className="btm-left-plus relative w-4 h-4 bottom-2 left-2 ">
+    <div className="btm-left-ver absolute left-1/2 top-0 h-4 w-[.5px] bg-white opacity-50 -translate-x-1/2"></div>
+    <div className="btm-left-col absolute top-1/2 left-0 w-4 h-[.5px] bg-white opacity-50 -translate-y-1/2"></div>
     </div>
     
 <div className='frame-top-bot cc--bot '>
@@ -97,7 +102,7 @@ useEffect(() => {
   </div>
       {/* 메뉴 버튼 */}
       <div
-        className=" flex items-center gap-2 cursor-pointer z-[6000000] pointer-events-auto"
+        className=" flex items-center gap-2 cursor-pointer z-[10000] pointer-events-auto"
         onClick={() => setIsMenuOpen(!isMenuOpen)}
       >
         <div className="relative flex flex-col justify-center items-center w-[18px] h-[18px]">
@@ -120,7 +125,7 @@ useEffect(() => {
       </div>
 
       <div
-        className={`fixed inset-0 bg-black text-white transition-transform duration-500 z-40 ${
+        className={`fixed inset-0 bg-black  text-white transition-transform duration-500 z-[9998] ${
           isMenuOpen ? "translate-y-0" : "-translate-y-full"
         }`}
       >
@@ -210,9 +215,9 @@ useEffect(() => {
     </div>
 </div>
 
-      <div className="btm-right-plus relative w-4 h-4 bottom-2 right-2 z-[5000] ">
-      <div className="btm-right-ver absolute left-1/2 top-0 h-4 w-[1px] bg-white opacity-50 -translate-x-1/2"></div>
-      <div className="btm-right-col absolute top-1/2 right-0 w-4 h-[1px] bg-white opacity-50 -translate-y-1/2"></div>
+      <div className="btm-right-plus relative w-4 h-4 bottom-2 right-1 z-[5000] ">
+      <div className="btm-right-ver absolute left-1/2 top-0 h-4 w-[.5px] bg-white opacity-50 -translate-x-1/2"></div>
+      <div className="btm-right-col absolute top-1/2 right-0 w-4 h-[.5px] bg-white opacity-50 -translate-y-1/2"></div>
     </div>
 </div>
       </div>
@@ -267,11 +272,11 @@ useEffect(() => {
     <div className="font-bold text-[8vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>L</div>
   </h1>
 
-  <div className="flex gap-[10vw] mt-[10vh]">
-    <h4 className="text-[4vw]">Front end</h4>
-    <h4 className="text-[4vw]">UI/UX</h4>
-    <h4 className="text-[4vw]">DEVELOPE</h4>
-    <h4 className="text-[4vw]">AAA</h4>
+  <div className="flex gap-[10vw] mt-[8vh] opacity-75">
+    <h4 className="text-[3vw]">F<span className='font-gridular'>R</span>ONT END</h4>
+    <h4 className="text-[3vw]">UI/U<span className='font-gridular'>X</span></h4>
+    <h4 className="text-[3vw]">DE<span className='font-gridular'>V</span>ELOPE</h4>
+    <h4 className="text-[3vw]">CR<span className='font-gridular'>E</span>ATIVE</h4>
   </div>
 </div>
 

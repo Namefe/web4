@@ -43,7 +43,7 @@ const Moblie02 = () => {
           opacity: 1,
           y: 0,
           transition: {
-            delay: i * 0.3,
+            delay: i * 0.5,
             duration: 0.5,
             ease: "easeOut",
           },
@@ -116,122 +116,73 @@ const Moblie02 = () => {
       
   return (
     <>
-    <section className='relative w-full h-[500vh] overflow-hidden '>
-    <svg className="absolute top-0 left-0 w-full h-auto" viewBox="0 0 300 100">
-    <path 
-      d="M3,50 L30,50 L50,70 L297,70" 
-      stroke="white" 
-      opacity="1"
-      strokeWidth="0.4"
-      fill="none"
-    />
-  </svg>
-
-  <div className="clipper absolute top-0 left-[3%] mt-[20%] ">
-    <div className="wheel">
-      <svg viewBox="0 0 200 200" width="32" height="32">
-        <defs>
-          <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-            <feGaussianBlur stdDeviation="12" result="coloredBlur"/>
-            <feMerge>
-              <feMergeNode in="coloredBlur"/>
-              <feMergeNode in="SourceGraphic"/>
-            </feMerge>
-          </filter>
-        </defs>
-        <circle cx="100" cy="100" r="10" fill="white" filter="url(#glow)" />
-        <circle cx="100" cy="100" r="95" stroke="gray" strokeWidth="4" fill="none" />
-        <line x1="100" y1="100" x2="100" y2="5" stroke="gray" strokeWidth="2" />
-        <line x1="100" y1="100" x2="170" y2="30" stroke="gray" strokeWidth="2" />
-        <line x1="100" y1="100" x2="195" y2="100" stroke="gray" strokeWidth="2" />
-        <line x1="100" y1="100" x2="170" y2="170" stroke="gray" strokeWidth="2" />
-        <line x1="100" y1="100" x2="100" y2="195" stroke="gray" strokeWidth="2" />
-        <line x1="100" y1="100" x2="30"  y2="170" stroke="gray" strokeWidth="2" />
-        <line x1="100" y1="100" x2="5"   y2="100" stroke="gray" strokeWidth="2" />
-        <line x1="100" y1="100" x2="30"  y2="30"  stroke="gray" strokeWidth="2" />
-      </svg>
+    <section className='relative w-full h-[500vh]  '>
+  <div className="line-wrapper">
+    <div className="line-wrapper-left">
+      <div className="line-divider"></div>
+      <div className="spin-icon_wr opacity-75">
+        <div className="spin-icon ">
+          <svg xmlns="http://www.w3.org/2000/svg" width='100%' viewBox="0 0 30 31" fill="none" className="spin-icon_spinner">
+          <path d="M15 15.5L15 -6.55671e-07M15 15.5L30 15.5M15 15.5L25.7143 4.42857M15 15.5L25.7143 26.5714M15 15.5L15 31M15 15.5L-6.77527e-07 15.5M15 15.5L4.28571 4.42859M15 15.5L4.28571 26.5714" stroke='white'></path>
+          </svg>
+          <svg  xmlns="http://www.w3.org/2000/svg" width='100%' viewBox="0 0 33 17" fill='none'>
+          <path d="M16.5 1C7.93959 1 1 7.93959 1 16.5H32C32 7.93959 25.0604 1 16.5 1Z" stroke='white'></path>
+          </svg>
+        </div>
+      </div>
+    </div>
+    <div className="line-divider cc--slanted"></div>
+    <div className="line-divider"></div>
+        <div className="text-column flex flex-col">
+      <div className="absolute text-white top-12 left-4 text-[13px]" ref={textRef}>
+        <motion.p custom={0} initial={{ opacity: 0, y: 20 }} animate={controls2}>
+          Game, Entertainment, Medical
+        </motion.p>
+        <motion.p custom={1} initial={{ opacity: 0, y: 20 }} animate={controls2}>
+          다양한 분야를 설계하고 움직였습니다.
+        </motion.p>
+        <motion.p custom={2} initial={{ opacity: 0, y: 20 }} animate={controls2}>
+          Netmarble Games, SM Entertainment, 그리고 Trauma Center까지.
+        </motion.p>
+        <motion.p custom={3} initial={{ opacity: 0, y: 20 }} animate={controls2}>
+          차이를 만드는 경험을 디자인합니다.
+        </motion.p>
+      </div>
     </div>
   </div>
-  <div className='text-white w-full absolute mt-[22%] flex justify-between items-between'>
-  <div className="absolute  top-4 left-4 text-[13px]" ref={textRef}>
-      <motion.p custom={0} initial={{ opacity: 0, y: 20 }} animate={controls2}>
-        Game, Entertainment, Medical
-      </motion.p>
-      <motion.p custom={1} initial={{ opacity: 0, y: 20 }} animate={controls2}>
-        다양한 분야를 설계하고 움직였습니다.
-      </motion.p>
-      <motion.p custom={2} initial={{ opacity: 0, y: 20 }} animate={controls2}>
-        Netmarble Games, SM Entertainment, 그리고 Trauma Center까지.
-      </motion.p>
-      <motion.p custom={3} initial={{ opacity: 0, y: 20 }} animate={controls2}>
-        차이를 만드는 경험을 디자인합니다.
-      </motion.p>
+<div className="we-do_container container w-full">
+  <div className="flex justify-between items-start text-white">
+    <div className="text-[15px] leading-none pl-3">
+      MY
     </div>
-    <div className="absolute top-40 left-2 flex justify-between items-start w-full items-start mt-20">
-  <div className="text-[15px] leading-none">MY</div>
-  <h2
-    ref={titleRef}
-    className="flex text-5xl font-bold leading-none -translate-x-3 -translate-y-1 text-opacity-50 perspective-[1000px]"
-  >
-    <motion.span custom={0} initial={{ rotateX: 90, opacity: 0 }} animate={controls}>
-      P
-    </motion.span>
-    <motion.span custom={1} initial={{ rotateX: 90, opacity: 0 }} animate={controls}>
-      O
-    </motion.span>
-    <motion.span custom={2} initial={{ rotateX: 90, opacity: 0 }} animate={controls}>
-      R
-    </motion.span>
-    <motion.span
-      custom={3}
-      initial={{ rotateX: 90, opacity: 0 }}
-      animate={controls}
-      className="font-gridular relative top-[2px]"
+
+    <h2
+      ref={titleRef}
+      className="flex pr-3 text-5xl font-bold leading-none text-opacity-50"
     >
-      T
-    </motion.span>
-    <motion.span custom={4} initial={{ rotateX: 90, opacity: 0 }} animate={controls}>
-      F
-    </motion.span>
-    <motion.span custom={5} initial={{ rotateX: 90, opacity: 0 }} animate={controls}>
-      O
-    </motion.span>
-    <motion.span custom={6} initial={{ rotateX: 90, opacity: 0 }} animate={controls}>
-      L
-    </motion.span>
-    <motion.span custom={7} initial={{ rotateX: 90, opacity: 0 }} animate={controls}>
-      I
-    </motion.span>
-    <motion.span
-      custom={8}
-      initial={{ rotateX: 90, opacity: 0 }}
-      animate={controls}
-      className="font-gridular relative top-[2px]"
-    >
-      O
-    </motion.span>
-  </h2>
+      <motion.span custom={0} initial={{ rotateX: 90, opacity: 0 }} animate={controls}>P</motion.span>
+      <motion.span custom={1} initial={{ rotateX: 90, opacity: 0 }} animate={controls}>O</motion.span>
+      <motion.span custom={2} initial={{ rotateX: 90, opacity: 0 }} animate={controls}>R</motion.span>
+      <motion.span custom={3} initial={{ rotateX: 90, opacity: 0 }} animate={controls}>T</motion.span>
+      <motion.span custom={4} initial={{ rotateX: 90, opacity: 0 }} animate={controls}>F</motion.span>
+      <motion.span custom={5} initial={{ rotateX: 90, opacity: 0 }} animate={controls}>O</motion.span>
+      <motion.span custom={6} initial={{ rotateX: 90, opacity: 0 }} animate={controls}>L</motion.span>
+      <motion.span custom={7} initial={{ rotateX: 90, opacity: 0 }} animate={controls}>I</motion.span>
+      <motion.span custom={8} initial={{ rotateX: 90, opacity: 0 }} animate={controls}>O</motion.span>
+    </h2>
+  </div>
+  <div className="line-divider"></div>
 </div>
-
-  </div>
-  <div>
-  <svg className="absolute top-[9%] left-0 w-full h-auto" viewBox="0 0 300 100">
-    <path 
-      d="M10,60  L290,60" 
-      stroke="white" 
-      opacity="1"
-      strokeWidth="0.5"
-      fill="none"
-    />
-  </svg>
-  </div>
-  <div  className="absolute top-[13%]  w-full  ">
-      <div className="absolute w-full top-0 left-0 px-2 z-20 opacity-50 text-white flex justify-between text-[14px]">
+  <div  className="absolute top-[7%]  w-full ">
+      <div className="absolute font-pptelegraf w-full top-0 left-0 px-2 z-20 opacity-50 text-white flex justify-between text-[13px]">
       <div>{lineTop1}</div>
       <div>{lineTop2}</div>
       <div>{lineTop3}</div>
       </div>
     </div>
+
+
+
 <div className="absolute top-[15%] w-full flex flex-col items-center gap-10">
 
   {/* 1번째 이미지 */}
@@ -304,8 +255,6 @@ const Moblie02 = () => {
   </div>
 
 </div>
-
-
     </section>
     </>
   )

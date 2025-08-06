@@ -47,7 +47,7 @@ const Moblie03 = () => {
 
 <div class="grid-line grid-layout">
 <div className='award-line_flex'>
-  <div className='line-wrapper'>
+  <div className='line-wrapper-left cc--awards'>
     <div className='line-divider'></div>
   </div>
   <div className='line-divider cc--slanted'></div>
@@ -89,7 +89,7 @@ const Moblie03 = () => {
   <div className='relative'>
 <div class="grid-line grid-layout">
 <div className='award-line_flex'>
-  <div className='line-wrapper'>
+  <div className='line-wrapper-left cc--awards'>
     <div className='line-divider'></div>
   </div>
   <div className='line-divider cc--slanted'></div>
@@ -118,8 +118,9 @@ const Moblie03 = () => {
   <div className='relative'>
 <div class="grid-line grid-layout">
 <div className='award-line_flex'>
-  <div className='line-wrapper'>
-    <div className='line-divider'></div>
+<div className='line-wrapper-left cc--awards'>
+<div className='line-divider'>
+</div>
   </div>
   <div className='line-divider cc--slanted'></div>
 </div>
@@ -147,8 +148,9 @@ const Moblie03 = () => {
         <div className='relative'>
 <div class="grid-line grid-layout">
 <div className='award-line_flex'>
-  <div className='line-wrapper'>
-    <div className='line-divider'></div>
+<div className='line-wrapper-left cc--awards'>
+<div className='line-divider'>
+</div>
   </div>
   <div className='line-divider cc--slanted'></div>
 </div>
