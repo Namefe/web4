@@ -345,7 +345,7 @@ const blurStyle = useMotionTemplate`blur(${blurValue}px)`;
 <div>
 <div class="grid-line grid-layout">
 <div className='award-line_flex'>
-  <div className='line-wrapper'>
+  <div className='line-wrapper-left cc--awards'>
     <div className='line-divider'></div>
   </div>
   <div className='line-divider cc--slanted'></div>
@@ -432,7 +432,7 @@ const blurStyle = useMotionTemplate`blur(${blurValue}px)`;
   <div className='relative top-[-20px]'>
   <div class="grid-line grid-layout">
 <div className='award-line_flex'>
-  <div className='line-wrapper'>
+  <div className='line-wrapper-left cc--awards'>
     <div className='line-divider'></div>
   </div>
   <div className='line-divider cc--slanted'></div>
@@ -461,7 +461,7 @@ const blurStyle = useMotionTemplate`blur(${blurValue}px)`;
   <div className='relative top-[-20px]'>
   <div class="grid-line grid-layout">
 <div className='award-line_flex'>
-  <div className='line-wrapper'>
+  <div className='line-wrapper-left cc--awards'>
     <div className='line-divider'></div>
   </div>
   <div className='line-divider cc--slanted'></div>
@@ -490,7 +490,7 @@ const blurStyle = useMotionTemplate`blur(${blurValue}px)`;
         <div className='relative top-[-20px]'>
         <div class="grid-line grid-layout">
 <div className='award-line_flex'>
-  <div className='line-wrapper'>
+  <div className='line-wrapper-left cc--awards'>
     <div className='line-divider'></div>
   </div>
   <div className='line-divider cc--slanted'></div>
