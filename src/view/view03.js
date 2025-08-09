@@ -1,5 +1,5 @@
 import { useScroll } from 'framer-motion';
-import React, { useRef } from 'react'
+import React, { useRef,useState } from 'react'
 import {useTransform,motion, useMotionTemplate } from 'framer-motion';
 
 
@@ -19,7 +19,7 @@ const z2 = useTransform(imageProgress, [0.10, 0.25, 0.40], [-700, 0, 2200]);
 const scale2 = useTransform(imageProgress, [0.10, 0.25, 0.40], [0.3, 1.3, 4.2]);
 const opacity2 = useTransform(imageProgress, [0.08, 0.13, 0.25, ], [0, 1, 1, ]);
 
-const z3 = useTransform(imageProgress, [0.20, 0.35, 0.50], [-900, 0, 2400]);
+const z3 = useTransform(imageProgress, [0.30, 0.45, 0.60], [-900, 0, 2400]);
 const scale3 = useTransform(imageProgress, [0.20, 0.35, 0.50], [0.3, 1.4, 4.5]);
 const opacity3 = useTransform(imageProgress, [0.18, 0.23, 0.35, ], [0, 1, 1, ]);
 
@@ -28,10 +28,21 @@ const nextScale = useTransform(imageProgress, [0.4, 0.55], [0.6, 1]);
 const blurValue = useTransform(imageProgress, [0.4, 0.53], [60, 0]);
 const blurStyle = useMotionTemplate`blur(${blurValue}px)`;
 
+const [hovered, setHovered] = useState(false);
+const [hovered2, setHovered2] = useState(false);
+const [hovered3, setHovered3] = useState(false);
 
+const container = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.06, staggerDirection: 1 } },
+  hide: { transition: { staggerChildren: 0.06, staggerDirection: -1 } },
+};
 
-
-
+const item = {
+  hidden: { opacity: 0, y: 10 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.25, ease: "easeOut" } },
+  hide: { opacity: 0, y: 10, transition: { duration: 0.2, ease: "easeIn" } },
+};
 
 
   return (
@@ -41,259 +52,182 @@ const blurStyle = useMotionTemplate`blur(${blurValue}px)`;
     <div className="fixed top-0 left-0 w-full h-screen z-40 overflow-visible pointer-events-none"
          style={{ perspective: "1200px", transformStyle: "preserve-3d" }}>
       {/* 이미지 1 */}
-      <motion.div
-  className="group relative absolute top-[30%] left-[20%] w-[250px] flex flex-col items-center pointer-events-auto"
-  style={{
-    transform: useMotionTemplate`translateZ(${z1}px) scale(${scale1})`,
-    opacity: opacity1,
-    transformOrigin: "center",
-  }}
->
-  <a href="#" className="relative w-full">
-    <div className="w-full">
-      <img
-        src={`${process.env.PUBLIC_URL}/netmable.png`}
-        className="w-full block pointer-events-auto"
-        onMouseMove={(e) => {
-          const blur = e.currentTarget.querySelector(".blur-circle");
-          if (blur) {
-            const rect = e.currentTarget.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            blur.style.left = `${x}px`;
-            blur.style.top = `${y}px`;
-          }
-        }}
-      />
-    </div>
+   <motion.div
+      className="group relative absolute top-[30%] left-[20%] w-[250px] flex flex-col items-center pointer-events-auto"
+      style={{
+        transform: useMotionTemplate`translateZ(${z1}px) scale(${scale1})`,
+        opacity: opacity1,
+        transformOrigin: "center",
+      }}
+      onHoverStart={() => setHovered(true)}
+      onHoverEnd={() => setHovered(false)}
+    >
+      <a href="#" className="relative w-full">
+        <div className="w-full">
+          <img
+            src={`${process.env.PUBLIC_URL}/netmable.png`}
+            className="w-full block pointer-events-auto"
+            onMouseMove={(e) => {
+              const blur = e.currentTarget.querySelector(".blur-circle");
+              if (blur) {
+                const rect = e.currentTarget.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                blur.style.left = `${x}px`;
+                blur.style.top = `${y}px`;
+              }
+            }}
+          />
+        </div>
 
-    <div className="relative mt-3 flex flex-col items-start z-10">
-  <div className="text-white text-sm font-extralight tracking-wide opacity-40 group-hover:opacity-100 transition-opacity duration-300">
-    Netmarble
-  </div>
+        <div className="relative mt-3 flex flex-col items-start z-10">
+          <div className="text-white text-sm font-extralight tracking-wide opacity-40 group-hover:opacity-100 transition-opacity duration-300">
+            Netmarble
+          </div>
 
- <div className="flex gap-[2px]">
-    {"NETMARBLEGAMES".split("").map((char, i) => (
-      <motion.div
-        key={i}
-        className="text-white font-bold"
-        initial={{ opacity: 0, y: 10 }}
-        animate={{
-          opacity: [0, 1],
-          y: [10, 0]
-        }}
-        exit={{
-          opacity: 0,
-          y: 10
-        }}
-        transition={{
-          delay: i * 0.03,
-          duration: 0.3,
-          ease: "easeOut"
-        }}
-        whileHover={{
-          opacity: 1,
-          y: 0
-        }}
-      >
-        {char}
-      </motion.div>
-    ))}
-  </div>
-</div>
+          <motion.div
+            className="inline-flex gap-[2px]"
+            variants={container}
+            initial="hidden"
+            animate={hovered ? "show" : "hide"}
+          >
+            {"NETMARBLEGAMES".split("").map((char, i) => (
+              <motion.span key={i} className="text-white font-bold" variants={item}>
+                {char}
+              </motion.span>
+            ))}
+          </motion.div>
+        </div>
 
-    {[
-      { className: "bottom-[-8px] left-[-8px]", path: "M7 6V20H21", delay: 0 },
-      { className: "bottom-[-8px] right-[-8px]", path: "M20 6V20H6", delay: 0.05 },
-      { className: "top-[-15px] left-[-10px]", path: "M7 21V7H21", delay: 0.1 },
-      { className: "top-[-15px] right-[-10px]", path: "M20 21V7H6", delay: 0.15 },
-    ].map((item, i) => (
-      <motion.svg
-        key={i}
-        className={`absolute ${item.className} w-[20px] h-[20px] text-white opacity-0 group-hover:opacity-100  transition-all duration-500`}
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-        style={{ zIndex: 20 }}
-      >
-        <path d={item.path} strokeWidth="1.5" />
-      </motion.svg>
-    ))}
-  </a>
-</motion.div>
+        {[
+          { className: "bottom-[-8px] left-[-8px]", path: "M7 6V20H21", delay: 0 },
+          { className: "bottom-[-8px] right-[-8px]", path: "M20 6V20H6", delay: 0.05 },
+          { className: "top-[-15px] left-[-10px]", path: "M7 21V7H21", delay: 0.1 },
+          { className: "top-[-15px] right-[-10px]", path: "M20 21V7H6", delay: 0.15 },
+        ].map((item, i) => (
+          <motion.svg
+            key={i}
+            className={`absolute ${item.className} w-[20px] h-[20px] text-white opacity-0 group-hover:opacity-100 transition-all duration-500`}
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            style={{ zIndex: 20 }}
+          >
+            <path d={item.path} strokeWidth="1.5" />
+          </motion.svg>
+        ))}
+      </a>
+    </motion.div>
 
 
 
 {/* 이미지 2 */}
-<motion.div
-  className="group relative absolute top-[20%] left-1/2 w-[250px] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center pointer-events-auto"
-  style={{
-    transform: useMotionTemplate`translateZ(${z2}px) scale(${scale2})`,
-    opacity: opacity2,
-    transformOrigin: "center",
-  }}
->
-  <a href="#" className="relative w-full">
-    <div className="w-full relative">
-      <img
-        src={`${process.env.PUBLIC_URL}/netmable.png`}
-        className="w-full block pointer-events-auto"
-        onMouseMove={(e) => {
-          const blurImg = e.currentTarget.parentNode.querySelector(".blur-img");
-          const rect = e.currentTarget.getBoundingClientRect();
-          const x = e.clientX - rect.left - 30;
-          const y = e.clientY - rect.top - 30;
-          blurImg.style.WebkitMaskPosition = `${x}px ${y}px`;
-          blurImg.style.maskPosition = `${x}px ${y}px`;
-          blurImg.style.opacity = "1";
-        }}
-        onMouseLeave={(e) => {
-          const blurImg = e.currentTarget.parentNode.querySelector(".blur-img");
-          blurImg.style.opacity = "0";
-        }}
-      />
-
-      <img
-        src={`${process.env.PUBLIC_URL}/netmable.png`}
-        className="blur-img w-full absolute top-0 left-0 pointer-events-none z-20"
-        style={{
-          filter: "blur(8px)",
-          opacity: 0,
-          transition: "opacity 0.3s ease, mask-position 0.1s ease",
-          WebkitMaskImage:
-            "radial-gradient(circle 60px at center, black 100%, transparent 100%)",
-          maskImage:
-            "radial-gradient(circle 60px at center, black 100%, transparent 100%)",
-          WebkitMaskRepeat: "no-repeat",
-          maskRepeat: "no-repeat",
-          WebkitMaskPosition: "center",
-          maskPosition: "center",
-        }}
-      />
-    </div>
-
-    <div className="relative mt-3 flex flex-col items-start z-10">
-  <div className="text-white text-sm font-extralight tracking-wide opacity-40 group-hover:opacity-100 transition-opacity duration-300">
-        Netmarble
-      </div>
-
-      <div className="flex gap-[2px]">
-        {"NETMARBLEGAMES".split("").map((char, i) => (
-          <motion.div
-            key={i}
-            className="text-white font-bold"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: [0, 1], y: [10, 0] }}
-            exit={{ opacity: 0, y: 10 }}
-            transition={{
-              delay: i * 0.03,
-              duration: 0.3,
-              ease: "easeOut",
-            }}
-            whileHover={{ opacity: 1, y: 0 }}
-          >
-            {char}
-          </motion.div>
-        ))}
-      </div>
-    </div>
-
-    {[
-      { className: "bottom-[-8px] left-[-8px]", path: "M7 6V20H21", delay: 0 },
-      { className: "bottom-[-8px] right-[-8px]", path: "M20 6V20H6", delay: 0.05 },
-      { className: "top-[-15px] left-[-10px]", path: "M7 21V7H21", delay: 0.1 },
-      { className: "top-[-15px] right-[-10px]", path: "M20 21V7H6", delay: 0.15 },
-    ].map((item, i) => (
-      <motion.svg
-        key={i}
-        className={`absolute ${item.className} w-[20px] h-[20px] text-white opacity-0 group-hover:opacity-100 transition-all duration-500`}
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-        style={{ zIndex: 20 }}
+  <motion.div
+        className="group relative absolute top-[20%] left-1/2 w-[250px] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center pointer-events-auto"
+        style={{ transform: useMotionTemplate`translateZ(${z2}px) scale(${scale2})`, opacity: opacity2, transformOrigin: "center" }}
+        onHoverStart={() => setHovered2(true)}
+        onHoverEnd={() => setHovered2(false)}
       >
-        <path d={item.path} strokeWidth="1.5" />
-      </motion.svg>
-    ))}
-  </a>
-</motion.div>
+        <a href="#" className="relative w-full">
+          <div className="w-full relative">
+            <img
+              src={`${process.env.PUBLIC_URL}/netmable.png`}
+              className="w-full block pointer-events-auto"
+              onMouseMove={(e) => {
+                const blurImg = e.currentTarget.parentNode.querySelector(".blur-img");
+                const rect = e.currentTarget.getBoundingClientRect();
+                const x = e.clientX - rect.left - 30;
+                const y = e.clientY - rect.top - 30;
+                blurImg.style.WebkitMaskPosition = `${x}px ${y}px`;
+                blurImg.style.maskPosition = `${x}px ${y}px`;
+                blurImg.style.opacity = "1";
+              }}
+              onMouseLeave={(e) => {
+                const blurImg = e.currentTarget.parentNode.querySelector(".blur-img");
+                blurImg.style.opacity = "0";
+              }}
+            />
+            <img
+              src={`${process.env.PUBLIC_URL}/netmable.png`}
+              className="blur-img w-full absolute top-0 left-0 pointer-events-none z-20"
+              style={{
+                filter: "blur(8px)",
+                opacity: 0,
+                transition: "opacity 0.3s ease, mask-position 0.1s ease",
+                WebkitMaskImage: "radial-gradient(circle 60px at center, black 100%, transparent 100%)",
+                maskImage: "radial-gradient(circle 60px at center, black 100%, transparent 100%)",
+                WebkitMaskRepeat: "no-repeat",
+                maskRepeat: "no-repeat",
+                WebkitMaskPosition: "center",
+                maskPosition: "center",
+              }}
+            />
+          </div>
+
+          <div className="relative mt-3 flex flex-col items-start z-10">
+            <div className="text-white text-sm font-extralight tracking-wide opacity-40 group-hover:opacity-100 transition-opacity duration-300">Netmarble</div>
+            <motion.div className="inline-flex gap-[2px]" variants={container} initial="hidden" animate={hovered2 ? "show" : "hide"}>
+              {"NETMARBLEGAMES".split("").map((char, i) => (
+                <motion.span key={i} className="text-white font-bold" variants={item}>
+                  {char}
+                </motion.span>
+              ))}
+            </motion.div>
+          </div>
+
+          {[
+            { className: "bottom-[-8px] left-[-8px]", path: "M7 6V20H21" },
+            { className: "bottom-[-8px] right-[-8px]", path: "M20 6V20H6" },
+            { className: "top-[-15px] left-[-10px]", path: "M7 21V7H21" },
+            { className: "top-[-15px] right-[-10px]", path: "M20 21V7H6" },
+          ].map((it, i) => (
+            <motion.svg key={i} className={`absolute ${it.className} w-[20px] h-[20px] text-white opacity-0 group-hover:opacity-100 transition-all duration-500`} fill="none" viewBox="0 0 24 24" stroke="currentColor" style={{ zIndex: 20 }}>
+              <path d={it.path} strokeWidth="1.5" />
+            </motion.svg>
+          ))}
+        </a>
+      </motion.div>
 
 
 
 
 
 {/* 이미지 3 */}
-<motion.div
-  className="group relative absolute top-[40%] left-[75%] w-[250px] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center pointer-events-auto"
-  style={{
-    transform: useMotionTemplate`translateZ(${z3}px) scale(${scale3})`,
-    opacity: opacity3,
-    transformOrigin: "center",
-  }}
->
-  <a href="#" className="relative w-full">
-    <div className="w-full">
-      <img
-        src={`${process.env.PUBLIC_URL}/netmable.png`}
-        className="w-full block pointer-events-auto"
-        onMouseMove={(e) => {
-          const blur = e.currentTarget.querySelector(".blur-circle");
-          if (blur) {
-            const rect = e.currentTarget.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            blur.style.left = `${x}px`;
-            blur.style.top = `${y}px`;
-          }
-        }}
-      />
-    </div>
-
-    <div className="relative mt-3 flex flex-col items-start z-10">
-  <div className="text-white text-sm font-extralight tracking-wide opacity-40 group-hover:opacity-100 transition-opacity duration-300">
-        Netmarble
-      </div>
-
-      <div className="flex gap-[2px]">
-        {"NETMARBLEGAMES".split("").map((char, i) => (
-          <motion.div
-            key={i}
-            className="text-white font-bold"
-            initial={{ opacity: 0, y: 10 }}
-            animate={{ opacity: [0, 1], y: [10, 0] }}
-            exit={{ opacity: 0, y: 10 }}
-            transition={{
-              delay: i * 0.03,
-              duration: 0.3,
-              ease: "easeOut",
-            }}
-            whileHover={{ opacity: 1, y: 0 }}
-          >
-            {char}
-          </motion.div>
-        ))}
-      </div>
-    </div>
-
-    {[
-      { className: "bottom-[-8px] left-[-8px]", path: "M7 6V20H21", delay: 0 },
-      { className: "bottom-[-8px] right-[-8px]", path: "M20 6V20H6", delay: 0.05 },
-      { className: "top-[-15px] left-[-10px]", path: "M7 21V7H21", delay: 0.1 },
-      { className: "top-[-15px] right-[-10px]", path: "M20 21V7H6", delay: 0.15 },
-    ].map((item, i) => (
-      <motion.svg
-        key={i}
-        className={`absolute ${item.className} w-[20px] h-[20px] text-white opacity-0 group-hover:opacity-100 transition-all duration-500`}
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-        style={{ zIndex: 20 }}
+  <motion.div
+        initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 5, duration: 0.4, ease: "easeOut" }}
+        className="group relative absolute top-[15%] left-[25%] w-[250px] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center pointer-events-auto"
+        style={{ transform: useMotionTemplate`translateZ(${z3}px) scale(${scale3})`, opacity: opacity3, transformOrigin: "center" }}
+        onHoverStart={() => setHovered3(true)}
+        onHoverEnd={() => setHovered3(false)}
       >
-        <path d={item.path} strokeWidth="1.5" />
-      </motion.svg>
-    ))}
-  </a>
-</motion.div>
+        <a href="#" className="relative w-full">
+          <div className="w-full">
+            <img src={`${process.env.PUBLIC_URL}/netmable.png`} className="w-full block pointer-events-auto" />
+          </div>
+
+          <div className="relative mt-3 flex flex-col items-start z-10">
+            <div className="text-white text-sm font-extralight tracking-wide opacity-40 group-hover:opacity-100 transition-opacity duration-300">Netmarble</div>
+            <motion.div className="inline-flex gap-[2px]" variants={container} initial="hidden" animate={hovered3 ? "show" : "hide"}>
+              {"NETMARBLEGAMES".split("").map((char, i) => (
+                <motion.span key={i} className="text-white font-bold" variants={item}>
+                  {char}
+                </motion.span>
+              ))}
+            </motion.div>
+          </div>
+
+          {[
+            { className: "bottom-[-8px] left-[-8px]", path: "M7 6V20H21" },
+            { className: "bottom-[-8px] right-[-8px]", path: "M20 6V20H6" },
+            { className: "top-[-15px] left-[-10px]", path: "M7 21V7H21" },
+            { className: "top-[-15px] right-[-10px]", path: "M20 21V7H6" },
+          ].map((it, i) => (
+            <motion.svg key={i} className={`absolute ${it.className} w-[20px] h-[20px] text-white opacity-0 group-hover:opacity-100 transition-all duration-500`} fill="none" viewBox="0 0 24 24" stroke="currentColor" style={{ zIndex: 20 }}>
+              <path d={it.path} strokeWidth="1.5" />
+            </motion.svg>
+          ))}
+        </a>
+      </motion.div>
 
     </div>
   </div>

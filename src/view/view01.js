@@ -321,6 +321,42 @@ function useScrollY() {
       }, [isActive, isHovered]);
 
 
+      const CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+function ScrambleText({ text }) {
+  const [view, setView] = useState(text);
+  const timer = useRef(null);
+
+  const run = () => {
+    clearInterval(timer.current);
+    let i = 0;
+    timer.current = setInterval(() => {
+      const chars = text.split("").map((char, idx) =>
+        idx <= i ? char : CHARS[Math.floor(Math.random() * CHARS.length)]
+      );
+      setView(chars.join(""));
+      if (i >= text.length) {
+        clearInterval(timer.current);
+      }
+      i++;
+    }, 50); // 글자 전환 속도
+  };
+
+  useEffect(() => {
+    return () => clearInterval(timer.current);
+  }, []);
+
+  return (
+    <span
+      onMouseEnter={run}
+      onMouseLeave={() => setView(text)}
+      className="text-white cursor-pointer"
+    >
+      {view}
+    </span>
+  );
+}
+
   return (
     <section ref={targetRef} className='bg-black w-full h-[500vh] relative'>
       <div  className='w-full'>
@@ -350,117 +386,17 @@ function useScrollY() {
           <div className='frame-line is--angle-left'></div>
         </div>
         <div className='frame-top-bot_middle'>
-          <div className='menu_wrapper'>
-          <ul className="flex gap-2 xl:gap-4 2xl:gap-6">
-  <li>
-    <a href="#" className="relative group inline-block h-[1em] leading-none">
-      <div className="flex gap-[0.05em]">
-        {"HOME".split("").map((char, i) => (
-          <span key={i} className="text-white">{char}</span>
+    <div className="menu_wrapper">
+      <ul className="flex gap-2 xl:gap-4 2xl:gap-6">
+        {["HOME", "PORTFOLIO", "CERTIFICATION", "EDUCATION", "CONTACT"].map((label) => (
+          <li key={label}>
+            <a href="#" className="relative inline-block h-[1em] leading-none">
+              <ScrambleText text={label} />
+            </a>
+          </li>
         ))}
-      </div>
-    </a>
-  </li>
-
-  <li>
-    <a href="#" className="relative group inline-block h-[1em] leading-none">
-      <div className="flex gap-[0.05em]">
-        {"PORTFOLIO".split("").map((char, i) => (
-          <span key={i} className="text-white text-opacity-50 group-hover:opacity-0 transition-opacity duration-300">
-            {char}
-          </span>
-        ))}
-      </div>
-      <div className="flex gap-[0.05em] absolute top-0 left-0">
-        {["P", "Ø", "R", "T", "F", "Ø", "L", "I", "Ø"].map((char, i) => (
-          <span
-            key={i}
-            className="opacity-0 group-hover:opacity-100 text-white transition-opacity duration-100"
-            style={{ transitionDelay: `${i * 80}ms` }}
-          >
-            {char}
-          </span>
-        ))}
-      </div>
-    </a>
-  </li>
-
-  <li>
-    <a href="#" className="relative group inline-block h-[1em] leading-none">
-      <div className="flex gap-[0.05em]">
-        {"CERTIFICATION".split("").map((char, i) => (
-          <span key={i} className="text-white text-opacity-50 group-hover:opacity-0 transition-opacity duration-300">
-            {char}
-          </span>
-        ))}
-      </div>
-      <div className="flex gap-[0.05em] absolute top-0 left-0">
-        {["C", "E", "R", "T", "I", "F", "I", "C", "A", "T", "I", "O", "N"].map((char, i) => (
-          <span
-            key={i}
-            className={`opacity-0 group-hover:opacity-100 text-white transition-opacity duration-100 ${
-              char === "" ? "invisible" : ""
-            }`}
-            style={{ transitionDelay: `${i * 80}ms` }}
-          >
-            {char || "_"}
-          </span>
-        ))}
-      </div>
-    </a>
-  </li>
-
-  <li>
-    <a href="#" className="relative group inline-block h-[1em] leading-none">
-      <div className="flex gap-[0.05em]">
-        {"EDUCATION".split("").map((char, i) => (
-          <span key={i} className="text-white text-opacity-50 group-hover:opacity-0 transition-opacity duration-300">
-            {char}
-          </span>
-        ))}
-      </div>
-      <div className="flex gap-[0.05em] absolute top-0 left-0">
-        {["E", "D", "U", "C", "A", "T", "I", "O", "N"].map((char, i) => (
-          <span
-            key={i}
-            className={`opacity-0 group-hover:opacity-100 text-white transition-opacity duration-100 ${
-              char === "" ? "invisible" : ""
-            }`}
-            style={{ transitionDelay: `${i * 80}ms` }}
-          >
-            {char || "_"}
-          </span>
-        ))}
-      </div>
-    </a>
-  </li>
-
-  <li>
-    <a href="#" className="relative group inline-block h-[1em] leading-none">
-      <div className="flex gap-[0.05em]">
-        {"CONTACT".split("").map((char, i) => (
-          <span key={i} className="text-white text-opacity-50 group-hover:opacity-0 transition-opacity duration-300">
-            {char}
-          </span>
-        ))}
-      </div>
-      <div className="flex gap-[0.05em] absolute top-0 left-0">
-        {["C", "O", "N", "T", "A", "C", "T"].map((char, i) => (
-          <span
-            key={i}
-            className={`opacity-0 group-hover:opacity-100 text-white transition-opacity duration-100 ${
-              char === "" ? "invisible" : ""
-            }`}
-            style={{ transitionDelay: `${i * 80}ms` }}
-          >
-            {char || "_"}
-          </span>
-        ))}
-      </div>
-    </a>
-  </li>
-</ul>
-          </div>
+      </ul>
+    </div>
           <div className='frame-line is--mid'></div>
         </div>
         <div className='frame-top-bot_flex'>
