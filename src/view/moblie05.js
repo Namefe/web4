@@ -71,7 +71,7 @@ const Moblie05 = () => {
       {/* 하단 푸터 */}
       <div className="flex justify-between text-xs text-gray-400 mt-10">
         <span>Privacy & Cookies Policy</span>
-        <span>Cosmos Studio © 2023</span>
+        <span>Myeong Chul © 1999</span>
       </div>
     </section>
     </>

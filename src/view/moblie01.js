@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react'
 
 const Moblie = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+const [isMenuOpen, setIsMenuOpen] = useState(false);
 
 const ballRef = useRef(null);
 const [isActive, setIsActive] = useState(false);

@@ -13,7 +13,7 @@ const View01 = () => {
           offset: ["start end", "end start"], 
         });
 
-const lineopacity = useTransform(scrollYProgress, [0,0.5,0.6],[1,0,1])
+const lineopacity = useTransform(scrollYProgress, [0,0.5,0.6],[1,0,0.5])
 
 const timeopacity = useTransform(scrollYProgress, [0,0.5,0.6],[1,0,0])
 
@@ -266,62 +266,87 @@ function useScrollY() {
         );
       }
 
-      const ballRef = useRef(null);
-      const [isActive, setIsActive] = useState(false); 
-      const [isHovered, setIsHovered] = useState(false);
-    
-      const velocity = useRef({ x: 2, y: 2 }); 
-      const position = useRef({ x: window.innerWidth / 2, y: window.innerHeight / 2 });
-      const initialPosition = { x: window.innerWidth - 200, y: window.innerHeight - 200 }; 
-    
-      useEffect(() => {
-        const handleScroll = () => {
-          const section = document.getElementById("view05");
-          if (section) {
-            const rect = section.getBoundingClientRect();
-            setIsActive(rect.top < window.innerHeight && rect.bottom > 0);
-          }
-        };
-    
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
-      }, []);
-    
-      useEffect(() => {
-        let animationFrame;
-    
-        const moveBall = () => {
-          const ball = ballRef.current;
-          if (!ball) return;
-    
-          const ballSize = 160;
-    
-          if (isActive && !isHovered) {
-            position.current.x += velocity.current.x;
-            position.current.y += velocity.current.y;
-    
-            if (position.current.x <= 0 || position.current.x + ballSize >= window.innerWidth) {
-              velocity.current.x *= -1;
-            }
-            if (position.current.y <= 0 || position.current.y + ballSize >= window.innerHeight) {
-              velocity.current.y *= -1;
-            }
-          } 
-          else if (!isActive) {
-            position.current.x += (initialPosition.x - position.current.x) * 0.05;
-            position.current.y += (initialPosition.y - position.current.y) * 0.05;
-          }
-    
-          ball.style.transform = `translate(${position.current.x}px, ${position.current.y}px)`;
-          animationFrame = requestAnimationFrame(moveBall);
-        };
-    
-        animationFrame = requestAnimationFrame(moveBall);
-        return () => cancelAnimationFrame(animationFrame);
-      }, [isActive, isHovered]);
+       const ballRef = useRef(null);
+  const [isActive, setIsActive] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
+  const hoverLockUntil = useRef(0);
+  const ballSize = 140;
+  const velocity = useRef({ x: 2, y: 2 });
+  const position = useRef({
+    x: window.innerWidth - ballSize - 20,
+    y: window.innerHeight - ballSize - 20,
+  });
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const section = document.getElementById("view05");
+      if (!section) return;
+      const rect = section.getBoundingClientRect();
+      setIsActive(rect.top < window.innerHeight && rect.bottom > 0);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
-      const CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  useEffect(() => {
+    const handleResize = () => {
+      const maxX = window.innerWidth - ballSize;
+      const maxY = window.innerHeight - ballSize;
+      position.current.x = Math.max(0, Math.min(position.current.x, maxX));
+      position.current.y = Math.max(0, Math.min(position.current.y, maxY));
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  useEffect(() => {
+    let raf;
+    const moveBall = () => {
+      const el = ballRef.current;
+      if (!el) return;
+
+      if (isActive) {
+        if (!isHovered) {
+          const maxX = window.innerWidth - ballSize;
+          const maxY = window.innerHeight - ballSize;
+
+          position.current.x += velocity.current.x;
+          position.current.y += velocity.current.y;
+
+          if (position.current.x <= 0 || position.current.x >= maxX) {
+            position.current.x = Math.max(0, Math.min(position.current.x, maxX));
+            velocity.current.x *= -1;
+          }
+          if (position.current.y <= 0 || position.current.y >= maxY) {
+            position.current.y = Math.max(0, Math.min(position.current.y, maxY));
+            velocity.current.y *= -1;
+          }
+        }
+      } else {
+        position.current.x = window.innerWidth - ballSize - 20;
+        position.current.y = window.innerHeight - ballSize - 20;
+      }
+
+      el.style.left = `${position.current.x}px`;
+      el.style.top = `${position.current.y}px`;
+      raf = requestAnimationFrame(moveBall);
+    };
+
+    raf = requestAnimationFrame(moveBall);
+    return () => cancelAnimationFrame(raf);
+  }, [isActive, isHovered]);
+
+  useEffect(() => {
+    if (isActive) hoverLockUntil.current = performance.now() + 400;
+  }, [isActive]);
+
+  const onEnter = () => {
+    if (performance.now() < hoverLockUntil.current) return;
+    setIsHovered(true);
+  };
+
+     const CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
 function ScrambleText({ text }) {
   const [view, setView] = useState(text);
@@ -339,7 +364,7 @@ function ScrambleText({ text }) {
         clearInterval(timer.current);
       }
       i++;
-    }, 50); // 글자 전환 속도
+    }, 50); 
   };
 
   useEffect(() => {
@@ -347,12 +372,16 @@ function ScrambleText({ text }) {
   }, []);
 
   return (
-    <span
+    <span 
+      className="relative inline-block align-top leading-none cursor-pointer"
       onMouseEnter={run}
       onMouseLeave={() => setView(text)}
-      className="text-white cursor-pointer"
     >
-      {view}
+      <span className="invisible block">{text}</span>
+
+      <span className="absolute inset-0 text-[#f5f5f5]">
+        {view}
+      </span>
     </span>
   );
 }
@@ -372,7 +401,7 @@ function ScrambleText({ text }) {
             </motion.div>
 
       {/* line & 메뉴 바 */}
-      <motion.div style={{opacity: lineopacity}} className="fixed w-full h-auto inset-0 z-50">
+      <motion.div style={{opacity: lineopacity}} className="fixed w-full h-auto text-[#f5f5f5] inset-0 z-50">
         <div className="top absolute top-0 left-0 w-full flex items-start">
 
           <div className="top-left-plus relative w-4 h-4 ml-2 mt-2">
@@ -433,21 +462,27 @@ function ScrambleText({ text }) {
 
   </div>
   
-  <div
-      ref={ballRef}
-      className="fixed w-40 h-40 rounded-full flex items-center justify-center 
-                 text-white text-lg border border-white/30 bg-black z-[5000]"
-      style={{
-        left: 0,
-        top: 0,
-        position: "fixed",
-        boxShadow: "inset 0 0 35px rgba(255,255,255,1), 0 0 20px rgba(255,255,255,0.2)",
-      }}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      CONTACT
-    </div>
+<div
+  ref={ballRef}
+  className="fixed z-[99999] w-[7rem] h-[7rem] rounded-full flex items-center justify-center text-white text-sm pointer-events-auto"
+  style={{
+    left: `${position.current.x}px`,
+    top: `${position.current.y}px`,
+    background: "black",
+    boxShadow: "inset 0 0 35px rgba(255,255,255,1), 0 0 20px rgba(255,255,255,0.2)",
+    willChange: "left, top",
+  }}
+  onMouseEnter={() => setIsHovered(true)}
+  onMouseLeave={() => setIsHovered(false)}
+>
+  <span
+    className={`transition-opacity duration-300 ${isHovered ? "opacity-100 scale-110" : "opacity-80"}`}
+    style={{ textShadow: "0 0 10px rgba(255,255,255,0.8)" }}
+  >
+    CONTACT
+  </span>
+</div>
+
 
 </motion.div>
 
