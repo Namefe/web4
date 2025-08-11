@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from 'react'
 const Moblie = () => {
 const [isMenuOpen, setIsMenuOpen] = useState(false);
 
+
 const ballRef = useRef(null);
 const [isActive, setIsActive] = useState(false);
 const [isHovered, setIsHovered] = useState(false);
@@ -84,7 +85,7 @@ useEffect(() => {
 </div>
       </div>
       {/*라인 아랫줄*/}
-      <div className="fixed w-full h-auto inset-0 z-[999]">
+      <div className="fixed w-full h-auto inset-0 z-20">
       <div className="top absolute bottom-0 left-0 w-full flex items-start justify-between">
     <div className="btm-left-plus relative w-4 h-4 bottom-2 left-2 ">
     <div className="btm-left-ver absolute left-1/2 top-0 h-4 w-[.5px] bg-white opacity-50 -translate-x-1/2"></div>
@@ -238,45 +239,41 @@ useEffect(() => {
   onMouseEnter={() => setIsHovered(true)}
   onMouseLeave={() => setIsHovered(false)}
 >
-  <span
-    className={`transition-opacity duration-300 ${
-      isHovered ? "opacity-100 scale-110" : "opacity-80"
-    }`}
-    style={{
-      textShadow: "0 0 10px rgba(255,255,255,0.8)", 
-    }}
-  >
-    CONTACT
-  </span>
+<span
+  className={`transition-opacity duration-300 ${isHovered ? "opacity-100 scale-110" : "opacity-80"}`}
+  style={{ textShadow: "0 0 10px rgba(255,255,255,0.8)" }}
+>
+  {isActive ? "RESUME" : "CONTACT"}
+</span>
 </div>
 
 
-    <div className="relative flex flex-col items-center text-white top-[100px]">
-    <h1 className="flex font-Teko pointer-events-none">
-    <div className="font-bold text-[8vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>S</div>
-    <div className="font-bold text-[8vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>O</div>
-    <div className="font-bold text-[8vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>U</div>
-    <div className="font-bold text-[8vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>N</div>
-    <div className="font-bold text-[8vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>G</div>
-    <div className="font-bold text-[8vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>&nbsp;</div>
-    <div className="font-bold text-[8vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>M</div>
-    <div className="font-bold text-[8vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>Y</div>
-    <div className="font-bold text-[8vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>E</div>
-    <div className="font-bold text-[8vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>O</div>
-    <div className="font-bold text-[8vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>N</div>
-    <div className="font-bold text-[8vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>G</div>
-    <div className="font-bold text-[8vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>&nbsp;</div>
-    <div className="font-bold text-[8vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>C</div>
-    <div className="font-bold text-[8vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>H</div>
-    <div className="font-bold text-[8vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>U</div>
-    <div className="font-bold text-[8vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>L</div>
+    <div className="relative flex flex-col items-center text-white top-[120px]">
+    <h1 className="flex font-teko pointer-events-none">
+    <div className="font-bold text-[12vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>S</div>
+    <div className="font-bold text-[12vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>O</div>
+    <div className="font-bold text-[12vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>U</div>
+    <div className="font-bold text-[12vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>N</div>
+    <div className="font-bold text-[12vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>G</div>
+    <div className="font-bold text-[12vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>&nbsp;</div>
+    <div className="font-bold text-[12vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>M</div>
+    <div className="font-bold text-[12vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>Y</div>
+    <div className="font-bold text-[12vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>E</div>
+    <div className="font-bold text-[12vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>O</div>
+    <div className="font-bold text-[12vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>N</div>
+    <div className="font-bold text-[12vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>G</div>
+    <div className="font-bold text-[12vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>&nbsp;</div>
+    <div className="font-bold text-[12vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>C</div>
+    <div className="font-bold text-[12vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>H</div>
+    <div className="font-bold text-[12vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>U</div>
+    <div className="font-bold text-[12vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>L</div>
   </h1>
 
-  <div className="flex gap-[10vw] mt-[8vh] opacity-75">
-    <h4 className="text-[3vw]">F<span className='font-gridular'>R</span>ONT END</h4>
-    <h4 className="text-[3vw]">UI/U<span className='font-gridular'>X</span></h4>
-    <h4 className="text-[3vw]">DE<span className='font-gridular'>V</span>ELOPE</h4>
-    <h4 className="text-[3vw]">CR<span className='font-gridular'>E</span>ATIVE</h4>
+  <div className="flex gap-[6vw] mt-[7vh] opacity-75">
+    <h4 className="text-[4vw]">F<span className='font-gridular'>R</span>ONT END</h4>
+    <h4 className="text-[4vw]">UI/U<span className='font-gridular'>X</span></h4>
+    <h4 className="text-[4vw]">DE<span className='font-gridular'>V</span>ELOPE</h4>
+    <h4 className="text-[4vw]">CR<span className='font-gridular'>E</span>ATIVE</h4>
   </div>
 </div>
 

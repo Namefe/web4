@@ -152,7 +152,7 @@ const Moblie02 = () => {
   </div>
 <div className="we-do_container container w-full">
   <div className="flex justify-between items-start text-white">
-    <div className="text-[15px] leading-none pl-3">
+    <div className="text-[15px] leading-none font-thin pl-3">
       MY
     </div>
 
@@ -161,14 +161,14 @@ const Moblie02 = () => {
       className="flex pr-3 text-5xl font-bold leading-none text-opacity-50"
     >
       <motion.span custom={0} initial={{ rotateX: 90, opacity: 0 }} animate={controls}>P</motion.span>
-      <motion.span custom={1} initial={{ rotateX: 90, opacity: 0 }} animate={controls}>O</motion.span>
+      <motion.span className="font-gridular" custom={1} initial={{ rotateX: 90, opacity: 0 }} animate={controls}>O</motion.span>
       <motion.span custom={2} initial={{ rotateX: 90, opacity: 0 }} animate={controls}>R</motion.span>
       <motion.span custom={3} initial={{ rotateX: 90, opacity: 0 }} animate={controls}>T</motion.span>
       <motion.span custom={4} initial={{ rotateX: 90, opacity: 0 }} animate={controls}>F</motion.span>
-      <motion.span custom={5} initial={{ rotateX: 90, opacity: 0 }} animate={controls}>O</motion.span>
+      <motion.span className="font-gridular" custom={5} initial={{ rotateX: 90, opacity: 0 }} animate={controls}>O</motion.span>
       <motion.span custom={6} initial={{ rotateX: 90, opacity: 0 }} animate={controls}>L</motion.span>
       <motion.span custom={7} initial={{ rotateX: 90, opacity: 0 }} animate={controls}>I</motion.span>
-      <motion.span custom={8} initial={{ rotateX: 90, opacity: 0 }} animate={controls}>O</motion.span>
+      <motion.span className="font-gridular" custom={8} initial={{ rotateX: 90, opacity: 0 }} animate={controls}>O</motion.span>
     </h2>
   </div>
   <div className="line-divider"></div>
@@ -183,10 +183,10 @@ const Moblie02 = () => {
 
 
 
-<div className="absolute top-[15%] w-full flex flex-col items-center gap-10">
+<div className="absolute top-[10%] w-full flex flex-col items-center gap-10">
 
   {/* 1번째 이미지 */}
-  <div className="w-full max-w-[700px] flex flex-col items-center text-white px-4">
+  <div className="w-full max-w-[700px] flex flex-col items-center text-white px-2">
     <div className="relative w-full overflow-hidden">
       <motion.img
         src={`${process.env.PUBLIC_URL}/netmable.png`}
@@ -199,22 +199,22 @@ const Moblie02 = () => {
       />
       <div className="absolute inset-0 pointer-events-none bg-noise mix-blend-overlay opacity-30"></div>
     </div>
-    <div className="w-full mt-2 px-2">
-      <div className="flex justify-between items-center">
+    <div className="w-full  px-2">
         <h3 className="text-lg font-bold">NETMARBLEGAMES</h3>
-        <span className="text-sm opacity-70">2025</span>
-      </div>
+      <div className="flex justify-between items-center">
       <p className="text-xs opacity-60 mt-1">넷마블게임즈</p>
+      <span className="text-xs opacity-70">2025</span>
+      </div>
     </div>
   </div>
 
   {/* 2번째 이미지 */}
-  <div className="w-full max-w-[700px] flex flex-col items-center text-white px-4">
+  <div className="w-full max-w-[700px] flex flex-col items-center text-white px-2">
     <div className="relative w-full overflow-hidden">
       <motion.img
-        src={`${process.env.PUBLIC_URL}/netmable.png`}
+        src={`${process.env.PUBLIC_URL}/SM.jpg`}
         alt="netmarble"
-        className="w-full h-[350px] object-contain blur-[1.5px] contrast-110"
+        className="w-full h-[350px] object-contain blur-[0.8px] contrast-110"
         initial={{ scaleY: 0.9, y: 20 }}
         whileInView={{ scaleY: 1, y: 0 }}
         transition={{ type: "spring", stiffness: 150, damping: 12 }}
@@ -222,22 +222,22 @@ const Moblie02 = () => {
       />
       <div className="absolute inset-0 pointer-events-none bg-noise mix-blend-overlay opacity-30"></div>
     </div>
-    <div className="w-full mt-2 px-2">
+    <div className="w-full  px-2">
+        <h3 className="text-lg font-bold">SM ENTERTAINMENT</h3>
       <div className="flex justify-between items-center">
-        <h3 className="text-lg font-bold">NETMARBLEGAMES</h3>
-        <span className="text-sm opacity-70">2025</span>
+      <p className="text-xs opacity-60 mt-1">AESPA</p>
+      <span className="text-xs opacity-70">2025</span>
       </div>
-      <p className="text-xs opacity-60 mt-1">넷마블게임즈</p>
     </div>
   </div>
 
   {/* 3번째 이미지 */}
-  <div className="w-full max-w-[700px] flex flex-col items-center text-white px-4">
+  <div className="w-full max-w-[700px] flex flex-col items-center text-white px-2">
     <div className="relative w-full overflow-hidden">
       <motion.img
-        src={`${process.env.PUBLIC_URL}/netmable.png`}
+        src={`${process.env.PUBLIC_URL}/trumacenter.png`}
         alt="netmarble"
-        className="w-full h-[350px] object-contain blur-[1.5px] contrast-110"
+        className="w-full object-contain blur-[0.8px] contrast-110"
         initial={{ scaleY: 0.9, y: 20 }}
         whileInView={{ scaleY: 1, y: 0 }}
         transition={{ type: "spring", stiffness: 150, damping: 12 }}
@@ -246,11 +246,11 @@ const Moblie02 = () => {
       <div className="absolute inset-0 pointer-events-none bg-noise mix-blend-overlay opacity-30"></div>
     </div>
     <div className="w-full mt-2 px-2">
+        <h3 className="text-lg font-bold">TRAUMA CENTER</h3>
       <div className="flex justify-between items-center">
-        <h3 className="text-lg font-bold">NETMARBLEGAMES</h3>
-        <span className="text-sm opacity-70">2025</span>
+      <p className="text-xs opacity-60 mt-1">중증외상센터</p>
+      <span className="text-xs opacity-70">2025</span>
       </div>
-      <p className="text-xs opacity-60 mt-1">넷마블게임즈</p>
     </div>
   </div>
 

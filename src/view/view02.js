@@ -183,7 +183,7 @@ const View02 = () => {
   <div class="text-[30px] leading-none">MY</div>
   <h2
       ref={titleRef}
-      className="text-9xl font-bold leading-none -translate-y-5 flex text-opacity-50 perspective-[1000px]"
+      className="text-[clamp(6rem,4vw,8rem)] font-bold leading-none -translate-y-5 flex text-opacity-50 perspective-[1000px]"
     >
       <motion.span custom={0} initial={{ rotateX: 90, opacity: 0 }} animate={controls}>
         P
@@ -198,7 +198,7 @@ const View02 = () => {
         custom={3}
         initial={{ rotateX: 90, opacity: 0 }}
         animate={controls}
-        className="font-gridular relative top-[10px]"
+        className="font-gridular relative top-[2px]"
       >
         T
       </motion.span>
@@ -218,7 +218,7 @@ const View02 = () => {
         custom={8}
         initial={{ rotateX: 90, opacity: 0 }}
         animate={controls}
-        className="font-gridular relative top-[10px]"
+        className="font-gridular relative top-[2px]"
       >
         O
       </motion.span>

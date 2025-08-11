@@ -131,7 +131,7 @@ const item = {
         <a href="#" className="relative w-full">
           <div className="w-full relative">
             <img
-              src={`${process.env.PUBLIC_URL}/netmable.png`}
+              src={`${process.env.PUBLIC_URL}/SM.jpg`}
               className="w-full block pointer-events-auto"
               onMouseMove={(e) => {
                 const blurImg = e.currentTarget.parentNode.querySelector(".blur-img");
@@ -148,7 +148,7 @@ const item = {
               }}
             />
             <img
-              src={`${process.env.PUBLIC_URL}/netmable.png`}
+              src={`${process.env.PUBLIC_URL}/SM.jpg`}
               className="blur-img w-full absolute top-0 left-0 pointer-events-none z-20"
               style={{
                 filter: "blur(8px)",
@@ -202,7 +202,7 @@ const item = {
       >
         <a href="#" className="relative w-full">
           <div className="w-full">
-            <img src={`${process.env.PUBLIC_URL}/netmable.png`} className="w-full block pointer-events-auto" />
+            <img src={`${process.env.PUBLIC_URL}/trumacenter.png`} className="w-full block pointer-events-auto" />
           </div>
 
           <div className="relative mt-3 flex flex-col items-start z-10">

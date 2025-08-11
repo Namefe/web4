@@ -3,8 +3,8 @@ import React from 'react'
 const Moblie05 = () => {
   return (
     <>
-    <section id='view05' className='relative w-full h-[90vh] text-white px-3'>
-    <div className='w-full h-[150px] text-center text-2xl text-white'>
+    <section id='view05' className='relative w-full h-[80vh] text-white px-3'>
+    <div className='w-full h-[200px] text-center text-2xl text-white'>
         <div className='text-white opacity-50 text-[30px] -translate-x-10'>LE<span className='font-gridular'>T</span>'S GET DO<span className='font-gridular'>W</span>N</div>
         <div className='flex items-center gap-2 translate-x-40'>
             <h2 className='text-white leading-none text-[30px] '><span className='font-gridular'>T</span>O BU<span className='font-gridular'>S</span>INE<span className='font-gridular'>SS</span></h2>
@@ -13,7 +13,7 @@ const Moblie05 = () => {
             </svg>
         </div>
       </div>
-    <div className="mb-2 text-[35px] flex items-center gap-2">
+    <div className="mb-2 text-[27px] flex items-center gap-2">
         <span>SMC9102@NAVER.COM</span>
       </div>
       <div
@@ -24,20 +24,35 @@ const Moblie05 = () => {
       }}
     ></div>  
 
-      <div className="w-full mb-4">
-    <h2 className="text-[40px]  hover:opacity-70">NAME</h2>
-    <div
-    className="w-screen h-[8px] mt-2"
+<div className="w-full mt-2 mb-2">
+  <h2 className="text-[27px] relative inline-block leading-none group z-30">
+    <span className="block transition-opacity duration-200 group-hover:opacity-0">
+      NAME
+    </span>
+    <span className="pointer-events-none block absolute inset-0 opacity-0 transition-opacity duration-200 group-hover:opacity-100 whitespace-nowrap">
+      SEONG MYEONG CHUL
+    </span>
+  </h2>
+
+  <div
+    className="w-screen h-[8px] mt-2 pointer-events-none -z-10"
     style={{
       backgroundImage:
         "repeating-linear-gradient(to right, rgba(255, 255, 255, 0.5) 0px, transparent 2px 7px)"
-      }}
-    ></div>  
-    </div>     
+    }}
+  />
+</div>
 
-  <div className="w-full mb-4">
-    <h2 className="text-[40px]  hover:opacity-70">NUMBER</h2>
-    <div
+  <div className="w-full mt-2 mb-2">
+  <h2 className="text-[27px] relative inline-block leading-none group z-30">
+    <span className="block transition-opacity duration-200 group-hover:opacity-0">
+      NUMBER
+    </span>
+    <span className="pointer-events-none block absolute inset-0 opacity-0 transition-opacity duration-200 group-hover:opacity-100 whitespace-nowrap">
+      010-3508-9102
+    </span>
+  </h2>    
+  <div
     className="w-screen h-[5px] mt-2"
     style={{
       backgroundImage:
@@ -46,8 +61,15 @@ const Moblie05 = () => {
     ></div> 
       </div>
 
-  <div className="w-full mb-4">
-    <h2 className="text-[40px]  hover:opacity-70">GITHUB</h2>
+  <div className="w-full mt-2 mb-2">
+  <h2 className="text-[27px] relative inline-block leading-none group z-30">
+    <span className="block transition-opacity duration-200 group-hover:opacity-0">
+      GITHUB
+    </span>
+    <span className="pointer-events-none block absolute inset-0 opacity-0 transition-opacity duration-200 group-hover:opacity-100 whitespace-nowrap">
+    https://github.com/Namefe
+    </span>
+  </h2>
     <div
     className="w-screen h-[3px] mt-2"
     style={{
@@ -57,8 +79,15 @@ const Moblie05 = () => {
     ></div>   
     </div>
 
-  <div className="w-full mb-4">
-    <h2 className="text-[40px]  hover:opacity-70">MBTI</h2>
+  <div className="w-full mt-2 mb-2">
+  <h2 className="text-[27px] relative inline-block leading-none group z-30">
+    <span className="block transition-opacity duration-200 group-hover:opacity-0">
+      MBTI
+    </span>
+    <span className="pointer-events-none block absolute inset-0 opacity-0 transition-opacity duration-200 group-hover:opacity-100 whitespace-nowrap">
+      ISTJ
+    </span>
+  </h2>
     <div
     className="w-screen h-[1px] mt-2"
     style={{
@@ -68,7 +97,6 @@ const Moblie05 = () => {
     ></div>  
       </div>
 
-      {/* 하단 푸터 */}
       <div className="flex justify-between text-xs text-gray-400 mt-10">
         <span>Privacy & Cookies Policy</span>
         <span>Myeong Chul © 1999</span>
