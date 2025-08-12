@@ -133,34 +133,11 @@ const item = {
             <img
               src={`${process.env.PUBLIC_URL}/SM.jpg`}
               className="w-full block pointer-events-auto"
-              onMouseMove={(e) => {
-                const blurImg = e.currentTarget.parentNode.querySelector(".blur-img");
-                const rect = e.currentTarget.getBoundingClientRect();
-                const x = e.clientX - rect.left - 30;
-                const y = e.clientY - rect.top - 30;
-                blurImg.style.WebkitMaskPosition = `${x}px ${y}px`;
-                blurImg.style.maskPosition = `${x}px ${y}px`;
-                blurImg.style.opacity = "1";
-              }}
-              onMouseLeave={(e) => {
-                const blurImg = e.currentTarget.parentNode.querySelector(".blur-img");
-                blurImg.style.opacity = "0";
-              }}
             />
             <img
               src={`${process.env.PUBLIC_URL}/SM.jpg`}
               className="blur-img w-full absolute top-0 left-0 pointer-events-none z-20"
-              style={{
-                filter: "blur(8px)",
-                opacity: 0,
-                transition: "opacity 0.3s ease, mask-position 0.1s ease",
-                WebkitMaskImage: "radial-gradient(circle 60px at center, black 100%, transparent 100%)",
-                maskImage: "radial-gradient(circle 60px at center, black 100%, transparent 100%)",
-                WebkitMaskRepeat: "no-repeat",
-                maskRepeat: "no-repeat",
-                WebkitMaskPosition: "center",
-                maskPosition: "center",
-              }}
+            
             />
           </div>
 

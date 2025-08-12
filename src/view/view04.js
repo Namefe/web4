@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
+import { motion } from "framer-motion";
 
 const View04 = () => {
 
@@ -35,7 +36,8 @@ const View04 = () => {
         transformStyle: "preserve-3d"
       }}
     >
-      <div
+<div className="fixed bottom-0 left-0 right-0 h-[120px] bg-red z-[50] pointer-events-none" /> 
+       <div
         className="max-w-[80rem] mx-auto px-6"
         style={{
           transform: `rotateX(${rotateX}deg) translate3d(0, ${translateY}px, 0)`,
