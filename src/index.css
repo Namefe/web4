@@ -206,6 +206,7 @@ body {
 }
 .linewrapperleft{
   width:91vw;
+  height:2.5rem;
 }
 .line-divider.line2{
   transform-origin: 0 0;

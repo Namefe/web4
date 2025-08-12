@@ -165,9 +165,9 @@ const item = {
           </div>
 
           <div className="relative mt-3 flex flex-col items-start z-10">
-            <div className="text-white text-sm font-extralight tracking-wide opacity-40 group-hover:opacity-100 transition-opacity duration-300">Netmarble</div>
+            <div className="text-white text-sm font-extralight tracking-wide opacity-40 group-hover:opacity-100 transition-opacity duration-300">AESPA</div>
             <motion.div className="inline-flex gap-[2px]" variants={container} initial="hidden" animate={hovered2 ? "show" : "hide"}>
-              {"NETMARBLEGAMES".split("").map((char, i) => (
+              {"SM EMTERTAINMENT".split("").map((char, i) => (
                 <motion.span key={i} className="text-white font-bold" variants={item}>
                   {char}
                 </motion.span>
@@ -206,9 +206,9 @@ const item = {
           </div>
 
           <div className="relative mt-3 flex flex-col items-start z-10">
-            <div className="text-white text-sm font-extralight tracking-wide opacity-40 group-hover:opacity-100 transition-opacity duration-300">Netmarble</div>
+            <div className="text-white text-sm font-extralight tracking-wide opacity-40 group-hover:opacity-100 transition-opacity duration-300">중증외상센터</div>
             <motion.div className="inline-flex gap-[2px]" variants={container} initial="hidden" animate={hovered3 ? "show" : "hide"}>
-              {"NETMARBLEGAMES".split("").map((char, i) => (
+              {"TRAUMA CENTER".split("").map((char, i) => (
                 <motion.span key={i} className="text-white font-bold" variants={item}>
                   {char}
                 </motion.span>
@@ -277,12 +277,12 @@ const item = {
       </div>
     </div>
 <div>
-<div class="grid-line grid-layout">
-<div className='award-line_flex'>
-  <div className='line-wrapper-left cc--awards'>
+  <div class="line1">
+<div className='line-flex'>
+  <div className='linewrapperleft'>
     <div className='line-divider'></div>
   </div>
-  <div className='line-divider cc--slanted'></div>
+  <div className='line-divider line2'></div>
 </div>
 <div className='line-divider column-5'></div>
 </div>
@@ -291,7 +291,7 @@ const item = {
 
     <div class="grid grid-cols-6 w-full">
   <div class="col-span-3">
-    <div class="flex items-start mt-4">
+    <div class="flex items-start mt-4 -translate-y-8">
       <svg width="1.5rem" viewBox="0 0 33 32" fill="none" class="mr-4">
         <path d="M16.5039 0L18.2236 14.2803L32.5039 16L18.2236 17.7197L16.5039 32L14.7842 17.7197L0.503906 16L14.7842 14.2803L16.5039 0Z" fill="white" />
       </svg>
@@ -364,17 +364,17 @@ const item = {
 
   {/* TITLE 섹션 */}
   <div className='relative top-[-20px]'>
-  <div class="grid-line grid-layout">
-<div className='award-line_flex'>
-  <div className='line-wrapper-left cc--awards'>
+  <div class="line1">
+<div className='line-flex'>
+  <div className='linewrapperleft'>
     <div className='line-divider'></div>
   </div>
-  <div className='line-divider cc--slanted'></div>
+  <div className='line-divider line2'></div>
 </div>
 <div className='line-divider column-5'></div>
 </div>
     <div className='grid grid-cols-6'>
-      <div className='col-span-3 flex items-start'>
+      <div className='col-span-3 flex items-start -translate-y-8'>
         <svg width='1.5rem' viewBox='0 0 33 32' fill='none' className='mr-4'>
           <path d='M16.5039 0L18.2236 14.2803L32.5039 16L18.2236 17.7197L16.5039 32L14.7842 17.7197L0.503906 16L14.7842 14.2803L16.5039 0Z' fill='white' />
         </svg>
@@ -392,18 +392,18 @@ const item = {
   </div>
 
   {/* TRAINING 섹션 */}
-  <div className='relative top-[-20px]'>
-  <div class="grid-line grid-layout">
-<div className='award-line_flex'>
-  <div className='line-wrapper-left cc--awards'>
+  <div className='relative top-[-40px]'>
+  <div class="line1">
+<div className='line-flex'>
+  <div className='linewrapperleft'>
     <div className='line-divider'></div>
   </div>
-  <div className='line-divider cc--slanted'></div>
+  <div className='line-divider line2'></div>
 </div>
 <div className='line-divider column-5'></div>
 </div>
     <div className='grid grid-cols-6'>
-      <div className='col-span-3 flex items-start'>
+      <div className='col-span-3 flex items-start -translate-y-8'>
         <svg width='1.5rem' viewBox='0 0 33 32' fill='none' className='mr-4'>
           <path d='M16.5039 0L18.2236 14.2803L32.5039 16L18.2236 17.7197L16.5039 32L14.7842 17.7197L0.503906 16L14.7842 14.2803L16.5039 0Z' fill='white' />
         </svg>
@@ -421,18 +421,18 @@ const item = {
   </div>
         {/*skill영역 */}
 
-        <div className='relative top-[-20px]'>
-        <div class="grid-line grid-layout">
-<div className='award-line_flex'>
-  <div className='line-wrapper-left cc--awards'>
-    <div className='line-divider'></div>
-  </div>
-  <div className='line-divider cc--slanted'></div>
-</div>
-<div className='line-divider column-5'></div>
-</div>
+        <div className='relative top-[-60px]'>
+        <div class="line1">
+      <div className='line-flex'>
+        <div className='linewrapperleft'>
+          <div className='line-divider'></div>
+        </div>
+        <div className='line-divider line2'></div>
+      </div>
+      <div className='line-divider column-5'></div>
+      </div>
         <div className='grid grid-cols-6 '>
-      <div className='col-span-3 flex items-start'>
+      <div className='col-span-3 flex items-start -translate-y-8'>
         <svg width='1.5rem' viewBox='0 0 33 32' fill='none' className='mr-4'>
           <path d='M16.5039 0L18.2236 14.2803L32.5039 16L18.2236 17.7197L16.5039 32L14.7842 17.7197L0.503906 16L14.7842 14.2803L16.5039 0Z' fill='white' />
         </svg>
