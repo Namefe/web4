@@ -266,85 +266,77 @@ function useScrollY() {
         );
       }
 
-       const ballRef = useRef(null);
-  const [isActive, setIsActive] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
-  const hoverLockUntil = useRef(0);
-  const ballSize = 140;
-  const velocity = useRef({ x: 2, y: 2 });
-  const position = useRef({
-    x: window.innerWidth - ballSize - 20,
-    y: window.innerHeight - ballSize - 20,
-  });
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const section = document.getElementById("view05");
-      if (!section) return;
-      const rect = section.getBoundingClientRect();
-      setIsActive(rect.top < window.innerHeight && rect.bottom > 0);
-    };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  useEffect(() => {
-    const handleResize = () => {
-      const maxX = window.innerWidth - ballSize;
-      const maxY = window.innerHeight - ballSize;
-      position.current.x = Math.max(0, Math.min(position.current.x, maxX));
-      position.current.y = Math.max(0, Math.min(position.current.y, maxY));
-    };
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
-  }, []);
-
-  useEffect(() => {
-    let raf;
-    const moveBall = () => {
-      const el = ballRef.current;
-      if (!el) return;
-
-      if (isActive) {
-        if (!isHovered) {
-          const maxX = window.innerWidth - ballSize;
-          const maxY = window.innerHeight - ballSize;
-
-          position.current.x += velocity.current.x;
-          position.current.y += velocity.current.y;
-
-          if (position.current.x <= 0 || position.current.x >= maxX) {
-            position.current.x = Math.max(0, Math.min(position.current.x, maxX));
-            velocity.current.x *= -1;
+      const ballRef = useRef(null);
+      const [isActive, setIsActive] = useState(false);
+      const [isHovered, setIsHovered] = useState(false);
+      const ballSize = 140;
+      const velocity = useRef({ x: 2, y: 2 });
+      const position = useRef({
+        x: window.innerWidth - ballSize , 
+        y: window.innerHeight - ballSize  
+      });
+      
+      useEffect(() => {
+        const handleScroll = () => {
+          const section = document.getElementById("pinball");
+          if (section) {
+            const rect = section.getBoundingClientRect();
+            setIsActive(rect.top < window.innerHeight && rect.bottom > 0);
           }
-          if (position.current.y <= 0 || position.current.y >= maxY) {
-            position.current.y = Math.max(0, Math.min(position.current.y, maxY));
-            velocity.current.y *= -1;
-          }
-        }
-      } else {
-        position.current.x = window.innerWidth - ballSize - 20;
-        position.current.y = window.innerHeight - ballSize - 20;
+        };
+      
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+      }, []);
+      
+     useEffect(() => {
+  let raf;
+
+  const moveBall = () => {
+    const ball = ballRef.current;
+    if (!ball) { raf = requestAnimationFrame(moveBall); return; }
+
+    const maxX = window.innerWidth - ballSize;
+    const maxY = window.innerHeight - ballSize;
+
+    if (isActive && !isHovered) {
+      position.current.x += velocity.current.x;
+      position.current.y += velocity.current.y;
+
+      if (position.current.x <= 0) {
+        position.current.x = 0;
+        velocity.current.x = Math.abs(velocity.current.x);
+      } else if (position.current.x >= maxX) {
+        position.current.x = maxX;
+        velocity.current.x = -Math.abs(velocity.current.x);
       }
 
-      el.style.left = `${position.current.x}px`;
-      el.style.top = `${position.current.y}px`;
-      raf = requestAnimationFrame(moveBall);
-    };
+      if (position.current.y <= 0) {
+        position.current.y = 0;
+        velocity.current.y = Math.abs(velocity.current.y);
+      } else if (position.current.y >= maxY) {
+        position.current.y = maxY;
+        velocity.current.y = -Math.abs(velocity.current.y);
+      }
+    } else if (!isActive) {
+      position.current.x = maxX;
+      position.current.y = maxY;
+    }
+
+    ball.style.position = "fixed";
+    ball.style.left = "0px";
+    ball.style.top = "0px";
+    ball.style.transform = `translate3d(${position.current.x}px, ${position.current.y}px, 0)`;
+    ball.style.willChange = "transform";
 
     raf = requestAnimationFrame(moveBall);
-    return () => cancelAnimationFrame(raf);
-  }, [isActive, isHovered]);
-
-  useEffect(() => {
-    if (isActive) hoverLockUntil.current = performance.now() + 400;
-  }, [isActive]);
-
-  const onEnter = () => {
-    if (performance.now() < hoverLockUntil.current) return;
-    setIsHovered(true);
   };
+
+  raf = requestAnimationFrame(moveBall);
+  return () => cancelAnimationFrame(raf);
+}, [isActive, isHovered, ballSize]);
+
+
 
      const CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
@@ -401,7 +393,7 @@ function ScrambleText({ text }) {
             </motion.div>
 
       {/* line & 메뉴 바 */}
-      <motion.div style={{opacity: lineopacity}} className="fixed w-full h-auto text-[#f5f5f5] inset-0 z-50">
+      <motion.div style={{opacity: lineopacity}} className="fixed w-full h-auto text-[#f5f5f5] inset-0 z-50 pointer-events-none">
         <div className="top absolute top-0 left-0 w-full flex items-start">
 
           <div className="top-left-plus relative w-4 h-4 ml-2 mt-2">
@@ -464,50 +456,53 @@ function ScrambleText({ text }) {
   
 <div
   ref={ballRef}
-  className="fixed z-[99999] w-[7rem] h-[7rem] rounded-full flex items-center justify-center text-white text-sm pointer-events-auto"
+  className={`fixed w-[8rem] h-[8rem] rounded-full flex items-center justify-center 
+             text-white text-sm pointer-events-auto z-[99999]
+             transition-transform duration-300 ease-out`}
   style={{
-    left: `${position.current.x}px`,
-    top: `${position.current.y}px`,
+    bottom: "40px",
+    right: "40px",
+    position: "fixed",
     background: "black",
     boxShadow: "inset 0 0 35px rgba(255,255,255,1), 0 0 20px rgba(255,255,255,0.2)",
-    willChange: "left, top",
   }}
   onMouseEnter={() => setIsHovered(true)}
   onMouseLeave={() => setIsHovered(false)}
 >
-  <span
-    className={`transition-opacity duration-300 ${isHovered ? "opacity-100 scale-110" : "opacity-80"}`}
-    style={{ textShadow: "0 0 10px rgba(255,255,255,0.8)" }}
-  >
-    CONTACT
-  </span>
+<span
+  className={`transition-opacity duration-300 ${isHovered ? "opacity-100 scale-110" : "opacity-80"}`}
+  style={{ textShadow: "0 0 10px rgba(255,255,255,0.8)" }}
+>
+  {isActive ? "RESUME" : "CONTACT"}
+</span>
 </div>
 
 
 </motion.div>
 
 
- <div
-      id="canvas-wrapper"
-      className={`${
-        isFixed ? 'fixed top-[20%]' : 'relative top-0'
-      } left-0 w-full h-screen z-[99] pointer-events-none transition-all duration-500 ease-in-out`}
-    >
-      <Canvas
-        camera={{ position: [0, 2, 5], fov: 50 }}
-        style={{ width: '100%', height: '100%' }}
-        gl={{ alpha: true }}
-        onCreated={({ gl }) => {
-          gl.setClearColor('#000000', 0); 
-        }}
-      >
-        <ambientLight intensity={0.5} />
-        <directionalLight position={[2, 2, 2]} />
-        <Suspense fallback={null}>
-          <SalsaModel scrollYVal={scrollYVal} />
-        </Suspense>
-      </Canvas>
-    </div>
+<div
+  id="canvas-wrapper"
+  className={`${isFixed ? 'fixed top-[20%]' : 'relative top-0'}
+              left-0 w-full h-screen z-[50] transition-all duration-500 ease-in-out`}
+>
+  <Canvas
+    camera={{ position: [0, 2, 5], fov: 50 }}
+    className="pointer-events-none"
+    style={{ width: '100%', height: '100%', pointerEvents: 'none' }}
+    gl={{ alpha: true }}
+    onCreated={({ gl }) => {
+      gl.setClearColor('#000000', 0);
+      gl.domElement.style.pointerEvents = 'none';
+    }}
+  >
+    <ambientLight intensity={0.5} />
+    <directionalLight position={[2, 2, 2]} />
+    <Suspense fallback={null}>
+      <SalsaModel scrollYVal={scrollYVal} />
+    </Suspense>
+  </Canvas>
+</div>
 
 
 

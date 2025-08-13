@@ -9,7 +9,7 @@ const View05 = () => {
  
   return ( 
     <>
-    <section id="view05" className="relative h-screen w-full  overflow-hidden text-white">
+    <section id="pinball" className="relative h-screen w-full  overflow-hidden text-white">
     <div className='absolute top-5 left-8 w-full h-[150px] text-2xl text-white'>
         <div className='text-white opacity-50 text-[40px] '>LE<span className='font-gridular'>T</span>'S GET DO<span className='font-gridular'>W</span>N</div>
         <div className='flex items-center gap-2'>
@@ -193,7 +193,7 @@ const View05 = () => {
       </svg>
 
 <div
-  className="absolute text-2xl"
+  className="absolute text-2xl group"
   style={{
     left: "600px",
     top: "600px",
@@ -201,11 +201,12 @@ const View05 = () => {
     transformOrigin: "center",
   }}
 >
-  NAME
+  <span className="block group-hover:hidden">NAME</span>
+  <span className="hidden group-hover:block">성명철</span>
 </div>
 
 <div
-  className="absolute text-2xl"
+  className="absolute text-2xl group"
   style={{
     left: "820px",
     top: "450px",
@@ -214,11 +215,12 @@ const View05 = () => {
 
   }}
 >
- NUMBER
+  <span className="block group-hover:hidden">NUMBER</span>
+  <span className="hidden group-hover:block">010-3508-9102</span>
 </div>
 
 <div
-  className="absolute text-2xl "
+  className="absolute text-2xl group "
   style={{
     left: "1050px",
     top: "500px",
@@ -226,7 +228,8 @@ const View05 = () => {
     transformOrigin: "center",
   }}
 >
-  GITHUB
+  <span className="block group-hover:hidden">GITHUB</span>
+  <span className="hidden group-hover:block">https://github.com/Namefe</span>
 </div>
 
 <div
