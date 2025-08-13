@@ -69,158 +69,169 @@ useEffect(() => {
   return (
     <>
     <section className='relative w-full h-[100vh] text-white'>
-      <div className=''>
-      {/*라인 윗줄*/}
+ <div className="">
+      {/* 상단 라인 */}
       <div className="fixed w-full h-auto inset-0 z-[5000] pointer-events-none">
-      <div className="top absolute top-0 left-0 w-full flex items-start justify-between">
-    <div className="top-left-plus relative w-4 h-4 top-2 left-2">
-    <div className="top-left-ver absolute left-1/2  top-0 h-4 w-[.5px] bg-white opacity-50 -translate-x-1/2"></div>
-    <div className="top-left-col absolute top-1/2 left-0 w-4 h-[.5px] bg-white opacity-50 -translate-y-1/2"></div>
-    </div>
-
-      <div className="top-right-plus relative w-4 h-4 top-2 right-2  ">
-      <div className="top-right-ver absolute left-1/2 top-0 h-4 w-[.5px] bg-white opacity-50 -translate-x-1/2"></div>
-      <div className="top-right-col absolute top-1/2 right-0 w-4 h-[.5px] bg-white opacity-50 -translate-y-1/2"></div>
-    </div>
-</div>
-      </div>
-      {/*라인 아랫줄*/}
-      <div className="fixed w-full h-auto inset-0 z-20">
-      <div className="top absolute bottom-0 left-0 w-full flex items-start justify-between">
-    <div className="btm-left-plus relative w-4 h-4 bottom-2 left-2 ">
-    <div className="btm-left-ver absolute left-1/2 top-0 h-4 w-[.5px] bg-white opacity-50 -translate-x-1/2"></div>
-    <div className="btm-left-col absolute top-1/2 left-0 w-4 h-[.5px] bg-white opacity-50 -translate-y-1/2"></div>
-    </div>
-    
-<div className='frame-top-bot cc--bot '>
-<div className='frame-top-bot_flex'>
-  <div className='frame-line is--hor'></div>
-  <div className='frame-line is--angle-left_bot'></div>
-</div>
-<div className="relative menu-button">
-<div className='frame-top-bot_middle'>
-    <div className='frame-line is--menu'></div>
-  </div>
-      {/* 메뉴 버튼 */}
-      <div
-        className=" flex items-center gap-2 cursor-pointer z-[10000] pointer-events-auto"
-        onClick={() => setIsMenuOpen(!isMenuOpen)}
-      >
-        <div className="relative flex flex-col justify-center items-center w-[18px] h-[18px]">
-          <div
-            className={`absolute w-[18px] h-[1px] bg-white transition-transform duration-300 ${
-              isMenuOpen ? "rotate-45" : "translate-y-[-4px]"
-            }`}
-          ></div>
-
-          <div
-            className={`absolute w-[18px] h-[1px] bg-white transition-transform duration-300 ${
-              isMenuOpen ? "-rotate-45" : "translate-y-[4px]"
-            }`}
-          ></div>
+        <div className="top absolute top-0 left-0 w-full flex items-start justify-between">
+          <div className="top-left-plus relative w-4 h-4 top-2 left-2">
+            <div className="top-left-ver absolute left-1/2  top-0 h-4 w-[.5px] bg-white opacity-50 -translate-x-1/2"></div>
+            <div className="top-left-col absolute top-1/2 left-0 w-4 h-[.5px] bg-white opacity-50 -translate-y-1/2"></div>
+          </div>
+          <div className="top-right-plus relative w-4 h-4 top-2 right-2">
+            <div className="top-right-ver absolute left-1/2 top-0 h-4 w-[.5px] bg-white opacity-50 -translate-x-1/2"></div>
+            <div className="top-right-col absolute top-1/2 right-0 w-4 h-[.5px] bg-white opacity-50 -translate-y-1/2"></div>
+          </div>
         </div>
-
-        <span className="text-white text-sm transition-all duration-300">
-          {isMenuOpen ? "CLOSE" : "MENU"}
-        </span>
       </div>
 
       <div
-        className={`fixed inset-0 bg-black  text-white transition-transform duration-500 z-[9998] ${
+        className={`fixed inset-0 bg-black text-white transition-transform duration-500 z-[10000] ${
           isMenuOpen ? "translate-y-0" : "-translate-y-full"
         }`}
       >
-        {/* 오른쪽 상단 설명 텍스트 */}
-        <div className="absolute top-8 right-8 text-xs leading-4 text-white opacity-50">
+        <div className="absolute top-8 right-8 text-xs leading-4 opacity-50">
           <p>CREATING</p>
           <p>MEMORABLE</p>
           <p>DIGITAL</p>
-          <p className='-translate-x-10'>EXPERIENCES</p>
+          <p className="-translate-x-10">EXPERIENCES</p>
         </div>
 
         <div className="flex flex-col items-start pl-4 pt-20 w-full max-w-[600px]">
-  <div className="w-full mb-4">
-    <h2 className="text-[40px]  hover:opacity-70"><span className='font-gridular'>HO</span>ME</h2>
-    <div
-    className="w-screen h-[10px] mt-2"
-    style={{
-      backgroundImage:
-        "repeating-linear-gradient(to right, rgba(255, 255, 255, 0.5) 0px, transparent 2px 6px)"
-      }}
-    ></div>  
-    </div>     
+          <div className="w-full mb-4">
+            <h2 className="text-[40px] hover:opacity-70">
+              <span className="font-gridular">HO</span>ME
+            </h2>
+            <div
+              className="w-screen h-[10px] mt-2"
+              style={{
+                backgroundImage:
+                  "repeating-linear-gradient(to right, rgba(255,255,255,.5) 0px, transparent 2px 6px)",
+              }}
+            />
+          </div>
 
-  <div className="w-full mb-4">
-    <h2 className="text-[40px]  hover:opacity-70"><span className='font-gridular' >W</span>ORK<span className='font-gridular'>S</span></h2>
-    <div
-    className="w-screen h-[8px] mt-2"
-    style={{
-      backgroundImage:
-        "repeating-linear-gradient(to right, rgba(255, 255, 255, 0.5) 0px, transparent 2px 6px)"
-      }}
-    ></div> 
+          <div className="w-full mb-4">
+            <h2 className="text-[40px] hover:opacity-70">
+              <span className="font-gridular">W</span>ORK
+              <span className="font-gridular">S</span>
+            </h2>
+            <div
+              className="w-screen h-[8px] mt-2"
+              style={{
+                backgroundImage:
+                  "repeating-linear-gradient(to right, rgba(255,255,255,.5) 0px, transparent 2px 6px)",
+              }}
+            />
+          </div>
+
+          <div className="w-full mb-4">
+            <h2 className="text-[40px] hover:opacity-70">
+              PORT<span className="font-gridular">F</span>OLIO
+            </h2>
+            <div
+              className="w-screen h-[6px] mt-2"
+              style={{
+                backgroundImage:
+                  "repeating-linear-gradient(to right, rgba(255,255,255,.5) 0px, transparent 2px 6px)",
+              }}
+            />
+          </div>
+
+          <div className="w-full mb-4">
+            <h2 className="text-[40px] hover:opacity-70">
+              CERTI<span className="font-gridular">F</span>ICATI
+              <span className="font-gridular">O</span>N
+            </h2>
+            <div
+              className="w-screen h-[3px] mt-2"
+              style={{
+                backgroundImage:
+                  "repeating-linear-gradient(to right, rgba(255,255,255,.5) 0px, transparent 2px 4px)",
+              }}
+            />
+          </div>
+
+          <div className="w-full mb-4">
+            <h2 className="text-[40px] hover:opacity-70">
+              EDUCA<span className="font-gridular">T</span>IO
+              <span className="font-gridular">N</span>
+            </h2>
+            <div
+              className="w-screen h-[1px] mt-2"
+              style={{
+                backgroundImage:
+                  "repeating-linear-gradient(to right, rgba(255,255,255,.5) 0px, transparent 1px 1px)",
+              }}
+            />
+          </div>
+
+          <div className="w-full mb-4">
+            <h2 className="text-[40px] hover:opacity-70">
+              CONT<span className="font-gridular">A</span>CT
+            </h2>
+            <div
+              className="w-screen h-[1px] mt-2"
+              style={{
+                backgroundImage:
+                  "repeating-linear-gradient(to right, rgba(255,255,255,.5) 0px, transparent 1px 1px)",
+              }}
+            />
+          </div>
+        </div>
       </div>
 
-  <div className="w-full mb-4">
-    <h2 className="text-[40px]  hover:opacity-70">PORT<span className='font-gridular'>F</span>OLIO</h2>
-    <div
-    className="w-screen h-[6px] mt-2"
-    style={{
-      backgroundImage:
-        "repeating-linear-gradient(to right, rgba(255, 255, 255, 0.5) 0px, transparent 2px 6px)"
-      }}
-    ></div>   
-    </div>
+      <div className="fixed w-full left-0 bottom-0 z-[11000] pointer-events-none">
+        <div className="w-full flex items-start justify-between">
+          <div className="btm-left-plus relative w-4 h-4 bottom-2 left-2">
+            <div className="btm-left-ver absolute left-1/2 top-0 h-4 w-[.5px] bg-white opacity-50 -translate-x-1/2"></div>
+            <div className="btm-left-col absolute top-1/2 left-0 w-4 h-[.5px] bg-white opacity-50 -translate-y-1/2"></div>
+          </div>
 
-  <div className="w-full mb-4">
-    <h2 className="text-[40px]  hover:opacity-70">CERTI<span className='font-gridular'>F</span>ICATI<span className='font-gridular'>O</span>N</h2>
-    <div
-    className="w-screen h-[3px] mt-2"
-    style={{
-      backgroundImage:
-        "repeating-linear-gradient(to right, rgba(255, 255, 255, 0.5) 0px, transparent 2px 4px)"
-      }}
-    ></div>  
-      </div>
+          <div className="frame-top-bot cc--bot">
+            <div className="frame-top-bot_flex">
+              <div className="frame-line is--hor"></div>
+              <div className="frame-line is--angle-left_bot"></div>
+            </div>
 
-  <div className="w-full mb-4">
-    <h2 className="text-[40px]  hover:opacity-70">EDUCA<span className='font-gridular'>T</span>IO<span className='font-gridular'>N</span></h2>
-    <div
-    className="w-screen h-[1px] mt-2"
-    style={{
-      backgroundImage:
-      "repeating-linear-gradient(to right, rgba(255, 255, 255, 0.5) 0px, transparent 1px 1px)"
-      }}
-    ></div>    
-    </div>
+            <div className="relative menu-button">
+              <div className="frame-top-bot_middle">
+                <div className="frame-line is--menu"></div>
+              </div>
 
-  <div className="w-full mb-4">
-    <h2 className="text-[40px]  hover:opacity-70">CONT<span className='font-gridular'>A</span>CT</h2>
-    <div
-    className="w-screen h-[1px] mt-2"
-    style={{
-      backgroundImage:
-      "repeating-linear-gradient(to right, rgba(255, 255, 255, 0.5) 0px, transparent 1px 1px)"
-      }}
-    ></div>    
-    </div>
+              <button
+                type="button"
+                className="pointer-events-auto flex items-center gap-2 select-none"
+                onClick={() => setIsMenuOpen((v) => !v)}
+              >
+                <div className="relative flex flex-col justify-center items-center w-[18px] h-[18px]">
+                  <div
+                    className={`absolute w-[18px] h-[1px] bg-white transition-transform duration-300 ${
+                      isMenuOpen ? "rotate-45" : "translate-y-[-4px]"
+                    }`}
+                  />
+                  <div
+                    className={`absolute w-[18px] h-[1px] bg-white transition-transform duration-300 ${
+                      isMenuOpen ? "-rotate-45" : "translate-y-[4px]"
+                    }`}
+                  />
+                </div>
+                <span className="text-white text-sm transition-opacity duration-200">
+                  {isMenuOpen ? "CLOSE" : "MENU"}
+                </span>
+              </button>
+            </div>
 
-  </div>
-  </div>
+            <div className="frame-top-bot_flex">
+              <div className="frame-line is--angle-right_bot"></div>
+              <div className="frame-line is--hor"></div>
+            </div>
+          </div>
 
-    
-    </div>
-    <div className='frame-top-bot_flex'>
-      <div className='frame-line is--angle-right_bot'></div>
-      <div className='frame-line is--hor'></div>
-    </div>
-</div>
-
-      <div className="btm-right-plus relative w-4 h-4 bottom-2 right-1 z-[5000] ">
-      <div className="btm-right-ver absolute left-1/2 top-0 h-4 w-[.5px] bg-white opacity-50 -translate-x-1/2"></div>
-      <div className="btm-right-col absolute top-1/2 right-0 w-4 h-[.5px] bg-white opacity-50 -translate-y-1/2"></div>
-    </div>
-</div>
+          <div className="btm-right-plus relative w-4 h-4 bottom-2 right-1">
+            <div className="btm-right-ver absolute left-1/2 top-0 h-4 w-[.5px] bg-white opacity-50 -translate-x-1/2"></div>
+            <div className="btm-right-col absolute top-1/2 right-0 w-4 h-[.5px] bg-white opacity-50 -translate-y-1/2"></div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -248,7 +259,7 @@ useEffect(() => {
 </div>
 
 
-    <div className="relative flex flex-col items-center text-white top-[120px]">
+    <div className="relative flex flex-col items-center text-white top-[150px]">
     <h1 className="flex font-teko pointer-events-none">
     <div className="font-bold text-[12vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>S</div>
     <div className="font-bold text-[12vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>O</div>

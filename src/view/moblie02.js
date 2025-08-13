@@ -200,9 +200,9 @@ const Moblie02 = () => {
       <div className="absolute inset-0 pointer-events-none bg-noise mix-blend-overlay opacity-30"></div>
     </div>
     <div className="w-full  px-2">
-        <h3 className="text-lg font-bold">NETMARBLEGAMES</h3>
+        <h3 className="text-[28px] ">Netmarble games</h3>
       <div className="flex justify-between items-center">
-      <p className="text-xs opacity-60 mt-1">넷마블게임즈</p>
+      <p className="text-[14px] opacity-60 mt-1">넷마블게임즈</p>
       <span className="text-xs opacity-70">2025</span>
       </div>
     </div>
@@ -223,9 +223,9 @@ const Moblie02 = () => {
       <div className="absolute inset-0 pointer-events-none bg-noise mix-blend-overlay opacity-30"></div>
     </div>
     <div className="w-full  px-2">
-        <h3 className="text-lg font-bold">SM ENTERTAINMENT</h3>
+        <h3 className="text-[28px]">SM ENTERTAINMENT</h3>
       <div className="flex justify-between items-center">
-      <p className="text-xs opacity-60 mt-1">AESPA</p>
+      <p className="text-[14px] opacity-60 mt-1">AESPA</p>
       <span className="text-xs opacity-70">2025</span>
       </div>
     </div>
@@ -246,9 +246,9 @@ const Moblie02 = () => {
       <div className="absolute inset-0 pointer-events-none bg-noise mix-blend-overlay opacity-30"></div>
     </div>
     <div className="w-full mt-2 px-2">
-        <h3 className="text-lg font-bold">TRAUMA CENTER</h3>
+        <h3 className="text-[28px]">Trauma CENTER</h3>
       <div className="flex justify-between items-center">
-      <p className="text-xs opacity-60 mt-1">중증외상센터</p>
+      <p className="text-[14px] opacity-60 mt-1">중증외상센터</p>
       <span className="text-xs opacity-70">2025</span>
       </div>
     </div>
