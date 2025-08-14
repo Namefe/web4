@@ -3,6 +3,7 @@ import { motion, useScroll, useTransform, useAnimation, useInView, useMotionTemp
 import '../App.css'; 
 import { Canvas, useFrame } from '@react-three/fiber';
 import { useGLTF, OrbitControls } from '@react-three/drei';
+import Planet from '../component/Planet.jsx'
 
 const View01 = () => {
   const [time, setTime] = useState(new Date());
@@ -393,10 +394,10 @@ function ScrambleText({ text }) {
             </motion.div>
 
       {/* line & 메뉴 바 */}
-      <motion.div style={{opacity: lineopacity}} className="fixed w-full h-auto text-[#f5f5f5] inset-0 z-50 pointer-events-none">
+      <motion.div style={{opacity: lineopacity}} className="fixed w-full h-auto text-[#f5f5f5] inset-0  pointer-events-none z-[150]">
         <div className="top absolute top-0 left-0 w-full flex items-start">
 
-          <div className="top-left-plus relative w-4 h-4 ml-2 mt-2">
+          <div className="top-left-plus relative w-4 h-4 ml-2 mt-2 pointer-events-none">
             <div className="top-left-ver absolute left-1/2 top-0 h-4 w-[1px] bg-white opacity-50 -translate-x-1/2"></div>
             <div className="top-left-col absolute top-1/2 left-0 w-4 h-[1px] bg-white opacity-50 -translate-y-1/2"></div>
           </div>
@@ -407,7 +408,7 @@ function ScrambleText({ text }) {
           <div className='frame-line is--angle-left'></div>
         </div>
         <div className='frame-top-bot_middle'>
-    <div className="menu_wrapper">
+    <div className="menu_wrapper relative z-[300] pointer-events-auto">
       <ul className="flex gap-2 xl:gap-4 2xl:gap-6">
         {["HOME", "PORTFOLIO", "CERTIFICATION", "EDUCATION", "CONTACT"].map((label) => (
           <li key={label}>
@@ -483,25 +484,25 @@ function ScrambleText({ text }) {
 
 <div
   id="canvas-wrapper"
-  className={`${isFixed ? 'fixed top-[20%]' : 'relative top-0'}
-              left-0 w-full h-screen z-[50] transition-all duration-500 ease-in-out`}
+  className={`${isFixed ? 'fixed top-0' : 'relative top-0'}
+              left-0 w-full h-screen z-[50] pointer-events-none transition-all duration-500 ease-in-out`}
 >
-  <Canvas
-    camera={{ position: [0, 2, 5], fov: 50 }}
-    className="pointer-events-none"
-    style={{ width: '100%', height: '100%', pointerEvents: 'none' }}
-    gl={{ alpha: true }}
-    onCreated={({ gl }) => {
-      gl.setClearColor('#000000', 0);
-      gl.domElement.style.pointerEvents = 'none';
-    }}
-  >
-    <ambientLight intensity={0.5} />
-    <directionalLight position={[2, 2, 2]} />
-    <Suspense fallback={null}>
-      <SalsaModel scrollYVal={scrollYVal} />
-    </Suspense>
-  </Canvas>
+<Canvas
+  camera={{ position: [0, 2, 5], fov: 50 }}
+  className="pointer-events-none"
+  style={{ width: '100%', height: '100%', pointerEvents: 'none' }}
+  gl={{ alpha: true }}
+  onCreated={({ gl }) => {
+    gl.setClearColor('#000000', 0);
+    gl.domElement.style.pointerEvents = 'none';
+  }}
+>
+  <ambientLight intensity={0.5} />
+  <directionalLight position={[2, 2, 2]} />
+<Suspense fallback={null}>
+  <Planet scrollYVal={scrollYVal} />
+</Suspense>
+</Canvas>
 </div>
 
 
