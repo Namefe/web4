@@ -325,8 +325,8 @@ function useScrollY() {
     }
 
     ball.style.position = "fixed";
-    ball.style.left = "0px";
-    ball.style.top = "0px";
+    ball.style.left = "-30px";
+    ball.style.top = "-30px";
     ball.style.transform = `translate3d(${position.current.x}px, ${position.current.y}px, 0)`;
     ball.style.willChange = "transform";
 
@@ -341,28 +341,28 @@ function useScrollY() {
 
      const CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-function ScrambleText({ text }) {
-  const [view, setView] = useState(text);
-  const timer = useRef(null);
+    function ScrambleText({ text }) {
+      const [view, setView] = useState(text);
+      const timer = useRef(null);
 
-  const run = () => {
-    clearInterval(timer.current);
-    let i = 0;
-    timer.current = setInterval(() => {
-      const chars = text.split("").map((char, idx) =>
-        idx <= i ? char : CHARS[Math.floor(Math.random() * CHARS.length)]
-      );
-      setView(chars.join(""));
-      if (i >= text.length) {
+      const run = () => {
         clearInterval(timer.current);
-      }
-      i++;
-    }, 50); 
-  };
+        let i = 0;
+        timer.current = setInterval(() => {
+          const chars = text.split("").map((char, idx) =>
+            idx <= i ? char : CHARS[Math.floor(Math.random() * CHARS.length)]
+          );
+          setView(chars.join(""));
+          if (i >= text.length) {
+            clearInterval(timer.current);
+          }
+          i++;
+        }, 50); 
+      };
 
-  useEffect(() => {
-    return () => clearInterval(timer.current);
-  }, []);
+      useEffect(() => {
+        return () => clearInterval(timer.current);
+      }, []);
 
   return (
     <span 
@@ -408,17 +408,23 @@ function ScrambleText({ text }) {
           <div className='frame-line is--angle-left'></div>
         </div>
         <div className='frame-top-bot_middle'>
-    <div className="menu_wrapper relative z-[300] pointer-events-auto">
-      <ul className="flex gap-2 xl:gap-4 2xl:gap-6">
-        {["HOME", "PORTFOLIO", "CERTIFICATION", "EDUCATION", "CONTACT"].map((label) => (
-          <li key={label}>
-            <a href="#" className="relative inline-block h-[1em] leading-none">
-              <ScrambleText text={label} />
-            </a>
-          </li>
-        ))}
-      </ul>
-    </div>
+<div className="menu_wrapper relative z-[300] pointer-events-auto">
+  <ul className="flex gap-2 xl:gap-4 2xl:gap-6">
+    {["HOME","PORTFOLIO","CERTIFICATION","EDUCATION","CONTACT"].map((label) => (
+      <li key={label} className="group">
+        <a
+          href="#"
+          className="relative inline-block h-[1em] leading-none"
+        >
+          <ScrambleText
+            text={label}
+            className="text-gray-400 group-hover:text-white transition-colors duration-300"
+          />
+        </a>
+      </li>
+    ))}
+  </ul>
+</div>
           <div className='frame-line is--mid'></div>
         </div>
         <div className='frame-top-bot_flex'>
@@ -461,8 +467,8 @@ function ScrambleText({ text }) {
              text-white text-sm pointer-events-auto z-[99999]
              transition-transform duration-300 ease-out`}
   style={{
-    bottom: "40px",
-    right: "40px",
+    bottom: "10px",
+    right: "10px",
     position: "fixed",
     background: "black",
     boxShadow: "inset 0 0 35px rgba(255,255,255,1), 0 0 20px rgba(255,255,255,0.2)",

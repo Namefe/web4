@@ -1,4 +1,5 @@
 import React from 'react'
+import { motion } from "framer-motion"
 
 const Moblie05 = () => {
   return (
@@ -25,14 +26,24 @@ const Moblie05 = () => {
     ></div>  
 
 <div className="w-full mt-2 mb-2">
-  <h2 className="text-[27px] md:text-[40px] relative inline-block leading-none group z-30">
-    <span className="block transition-opacity duration-200 group-hover:opacity-0">
-      NAME
-    </span>
-    <span className="pointer-events-none block absolute inset-0 opacity-0 transition-opacity duration-200 group-hover:opacity-100 whitespace-nowrap">
-      SEONG MYEONG CHUL
-    </span>
-  </h2>
+<motion.h2
+  className="text-[27px] md:text-[40px] relative inline-block leading-none group z-30"
+  initial="rest"
+  animate="rest"
+  whileHover="hover"
+>
+  <span className="block transition-opacity duration-200 group-hover:opacity-0">NAME</span>
+  <motion.span
+    className="pointer-events-none block absolute inset-0 flex gap-[2px] whitespace-nowrap"
+    variants={{ rest: { opacity: 0 }, hover: { opacity: 1, transition: { staggerChildren: 0.05 } } }}
+  >
+    {Array.from("성명철").map((ch, i) => (
+      <motion.span key={i} variants={{ rest: { opacity: 0, y: 6 }, hover: { opacity: 1, y: 0 } }}>
+        {ch}
+      </motion.span>
+    ))}
+  </motion.span>
+</motion.h2>
 
   <div
     className="w-screen h-[8px] mt-2 pointer-events-none -z-10"
@@ -44,14 +55,24 @@ const Moblie05 = () => {
 </div>
 
   <div className="w-full mt-2 mb-2">
-  <h2 className="text-[27px] md:text-[40px] relative inline-block leading-none group z-30">
-    <span className="block transition-opacity duration-200 group-hover:opacity-0">
-      NUMBER
-    </span>
-    <span className="pointer-events-none block absolute inset-0 opacity-0 transition-opacity duration-200 group-hover:opacity-100 whitespace-nowrap">
-      010-3508-9102
-    </span>
-  </h2>    
+<motion.h2
+  className="text-[27px] md:text-[40px] relative inline-block leading-none group z-30"
+  initial="rest"
+  animate="rest"
+  whileHover="hover"
+>
+  <span className="block transition-opacity duration-200 group-hover:opacity-0">NUMBER</span>
+  <motion.span
+    className="pointer-events-none block absolute inset-0 flex gap-[2px] whitespace-nowrap"
+    variants={{ rest: { opacity: 0 }, hover: { opacity: 1, transition: { staggerChildren: 0.05 } } }}
+  >
+    {Array.from("010-3508-9102").map((ch, i) => (
+      <motion.span key={i} variants={{ rest: { opacity: 0, y: 6 }, hover: { opacity: 1, y: 0 } }}>
+        {ch}
+      </motion.span>
+    ))}
+  </motion.span>
+</motion.h2>   
   <div
     className="w-screen h-[5px] mt-2"
     style={{
@@ -62,14 +83,24 @@ const Moblie05 = () => {
       </div>
 
   <div className="w-full mt-2 mb-2">
-  <h2 className="text-[27px] md:text-[40px] relative inline-block leading-none group z-30">
-    <span className="block transition-opacity duration-200 group-hover:opacity-0">
-      GITHUB
-    </span>
-    <span className="pointer-events-none block absolute inset-0 opacity-0 transition-opacity duration-200 group-hover:opacity-100 whitespace-nowrap">
-    https://github.com/Namefe
-    </span>
-  </h2>
+<motion.h2
+  className="text-[27px] md:text-[40px] relative inline-block leading-none group z-30"
+  initial="rest"
+  animate="rest"
+  whileHover="hover"
+>
+  <span className="block transition-opacity duration-200 group-hover:opacity-0">GITHUB</span>
+  <motion.span
+    className="pointer-events-none block absolute inset-0 flex gap-[2px] whitespace-nowrap"
+    variants={{ rest: { opacity: 0 }, hover: { opacity: 1, transition: { staggerChildren: 0.04 } } }}
+  >
+    {Array.from("https://github.com/Namefe").map((ch, i) => (
+      <motion.span key={i} variants={{ rest: { opacity: 0, y: 6 }, hover: { opacity: 1, y: 0 } }}>
+        {ch}
+      </motion.span>
+    ))}
+  </motion.span>
+</motion.h2>
     <div
     className="w-screen h-[3px] mt-2"
     style={{
@@ -80,14 +111,24 @@ const Moblie05 = () => {
     </div>
 
   <div className="w-full mt-2 mb-2">
-  <h2 className="text-[27px] md:text-[40px] relative inline-block leading-none group z-30">
-    <span className="block transition-opacity duration-200 group-hover:opacity-0">
-      MBTI
-    </span>
-    <span className="pointer-events-none block absolute inset-0 opacity-0 transition-opacity duration-200 group-hover:opacity-100 whitespace-nowrap">
-      ISTJ
-    </span>
-  </h2>
+<motion.h2
+  className="text-[27px] md:text-[40px] relative inline-block leading-none group z-30"
+  initial="rest"
+  animate="rest"
+  whileHover="hover"
+>
+  <span className="block transition-opacity duration-200 group-hover:opacity-0">MBTI</span>
+  <motion.span
+    className="pointer-events-none block absolute inset-0 flex gap-[2px] whitespace-nowrap"
+    variants={{ rest: { opacity: 0 }, hover: { opacity: 1, transition: { staggerChildren: 0.06 } } }}
+  >
+    {Array.from("ISTJ").map((ch, i) => (
+      <motion.span key={i} variants={{ rest: { opacity: 0, y: 6 }, hover: { opacity: 1, y: 0 } }}>
+        {ch}
+      </motion.span>
+    ))}
+  </motion.span>
+</motion.h2>
     <div
     className="w-screen h-[1px] mt-2"
     style={{

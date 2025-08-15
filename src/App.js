@@ -15,31 +15,12 @@ import Moblie04 from './view/moblie04';
 import Moblie05 from './view/moblie05';
 
 function App() {
-  const mobileRef = useRef()
-  
-
-  const [isView05Active, setIsView05Active] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const section = document.getElementById("view05"); 
-      if (section) {
-        const rect = section.getBoundingClientRect();
-        const isInView = rect.top < window.innerHeight && rect.bottom > 0;
-        setIsView05Active(isInView);
-      }
-    };
-
-    handleScroll(); 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
 
   return (
 <div className="relative w-full min-h-screen bg-black">
   <ParticleBackground />
-  <div ref={mobileRef} className="block lg:hidden overflow-hidden">
+  <div  className="block lg:hidden overflow-hidden">
     <Moblie01/>
     <Moblie02/>
     <Moblie03/>
@@ -47,7 +28,7 @@ function App() {
     <Moblie05/>
   </div>
   <div className="relative z-10 hidden lg:block overflow-hidden">
-    <View01 isActive={isView05Active} /> 
+    <View01 /> 
     <View02 /> 
     <View03 /> 
     <View04 /> 

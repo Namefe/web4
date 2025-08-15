@@ -4,68 +4,75 @@ const Moblie = () => {
 const [isMenuOpen, setIsMenuOpen] = useState(false);
 
 
-const ballRef = useRef(null);
-const [isActive, setIsActive] = useState(false);
-const [isHovered, setIsHovered] = useState(false);
-const ballSize = 140;
-const velocity = useRef({ x: 2, y: 2 });
-const position = useRef({
-  x: window.innerWidth - ballSize - 20, 
-  y: window.innerHeight - ballSize - 20 
-});
-
-useEffect(() => {
-  const handleScroll = () => {
-    const section = document.getElementById("view05");
-    if (section) {
-      const rect = section.getBoundingClientRect();
-      setIsActive(rect.top < window.innerHeight && rect.bottom > 0);
-    }
-  };
-
-  window.addEventListener("scroll", handleScroll);
-  return () => window.removeEventListener("scroll", handleScroll);
-}, []);
-
-useEffect(() => {
-  let animationFrame;
+ const ballRef = useRef(null);
+      const [isActive, setIsActive] = useState(false);
+      const [isHovered, setIsHovered] = useState(false);
+      const ballSize = 140;
+      const velocity = useRef({ x: 2, y: 2 });
+      const position = useRef({
+        x: window.innerWidth - ballSize , 
+        y: window.innerHeight - ballSize  
+      });
+      
+      useEffect(() => {
+        const handleScroll = () => {
+          const section = document.getElementById("view05");
+          if (section) {
+            const rect = section.getBoundingClientRect();
+            setIsActive(rect.top < window.innerHeight && rect.bottom > 0);
+          }
+        };
+      
+        window.addEventListener("scroll", handleScroll);
+        return () => window.removeEventListener("scroll", handleScroll);
+      }, []);
+      
+     useEffect(() => {
+  let raf;
 
   const moveBall = () => {
     const ball = ballRef.current;
-    if (!ball) return;
+    if (!ball) { raf = requestAnimationFrame(moveBall); return; }
 
-    if (isActive) {
-      if (!isHovered) {
-        position.current.x += velocity.current.x;
-        position.current.y += velocity.current.y;
+    const maxX = window.innerWidth - ballSize;
+    const maxY = window.innerHeight - ballSize;
 
-        if (position.current.x <= 0 || position.current.x + ballSize >= window.innerWidth) {
-          velocity.current.x *= -1;
-        }
-        if (position.current.y <= 0 || position.current.y + ballSize >= window.innerHeight) {
-          velocity.current.y *= -1;
-        }
+    if (isActive && !isHovered) {
+      position.current.x += velocity.current.x;
+      position.current.y += velocity.current.y;
+
+      if (position.current.x <= 0) {
+        position.current.x = 0;
+        velocity.current.x = Math.abs(velocity.current.x);
+      } else if (position.current.x >= maxX) {
+        position.current.x = maxX;
+        velocity.current.x = -Math.abs(velocity.current.x);
       }
 
-      ball.style.left = `${position.current.x}px`;
-      ball.style.top = `${position.current.y}px`;
-      ball.style.bottom = "";
-      ball.style.right = "";
-    } 
-    else {
-      position.current.x = window.innerWidth - ballSize ;
-      position.current.y = window.innerHeight - ballSize ;
-    
-      ball.style.left = `${position.current.x}px`;
-      ball.style.top = `${position.current.y}px`;
+      if (position.current.y <= 0) {
+        position.current.y = 0;
+        velocity.current.y = Math.abs(velocity.current.y);
+      } else if (position.current.y >= maxY) {
+        position.current.y = maxY;
+        velocity.current.y = -Math.abs(velocity.current.y);
+      }
+    } else if (!isActive) {
+      position.current.x = maxX;
+      position.current.y = maxY;
     }
 
-    animationFrame = requestAnimationFrame(moveBall);
+    ball.style.position = "fixed";
+    ball.style.left = "0px";
+    ball.style.top = "0px";
+    ball.style.transform = `translate3d(${position.current.x}px, ${position.current.y}px, 0)`;
+    ball.style.willChange = "transform";
+
+    raf = requestAnimationFrame(moveBall);
   };
 
-  animationFrame = requestAnimationFrame(moveBall);
-  return () => cancelAnimationFrame(animationFrame);
-}, [isActive, isHovered]);
+  raf = requestAnimationFrame(moveBall);
+  return () => cancelAnimationFrame(raf);
+}, [isActive, isHovered, ballSize]);
   return (
     <>
     <section className='relative w-full h-[100vh] text-white'>
