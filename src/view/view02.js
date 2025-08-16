@@ -128,7 +128,7 @@ const View02 = () => {
       };
   return (
     <>
-    <section className="relative w-full h-[100vh] ">
+    <section className="relative w-full h-[100vh] mb-[50vh]">
   <svg className="absolute top-0 left-0 w-full h-auto" viewBox="0 0 300 100">
     <path 
       d="M3,50 L20,50 L40,60 L297,60" 
@@ -245,8 +245,8 @@ const View02 = () => {
       </div>
 
       <div className="absolute top-40 left-20 z-20 text-white opacity-50">
-        <div>Start project =</div>
-        <div className="ml-32">3</div>
+        <div>FrontEnd Project = 3</div>
+        <div className="ml-32"></div>
       </div>
 
       <div className="absolute top-10 left-[40%] z-20 text-white opacity-50">

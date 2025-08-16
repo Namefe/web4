@@ -61,73 +61,73 @@ const yR3 = useTransform(scrollYProgress, [0.2, 0.3, 0.4], [10, 0, -10]);
 
 
 // FRONT
-const yFrontF = useTransform(scrollYProgress, [0.3, 0.4, 0.5], [-40, 0, 40]);
-const yFrontR = useTransform(scrollYProgress, [0.3, 0.4, 0.5], [30, 0, -30]);
-const yFrontO = useTransform(scrollYProgress, [0.3, 0.4, 0.5], [-20, 0, 20]);
-const yFrontN = useTransform(scrollYProgress, [0.3, 0.4, 0.5], [25, 0, -25]);
-const yFrontT = useTransform(scrollYProgress, [0.3, 0.4, 0.5], [10, 0, -10]);
-const yFrontSpace = useTransform(scrollYProgress, [0.3, 0.4, 0.5], [5, 0, -5]);
+const yFrontF = useTransform(scrollYProgress, [0.3, 0.5, 0.7], [-40, 0, 40]);
+const yFrontR = useTransform(scrollYProgress, [0.3, 0.5, 0.7], [30, 0, -30]);
+const yFrontO = useTransform(scrollYProgress, [0.3, 0.5, 0.7], [-20, 0, 20]);
+const yFrontN = useTransform(scrollYProgress, [0.3, 0.5, 0.7], [25, 0, -25]);
+const yFrontT = useTransform(scrollYProgress, [0.3, 0.5, 0.7], [10, 0, -10]);
+const yFrontSpace = useTransform(scrollYProgress, [0.3, 0.5, 0.7], [5, 0, -5]);
 
 // END
-const yEndE = useTransform(scrollYProgress, [0.3, 0.4, 0.5], [-30, 0, 30]);
-const yEndN = useTransform(scrollYProgress, [0.3, 0.4, 0.5], [20, 0, -20]);
-const yEndD = useTransform(scrollYProgress, [0.3, 0.4, 0.5], [-15, 0, 15]);
-const yEndSpace = useTransform(scrollYProgress, [0.3, 0.4, 0.5], [5, 0, -5]);
+const yEndE = useTransform(scrollYProgress, [0.3, 0.5, 0.7], [-30, 0, 30]);
+const yEndN = useTransform(scrollYProgress, [0.3, 0.5, 0.7], [20, 0, -20]);
+const yEndD = useTransform(scrollYProgress, [0.3, 0.5, 0.7], [-15, 0, 15]);
+const yEndSpace = useTransform(scrollYProgress, [0.3, 0.5, 0.7], [5, 0, -5]);
 
 // DEVELOPER
-const yDevD = useTransform(scrollYProgress, [0.3, 0.4, 0.5], [35, 0, -35]);
-const yDevE = useTransform(scrollYProgress, [0.3, 0.4, 0.5], [-25, 0, 25]);
-const yDevV = useTransform(scrollYProgress, [0.3, 0.4, 0.5], [15, 0, -15]);
-const yDevE2 = useTransform(scrollYProgress, [0.3, 0.4, 0.5], [-20, 0, 20]);
-const yDevL = useTransform(scrollYProgress, [0.3, 0.4, 0.5], [10, 0, -10]);
-const yDevO = useTransform(scrollYProgress, [0.3, 0.4, 0.5], [-30, 0, 30]);
-const yDevP = useTransform(scrollYProgress, [0.3, 0.4, 0.5], [20, 0, -20]);
-const yDevE3 = useTransform(scrollYProgress, [0.3, 0.4, 0.5], [-15, 0, 15]);
-const yDevR = useTransform(scrollYProgress, [0.3, 0.4, 0.5], [5, 0, -5]);
+const yDevD = useTransform(scrollYProgress, [0.3, 0.55, 0.7], [35, 0, -35]);
+const yDevE = useTransform(scrollYProgress, [0.3, 0.55, 0.7], [-25, 0, 25]);
+const yDevV = useTransform(scrollYProgress, [0.3, 0.55, 0.7], [15, 0, -15]);
+const yDevE2 = useTransform(scrollYProgress, [0.3, 0.55, 0.7], [-20, 0, 20]);
+const yDevL = useTransform(scrollYProgress, [0.3, 0.55, 0.7], [10, 0, -10]);
+const yDevO = useTransform(scrollYProgress, [0.3, 0.55, 0.7], [-30, 0, 30]);
+const yDevP = useTransform(scrollYProgress, [0.3, 0.55, 0.7], [20, 0, -20]);
+const yDevE3 = useTransform(scrollYProgress, [0.3, 0.55, 0.7], [-15, 0, 15]);
+const yDevR = useTransform(scrollYProgress, [0.3, 0.55, 0.7], [5, 0, -5]);
 
-const opacityF    = useTransform(scrollYProgress, [0.200, 0.250, 0.4, 0.6], [0, 1, 1, 0]);
-const opacityA    = useTransform(scrollYProgress, [0.205, 0.255, 0.4, 0.6], [0, 1, 1, 0]);
-const opacityI    = useTransform(scrollYProgress, [0.210, 0.260, 0.4, 0.6], [0, 1, 1, 0]);
-const opacityL    = useTransform(scrollYProgress, [0.215, 0.265, 0.4, 0.6], [0, 1, 1, 0]);
-const opacitySp1  = useTransform(scrollYProgress, [0.220, 0.270, 0.4, 0.6], [0, 1, 1, 0]);
-const opacityF2   = useTransform(scrollYProgress, [0.225, 0.275, 0.4, 0.6], [0, 1, 1, 0]);
-const opacityA2   = useTransform(scrollYProgress, [0.230, 0.280, 0.4, 0.6], [0, 1, 1, 0]);
-const opacityS    = useTransform(scrollYProgress, [0.235, 0.285, 0.4, 0.6], [0, 1, 1, 0]);
-const opacityT    = useTransform(scrollYProgress, [0.240, 0.290, 0.4, 0.6], [0, 1, 1, 0]);
+const opacityF    = useTransform(scrollYProgress, [0.200, 0.250, 0.4, 0.5], [0, 1, 1, 0]);
+const opacityA    = useTransform(scrollYProgress, [0.205, 0.255, 0.4, 0.5], [0, 1, 1, 0]);
+const opacityI    = useTransform(scrollYProgress, [0.210, 0.260, 0.4, 0.5], [0, 1, 1, 0]);
+const opacityL    = useTransform(scrollYProgress, [0.215, 0.265, 0.4, 0.5], [0, 1, 1, 0]);
+const opacitySp1  = useTransform(scrollYProgress, [0.220, 0.270, 0.4, 0.5], [0, 1, 1, 0]);
+const opacityF2   = useTransform(scrollYProgress, [0.225, 0.275, 0.4, 0.5], [0, 1, 1, 0]);
+const opacityA2   = useTransform(scrollYProgress, [0.230, 0.280, 0.4, 0.5], [0, 1, 1, 0]);
+const opacityS    = useTransform(scrollYProgress, [0.235, 0.285, 0.4, 0.5], [0, 1, 1, 0]);
+const opacityT    = useTransform(scrollYProgress, [0.240, 0.290, 0.4, 0.5], [0, 1, 1, 0]);
 
-const opacityL2   = useTransform(scrollYProgress, [0.245, 0.295, 0.4, 0.6], [0, 1, 1, 0]);
-const opacityE    = useTransform(scrollYProgress, [0.250, 0.300, 0.4, 0.6], [0, 1, 1, 0]);
-const opacityA3   = useTransform(scrollYProgress, [0.255, 0.305, 0.4, 0.6], [0, 1, 1, 0]);
-const opacityR2   = useTransform(scrollYProgress, [0.260, 0.310, 0.4, 0.6], [0, 1, 1, 0]);
-const opacityN2   = useTransform(scrollYProgress, [0.265, 0.315, 0.4, 0.6], [0, 1, 1, 0]);
-const opacitySp2  = useTransform(scrollYProgress, [0.270, 0.320, 0.4, 0.6], [0, 1, 1, 0]);
-const opacityF3   = useTransform(scrollYProgress, [0.275, 0.325, 0.4, 0.6], [0, 1, 1, 0]);
-const opacityA4   = useTransform(scrollYProgress, [0.280, 0.330, 0.4, 0.6], [0, 1, 1, 0]);
-const opacityS2   = useTransform(scrollYProgress, [0.285, 0.335, 0.4, 0.6], [0, 1, 1, 0]);
-const opacityT2   = useTransform(scrollYProgress, [0.290, 0.340, 0.4, 0.6], [0, 1, 1, 0]);
-const opacityE2   = useTransform(scrollYProgress, [0.295, 0.345, 0.4, 0.6], [0, 1, 1, 0]);
-const opacityR3   = useTransform(scrollYProgress, [0.300, 0.350, 0.4, 0.6], [0, 1, 1, 0]);
+const opacityL2   = useTransform(scrollYProgress, [0.245, 0.295, 0.4, 0.5], [0, 1, 1, 0]);
+const opacityE    = useTransform(scrollYProgress, [0.250, 0.300, 0.4, 0.5], [0, 1, 1, 0]);
+const opacityA3   = useTransform(scrollYProgress, [0.255, 0.305, 0.4, 0.5], [0, 1, 1, 0]);
+const opacityR2   = useTransform(scrollYProgress, [0.260, 0.310, 0.4, 0.5], [0, 1, 1, 0]);
+const opacityN2   = useTransform(scrollYProgress, [0.265, 0.315, 0.4, 0.5], [0, 1, 1, 0]);
+const opacitySp2  = useTransform(scrollYProgress, [0.270, 0.320, 0.4, 0.5], [0, 1, 1, 0]);
+const opacityF3   = useTransform(scrollYProgress, [0.275, 0.325, 0.4, 0.5], [0, 1, 1, 0]);
+const opacityA4   = useTransform(scrollYProgress, [0.280, 0.330, 0.4, 0.5], [0, 1, 1, 0]);
+const opacityS2   = useTransform(scrollYProgress, [0.285, 0.335, 0.4, 0.5], [0, 1, 1, 0]);
+const opacityT2   = useTransform(scrollYProgress, [0.290, 0.340, 0.4, 0.5], [0, 1, 1, 0]);
+const opacityE2   = useTransform(scrollYProgress, [0.295, 0.345, 0.4, 0.5], [0, 1, 1, 0]);
+const opacityR3   = useTransform(scrollYProgress, [0.300, 0.350, 0.4, 0.5], [0, 1, 1, 0]);
 
-const opacityFrontF      = useTransform(scrollYProgress, [0.305, 0.355, 0.4, 0.6], [0, 1, 1, 0]);
-const opacityFrontR      = useTransform(scrollYProgress, [0.310, 0.360, 0.4, 0.6], [0, 1, 1, 0]);
-const opacityFrontO      = useTransform(scrollYProgress, [0.315, 0.365, 0.4, 0.6], [0, 1, 1, 0]);
-const opacityFrontN      = useTransform(scrollYProgress, [0.320, 0.370, 0.4, 0.6], [0, 1, 1, 0]);
-const opacityFrontT      = useTransform(scrollYProgress, [0.325, 0.375, 0.4, 0.6], [0, 1, 1, 0]);
-const opacityFrontSpace  = useTransform(scrollYProgress, [0.330, 0.380, 0.4, 0.6], [0, 1, 1, 0]);
+const opacityFrontF      = useTransform(scrollYProgress, [0.305, 0.355, 0.5, 0.7], [0, 1, 1, 0]);
+const opacityFrontR      = useTransform(scrollYProgress, [0.310, 0.360, 0.5, 0.7], [0, 1, 1, 0]);
+const opacityFrontO      = useTransform(scrollYProgress, [0.315, 0.365, 0.5, 0.7], [0, 1, 1, 0]);
+const opacityFrontN      = useTransform(scrollYProgress, [0.320, 0.370, 0.5, 0.7], [0, 1, 1, 0]);
+const opacityFrontT      = useTransform(scrollYProgress, [0.325, 0.375, 0.5, 0.7], [0, 1, 1, 0]);
+const opacityFrontSpace  = useTransform(scrollYProgress, [0.330, 0.380, 0.5, 0.7], [0, 1, 1, 0]);
 
-const opacityEndE        = useTransform(scrollYProgress, [0.335, 0.385, 0.4, 0.6], [0, 1, 1, 0]);
-const opacityEndN        = useTransform(scrollYProgress, [0.340, 0.390, 0.4, 0.6], [0, 1, 1, 0]);
-const opacityEndD        = useTransform(scrollYProgress, [0.345, 0.395, 0.4, 0.6], [0, 1, 1, 0]);
+const opacityEndE        = useTransform(scrollYProgress, [0.335, 0.385, 0.5, 0.7], [0, 1, 1, 0]);
+const opacityEndN        = useTransform(scrollYProgress, [0.340, 0.390, 0.5, 0.7], [0, 1, 1, 0]);
+const opacityEndD        = useTransform(scrollYProgress, [0.345, 0.395, 0.5, 0.7], [0, 1, 1, 0]);
 
-const opacityDevD        = useTransform(scrollYProgress, [0.350, 0.400, 0.45, 0.6], [0, 1, 1, 0]);
-const opacityDevE        = useTransform(scrollYProgress, [0.355, 0.405, 0.45, 0.6], [0, 1, 1, 0]);
-const opacityDevV        = useTransform(scrollYProgress, [0.360, 0.410, 0.45, 0.6], [0, 1, 1, 0]);
-const opacityDevE2   = useTransform(scrollYProgress, [0.365, 0.415, 0.45, 0.6], [0, 1, 1, 0]);
-const opacityDevL   = useTransform(scrollYProgress, [0.370, 0.420, 0.45, 0.6], [0, 1, 1, 0]);
-const opacityDevO   = useTransform(scrollYProgress, [0.375, 0.425, 0.45, 0.6], [0, 1, 1, 0]);
-const opacityDevP    = useTransform(scrollYProgress, [0.380, 0.430, 0.45, 0.6], [0, 1, 1, 0]);
-const opacityDevE3   = useTransform(scrollYProgress, [0.385, 0.435, 0.45, 0.6], [0, 1, 1, 0]);
-const opacityDevR   = useTransform(scrollYProgress, [0.390, 0.440, 0.45, 0.6], [0, 1, 1, 0]);
+const opacityDevD        = useTransform(scrollYProgress, [0.350, 0.400, 0.55, 0.7], [0, 1, 1, 0]);
+const opacityDevE        = useTransform(scrollYProgress, [0.355, 0.405, 0.55, 0.7], [0, 1, 1, 0]);
+const opacityDevV        = useTransform(scrollYProgress, [0.360, 0.410, 0.55, 0.7], [0, 1, 1, 0]);
+const opacityDevE2   = useTransform(scrollYProgress, [0.365, 0.415, 0.55, 0.7], [0, 1, 1, 0]);
+const opacityDevL   = useTransform(scrollYProgress, [0.370, 0.420, 0.55, 0.7], [0, 1, 1, 0]);
+const opacityDevO   = useTransform(scrollYProgress, [0.375, 0.425, 0.55, 0.7], [0, 1, 1, 0]);
+const opacityDevP    = useTransform(scrollYProgress, [0.380, 0.430, 0.55, 0.7], [0, 1, 1, 0]);
+const opacityDevE3   = useTransform(scrollYProgress, [0.385, 0.435, 0.55, 0.7], [0, 1, 1, 0]);
+const opacityDevR   = useTransform(scrollYProgress, [0.390, 0.440, 0.55, 0.7], [0, 1, 1, 0]);
 
 
 

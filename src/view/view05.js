@@ -49,9 +49,8 @@ const View05 = () => {
           </defs>
 
           <text style={{ fontSize: "clamp(40px,8vw,150px)" }} fontFamily="monospace" letterSpacing="10" className="fill-[#777]">
-            <textPath href="#text-arc" startOffset="50%" textAnchor="middle" className="font-Teko">
-              S<tspan className="font-gridular">M</tspan>C91<tspan className="font-gridular">0</tspan>2@N
-              <tspan className="font-gridular">A</tspan>VER.C<tspan className="font-gridular">O</tspan>M
+            <textPath href="#text-arc" startOffset="50%" textAnchor="middle" className="font-teko">
+              smc9102@naver.com
             </textPath>
           </text>
 

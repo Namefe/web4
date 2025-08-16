@@ -14,7 +14,7 @@ import { useGLTF } from '@react-three/drei'
 
 export default function Planet({
   scrollYVal = 0,
-  scale = 2,
+  scale = 1,
   base = [0, -2, -3],
   turnPixels = 800,   
   startPx = 0,
@@ -31,8 +31,8 @@ export default function Planet({
     if (!group.current) return
     const raw = (scrollYVal - startPx) / turnPixels
     const t = repeat ? Math.max(raw, 0) : Math.min(Math.max(raw, 0), 1)
-    group.current.rotation.y = t * Math.PI * 2 
-    group.current.scale.setScalar(scale)
+    group.current.rotation.y = t * Math.PI * 0.5
+    group.current.scale.setScalar(scale * raw  * 3 + 3)
   })
 
   return (

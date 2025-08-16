@@ -65,10 +65,10 @@ const View04 = () => {
 
           <div className="space-y-10 mt-60">
             {[
-              ["Graduated from Buan Middle School, Anyang", "Jan 2015"],
-              ["Graduated from Buhung High School, Anyang", "Jan 2018"],
-              ["Completed Military Service (Army Sergeant)", "Feb 2022"],
-              ["Graduated from Eulji University", "Jan 2024"],
+              ["안양, 부안중학교 졸업", "Jan 2015"],
+              ["안양, 부안고등학교", "Jan 2018"],
+              ["안양, 부안중학교", "Feb 2022"],
+              ["안양, 부안중학교", "Jan 2024"],
             ].map(([title, date], i) => (
               <div
                 key={i}
@@ -84,7 +84,7 @@ const View04 = () => {
                     className="w-8 h-8 object-contain"
                   />
                 </div>
-                <div className="col-span-2 text-[50px] text-right">
+                <div className="col-span-2 text-[28px] text-right">
                   {date}
                 </div>
               </div>

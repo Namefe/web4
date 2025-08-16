@@ -82,11 +82,11 @@ const item = {
 
         <div className="relative mt-3 flex flex-col items-start z-10">
           <div className="text-white text-sm font-extralight tracking-wide opacity-40 group-hover:opacity-100 transition-opacity duration-300">
-            Netmarble
+            Html + CSS + Js
           </div>
 
           <motion.div
-            className="inline-flex gap-[2px]"
+            className="inline-flex gap-[2px] -mt-1"
             variants={container}
             initial="hidden"
             animate={hovered ? "show" : "hide"}
@@ -100,10 +100,10 @@ const item = {
         </div>
 
         {[
-          { className: "bottom-[-8px] left-[-8px]", path: "M7 6V20H21", delay: 0 },
-          { className: "bottom-[-8px] right-[-8px]", path: "M20 6V20H6", delay: 0.05 },
-          { className: "top-[-15px] left-[-10px]", path: "M7 21V7H21", delay: 0.1 },
-          { className: "top-[-15px] right-[-10px]", path: "M20 21V7H6", delay: 0.15 },
+          { className: "bottom-[-8px] left-[-16px]", path: "M7 6V20H21", delay: 0 },
+          { className: "bottom-[-8px] right-[-16px]", path: "M20 6V20H6", delay: 0.05 },
+          { className: "top-[-15px] left-[-16px]", path: "M7 21V7H21", delay: 0.1 },
+          { className: "top-[-15px] right-[-16px]", path: "M20 21V7H6", delay: 0.15 },
         ].map((item, i) => (
           <motion.svg
             key={i}
@@ -141,9 +141,9 @@ const item = {
             />
           </div>
 
-          <div className="relative mt-3 flex flex-col items-start z-10">
-            <div className="text-white text-sm font-extralight tracking-wide opacity-40 group-hover:opacity-100 transition-opacity duration-300">AESPA</div>
-            <motion.div className="inline-flex gap-[2px]" variants={container} initial="hidden" animate={hovered2 ? "show" : "hide"}>
+          <div className="relative mt-3 flex flex-col items-start z-10 ">
+            <div className="text-white text-sm font-extralight tracking-wide opacity-40 group-hover:opacity-100 transition-opacity duration-300">REACT</div>
+            <motion.div className="inline-flex gap-[2px] -mt-1" variants={container} initial="hidden" animate={hovered2 ? "show" : "hide"}>
               {"SM EMTERTAINMENT".split("").map((char, i) => (
                 <motion.span key={i} className="text-white font-bold" variants={item}>
                   {char}
@@ -153,10 +153,10 @@ const item = {
           </div>
 
           {[
-            { className: "bottom-[-8px] left-[-8px]", path: "M7 6V20H21" },
-            { className: "bottom-[-8px] right-[-8px]", path: "M20 6V20H6" },
-            { className: "top-[-15px] left-[-10px]", path: "M7 21V7H21" },
-            { className: "top-[-15px] right-[-10px]", path: "M20 21V7H6" },
+            { className: "bottom-[-8px] left-[-16px]", path: "M7 6V20H21", delay: 0 },
+            { className: "bottom-[-8px] right-[-16px]", path: "M20 6V20H6", delay: 0.05 },
+            { className: "top-[-15px] left-[-16px]", path: "M7 21V7H21", delay: 0.1 },
+            { className: "top-[-15px] right-[-16px]", path: "M20 21V7H6", delay: 0.15 },
           ].map((it, i) => (
             <motion.svg key={i} className={`absolute ${it.className} w-[20px] h-[20px] text-white opacity-0 group-hover:opacity-100 transition-all duration-500`} fill="none" viewBox="0 0 24 24" stroke="currentColor" style={{ zIndex: 20 }}>
               <path d={it.path} strokeWidth="1.5" />
@@ -183,10 +183,10 @@ const item = {
           </div>
 
           <div className="relative mt-3 flex flex-col items-start z-10">
-            <div className="text-white text-sm font-extralight tracking-wide opacity-40 group-hover:opacity-100 transition-opacity duration-300">중증외상센터</div>
+            <div className="text-white text-sm font-extralight tracking-wide opacity-40 group-hover:opacity-100 transition-opacity duration-300">REACT</div>
             <motion.div className="inline-flex gap-[2px]" variants={container} initial="hidden" animate={hovered3 ? "show" : "hide"}>
-              {"TRAUMA CENTER".split("").map((char, i) => (
-                <motion.span key={i} className="text-white font-bold" variants={item}>
+              {"중증외상센터".split("").map((char, i) => (
+                <motion.span key={i} className="text-white font-bold -ml-0.5" variants={item}>
                   {char}
                 </motion.span>
               ))}
@@ -194,10 +194,10 @@ const item = {
           </div>
 
           {[
-            { className: "bottom-[-8px] left-[-8px]", path: "M7 6V20H21" },
-            { className: "bottom-[-8px] right-[-8px]", path: "M20 6V20H6" },
-            { className: "top-[-15px] left-[-10px]", path: "M7 21V7H21" },
-            { className: "top-[-15px] right-[-10px]", path: "M20 21V7H6" },
+            { className: "bottom-[-8px] left-[-16px]", path: "M7 6V20H21", delay: 0 },
+            { className: "bottom-[-8px] right-[-16px]", path: "M20 6V20H6", delay: 0.05 },
+            { className: "top-[-15px] left-[-16px]", path: "M7 21V7H21", delay: 0.1 },
+            { className: "top-[-15px] right-[-16px]", path: "M20 21V7H6", delay: 0.15 },
           ].map((it, i) => (
             <motion.svg key={i} className={`absolute ${it.className} w-[20px] h-[20px] text-white opacity-0 group-hover:opacity-100 transition-all duration-500`} fill="none" viewBox="0 0 24 24" stroke="currentColor" style={{ zIndex: 20 }}>
               <path d={it.path} strokeWidth="1.5" />
@@ -234,17 +234,16 @@ const item = {
 
 
   {/* AWWWWARDS 섹션 */}
-  <div className='relative'>
+  <motion.div className='relative' style={{filter: blurStyle }}>
     <div className='text-white text-[clamp(3rem,8vw,8rem)] text-left pt-10 relative z-10'>
-    <motion.div
-  style={{filter: blurStyle }}>
-  <h2 className="text-[clamp(3rem,8vw,8rem)] text-white font-semibold">
-    <span className='font-gridular'>C</span>ER
-    <span className='font-gridular'>T</span>I
-    <span className='font-gridular'>F</span>IC
-    <span className='font-gridular'>A</span>TION
-  </h2>
-</motion.div>    
+      <div>
+          <h2 className="text-[clamp(3rem,8vw,8rem)] text-white font-semibold">
+            <span className='font-gridular'>C</span>ER
+            <span className='font-gridular'>T</span>I
+            <span className='font-gridular'>F</span>IC
+            <span className='font-gridular'>A</span>TION
+          </h2>
+    </div>    
 <div className='absolute right-0 top-0 flex gap-2'>
         {[...Array(2)].map((_, i) => (
           <svg key={i} width='1.5rem' viewBox='0 0 33 32' fill='none'>
@@ -276,59 +275,52 @@ const item = {
     </div>
   </div>
   <div class="col-span-3 text-white">
-    <div class="space-y-4">
-      <div class="w-full">
+    <div class="">
+      <div class="w-full border-b border-b-white/40 py-2">
         <div class="flex justify-between items-center">
           <span class="text-[32px] leading-loose break-keep">GTQ</span>
           <span class="opacity-50 text-[clamp(1rem,2vw,1.2rem)]">2010</span>
         </div>
-        <div className='line-divider'></div>
       </div>
-      <div class="w-full">
+      <div class="w-full border-b border-b-white/40 py-2">
         <div class="flex justify-between items-center">
           <span class="text-[32px] leading-loose break-keep">ITQ</span>
           <span class="opacity-50 text-[clamp(1rem,2vw,1.2rem)]">2010</span>
         </div>
-        <div className='line-divider'></div>
       </div>
-      <div class="w-full">
+      <div class="w-full border-b border-b-white/40 py-2">
         <div class="flex justify-between items-center">
           <span class="text-[32px] leading-loose break-keep">워드프로세서</span>
           <span class="opacity-50 text-[clamp(1rem,2vw,1.2rem)]">2020</span>
         </div>
-        <div className='line-divider'></div>
         </div>
-      <div class="w-full">
+      <div class="w-full border-b border-b-white/40 py-2">
         <div class="flex justify-between items-center">
           <span class="text-[32px] leading-loose break-keep">SMAT 3급</span>
           <span class="opacity-50 text-[clamp(1rem,2vw,1.2rem)]">2023</span>
         </div>
-        <div className='line-divider'></div>
         </div>
-      <div class="w-full">
+      <div class="w-full border-b border-b-white/40 py-2">
         <div class="flex justify-between items-center">
           <span class="text-[32px] leading-loose break-keep">ACP PHOTOSHOP</span>
           <span class="opacity-50 text-[clamp(1rem,2vw,1.2rem)]">2024</span>
         </div>
-        <div className='line-divider'></div>
         </div>
-      <div class="w-full">
+      <div class="w-full border-b border-b-white/40 py-2">
         <div class="flex justify-between items-center">
           <span class="text-[32px] leading-loose break-keep">ACP ILLUSTRATION</span>
           <span class="opacity-50 text-[clamp(1rem,2vw,1.2rem)]">2024</span>
         </div>
-        <div className='line-divider'></div>
         </div>
-      <div class="w-full">
+      <div class="w-full border-b border-b-white/40 py-2">
         <div class="flex justify-between items-center">
           <span class="text-[32px] leading-loose break-keep">SQLD</span>
           <span class="opacity-50 text-[clamp(1rem,2vw,1.2rem)]">2025</span>
         </div>
-        <div className='line-divider'></div>
         </div>
-      <div class="w-full">
+      <div class="w-full pt-2">
         <div class="flex justify-between items-center">
-          <span class="text-[32px] leading-loose break-keep">웹디자인 기능사</span>
+          <span class="text-[32px] leading-loose break-keep">웹디자인개발 기능사</span>
           <span class="opacity-50 text-[clamp(1rem,2vw,1.2rem)]">2025</span>
         </div>
       </div>
@@ -337,7 +329,7 @@ const item = {
 </div>
 </div>
 
-  </div>
+  </motion.div>
 
   {/* TITLE 섹션 */}
   <div className='relative top-[-20px]'>
