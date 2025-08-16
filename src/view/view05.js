@@ -20,7 +20,7 @@ const PolarItem = ({ angle = 0, r = 40, children }) => {
 const View05 = () => {
   return (
     <>
-      <section id="pinball" className="relative h-screen w-full overflow-hidden text-white">
+      <section id="contact" className="relative h-screen w-full overflow-hidden text-white">
         <div className="absolute top-4 left-1/2 -translate-x-1/2 w-[min(92vw,1200px)]">
           <div className="opacity-50 text-[clamp(20px,5vw,40px)] text-center sm:text-left">
             LE<span className="font-gridular">T</span>'S GET DO<span className="font-gridular">W</span>N
@@ -48,11 +48,18 @@ const View05 = () => {
             <path id="text-arc" d="M -403,1000 A 905,905 0 0,1 1404,1000" fill="none" />
           </defs>
 
-          <text style={{ fontSize: "clamp(40px,8vw,150px)" }} fontFamily="monospace" letterSpacing="10" className="fill-[#777]">
-            <textPath href="#text-arc" startOffset="50%" textAnchor="middle" className="font-teko">
-              smc9102@naver.com
-            </textPath>
-          </text>
+          <text
+        style={{
+          fontFamily: '"Smooch","Pretendard","Malgun Gothic",sans-serif',
+          fontWeight: 800,
+          fontSize: "clamp(40px,8vw,150px)"
+        }}
+        className="fill-[#777]"
+      >
+        <textPath href="#text-arc" startOffset="50%" textAnchor="middle">
+          smc9102@naver.com
+        </textPath>
+      </text>
 
           {Array.from({ length: 360 }).map((_, i) => {
             const angle = i * 1.5;

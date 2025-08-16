@@ -16,7 +16,7 @@ const [isMenuOpen, setIsMenuOpen] = useState(false);
       
       useEffect(() => {
         const handleScroll = () => {
-          const section = document.getElementById("view05");
+          const section = document.getElementById("mcontact");
           if (section) {
             const rect = section.getBoundingClientRect();
             setIsActive(rect.top < window.innerHeight && rect.bottom > 0);
@@ -75,7 +75,7 @@ const [isMenuOpen, setIsMenuOpen] = useState(false);
 }, [isActive, isHovered, ballSize]);
   return (
     <>
-    <section className='relative w-full h-[100vh] text-white'>
+    <section id="mhome" className='relative w-full h-[100vh] text-white'>
  <div className="">
       {/* 상단 라인 */}
       <div className="fixed w-full h-auto inset-0 z-[5000] pointer-events-none">
@@ -104,87 +104,78 @@ const [isMenuOpen, setIsMenuOpen] = useState(false);
         </div>
 
         <div className="flex flex-col items-start pl-4 pt-20 w-full max-w-[600px]">
-          <div className="w-full mb-4">
-            <h2 className="text-[40px] hover:opacity-70">
-              <span className="font-gridular">HO</span>ME
-            </h2>
-            <div
-              className="w-screen h-[10px] mt-2"
-              style={{
-                backgroundImage:
-                  "repeating-linear-gradient(to right, rgba(255,255,255,.5) 0px, transparent 2px 6px)",
-              }}
-            />
-          </div>
+  <div className="w-full mb-4">
+    <a 
+      href="#mhome" 
+      className="text-[40px] hover:opacity-70 block"
+      onClick={() => setIsMenuOpen(false)}
+      >
+      <span className="font-gridular">HO</span>ME
+    </a>
+    <div
+      className="w-screen h-[10px] mt-2"
+      style={{
+        backgroundImage:
+          "repeating-linear-gradient(to right, rgba(255,255,255,.5) 0px, transparent 2px 6px)",
+      }}
+    />
+  </div>
 
-          <div className="w-full mb-4">
-            <h2 className="text-[40px] hover:opacity-70">
-              <span className="font-gridular">W</span>ORK
-              <span className="font-gridular">S</span>
-            </h2>
-            <div
-              className="w-screen h-[8px] mt-2"
-              style={{
-                backgroundImage:
-                  "repeating-linear-gradient(to right, rgba(255,255,255,.5) 0px, transparent 2px 6px)",
-              }}
-            />
-          </div>
+  <div className="w-full mb-4">
+    <a onClick={() => setIsMenuOpen(false)} href="#mportfolio" className="text-[40px] hover:opacity-70 block">
+      PORT<span className="font-gridular">F</span>OLIO
+    </a>
+    <div
+      className="w-screen h-[6px] mt-2"
+      style={{
+        backgroundImage:
+          "repeating-linear-gradient(to right, rgba(255,255,255,.5) 0px, transparent 2px 6px)",
+      }}
+    />
+  </div>
 
-          <div className="w-full mb-4">
-            <h2 className="text-[40px] hover:opacity-70">
-              PORT<span className="font-gridular">F</span>OLIO
-            </h2>
-            <div
-              className="w-screen h-[6px] mt-2"
-              style={{
-                backgroundImage:
-                  "repeating-linear-gradient(to right, rgba(255,255,255,.5) 0px, transparent 2px 6px)",
-              }}
-            />
-          </div>
+  <div className="w-full mb-4">
+    <a onClick={() => setIsMenuOpen(false)} href="#mcertification" className="text-[40px] hover:opacity-70 block">
+      CERTI<span className="font-gridular">F</span>ICATI
+      <span className="font-gridular">O</span>N
+    </a>
+    <div
+      className="w-screen h-[3px] mt-2"
+      style={{
+        backgroundImage:
+          "repeating-linear-gradient(to right, rgba(255,255,255,.5) 0px, transparent 2px 4px)",
+      }}
+    />
+  </div>
 
-          <div className="w-full mb-4">
-            <h2 className="text-[40px] hover:opacity-70">
-              CERTI<span className="font-gridular">F</span>ICATI
-              <span className="font-gridular">O</span>N
-            </h2>
-            <div
-              className="w-screen h-[3px] mt-2"
-              style={{
-                backgroundImage:
-                  "repeating-linear-gradient(to right, rgba(255,255,255,.5) 0px, transparent 2px 4px)",
-              }}
-            />
-          </div>
+  <div className="w-full mb-4">
+    <a onClick={() => setIsMenuOpen(false)} href="#meducation" className="text-[40px] hover:opacity-70 block">
+      EDUCA<span className="font-gridular">T</span>IO
+      <span className="font-gridular">N</span>
+    </a>
+    <div
+      className="w-screen h-[1px] mt-2"
+      style={{
+        backgroundImage:
+          "repeating-linear-gradient(to right, rgba(255,255,255,.5) 0px, transparent 1px 1px)",
+      }}
+    />
+  </div>
 
-          <div className="w-full mb-4">
-            <h2 className="text-[40px] hover:opacity-70">
-              EDUCA<span className="font-gridular">T</span>IO
-              <span className="font-gridular">N</span>
-            </h2>
-            <div
-              className="w-screen h-[1px] mt-2"
-              style={{
-                backgroundImage:
-                  "repeating-linear-gradient(to right, rgba(255,255,255,.5) 0px, transparent 1px 1px)",
-              }}
-            />
-          </div>
+  <div className="w-full mb-4">
+    <a onClick={() => setIsMenuOpen(false)} href="#mcontact" className="text-[40px] hover:opacity-70 block">
+      CONT<span className="font-gridular">A</span>CT
+    </a>
+    <div
+      className="w-screen h-[1px] mt-2"
+      style={{
+        backgroundImage:
+          "repeating-linear-gradient(to right, rgba(255,255,255,.5) 0px, transparent 1px 1px)",
+      }}
+    />
+  </div>
+</div>
 
-          <div className="w-full mb-4">
-            <h2 className="text-[40px] hover:opacity-70">
-              CONT<span className="font-gridular">A</span>CT
-            </h2>
-            <div
-              className="w-screen h-[1px] mt-2"
-              style={{
-                backgroundImage:
-                  "repeating-linear-gradient(to right, rgba(255,255,255,.5) 0px, transparent 1px 1px)",
-              }}
-            />
-          </div>
-        </div>
       </div>
 
       <div className="fixed w-full left-0 bottom-0 z-[11000] pointer-events-none">
@@ -267,24 +258,24 @@ const [isMenuOpen, setIsMenuOpen] = useState(false);
 
 
     <div className="relative flex flex-col items-center text-white top-[150px]">
-    <h1 className="flex font-teko pointer-events-none">
-    <div className="font-bold text-[12vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>S</div>
-    <div className="font-bold text-[12vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>O</div>
-    <div className="font-bold text-[12vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>U</div>
-    <div className="font-bold text-[12vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>N</div>
-    <div className="font-bold text-[12vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>G</div>
-    <div className="font-bold text-[12vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>&nbsp;</div>
-    <div className="font-bold text-[12vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>M</div>
-    <div className="font-bold text-[12vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>Y</div>
-    <div className="font-bold text-[12vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>E</div>
-    <div className="font-bold text-[12vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>O</div>
-    <div className="font-bold text-[12vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>N</div>
-    <div className="font-bold text-[12vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>G</div>
-    <div className="font-bold text-[12vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>&nbsp;</div>
-    <div className="font-bold text-[12vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>C</div>
-    <div className="font-bold text-[12vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>H</div>
-    <div className="font-bold text-[12vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>U</div>
-    <div className="font-bold text-[12vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>L</div>
+    <h1 className="flex font-smoochExtra pointer-events-none">
+    <div className="font-bold text-[8vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>S</div>
+    <div className="font-bold text-[8vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>O</div>
+    <div className="font-bold text-[8vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>U</div>
+    <div className="font-bold text-[8vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>N</div>
+    <div className="font-bold text-[8vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>G</div>
+    <div className="font-bold text-[8vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>&nbsp;</div>
+    <div className="font-bold text-[8vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>M</div>
+    <div className="font-bold text-[8vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>Y</div>
+    <div className="font-bold text-[8vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>E</div>
+    <div className="font-bold text-[8vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>O</div>
+    <div className="font-bold text-[8vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>N</div>
+    <div className="font-bold text-[8vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>G</div>
+    <div className="font-bold text-[8vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>&nbsp;</div>
+    <div className="font-bold text-[8vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>C</div>
+    <div className="font-bold text-[8vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>H</div>
+    <div className="font-bold text-[8vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>U</div>
+    <div className="font-bold text-[8vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>L</div>
   </h1>
 
   <div className="flex gap-[6vw] mt-[7vh] opacity-75">

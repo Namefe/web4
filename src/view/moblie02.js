@@ -116,7 +116,7 @@ const Moblie02 = () => {
       
   return (
     <>
-    <section className='relative w-full h-[500vh]  '>
+    <section id="mportfolio" className='relative w-full h-[250vh] '>
   <div className="line-wrapper">
     <div className="line-wrapper-left">
       <div className="line-divider"></div>
@@ -173,7 +173,7 @@ const Moblie02 = () => {
   </div>
   <div className="line-divider"></div>
 </div>
-  <div  className="absolute top-[7%]  w-full ">
+  <div  className="absolute top-[12%]  w-full ">
       <div className="absolute font-pptelegraf w-full top-0 left-0 px-2 z-20 opacity-50 text-white flex justify-between text-[13px]">
       <div>{lineTop1}</div>
       <div>{lineTop2}</div>
@@ -183,7 +183,7 @@ const Moblie02 = () => {
 
 
 
-<div className="absolute top-[10%] w-full flex flex-col items-center gap-10">
+<div className="absolute top-[15%] w-full flex flex-col items-center gap-10">
 
   {/* 1번째 이미지 */}
   <div className="w-full max-w-[700px] flex flex-col items-center text-white px-2">
@@ -202,7 +202,7 @@ const Moblie02 = () => {
     <div className="w-full  px-2">
         <h3 className="text-[28px] ">Netmarble games</h3>
       <div className="flex justify-between items-center">
-      <p className="text-[14px] opacity-60 mt-1">넷마블게임즈</p>
+      <p className="text-[14px] opacity-60 mt-1">HTML + CSS + Java</p>
       <span className="text-xs opacity-70">2025</span>
       </div>
     </div>
@@ -225,7 +225,7 @@ const Moblie02 = () => {
     <div className="w-full  px-2">
         <h3 className="text-[28px]">SM ENTERTAINMENT</h3>
       <div className="flex justify-between items-center">
-      <p className="text-[14px] opacity-60 mt-1">AESPA</p>
+      <p className="text-[14px] opacity-60 mt-1">REACT</p>
       <span className="text-xs opacity-70">2025</span>
       </div>
     </div>
@@ -246,9 +246,9 @@ const Moblie02 = () => {
       <div className="absolute inset-0 pointer-events-none bg-noise mix-blend-overlay opacity-30"></div>
     </div>
     <div className="w-full mt-2 px-2">
-        <h3 className="text-[28px]">Trauma CENTER</h3>
+        <h3 className="text-[28px]">중증외상센터</h3>
       <div className="flex justify-between items-center">
-      <p className="text-[14px] opacity-60 mt-1">중증외상센터</p>
+      <p className="text-[14px] opacity-60 mt-1">REACT</p>
       <span className="text-xs opacity-70">2025</span>
       </div>
     </div>

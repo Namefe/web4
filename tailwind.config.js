@@ -18,7 +18,7 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ['Pretendard', 'sans-serif'], 
-        teko: ['Teko', 'sans-serif'],
+        smooch: ['"SmoochSans"', '"Pretendard"', '"Malgun Gothic"', 'sans-serif'],
         gridular: ['Gridular', 'cursive'],
         pptelegraf: ['Pptelegraf', 'sans-serif'],
       },

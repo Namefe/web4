@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 const Moblie03 = () => {
   return (
     <>
-    <section className='relative w-full h-[300vh] overflow-hidden'>
+    <section id='mcertification' className='relative w-full h-[200vh] overflow-hidden '>
     <div  className='w-full  absolute top-[0%] px-[3vw]'>
     <div className="wave-line flex items-end  w-full h-[50px] bg-black">
         {[...Array(300)].map((_, i) => (
@@ -63,65 +63,58 @@ const Moblie03 = () => {
         <div className='text-white text-[16px] md:text-[32px] md:leading-none leading-1'>AWWWWARDS</div>
       </div>
       <div className='col-span-3 text-white'>
-  <div className='w-full'>
+  <div className='w-full border-b border-b-white/40 py-1'>
     <div className='flex justify-between items-center mt-3 mb-3'>
       <span className='text-[16px] md:text-[32px] break-keep'>GTQ</span>
       <span className='opacity-50 text-[13px]'>2010</span>
     </div>
-    <div className='line-divider'></div>
   </div>
 
-  <div className='w-full'>
+  <div className='w-full border-b border-b-white/40 py-1'>
     <div className='flex justify-between items-center mt-3 mb-3'>
       <span className='text-[16px] md:text-[32px] break-keep'>ITQ</span>
       <span className='opacity-50 text-[13px]'>2010</span>
     </div>
-    <div className='line-divider'></div>
   </div>
 
-  <div className='w-full'>
+  <div className='w-full border-b border-b-white/40 py-1'>
     <div className='flex justify-between items-center mt-3 mb-3'>
       <span className='text-[16px] md:text-[32px] break-keep'>워드프로세서</span>
       <span className='opacity-50 text-[13px]'>2020</span>
     </div>
-    <div className='line-divider'></div>
   </div>
 
-  <div className='w-full'>
+  <div className='w-full border-b border-b-white/40 py-1'>
     <div className='flex justify-between items-center mt-3 mb-3'>
       <span className='text-[16px] md:text-[32px] break-keep'>SMAT 3급</span>
       <span className='opacity-50 text-[13px]'>2023</span>
     </div>
-    <div className='line-divider'></div>
   </div>
 
-  <div className='w-full'>
+  <div className='w-full border-b border-b-white/40 py-1'>
     <div className='flex justify-between items-center mt-3 mb-3'>
       <span className='text-[16px] md:text-[32px] break-keep'>ACP PHOTOSHOP</span>
       <span className='opacity-50 text-[13px]'>2024</span>
     </div>
-    <div className='line-divider'></div>
   </div>
 
-  <div className='w-full'>
+  <div className='w-full border-b border-b-white/40 py-1'>
     <div className='flex justify-between items-center mt-3 mb-3'>
       <span className='text-[16px] md:text-[32px] break-keep'>ACP ILLUSTRATION</span>
       <span className='opacity-50 text-[13px]'>2024</span>
     </div>
-    <div className='line-divider'></div>
   </div>
 
-  <div className='w-full'>
+  <div className='w-full border-b border-b-white/40 py-1'>
     <div className='flex justify-between items-center mt-3 mb-3'>
       <span className='text-[16px] md:text-[32px] break-keep'>SQLD</span>
       <span className='opacity-50 text-[13px]'>2025</span>
     </div>
-    <div className='line-divider'></div>
   </div>
 
   <div className='w-full'>
     <div className='flex justify-between items-center mt-3 mb-3'>
-      <span className='text-[16px] md:text-[32px] break-keep'>웹디자인 기능사</span>
+      <span className='text-[16px] md:text-[32px] break-keep'>웹디자인개발 기능사</span>
       <span className='opacity-50 text-[13px]'>2025</span>
     </div>
   </div>
@@ -219,11 +212,10 @@ const Moblie03 = () => {
           ['ILLUSTRATION'],
           ['GITHUB'],
         ].map(([skill], i, arr) => (
-          <div key={i} className='w-full '>
+          <div key={i} className='w-full border-b border-b-white/40 py-1'>
             <div className='flex justify-between items-center mt-3 mb-3'>
               <span className='text-[16px] md:text-[32px] break-keep'>{skill}</span>
             </div>
-    <div className='line-divider'></div>
           </div>
         ))}
       </div>

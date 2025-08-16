@@ -8,7 +8,7 @@ Source: https://sketchfab.com/3d-models/stylized-planet-789725db86f547fc9163b00f
 Title: Stylized planet
 */
 
-import React, { useRef, useLayoutEffect } from 'react'
+import React, { useRef, useLayoutEffect, useEffect } from 'react'
 import { useFrame } from '@react-three/fiber'
 import { useGLTF } from '@react-three/drei'
 
@@ -16,24 +16,47 @@ export default function Planet({
   scrollYVal = 0,
   scale = 1,
   base = [0, -2, -3],
-  turnPixels = 800,   
+  turnPixels = 800,
   startPx = 0,
-  repeat = true     
+  repeat = true,
+
+  fadeStart = 600,   
+  fadeEnd   = 1000,  
 }) {
-  const group = useRef()
-  const { nodes, materials } = useGLTF('/models/planet-transformed.glb')
+  const group = useRef();
+  const { nodes, materials } = useGLTF('/models/planet-transformed.glb');
+
+
+  useEffect(() => {
+
+    Object.values(materials).forEach((mat) => {
+      if (!mat) return;
+      mat.transparent = true;
+
+    });
+  }, [materials]);
 
   useLayoutEffect(() => {
-    if (group.current) group.current.position.set(...base)
-  }, [base])
+    if (group.current) group.current.position.set(...base);
+  }, [base]);
 
   useFrame(() => {
-    if (!group.current) return
-    const raw = (scrollYVal - startPx) / turnPixels
-    const t = repeat ? Math.max(raw, 0) : Math.min(Math.max(raw, 0), 1)
-    group.current.rotation.y = t * Math.PI * 0.5
-    group.current.scale.setScalar(scale * raw  * 3 + 3)
-  })
+    if (!group.current) return;
+
+    const raw = (scrollYVal - startPx) / turnPixels;
+    const t = repeat ? Math.max(raw, 0) : Math.min(Math.max(raw, 0), 1);
+    group.current.rotation.y = t * Math.PI * 0.5;
+    group.current.scale.setScalar(scale * raw * 3 + 3);
+
+
+    const p = (scrollYVal - fadeStart) / Math.max(1, fadeEnd - fadeStart);
+    let alpha = 1 - Math.min(Math.max(p, 0), 1);
+
+
+
+    if (materials.Clouds)  materials.Clouds.opacity  = alpha;
+    if (materials.Planet)  materials.Planet.opacity  = alpha;
+  });
 
   return (
     <group ref={group} dispose={null}>
@@ -48,7 +71,7 @@ export default function Planet({
         </group>
       </group>
     </group>
-  )
+  );
 }
 
 useGLTF.preload('/models/planet-transformed.glb')

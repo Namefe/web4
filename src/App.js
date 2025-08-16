@@ -20,7 +20,7 @@ function App() {
   return (
 <div className="relative w-full min-h-screen bg-black">
   <ParticleBackground />
-  <div  className="block lg:hidden overflow-hidden">
+  <div  className="block lg:hidden scroll-smooth overflow-x-hidden">
     <Moblie01/>
     <Moblie02/>
     <Moblie03/>

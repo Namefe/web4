@@ -19,12 +19,12 @@ const z2 = useTransform(imageProgress, [0.10, 0.25, 0.40], [-700, 0, 2200]);
 const scale2 = useTransform(imageProgress, [0.10, 0.25, 0.40], [0.3, 1.3, 4.2]);
 const opacity2 = useTransform(imageProgress, [0.08, 0.13, 0.25, ], [0, 1, 1, ]);
 
-const z3 = useTransform(imageProgress, [0.30, 0.45, 0.50], [-900, 0, 2400]);
-const scale3 = useTransform(imageProgress, [0.20, 0.35, 0.42], [0.3, 1.4, 4.5]);
+const z3 = useTransform(imageProgress, [0.30, 0.35, 0.40], [-900, 0, 2200]);
+const scale3 = useTransform(imageProgress, [0.20, 0.35, 0.38], [0.3, 1.4, 4.5]);
 const opacity3 = useTransform(imageProgress, [0.18, 0.23, 0.35 ], [0, 1, 1, ]);
 
-const nextOpacity = useTransform(imageProgress, [0.4, 0.55], [0, 1]);
-const nextScale = useTransform(imageProgress, [0.4, 0.55], [0.6, 1]);
+const nextOpacity = useTransform(imageProgress, [0.4, 0.5], [0, 1]);
+const nextScale = useTransform(imageProgress, [0.4, 0.5], [0.6, 1]);
 const blurValue = useTransform(imageProgress, [0.4, 0.53], [60, 0]);
 const blurStyle = useMotionTemplate`blur(${blurValue}px)`;
 
@@ -211,13 +211,13 @@ const item = {
 
 
 
-      <motion.div   style={{opacity: nextOpacity, scale: nextScale,}} className='w-full  absolute top-[50%] px-[3vw]'>
+      <motion.div id="certification" style={{opacity: nextOpacity, scale: nextScale,}} className='w-full  absolute top-[50%] px-[3vw]'>
       <div   
-      className="wave-line flex items-end gap-[5px] w-full h-[10px]">
+      className="pt-[100px] scroll-mt-[0px] wave-line flex items-end gap-[5px] w-full h-[10px]">
   {[...Array(300)].map((_, i) => (
     <motion.div
       key={i}
-      className="bg-white w-[1px] origin-bottom opacity-50"
+      className="bg-white w-[1px] origin-bottom opacity-50 shrink-0"
       animate={{
         height: [5, 8, 5], 
       }}
@@ -234,7 +234,7 @@ const item = {
 
 
   {/* AWWWWARDS 섹션 */}
-  <motion.div className='relative' style={{filter: blurStyle }}>
+  <motion.div  className='relative' style={{filter: blurStyle }}>
     <div className='text-white text-[clamp(3rem,8vw,8rem)] text-left pt-10 relative z-10'>
       <div>
           <h2 className="text-[clamp(3rem,8vw,8rem)] text-white font-semibold">
@@ -417,11 +417,10 @@ const item = {
           ['ILLUSTRATION'],
           ['GITHUB'],
         ].map(([skill], i, arr) => (
-          <div key={i} className='w-full '>
+          <div key={i} className='w-full border-b border-b-white/40 py-2'>
             <div className='flex justify-between items-center'>
               <span className='text-[32px] leading-loose break-keep'>{skill}</span>
             </div>
-            <div className='line-divider'></div>
             </div>
         ))}
       </div>

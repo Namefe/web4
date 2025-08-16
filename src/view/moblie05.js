@@ -4,7 +4,7 @@ import { motion } from "framer-motion"
 const Moblie05 = () => {
   return (
     <>
-    <section id='view05' className='relative w-full h-[90vh] text-white px-3'>
+    <section id='mcontact' className='relative w-full h-[90vh] text-white px-3'>
     <div className='w-full h-[200px] flex flex-col items-center justify-start text-2xl text-white'>
         <div className='text-white opacity-50 text-[34px] md:text-[48px] -translate-x-10'>LE<span className='font-gridular'>T</span>'S GET DO<span className='font-gridular'>W</span>N</div>
         <div className='flex items-center gap-2 translate-x-10'>

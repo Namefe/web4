@@ -30,16 +30,14 @@ const View04 = () => {
   return (
     <>
       <section
+        id="education"
         ref={wrapperRef}
-        className="relative left-1/2 -translate-x-1/2 text-white w-full h-[200vh] z-40 overflow-hidden"
-        style={{ perspective: "800px", transformStyle: "preserve-3d" }}
+        className="relative left-1/2 -translate-x-1/2 text-white w-full  h-[300vh] z-40 overflow-hidden"
+        style={{ perspective: "1000px", transformStyle: "preserve-3d" }}
       >
-<motion.div
-  className="pointer-events-none absolute inset-0 z-[60] bg-gradient-to-t from-black/80 via-black/40 to-transparent"
-  style={{ opacity: overlayOpacity }}
-/>
+
         <div
-          className="max-w-[80rem] mx-auto px-6"
+          className="max-w-[80rem] mx-auto px-6 mt-[20vh]"
           style={{
             transform: `rotateX(${rotateX}deg) translate3d(0, ${translateY}px, 0)`,
             transition: "transform 0.1s linear",
@@ -66,9 +64,9 @@ const View04 = () => {
           <div className="space-y-10 mt-60">
             {[
               ["안양, 부안중학교 졸업", "Jan 2015"],
-              ["안양, 부안고등학교", "Jan 2018"],
-              ["안양, 부안중학교", "Feb 2022"],
-              ["안양, 부안중학교", "Jan 2024"],
+              ["안양, 부흥고등학교", "Jan 2018"],
+              ["육군병장 만기전역", "Feb 2022"],
+              ["을지대학교 장례지도학과 졸업", "Jan 2024"],
             ].map(([title, date], i) => (
               <div
                 key={i}

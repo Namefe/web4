@@ -15,8 +15,8 @@ const View01 = () => {
         });
 
 const lineopacity = useTransform(scrollYProgress, [0,0.5,0.6],[1,0,0.5])
-
 const timeopacity = useTransform(scrollYProgress, [0,0.5,0.6],[1,0,0])
+const menuOpacity = useTransform(scrollYProgress, [0, 0.5, 0.6], [1, 0, 1]);
 
 
 const full1 = "since";
@@ -279,7 +279,7 @@ function useScrollY() {
       
       useEffect(() => {
         const handleScroll = () => {
-          const section = document.getElementById("pinball");
+          const section = document.getElementById("contact");
           if (section) {
             const rect = section.getBoundingClientRect();
             setIsActive(rect.top < window.innerHeight && rect.bottom > 0);
@@ -338,49 +338,70 @@ function useScrollY() {
 }, [isActive, isHovered, ballSize]);
 
 
+const CHARS = "XYZxyz789!$%";
 
-     const CHARS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+function ScrambleText({ text, className = "", style = {}, step = 50 }) {
+  const [view, setView] = useState(text);
+  const timer = useRef(null);
+  const rootRef = useRef(null);
+  const playingRef = useRef(false);  
+  const playedRef  = useRef(false);  
 
-    function ScrambleText({ text }) {
-      const [view, setView] = useState(text);
-      const timer = useRef(null);
+  const run = () => {
+    if (playingRef.current || playedRef.current) return;
+    playingRef.current = true;
 
-      const run = () => {
+    let i = 0;
+    clearInterval(timer.current);
+    timer.current = setInterval(() => {
+      const chars = text.split("").map((ch, idx) =>
+        idx <= i ? ch : CHARS[Math.floor(Math.random() * CHARS.length)]
+      );
+      setView(chars.join(""));
+
+      if (i >= text.length) {
         clearInterval(timer.current);
-        let i = 0;
-        timer.current = setInterval(() => {
-          const chars = text.split("").map((char, idx) =>
-            idx <= i ? char : CHARS[Math.floor(Math.random() * CHARS.length)]
-          );
-          setView(chars.join(""));
-          if (i >= text.length) {
-            clearInterval(timer.current);
-          }
-          i++;
-        }, 50); 
-      };
+        timer.current = null;
+        setView(text);        
+        playingRef.current = false;
+        playedRef.current  = true; 
+      }
+      i++;
+    }, step);
+  };
 
-      useEffect(() => {
-        return () => clearInterval(timer.current);
-      }, []);
+  useEffect(() => {
+    const el = rootRef.current;
+    if (!el) return;
+
+    const handler = () => run();
+    el.addEventListener("pointerenter", handler, { once: true });
+
+    return () => {
+      el.removeEventListener("pointerenter", handler);
+      if (timer.current) clearInterval(timer.current);
+    };
+  }, []);
 
   return (
-    <span 
+    <span
+      ref={rootRef}
       className="relative inline-block align-top leading-none cursor-pointer"
-      onMouseEnter={run}
-      onMouseLeave={() => setView(text)}
     >
       <span className="invisible block">{text}</span>
 
-      <span className="absolute inset-0 text-[#f5f5f5]">
+      <motion.span
+        className={`absolute inset-0 transition-colors duration-300 pointer-events-none ${className}`}
+        style={style}
+      >
         {view}
-      </span>
+      </motion.span>
     </span>
   );
 }
 
   return (
-    <section ref={targetRef} className='bg-black w-full h-[500vh] relative'>
+    <section id="home" ref={targetRef} className='bg-black w-full h-[400vh] relative'>
       <div  className='w-full'>
       {/* local time & 좌표 */}
         <div>
@@ -394,79 +415,98 @@ function useScrollY() {
             </motion.div>
 
       {/* line & 메뉴 바 */}
-      <motion.div style={{opacity: lineopacity}} className="fixed w-full h-auto text-[#f5f5f5] inset-0  pointer-events-none z-[150]">
+      <motion.div className="fixed w-full h-auto  inset-0  pointer-events-none z-[150]">
         <div className="top absolute top-0 left-0 w-full flex items-start">
 
-          <div className="top-left-plus relative w-4 h-4 ml-2 mt-2 pointer-events-none">
+          <motion.div style={{opacity: lineopacity}}  className="top-left-plus relative w-4 h-4 ml-2 mt-2 pointer-events-none">
             <div className="top-left-ver absolute left-1/2 top-0 h-4 w-[1px] bg-white opacity-50 -translate-x-1/2"></div>
             <div className="top-left-col absolute top-1/2 left-0 w-4 h-[1px] bg-white opacity-50 -translate-y-1/2"></div>
-          </div>
+          </motion.div>
 
       <div className='frame-top-bot cc-top relative w-full h-20 top-4'>
-        <div className='frame-top-bot_flex'>
+        <motion.div style={{opacity: lineopacity}}  className='frame-top-bot_flex'>
           <div className='frame-line is--hor'></div>
           <div className='frame-line is--angle-left'></div>
-        </div>
+        </motion.div>
         <div className='frame-top-bot_middle'>
-<div className="menu_wrapper relative z-[300] pointer-events-auto">
-  <ul className="flex gap-2 xl:gap-4 2xl:gap-6">
-    {["HOME","PORTFOLIO","CERTIFICATION","EDUCATION","CONTACT"].map((label) => (
-      <li key={label} className="group">
+        <div className="menu_wrapper relative z-[300] pointer-events-auto">
+        <ul className="flex gap-2 xl:gap-4 2xl:gap-6">
+  {["Home","Portfolio","Certification","Education","Contact"].map((label) => {
+    const id = label.toLowerCase(); 
+    return (
+      <li key={label}>
         <a
-          href="#"
-          className="relative inline-block h-[1em] leading-none"
+          href={`#${id}`}
+          className="group relative inline-block h-[1em] leading-none"
+          onClick={(e) => {
+            if (id !== "certification") return; 
+            e.preventDefault();                  
+            const el = document.getElementById(id);
+            if (!el) return;
+            const OFFSET = 500; 
+            const y = el.getBoundingClientRect().top + window.pageYOffset - OFFSET;
+            window.scrollTo({ top: y, behavior: "smooth" });
+          }}
         >
           <ScrambleText
             text={label}
-            className="text-gray-400 group-hover:text-white transition-colors duration-300"
+            className="text-gray-500 group-hover:text-[#ffffff] group-hover:brightness-125"
+            style={{ opacity: menuOpacity }}
+            step={35}
+            once={false}
+            revertOnLeave={false}
           />
         </a>
       </li>
-    ))}
-  </ul>
+    );
+  })}
+</ul>
 </div>
-          <div className='frame-line is--mid'></div>
+
+          <motion.div style={{opacity: lineopacity}}  className='frame-line is--mid'></motion.div>
         </div>
-        <div className='frame-top-bot_flex'>
+        <motion.div style={{opacity: lineopacity}}  className='frame-top-bot_flex'>
         <div className='frame-line is--angle-right'></div>
         <div className='frame-line is--hor'></div>
-        </div>
+        </motion.div>
       </div>
 
-    <div className="top-right-plus relative w-4 h-4 mr-2 mt-2 ">
+    <motion.div style={{opacity: lineopacity}}  className="top-right-plus relative w-4 h-4 mr-2 mt-2 ">
       <div className="top-right-ver absolute left-1/2 top-0 h-4 w-[1px] bg-white opacity-50 -translate-x-1/2"></div>
       <div className="top-right-col absolute top-1/2 left-0 w-4 h-[1px] bg-white opacity-50 -translate-y-1/2"></div>
-    </div>
+    </motion.div>
 
   </div>
 
-<div className="mid absolute top-0 left-0 w-full h-screen flex justify-between pointer-events-none z-0">
+<motion.div style={{opacity: lineopacity}}  className="mid absolute top-0 left-0 w-full h-screen flex justify-between pointer-events-none z-0">
   <div className="left absolute top-8 bottom-8 left-4 w-[1px] bg-white opacity-50"></div>
   <div className="right absolute top-8 bottom-8 right-4 w-[1px] bg-white opacity-50"></div>
-</div>
+</motion.div>
 
-  <div className="bottom absolute bottom-0 left-0 w-full flex items-end">
+  <motion.div style={{opacity: lineopacity}}  className="bottom absolute bottom-0 left-0 w-full flex items-end">
 
-    <div className="bot-left-plus relative w-4 h-4 ml-2 mb-2">
+    <motion.div style={{opacity: lineopacity}}  className="bot-left-plus relative w-4 h-4 ml-2 mb-2">
       <div className="bot-left-ver absolute left-1/2 top-0 h-4 w-[1px] bg-white opacity-50 -translate-x-1/2"></div>
       <div className="bot-left-col absolute top-1/2 left-0 w-4 h-[1px] bg-white opacity-50 -translate-y-1/2"></div>
-    </div>
+    </motion.div>
 
-    <div className="bot-center h-[1px] bg-white opacity-50 mx-2 flex-grow mb-4"></div>
+    <motion.div style={{opacity: lineopacity}}  className="bot-center h-[1px] bg-white opacity-50 mx-2 flex-grow mb-4"></motion.div>
 
-    <div className="bot-right-plus relative w-4 h-4 mr-2 mb-2">
+    <motion.div style={{opacity: lineopacity}}  className="bot-right-plus relative w-4 h-4 mr-2 mb-2">
       <div className="bot-right-ver absolute left-1/2 top-0 h-4 w-[1px] bg-white opacity-50 -translate-x-1/2"></div>
       <div className="bot-right-col absolute top-1/2 left-0 w-4 h-[1px] bg-white opacity-50 -translate-y-1/2"></div>
-    </div>
+    </motion.div>
 
-  </div>
+  </motion.div>
   
-<div
+<motion.div
+
   ref={ballRef}
   className={`fixed w-[8rem] h-[8rem] rounded-full flex items-center justify-center 
              text-white text-sm pointer-events-auto z-[99999]
              transition-transform duration-300 ease-out`}
   style={{
+    opacity:lineopacity,
     bottom: "10px",
     right: "10px",
     position: "fixed",
@@ -482,7 +522,7 @@ function useScrollY() {
 >
   {isActive ? "RESUME" : "CONTACT"}
 </span>
-</div>
+</motion.div>
 
 
 </motion.div>
@@ -514,56 +554,56 @@ function useScrollY() {
 
 
 {/* NAME */}      
-<h1 className="absolute font-Teko top-[250px] left-1/2 -translate-x-1/2 flex gap-2 z-10 pointer-events-none">
-  <div className="font-bold font-Teko text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)' , transformOrigin: 'center' }}>
+<h1 className="absolute font-smooch font-extrabold top-[250px] left-1/2 -translate-x-1/2 flex gap-2 z-10 pointer-events-none">
+  <div className="text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)' , transformOrigin: 'center' }}>
     S
   </div>
-  <div className="font-bold font-Teko text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
+  <div className="text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
     O
   </div>
-  <div className="font-bold font-Teko text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
+  <div className="text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
     U
   </div>
-  <div className="font-bold font-Teko text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
+  <div className="text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
     N
   </div>
-  <div className="font-bold font-Teko text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
+  <div className="text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
     G
   </div>
-  <div className="font-bold font-Teko text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
+  <div className="text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
     &nbsp;
   </div>
-  <div className="font-bold font-Teko text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
+  <div className="text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
     M
   </div>
-  <div className="font-bold font-Teko text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
+  <div className="text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
     Y
   </div>
-  <div className="font-bold font-Teko text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
+  <div className="text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
     E
   </div>
-  <div className="font-bold font-Teko text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
+  <div className="text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
     O
   </div>
-  <div className="font-bold font-Teko text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
+  <div className="text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
     N
   </div>
-  <div className="font-bold font-Teko text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
+  <div className="text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
     G
   </div>
-  <div className="font-bold font-Teko text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
+  <div className="text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
     &nbsp;
   </div>
-  <div className="font-bold font-Teko text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
+  <div className="text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
     C
   </div>
-  <div className="font-bold font-Teko text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
+  <div className=" text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
     H
   </div>
-  <div className="font-bold font-Teko text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
+  <div className="text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
     U
   </div>
-  <div className="font-bold font-Teko text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
+  <div className="text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
     L
   </div>
 </h1>
