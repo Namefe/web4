@@ -23,12 +23,12 @@ const View05 = () => {
       <section id="contact" className="relative h-screen w-full overflow-hidden text-white">
         <div className="absolute top-4 left-1/2 -translate-x-1/2 w-[min(92vw,1200px)]">
           <div className="opacity-50 text-[clamp(20px,5vw,40px)] text-center sm:text-left">
-            LE<span className="font-gridular">T</span>'S GET DO<span className="font-gridular">W</span>N
+            LE<span className="font-gridular">T</span>'S T<span className="font-gridular">A</span>LK
           </div>
           <div className="flex flex-col sm:flex-row sm:items-center gap-2 justify-center sm:justify-start">
             <h2 className="leading-none text-[clamp(22px,5.5vw,40px)]">
-              <span className="font-gridular">T</span>O BU<span className="font-gridular">S</span>INE
-              <span className="font-gridular">SS</span>
+              <span className="font-gridular">T</span>O ABO<span className="font-gridular">U</span>T
+              <span className="font-gridular"> M</span>E
             </h2>
             <svg xmlns="http://www.w3.org/2000/svg" width="32" height="24" fill="none">
               <path

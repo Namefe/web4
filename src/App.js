@@ -1,8 +1,8 @@
 import Particles from 'react-tsparticles';
-import { loadFull } from 'tsparticles'; 
+import { loadFull } from 'tsparticles';
 import './App.css';
 import View01 from './view/view01';
-import ParticleBackground from './view/paricles'; 
+import ParticleBackground from './view/paricles';
 import View02 from './view/view02';
 import View03 from './view/view03';
 import View04 from './view/view04';
@@ -13,28 +13,37 @@ import Moblie02 from './view/moblie02';
 import Moblie03 from './view/moblie03';
 import Moblie04 from './view/moblie04';
 import Moblie05 from './view/moblie05';
+import LoadingPage from './view/loading';
 
 function App() {
-
-
   return (
-<div className="relative w-full min-h-screen bg-black">
-  <ParticleBackground />
-  <div  className="block lg:hidden scroll-smooth overflow-x-hidden">
-    <Moblie01/>
-    <Moblie02/>
-    <Moblie03/>
-    <Moblie04/>
-    <Moblie05/>
-  </div>
-  <div className="relative z-10 hidden lg:block overflow-hidden">
-    <View01 /> 
-    <View02 /> 
-    <View03 /> 
-    <View04 /> 
-    <View05 /> 
-  </div>
-</div>
+    <div className="relative w-full min-h-screen bg-black">
+      <ParticleBackground />
+
+      <div className="block lg:hidden scroll-smooth overflow-x-hidden">
+        <Moblie01/>
+        <Moblie02/>
+        <Moblie03/>
+        <Moblie04/>
+        <Moblie05/>
+      </div>
+
+      <div className="relative z-10 hidden lg:block overflow-hidden">
+        <View01 />
+        <View02 />
+        <View03 />
+        <View04 />
+        <View05 />
+      </div>
+
+      <LoadingPage
+        title="TO ABOUT ME"
+        subtitle="Loading portfolio"
+        showPercent
+        duration={2200}
+        fadeOut={500}
+      />
+    </div>
   );
 }
 

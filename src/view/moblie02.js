@@ -191,7 +191,7 @@ const Moblie02 = () => {
       <motion.img
         src={`${process.env.PUBLIC_URL}/netmable.png`}
         alt="netmarble"
-        className="w-full h-[350px] object-contain blur-[1.5px] contrast-110"
+        className="w-full  object-contain  contrast-110"
         initial={{ scaleY: 0.9, y: 20 }}
         whileInView={{ scaleY: 1, y: 0 }}
         transition={{ type: "spring", stiffness: 150, damping: 12 }}
@@ -214,7 +214,7 @@ const Moblie02 = () => {
       <motion.img
         src={`${process.env.PUBLIC_URL}/SM.jpg`}
         alt="netmarble"
-        className="w-full h-[350px] object-contain blur-[0.8px] contrast-110"
+        className="w-full  object-contain  contrast-110"
         initial={{ scaleY: 0.9, y: 20 }}
         whileInView={{ scaleY: 1, y: 0 }}
         transition={{ type: "spring", stiffness: 150, damping: 12 }}
@@ -237,7 +237,7 @@ const Moblie02 = () => {
       <motion.img
         src={`${process.env.PUBLIC_URL}/trumacenter.png`}
         alt="netmarble"
-        className="w-full object-contain blur-[0.8px] contrast-110"
+        className="w-full object-contain  contrast-110"
         initial={{ scaleY: 0.9, y: 20 }}
         whileInView={{ scaleY: 1, y: 0 }}
         transition={{ type: "spring", stiffness: 150, damping: 12 }}

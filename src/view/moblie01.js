@@ -258,24 +258,29 @@ const [isMenuOpen, setIsMenuOpen] = useState(false);
 
 
     <div className="relative flex flex-col items-center text-white top-[150px]">
-    <h1 className="flex font-smoochExtra pointer-events-none">
-    <div className="font-bold text-[8vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>S</div>
-    <div className="font-bold text-[8vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>O</div>
-    <div className="font-bold text-[8vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>U</div>
-    <div className="font-bold text-[8vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>N</div>
-    <div className="font-bold text-[8vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>G</div>
-    <div className="font-bold text-[8vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>&nbsp;</div>
-    <div className="font-bold text-[8vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>M</div>
-    <div className="font-bold text-[8vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>Y</div>
-    <div className="font-bold text-[8vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>E</div>
-    <div className="font-bold text-[8vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>O</div>
-    <div className="font-bold text-[8vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>N</div>
-    <div className="font-bold text-[8vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>G</div>
-    <div className="font-bold text-[8vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>&nbsp;</div>
-    <div className="font-bold text-[8vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>C</div>
-    <div className="font-bold text-[8vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>H</div>
-    <div className="font-bold text-[8vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>U</div>
-    <div className="font-bold text-[8vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>L</div>
+    <h1 
+       style={{
+     fontFamily: '"Smooch","Pretendard","Malgun Gothic",sans-serif',
+      fontWeight: 800,
+     }}
+    className="flex pointer-events-none">
+    <div className="text-[14vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>S</div>
+    <div className="text-[14vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>O</div>
+    <div className="text-[14vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>U</div>
+    <div className="text-[14vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>N</div>
+    <div className="text-[14vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>G</div>
+    <div className="text-[14vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>&nbsp;</div>
+    <div className="text-[14vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>M</div>
+    <div className="text-[14vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>Y</div>
+    <div className="text-[14vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>E</div>
+    <div className="text-[14vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>O</div>
+    <div className="text-[14vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>N</div>
+    <div className="text-[14vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>G</div>
+    <div className="text-[14vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>&nbsp;</div>
+    <div className="text-[14vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>C</div>
+    <div className="text-[14vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>H</div>
+    <div className="text-[14vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>U</div>
+    <div className="text-[14vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>L</div>
   </h1>
 
   <div className="flex gap-[6vw] mt-[7vh] opacity-75">

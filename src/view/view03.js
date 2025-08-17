@@ -171,7 +171,7 @@ const item = {
 
 {/* 이미지 3 */}
   <motion.div
-        initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 5, duration: 0.4, ease: "easeOut" }}
+         transition={{ delay: 5, duration: 0.4, ease: "easeOut" }}
         className="group relative absolute top-[15%] left-[25%] w-[250px] -translate-x-1/2 -translate-y-1/2 flex flex-col items-center pointer-events-auto"
         style={{ transform: useMotionTemplate`translateZ(${z3}px) scale(${scale3})`, opacity: opacity3, transformOrigin: "center" }}
         onHoverStart={() => setHovered3(true)}

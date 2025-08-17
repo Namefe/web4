@@ -554,56 +554,61 @@ function ScrambleText({ text, className = "", style = {}, step = 50 }) {
 
 
 {/* NAME */}      
-<h1 className="absolute font-smooch font-extrabold top-[250px] left-1/2 -translate-x-1/2 flex gap-2 z-10 pointer-events-none">
-  <div className="text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)' , transformOrigin: 'center' }}>
+<h1
+   style={{
+     fontFamily: '"Smooch","Pretendard","Malgun Gothic",sans-serif',
+      fontWeight: 800,
+     }}
+className="absolute  top-[250px] left-1/2 -translate-x-1/2 flex gap-2 z-10 pointer-events-none">
+  <div className="text-[13vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(3)' , transformOrigin: 'center' }}>
     S
   </div>
-  <div className="text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
+  <div className="text-[13vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(3)', transformOrigin: 'center' }}>
     O
   </div>
-  <div className="text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
+  <div className="text-[13vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(3)', transformOrigin: 'center' }}>
     U
   </div>
-  <div className="text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
+  <div className="text-[13vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(3)', transformOrigin: 'center' }}>
     N
   </div>
-  <div className="text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
+  <div className="text-[13vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(3)', transformOrigin: 'center' }}>
     G
   </div>
-  <div className="text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
+  <div className="text-[13vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(3)', transformOrigin: 'center' }}>
     &nbsp;
   </div>
-  <div className="text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
+  <div className="text-[13vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(3)', transformOrigin: 'center' }}>
     M
   </div>
-  <div className="text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
+  <div className="text-[13vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(3)', transformOrigin: 'center' }}>
     Y
   </div>
-  <div className="text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
+  <div className="text-[13vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(3)', transformOrigin: 'center' }}>
     E
   </div>
-  <div className="text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
+  <div className="text-[13vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(3)', transformOrigin: 'center' }}>
     O
   </div>
-  <div className="text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
+  <div className="text-[13vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(3)', transformOrigin: 'center' }}>
     N
   </div>
-  <div className="text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
+  <div className="text-[13vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(3)', transformOrigin: 'center' }}>
     G
   </div>
-  <div className="text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
+  <div className="text-[13vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(3)', transformOrigin: 'center' }}>
     &nbsp;
   </div>
-  <div className="text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
+  <div className="text-[13vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(3)', transformOrigin: 'center' }}>
     C
   </div>
-  <div className=" text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
+  <div className=" text-[13vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(3)', transformOrigin: 'center' }}>
     H
   </div>
-  <div className="text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
+  <div className="text-[13vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(3)', transformOrigin: 'center' }}>
     U
   </div>
-  <div className="text-[8vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>
+  <div className="text-[13vw] text-white inline-block leading-none align-top" style={{ transform: 'scaleY(3)', transformOrigin: 'center' }}>
     L
   </div>
 </h1>
