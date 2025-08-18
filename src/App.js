@@ -37,7 +37,7 @@ function App() {
       </div>
 
       <LoadingPage
-        title="TO ABOUT ME"
+        title="LET’S STEP INTO"
         subtitle="Loading portfolio"
         showPercent
         duration={2200}

@@ -26,7 +26,7 @@ export default function LoadingPage({
 
   return (
     <div
-      className={`fixed inset-0 z-[9999] flex items-center justify-center bg-black text-white transition-opacity duration-500 ${
+      className={`fixed inset-0 z-[99999] flex items-center justify-center bg-black text-white transition-opacity duration-500 ${
         visible ? "opacity-100" : "opacity-0 pointer-events-none"
       }`}
     >
