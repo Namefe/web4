@@ -1,3 +1,9 @@
+## 0823
+네비게이션 active 시에 white로
+전화번호
+링크걸기
+
+
 ## 0816
 1. 로딩페이지 //
 2. https://fonts.google.com/specimen/Smooch+Sans?preview.text=SOUNG%20MYEONG%20CHUL&preview.size=76
