@@ -532,7 +532,7 @@ function ScrambleText({ text, className = "", style = {}, step = 50 }) {
 </motion.div>
 
 
-<div
+{/* <div
   id="canvas-wrapper"
   className={`${isFixed ? 'fixed top-0' : 'relative top-0'}
               left-0 w-full h-screen z-[50] pointer-events-none transition-all duration-500 ease-in-out`}
@@ -553,7 +553,7 @@ function ScrambleText({ text, className = "", style = {}, step = 50 }) {
   <Planet scrollYVal={scrollYVal} />
 </Suspense>
 </Canvas>
-</div>
+</div> */}
 
 
 
