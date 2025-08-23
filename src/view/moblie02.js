@@ -116,7 +116,7 @@ const Moblie02 = () => {
       
   return (
     <>
-    <section id="mportfolio" className='relative w-full h-[250vh] '>
+    <section id="mportfolio" className='relative w-full mb-64'>
   <div className="line-wrapper">
     <div className="line-wrapper-left">
       <div className="line-divider"></div>
@@ -176,14 +176,14 @@ const Moblie02 = () => {
   <div  className="absolute top-[12%]  w-full ">
       <div className="absolute font-pptelegraf w-full top-0 left-0 px-2 z-20 opacity-50 text-white flex justify-between text-[13px]">
       <div>{lineTop1}</div>
-      <div>{lineTop2}</div>
-      <div>{lineTop3}</div>
+      {/* <div>{lineTop2}</div> */}
+      {/* <div>{lineTop3}</div> */}
       </div>
     </div>
 
 
 
-<div className="absolute top-[15%] w-full flex flex-col items-center gap-10">
+<div className="w-full flex flex-col items-center gap-10">
 
   {/* 1번째 이미지 */}
   <div className="w-full max-w-[700px] flex flex-col items-center text-white px-2">

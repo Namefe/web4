@@ -264,26 +264,21 @@ const [isMenuOpen, setIsMenuOpen] = useState(false);
       fontWeight: 800,
      }}
     className="flex pointer-events-none">
-    <div className="text-[14vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>S</div>
-    <div className="text-[14vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>O</div>
-    <div className="text-[14vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>U</div>
-    <div className="text-[14vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>N</div>
-    <div className="text-[14vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>G</div>
-    <div className="text-[14vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>&nbsp;</div>
-    <div className="text-[14vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>M</div>
-    <div className="text-[14vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>Y</div>
-    <div className="text-[14vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>E</div>
-    <div className="text-[14vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>O</div>
-    <div className="text-[14vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>N</div>
-    <div className="text-[14vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>G</div>
-    <div className="text-[14vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>&nbsp;</div>
-    <div className="text-[14vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>C</div>
-    <div className="text-[14vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>H</div>
-    <div className="text-[14vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>U</div>
-    <div className="text-[14vw] leading-none" style={{ transform: 'scaleY(4)', transformOrigin: 'center' }}>L</div>
+   
+    <div className="text-[22vw] leading-none" style={{  transformOrigin: 'center' }}>M</div>
+    <div className="text-[22vw] leading-none" style={{  transformOrigin: 'center' }}>Y</div>
+    <div className="text-[22vw] leading-none" style={{  transformOrigin: 'center' }}>E</div>
+    <div className="text-[22vw] leading-none" style={{  transformOrigin: 'center' }}>O</div>
+    <div className="text-[22vw] leading-none" style={{  transformOrigin: 'center' }}>N</div>
+    <div className="text-[22vw] leading-none" style={{  transformOrigin: 'center' }}>G</div>
+    <div className="text-[22vw] leading-none" style={{  transformOrigin: 'center' }}>&nbsp;</div>
+    <div className="text-[22vw] leading-none" style={{  transformOrigin: 'center' }}>C</div>
+    <div className="text-[22vw] leading-none" style={{  transformOrigin: 'center' }}>H</div>
+    <div className="text-[22vw] leading-none" style={{  transformOrigin: 'center' }}>U</div>
+    <div className="text-[22vw] leading-none" style={{  transformOrigin: 'center' }}>L</div>
   </h1>
 
-  <div className="flex gap-[6vw] mt-[7vh] opacity-75">
+  <div className="flex gap-[6vw] mt-0 opacity-75">
     <h4 className="text-[4vw]">F<span className='font-gridular'>R</span>ONT END</h4>
     <h4 className="text-[4vw]">UI/U<span className='font-gridular'>X</span></h4>
     <h4 className="text-[4vw]">DE<span className='font-gridular'>V</span>ELOPE</h4>

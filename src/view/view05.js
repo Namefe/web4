@@ -57,7 +57,7 @@ const View05 = () => {
         className="fill-[#777]"
       >
         <textPath href="#text-arc" startOffset="50%" textAnchor="middle">
-          smc9102@naver.com
+          010-3508-9102
         </textPath>
       </text>
 
@@ -172,14 +172,14 @@ const View05 = () => {
     whileHover="hover"
   >
     <motion.span variants={{ rest: { opacity: 1 }, hover: { opacity: 0 } }}>
-      NUMBER
+      EMAIL
     </motion.span>
 
     <motion.span
       className="absolute left-1/2 -translate-x-1/2 top-0 flex gap-[2px]"
       variants={{ rest: { opacity: 0 }, hover: { opacity: 1, transition: { staggerChildren: 0.05 } } }}
     >
-      {["0","1","0","-","3","5","0","8","-","9","1","0","2"].map((c,i)=>(
+      {["s","m","c","9","1","0","2","@","n","a","v","e","r",".","c","o","m"].map((c,i)=>(
         <motion.span key={i} variants={{ rest:{opacity:0,y:6}, hover:{opacity:1,y:0} }}>{c}</motion.span>
       ))}
     </motion.span>

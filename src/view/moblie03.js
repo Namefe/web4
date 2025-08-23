@@ -5,8 +5,8 @@ import { motion } from "framer-motion";
 const Moblie03 = () => {
   return (
     <>
-    <section id='mcertification' className='relative w-full h-[200vh] overflow-hidden '>
-    <div  className='w-full  absolute top-[0%] px-[3vw]'>
+    <section id='mcertification' className='relative w-full  overflow-hidden '>
+    <div  className='w-full   top-[0%] px-[3vw]'>
     <div className="wave-line flex items-end  w-full h-[50px] bg-black">
         {[...Array(300)].map((_, i) => (
           <motion.div
