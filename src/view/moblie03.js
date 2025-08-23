@@ -86,7 +86,7 @@ const Moblie03 = () => {
 
   <div className='w-full border-b border-b-white/40 py-1'>
     <div className='flex justify-between items-center mt-3 mb-3'>
-      <span className='text-[16px] md:text-[32px] break-keep'>SMAT 3급</span>
+      <span className='text-[16px] md:text-[32px] break-keep'>SMAT(서비스경영자격) 3급</span>
       <span className='opacity-50 text-[13px]'>2023</span>
     </div>
   </div>

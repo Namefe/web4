@@ -296,7 +296,7 @@ const item = {
         </div>
       <div class="w-full border-b border-b-white/40 py-2">
         <div class="flex justify-between items-center">
-          <span class="text-[32px] leading-loose break-keep">SMAT 3급</span>
+          <span class="text-[32px] leading-loose break-keep">SMAT(서비스경영자격) 3급</span>
           <span class="opacity-50 text-[clamp(1rem,2vw,1.2rem)]">2023</span>
         </div>
         </div>
