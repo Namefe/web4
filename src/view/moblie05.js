@@ -16,7 +16,7 @@ const Moblie05 = () => {
       </div>
     <div
      className="mb-2 text-[27px] font-bold flex items-center gap-2">
-        <span>SMC9102@NAVER.COM</span>
+        <span>010-3508-9102</span>
       </div>
       <div
     className="w-screen h-[10px] mt-2"
@@ -62,12 +62,12 @@ const Moblie05 = () => {
   animate="rest"
   whileHover="hover"
 >
-  <span className="block transition-opacity duration-200 group-hover:cursor-pointer group-hover:opacity-0">NUMBER</span>
+  <span className="block transition-opacity duration-200 group-hover:cursor-pointer group-hover:opacity-0">E-MAIL</span>
   <motion.span
     className="pointer-events-none block absolute inset-0 flex gap-[2px] whitespace-nowrap"
     variants={{ rest: { opacity: 0 }, hover: { opacity: 1, transition: { staggerChildren: 0.05 } } }}
   >
-    {Array.from("010-3508-9102").map((ch, i) => (
+    {Array.from("smc9102@naver.com").map((ch, i) => (
       <motion.span key={i} variants={{ rest: { opacity: 0, y: 6 }, hover: { opacity: 1, y: 0 } }}>
         {ch}
       </motion.span>

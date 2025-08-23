@@ -17,6 +17,7 @@ const View01 = () => {
 const lineopacity = useTransform(scrollYProgress, [0,0.5,0.6],[1,0,0.5])
 const timeopacity = useTransform(scrollYProgress, [0,0.5,0.6],[1,0,0])
 const menuOpacity = useTransform(scrollYProgress, [0, 0.5, 0.6], [1, 0, 1]);
+const [activeId, setActiveId] = useState("");
 
 
 const full1 = "since";
@@ -431,36 +432,39 @@ function ScrambleText({ text, className = "", style = {}, step = 50 }) {
         <div className='frame-top-bot_middle'>
         <div className="menu_wrapper relative z-[300] pointer-events-auto">
         <ul className="flex gap-2 xl:gap-4 2xl:gap-6">
-  {["Home","Portfolio","Certification","Education","Contact"].map((label) => {
-    const id = label.toLowerCase(); 
-    return (
-      <li key={label}>
-        <a
-          href={`#${id}`}
-          className="group relative inline-block h-[1em] leading-none"
-          onClick={(e) => {
-            if (id !== "certification") return; 
-            e.preventDefault();                  
-            const el = document.getElementById(id);
-            if (!el) return;
-            const OFFSET = 500; 
-            const y = el.getBoundingClientRect().top + window.pageYOffset - OFFSET;
-            window.scrollTo({ top: y, behavior: "smooth" });
-          }}
-        >
-          <ScrambleText
-            text={label}
-            className="text-gray-500 group-hover:text-[#ffffff] group-hover:brightness-125"
-            style={{ opacity: menuOpacity }}
-            step={35}
-            once={false}
-            revertOnLeave={false}
-          />
-        </a>
-      </li>
-    );
-  })}
-</ul>
+      {["Home", "Portfolio", "Certification", "Education", "Contact"].map((label) => {
+        const id = label.toLowerCase();
+        return (
+          <li key={label}>
+            <a
+              href={`#${id}`}
+              className={`group relative inline-block h-[1em] leading-none 
+                ${activeId === id ? "text-white" : "text-gray-500"} 
+                hover:text-white`}
+              onClick={(e) => {
+                setActiveId(id);
+
+                if (id !== "certification") return;
+                e.preventDefault();
+                const el = document.getElementById(id);
+                if (!el) return;
+                const OFFSET = 500;
+                const y = el.getBoundingClientRect().top + window.pageYOffset - OFFSET;
+                window.scrollTo({ top: y, behavior: "smooth" });
+              }}
+            >
+              <ScrambleText
+                text={label}
+                style={{ opacity: 1 }}
+                step={35}
+                once={false}
+                revertOnLeave={false}
+              />
+            </a>
+          </li>
+        );
+      })}
+    </ul>
 </div>
 
           <motion.div style={{opacity: lineopacity}}  className='frame-line is--mid'></motion.div>

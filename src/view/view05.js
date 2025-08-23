@@ -187,26 +187,44 @@ const View05 = () => {
 </PolarItem>
 
 <PolarItem angle={12} r={42}>
-  <motion.div
-    className="group relative leading-none text-center whitespace-nowrap text-[11px] sm:text-[13px] md:text-[16px] lg:text-[20px] xl:text-[24px] 2xl:text-[28px]"
-    initial="rest"
-    animate="rest"
-    whileHover="hover"
+  <a
+    href="https://github.com/Namefe"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="block"
   >
-    <motion.span variants={{ rest: { opacity: 1 }, hover: { opacity: 0 } }}>
-      GITHUB
-    </motion.span>
-
-    <motion.span
-      className="absolute left-1/2 -translate-x-1/2 top-0 flex gap-[2px]"
-      variants={{ rest: { opacity: 0 }, hover: { opacity: 1, transition: { staggerChildren: 0.04 } } }}
+    <motion.div
+      className="group relative leading-none text-center whitespace-nowrap text-[11px] sm:text-[13px] md:text-[16px] lg:text-[20px] xl:text-[24px] 2xl:text-[28px]"
+      initial="rest"
+      animate="rest"
+      whileHover="hover"
     >
-      {["h","t","t","p","s",":","/","/","g","i","t","h","u","b",".","c","o","m","/","N","a","m","e","f","e"].map((c,i)=>(
-        <motion.span key={i} variants={{ rest:{opacity:0,y:6}, hover:{opacity:1,y:0} }}>{c}</motion.span>
-      ))}
-    </motion.span>
-  </motion.div>
+      <motion.span variants={{ rest: { opacity: 1 }, hover: { opacity: 0 } }}>
+        GITHUB
+      </motion.span>
+
+      <motion.span
+        className="absolute left-1/2 -translate-x-1/2 top-0 flex gap-[2px]"
+        variants={{
+          rest: { opacity: 0 },
+          hover: { opacity: 1, transition: { staggerChildren: 0.04 } },
+        }}
+      >
+        {[
+          "h","t","t","p","s",":","/","/","g","i","t","h","u","b",".","c","o","m","/","N","a","m","e","f","e"
+        ].map((c, i) => (
+          <motion.span
+            key={i}
+            variants={{ rest: { opacity: 0, y: 6 }, hover: { opacity: 1, y: 0 } }}
+          >
+            {c}
+          </motion.span>
+        ))}
+      </motion.span>
+    </motion.div>
+  </a>
 </PolarItem>
+
 
 <PolarItem angle={35} r={42}>
   <motion.div
