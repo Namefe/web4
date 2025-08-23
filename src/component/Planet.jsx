@@ -24,7 +24,7 @@ export default function Planet({
   fadeEnd   = 1000,  
 }) {
   const group = useRef();
-  const { nodes, materials } = useGLTF('/models/planet-transformed.glb');
+  const { nodes, materials } = useGLTF(process.env.PUBLIC_URL + '/models/planet.glb');
 
 
   useEffect(() => {
@@ -74,4 +74,4 @@ export default function Planet({
   );
 }
 
-useGLTF.preload('/models/planet-transformed.glb')
+useGLTF.preload(process.env.PUBLIC_URL + '/models/planet.glb');
