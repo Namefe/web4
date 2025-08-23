@@ -559,10 +559,10 @@ function ScrambleText({ text, className = "", style = {}, step = 50 }) {
 
 {/* NAME */}      
 <h1
-   style={{
-     fontFamily: '"Smooch","Pretendard","Malgun Gothic",sans-serif',
-      fontWeight: 800,
-     }}
+      style={{
+        fontFamily: '"Smooch","Pretendard","Malgun Gothic",sans-serif',
+        fontWeight: 800,
+      }}
 className="absolute w-full  top-[80px] flex flex-col items-center justify-start gap-2 z-10 ">
  
   <div>
