@@ -62,7 +62,7 @@ const item = {
       onHoverStart={() => setHovered(true)}
       onHoverEnd={() => setHovered(false)}
     >
-      <a href="#" className="relative w-full">
+      <a href="https://namefe.github.io/0329--main/" target="_blank"  rel="noopener noreferrer" className="relative w-full">
         <div className="w-full">
           <img
             src={`${process.env.PUBLIC_URL}/netmable.png`}
@@ -128,7 +128,7 @@ const item = {
         onHoverStart={() => setHovered2(true)}
         onHoverEnd={() => setHovered2(false)}
       >
-        <a href="#" className="relative w-full">
+        <a href="https://seik1224.github.io/sm" target="_blank"  rel="noopener noreferrer" className="relative w-full">
           <div className="w-full relative">
             <img
               src={`${process.env.PUBLIC_URL}/SM.jpg`}
@@ -177,7 +177,7 @@ const item = {
         onHoverStart={() => setHovered3(true)}
         onHoverEnd={() => setHovered3(false)}
       >
-        <a href="#" className="relative w-full">
+        <a href="https://namefe.github.io/web3/" target="_blank"  rel="noopener noreferrer"  className="relative w-full">
           <div className="w-full">
             <img src={`${process.env.PUBLIC_URL}/trumacenter.png`} className="w-full block pointer-events-auto" />
           </div>
