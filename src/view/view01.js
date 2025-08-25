@@ -17,7 +17,10 @@ const View01 = () => {
 const lineopacity = useTransform(scrollYProgress, [0,0.5,0.6],[1,0,0.5])
 const timeopacity = useTransform(scrollYProgress, [0,0.5,0.6],[1,0,0])
 const menuOpacity = useTransform(scrollYProgress, [0, 0.5, 0.6], [1, 0, 1]);
-const [activeId, setActiveId] = useState("");
+const [activeId, setActiveId] = useState("home");
+  const lockRef = useRef(false);
+  const rafRef = useRef(0);
+  const SECTION_IDS = ["home","portfolio","certification","education","contact"];
 
 
 const full1 = "since";
@@ -131,7 +134,40 @@ const opacityDevE3   = useTransform(scrollYProgress, [0.385, 0.435, 0.55, 0.7], 
 const opacityDevR   = useTransform(scrollYProgress, [0.390, 0.440, 0.55, 0.7], [0, 1, 1, 0]);
 
 
+useEffect(() => {
+    const onScroll = () => {
+      if (lockRef.current) return;
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
 
+rafRef.current = requestAnimationFrame(() => {
+  const LINE = window.innerHeight * 0.9; 
+  const MARGIN = 120;                   
+
+  let nextId = activeId;
+  let maxTop = -Infinity;
+
+  for (const id of SECTION_IDS) {
+    const el = document.getElementById(id);
+    if (!el) continue;
+    const top = el.getBoundingClientRect().top;
+
+    if (top <= LINE - MARGIN && top > maxTop) {
+      maxTop = top;
+      nextId = id;
+    }
+  }
+
+  if (nextId !== activeId) setActiveId(nextId);
+});
+    };
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll(); 
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    };
+  }, [activeId]);
 
 useEffect(() => {
   const unsubscribe = scrollYProgress.on("change", (v) => {
@@ -431,8 +467,8 @@ function ScrambleText({ text, className = "", style = {}, step = 50 }) {
         </motion.div>
         <div className='frame-top-bot_middle'>
         <div className="menu_wrapper relative z-[300] pointer-events-auto">
-        <ul className="flex gap-2 xl:gap-4 2xl:gap-6">
-      {["Home", "Portfolio", "Certification", "Education", "Contact"].map((label) => {
+  <ul className="flex gap-2 xl:gap-4 2xl:gap-6">
+      {["Home","Portfolio","Certification","Education","Contact"].map((label) => {
         const id = label.toLowerCase();
         return (
           <li key={label}>
@@ -443,6 +479,8 @@ function ScrambleText({ text, className = "", style = {}, step = 50 }) {
                 hover:text-white`}
               onClick={(e) => {
                 setActiveId(id);
+                lockRef.current = true;
+                setTimeout(() => (lockRef.current = false), 900);
 
                 if (id !== "certification") return;
                 e.preventDefault();
@@ -453,13 +491,7 @@ function ScrambleText({ text, className = "", style = {}, step = 50 }) {
                 window.scrollTo({ top: y, behavior: "smooth" });
               }}
             >
-              <ScrambleText
-                text={label}
-                style={{ opacity: 1 }}
-                step={35}
-                once={false}
-                revertOnLeave={false}
-              />
+              <ScrambleText text={label} style={{ opacity: 1 }} step={35} once={false} revertOnLeave={false} />
             </a>
           </li>
         );
@@ -559,11 +591,8 @@ function ScrambleText({ text, className = "", style = {}, step = 50 }) {
 
 {/* NAME */}      
 <h1
-      style={{
-        fontFamily: '"Smooch","Pretendard","Malgun Gothic",sans-serif',
-        fontWeight: 800,
-      }}
-className="absolute w-full  top-[80px] flex flex-col items-center justify-start gap-2 z-10 ">
+      
+className="absolute w-full font-smooch font-extrabold top-[80px] flex flex-col items-center justify-start gap-2 z-10 ">
  
   <div>
     <div className="text-[23vw] text-white inline-block leading-none align-top" style={{ transformOrigin: 'center' }}>

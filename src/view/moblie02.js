@@ -173,20 +173,20 @@ const Moblie02 = () => {
   </div>
   <div className="line-divider"></div>
 </div>
-  <div  className="absolute top-[12%]  w-full ">
+  <div  className="absolute top-[15%]  h-12 w-full ">
       <div className="absolute font-pptelegraf w-full top-0 left-0 px-2 z-20 opacity-50 text-white flex justify-between text-[13px]">
       <div>{lineTop1}</div>
-      {/* <div>{lineTop2}</div> */}
-      {/* <div>{lineTop3}</div> */}
+      <div>{lineTop2}</div> 
+      <div>{lineTop3}</div> 
       </div>
     </div>
 
 
 
-<div className="w-full flex flex-col items-center gap-10">
+<div className="w-full mt-20 flex flex-col items-center gap-10">
 
   {/* 1번째 이미지 */}
-  <div className="w-full max-w-[700px] flex flex-col items-center text-white px-2">
+  <div className="w-full  max-w-[700px] flex flex-col items-center text-white px-2">
   <div className="relative w-full overflow-hidden">
     <a 
       href="https://namefe.github.io/0329--main/" 
