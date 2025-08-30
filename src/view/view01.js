@@ -623,7 +623,10 @@ className="absolute w-full font-smooch font-extrabold top-[80px] flex flex-col i
       H
     </div>
     <div className="text-[23vw] text-white inline-block leading-none align-top" style={{ transformOrigin: 'center' }}>
-      U
+      E
+    </div>
+    <div className="text-[23vw] text-white inline-block leading-none align-top" style={{ transformOrigin: 'center' }}>
+      O
     </div>
     <div className="text-[23vw] text-white inline-block leading-none align-top" style={{ transformOrigin: 'center' }}>
       L

@@ -274,7 +274,8 @@ const [isMenuOpen, setIsMenuOpen] = useState(false);
     <div className="text-[22vw] leading-none" style={{  transformOrigin: 'center' }}>&nbsp;</div>
     <div className="text-[22vw] leading-none" style={{  transformOrigin: 'center' }}>C</div>
     <div className="text-[22vw] leading-none" style={{  transformOrigin: 'center' }}>H</div>
-    <div className="text-[22vw] leading-none" style={{  transformOrigin: 'center' }}>U</div>
+    <div className="text-[22vw] leading-none" style={{  transformOrigin: 'center' }}>E</div>
+    <div className="text-[22vw] leading-none" style={{  transformOrigin: 'center' }}>O</div>
     <div className="text-[22vw] leading-none" style={{  transformOrigin: 'center' }}>L</div>
   </h1>
 
