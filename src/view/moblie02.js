@@ -186,37 +186,6 @@ const Moblie02 = () => {
 <div className="w-full mt-20 flex flex-col items-center gap-10">
 
   {/* 1번째 이미지 */}
-  <div className="w-full  max-w-[700px] flex flex-col items-center text-white px-2">
-  <div className="relative w-full overflow-hidden">
-    <a 
-      href="https://namefe.github.io/0329--main/" 
-      target="_blank"                    
-      rel="noopener noreferrer"          
-    >
-      <motion.img
-        src={`${process.env.PUBLIC_URL}/netmable.png`}
-        alt="netmarble"
-        className="w-full object-contain contrast-110 cursor-pointer" // 클릭 느낌 주기
-        initial={{ scaleY: 0.9, y: 20 }}
-        whileInView={{ scaleY: 1, y: 0 }}
-        transition={{ type: "spring", stiffness: 150, damping: 12 }}
-        viewport={{ once: false, amount: 0.6 }}
-      />
-    </a>
-    <div className="absolute inset-0 pointer-events-none bg-noise mix-blend-overlay opacity-30"></div>
-  </div>
-
-  <div className="w-full px-2">
-    <h3 className="text-[28px]">Netmarble games</h3>
-    <div className="flex justify-between items-center">
-      <p className="text-[14px] opacity-60 mt-1">HTML + CSS + Java</p>
-      <span className="text-xs opacity-70">2025</span>
-    </div>
-  </div>
-</div>
-
-
-  {/* 2번째 이미지 */}
   <div className="w-full max-w-[700px] flex flex-col items-center text-white px-2">
     <div className="relative w-full overflow-hidden">
     <a 
@@ -245,7 +214,7 @@ const Moblie02 = () => {
     </div>
   </div>
 
-  {/* 3번째 이미지 */}
+  {/* 2번째 이미지 */}
   <div className="w-full max-w-[700px] flex flex-col items-center text-white px-2">
     <div className="relative w-full overflow-hidden">
     <a 
@@ -273,6 +242,35 @@ const Moblie02 = () => {
       </div>
     </div>
   </div>
+  {/* 3번째 이미지 */}
+  <div className="w-full  max-w-[700px] flex flex-col items-center text-white px-2">
+  <div className="relative w-full overflow-hidden">
+    <a 
+      href="https://namefe.github.io/0329--main/" 
+      target="_blank"                    
+      rel="noopener noreferrer"          
+    >
+      <motion.img
+        src={`${process.env.PUBLIC_URL}/netmable.png`}
+        alt="netmarble"
+        className="w-full object-contain contrast-110 cursor-pointer" 
+        initial={{ scaleY: 0.9, y: 20 }}
+        whileInView={{ scaleY: 1, y: 0 }}
+        transition={{ type: "spring", stiffness: 150, damping: 12 }}
+        viewport={{ once: false, amount: 0.6 }}
+      />
+    </a>
+    <div className="absolute inset-0 pointer-events-none bg-noise mix-blend-overlay opacity-30"></div>
+  </div>
+
+  <div className="w-full px-2">
+    <h3 className="text-[28px]">Netmarble games</h3>
+    <div className="flex justify-between items-center">
+      <p className="text-[14px] opacity-60 mt-1">HTML + CSS + Java</p>
+      <span className="text-xs opacity-70">2025</span>
+    </div>
+  </div>
+</div>
 
 </div>
     </section>

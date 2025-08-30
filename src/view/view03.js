@@ -62,10 +62,10 @@ const item = {
       onHoverStart={() => setHovered(true)}
       onHoverEnd={() => setHovered(false)}
     >
-      <a href="https://namefe.github.io/0329--main/" target="_blank"  rel="noopener noreferrer" className="relative w-full">
+      <a  href="https://seik1224.github.io/sm" target="_blank"  rel="noopener noreferrer" className="relative w-full">
         <div className="w-full">
           <img
-            src={`${process.env.PUBLIC_URL}/netmable.png`}
+            src={`${process.env.PUBLIC_URL}/SM.jpg`}
             className="w-full block pointer-events-auto"
             onMouseMove={(e) => {
               const blur = e.currentTarget.querySelector(".blur-circle");
@@ -81,22 +81,14 @@ const item = {
         </div>
 
         <div className="relative mt-3 flex flex-col items-start z-10">
-          <div className="text-white text-sm font-extralight tracking-wide opacity-40 group-hover:opacity-100 transition-opacity duration-300">
-            Html + CSS + Js
-          </div>
-
-          <motion.div
-            className="inline-flex gap-[2px] -mt-1"
-            variants={container}
-            initial="hidden"
-            animate={hovered ? "show" : "hide"}
-          >
-            {"NETMARBLEGAMES".split("").map((char, i) => (
-              <motion.span key={i} className="text-white font-bold" variants={item}>
-                {char}
-              </motion.span>
-            ))}
-          </motion.div>
+        <div className="text-white text-sm font-extralight tracking-wide opacity-40 group-hover:opacity-100 transition-opacity duration-300">REACT</div>
+            <motion.div className="inline-flex gap-[2px] -mt-1" variants={container} initial="hidden" animate={hovered ? "show" : "hide"}>
+              {"SM EMTERTAINMENT".split("").map((char, i) => (
+                <motion.span key={i} className="text-white font-bold" variants={item}>
+                  {char}
+                </motion.span>
+              ))}
+            </motion.div>
         </div>
 
         {[
@@ -128,23 +120,18 @@ const item = {
         onHoverStart={() => setHovered2(true)}
         onHoverEnd={() => setHovered2(false)}
       >
-        <a href="https://seik1224.github.io/sm" target="_blank"  rel="noopener noreferrer" className="relative w-full">
+        <a href="https://namefe.github.io/web3/" target="_blank"  rel="noopener noreferrer" className="relative w-full">
           <div className="w-full relative">
             <img
-              src={`${process.env.PUBLIC_URL}/SM.jpg`}
+              src={`${process.env.PUBLIC_URL}/trumacenter.png`}
               className="w-full block pointer-events-auto"
-            />
-            <img
-              src={`${process.env.PUBLIC_URL}/SM.jpg`}
-              className="blur-img w-full absolute top-0 left-0 pointer-events-none z-20"
-            
             />
           </div>
 
           <div className="relative mt-3 flex flex-col items-start z-10 ">
             <div className="text-white text-sm font-extralight tracking-wide opacity-40 group-hover:opacity-100 transition-opacity duration-300">REACT</div>
             <motion.div className="inline-flex gap-[2px] -mt-1" variants={container} initial="hidden" animate={hovered2 ? "show" : "hide"}>
-              {"SM EMTERTAINMENT".split("").map((char, i) => (
+              {"중증외상센터".split("").map((char, i) => (
                 <motion.span key={i} className="text-white font-bold" variants={item}>
                   {char}
                 </motion.span>
@@ -177,20 +164,28 @@ const item = {
         onHoverStart={() => setHovered3(true)}
         onHoverEnd={() => setHovered3(false)}
       >
-        <a href="https://namefe.github.io/web3/" target="_blank"  rel="noopener noreferrer"  className="relative w-full">
+        <a href="https://namefe.github.io/0329--main/" target="_blank"  rel="noopener noreferrer"  className="relative w-full">
           <div className="w-full">
-            <img src={`${process.env.PUBLIC_URL}/trumacenter.png`} className="w-full block pointer-events-auto" />
+            <img src={`${process.env.PUBLIC_URL}/netmable.png`} className="w-full block pointer-events-auto" />
           </div>
 
           <div className="relative mt-3 flex flex-col items-start z-10">
-            <div className="text-white text-sm font-extralight tracking-wide opacity-40 group-hover:opacity-100 transition-opacity duration-300">REACT</div>
-            <motion.div className="inline-flex gap-[2px]" variants={container} initial="hidden" animate={hovered3 ? "show" : "hide"}>
-              {"중증외상센터".split("").map((char, i) => (
-                <motion.span key={i} className="text-white font-bold -ml-0.5" variants={item}>
-                  {char}
-                </motion.span>
-              ))}
-            </motion.div>
+          <div className="text-white text-sm font-extralight tracking-wide opacity-40 group-hover:opacity-100 transition-opacity duration-300">
+            Html + CSS + Js
+          </div>
+
+          <motion.div
+            className="inline-flex gap-[2px] -mt-1"
+            variants={container}
+            initial="hidden"
+            animate={hovered3 ? "show" : "hide"}
+          >
+            {"NETMARBLEGAMES".split("").map((char, i) => (
+              <motion.span key={i} className="text-white font-bold" variants={item}>
+                {char}
+              </motion.span>
+            ))}
+          </motion.div>
           </div>
 
           {[

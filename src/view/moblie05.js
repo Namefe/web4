@@ -83,33 +83,52 @@ const Moblie05 = () => {
     ></div> 
       </div>
 
-  <div className="w-full mt-2 mb-2">
-<motion.h2
-  className="text-[27px] md:text-[40px] relative inline-block leading-none group z-30"
-  initial="rest"
-  animate="rest"
-  whileHover="hover"
->
-  <span className="block transition-opacity duration-200 group-hover:cursor-pointer group-hover:opacity-0">GITHUB</span>
-  <motion.span
-    className="pointer-events-none block absolute inset-0 flex gap-[2px] whitespace-nowrap"
-    variants={{ rest: { opacity: 0 }, hover: { opacity: 1, transition: { staggerChildren: 0.04 } } }}
+      <div className="w-full mt-2 mb-2">
+  <a
+    href="https://github.com/Namefe"
+    target="_blank"
+    rel="noopener noreferrer"
   >
-    {Array.from("https://github.com/Namefe").map((ch, i) => (
-      <motion.span key={i} variants={{ rest: { opacity: 0, y: 6 }, hover: { opacity: 1, y: 0 } }}>
-        {ch}
+    <motion.h2
+      className="text-[27px] md:text-[40px] relative inline-block leading-none group z-30 cursor-pointer"
+      initial="rest"
+      animate="rest"
+      whileHover="hover"
+    >
+      <span className="block transition-opacity duration-200 group-hover:opacity-0">
+        GITHUB
+      </span>
+      <motion.span
+        className="pointer-events-none block absolute inset-0 flex gap-[2px] whitespace-nowrap"
+        variants={{
+          rest: { opacity: 0 },
+          hover: { opacity: 1, transition: { staggerChildren: 0.04 } }
+        }}
+      >
+        {Array.from("https://github.com/Namefe").map((ch, i) => (
+          <motion.span
+            key={i}
+            variants={{
+              rest: { opacity: 0, y: 6 },
+              hover: { opacity: 1, y: 0 }
+            }}
+          >
+            {ch}
+          </motion.span>
+        ))}
       </motion.span>
-    ))}
-  </motion.span>
-</motion.h2>
-    <div
+    </motion.h2>
+  </a>
+
+  <div
     className="w-screen h-[3px] mt-2"
     style={{
       backgroundImage:
         "repeating-linear-gradient(to right, rgba(255, 255, 255, 0.5) 0px, transparent 2px 4px)"
-      }}
-    ></div>   
-    </div>
+    }}
+  ></div>
+</div>
+
 
   <div className="w-full mt-2 mb-2">
 <motion.h2
