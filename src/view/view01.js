@@ -595,40 +595,40 @@ function ScrambleText({ text, className = "", style = {}, step = 50 }) {
 className="absolute w-full font-smooch font-extrabold top-[80px] flex flex-col items-center justify-start gap-2 z-10 ">
  
   <div>
-    <div className="text-[23vw] text-white inline-block leading-none align-top" style={{ transformOrigin: 'center' }}>
+    <div className="text-[21vw] text-white inline-block leading-none align-top" style={{ transformOrigin: 'center' }}>
       M
     </div>
-    <div className="text-[23vw] text-white inline-block leading-none align-top" style={{ transformOrigin: 'center' }}>
+    <div className="text-[21vw] text-white inline-block leading-none align-top" style={{ transformOrigin: 'center' }}>
       Y
     </div>
-    <div className="text-[23vw] text-white inline-block leading-none align-top" style={{ transformOrigin: 'center' }}>
+    <div className="text-[21vw] text-white inline-block leading-none align-top" style={{ transformOrigin: 'center' }}>
       E
     </div>
-    <div className="text-[23vw] text-white inline-block leading-none align-top" style={{ transformOrigin: 'center' }}>
+    <div className="text-[21vw] text-white inline-block leading-none align-top" style={{ transformOrigin: 'center' }}>
       O
     </div>
-    <div className="text-[23vw] text-white inline-block leading-none align-top" style={{ transformOrigin: 'center' }}>
+    <div className="text-[21vw] text-white inline-block leading-none align-top" style={{ transformOrigin: 'center' }}>
       N
     </div>
-    <div className="text-[23vw] text-white inline-block leading-none align-top" style={{ transformOrigin: 'center' }}>
+    <div className="text-[21vw] text-white inline-block leading-none align-top" style={{ transformOrigin: 'center' }}>
       G
     </div>
-    <div className="text-[23vw] text-white inline-block leading-none align-top" style={{ transformOrigin: 'center' }}>
+    <div className="text-[21vw] text-white inline-block leading-none align-top" style={{ transformOrigin: 'center' }}>
       &nbsp;
     </div>
-    <div className="text-[23vw] text-white inline-block leading-none align-top" style={{ transformOrigin: 'center' }}>
+    <div className="text-[21vw] text-white inline-block leading-none align-top" style={{ transformOrigin: 'center' }}>
       C
     </div>
-    <div className=" text-[23vw] text-white inline-block leading-none align-top" style={{ transformOrigin: 'center' }}>
+    <div className=" text-[21vw] text-white inline-block leading-none align-top" style={{ transformOrigin: 'center' }}>
       H
     </div>
-    <div className="text-[23vw] text-white inline-block leading-none align-top" style={{ transformOrigin: 'center' }}>
+    <div className="text-[21vw] text-white inline-block leading-none align-top" style={{ transformOrigin: 'center' }}>
       E
     </div>
-    <div className="text-[23vw] text-white inline-block leading-none align-top" style={{ transformOrigin: 'center' }}>
+    <div className="text-[21vw] text-white inline-block leading-none align-top" style={{ transformOrigin: 'center' }}>
       O
     </div>
-    <div className="text-[23vw] text-white inline-block leading-none align-top" style={{ transformOrigin: 'center' }}>
+    <div className="text-[21vw] text-white inline-block leading-none align-top" style={{ transformOrigin: 'center' }}>
       L
     </div>
   </div>

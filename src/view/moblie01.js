@@ -265,18 +265,18 @@ const [isMenuOpen, setIsMenuOpen] = useState(false);
      }}
     className="flex pointer-events-none">
    
-    <div className="text-[22vw] leading-none" style={{  transformOrigin: 'center' }}>M</div>
-    <div className="text-[22vw] leading-none" style={{  transformOrigin: 'center' }}>Y</div>
-    <div className="text-[22vw] leading-none" style={{  transformOrigin: 'center' }}>E</div>
-    <div className="text-[22vw] leading-none" style={{  transformOrigin: 'center' }}>O</div>
-    <div className="text-[22vw] leading-none" style={{  transformOrigin: 'center' }}>N</div>
-    <div className="text-[22vw] leading-none" style={{  transformOrigin: 'center' }}>G</div>
-    <div className="text-[22vw] leading-none" style={{  transformOrigin: 'center' }}>&nbsp;</div>
-    <div className="text-[22vw] leading-none" style={{  transformOrigin: 'center' }}>C</div>
-    <div className="text-[22vw] leading-none" style={{  transformOrigin: 'center' }}>H</div>
-    <div className="text-[22vw] leading-none" style={{  transformOrigin: 'center' }}>E</div>
-    <div className="text-[22vw] leading-none" style={{  transformOrigin: 'center' }}>O</div>
-    <div className="text-[22vw] leading-none" style={{  transformOrigin: 'center' }}>L</div>
+    <div className="text-[20vw] leading-none" style={{  transformOrigin: 'center' }}>M</div>
+    <div className="text-[20vw] leading-none" style={{  transformOrigin: 'center' }}>Y</div>
+    <div className="text-[20vw] leading-none" style={{  transformOrigin: 'center' }}>E</div>
+    <div className="text-[20vw] leading-none" style={{  transformOrigin: 'center' }}>O</div>
+    <div className="text-[20vw] leading-none" style={{  transformOrigin: 'center' }}>N</div>
+    <div className="text-[20vw] leading-none" style={{  transformOrigin: 'center' }}>G</div>
+    <div className="text-[20vw] leading-none" style={{  transformOrigin: 'center' }}>&nbsp;</div>
+    <div className="text-[20vw] leading-none" style={{  transformOrigin: 'center' }}>C</div>
+    <div className="text-[20vw] leading-none" style={{  transformOrigin: 'center' }}>H</div>
+    <div className="text-[20vw] leading-none" style={{  transformOrigin: 'center' }}>E</div>
+    <div className="text-[20vw] leading-none" style={{  transformOrigin: 'center' }}>O</div>
+    <div className="text-[20vw] leading-none" style={{  transformOrigin: 'center' }}>L</div>
   </h1>
 
   <div className="flex gap-[6vw] mt-0 opacity-75">
