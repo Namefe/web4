@@ -51,6 +51,10 @@ const item = {
     <div className="pointer-events-none">
     <div className="fixed top-0 left-0 w-full h-screen z-40 overflow-visible pointer-events-none"
          style={{ perspective: "1200px", transformStyle: "preserve-3d" }}>
+
+   {/* 언팩 이미지 */}
+   
+          
       {/* 이미지 1 */}
    <motion.div
       className="group relative absolute top-[30%] left-[20%] w-[250px] flex flex-col items-center pointer-events-auto"
@@ -383,6 +387,34 @@ const item = {
       </div>
     </div>
   </div>
+  {/* Experience 섹션 */}
+  <div className='relative top-[-40px]'>
+  <div class="line1">
+<div className='line-flex'>
+  <div className='linewrapperleft'>
+    <div className='line-divider'></div>
+  </div>
+  <div className='line-divider line2'></div>
+</div>
+<div className='line-divider column-5'></div>
+</div>
+    <div className='grid grid-cols-6'>
+      <div className='col-span-3 flex items-start -translate-y-8'>
+        <svg width='1.5rem' viewBox='0 0 33 32' fill='none' className='mr-4'>
+          <path d='M16.5039 0L18.2236 14.2803L32.5039 16L18.2236 17.7197L16.5039 32L14.7842 17.7197L0.503906 16L14.7842 14.2803L16.5039 0Z' fill='white' />
+        </svg>
+        <div className='text-white text-[clamp(1.25rem,2vw,2rem)] leading-none'>EXPERIENCE</div>
+      </div>
+      <div className='col-span-3 text-white'>
+        <div className='w-full '>
+          <div className='flex justify-between items-center'>
+            <span className='text-[32px] leading-loose break-keep'>PTKOREA</span>
+            <span className='opacity-50 text-[clamp(1rem,2vw,1.2rem)]'>2025.12 ~ 2026.03</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
         {/*skill영역 */}
 
         <div className='relative top-[-60px]'>
@@ -407,10 +439,10 @@ const item = {
           ['HTML'],
           ['CSS'],
           ['JAVA-SCRIPT'],
-          ['J-QUERY'],
+          ['WEB QA'],
           ['PHOTOSHOP'],
-          ['ILLUSTRATION'],
-          ['GITHUB'],
+          ['POWERPOINT'],
+          ['EXCEL'],
         ].map(([skill], i, arr) => (
           <div key={i} className='w-full border-b border-b-white/40 py-2'>
             <div className='flex justify-between items-center'>

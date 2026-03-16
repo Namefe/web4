@@ -647,19 +647,19 @@ className="absolute w-full font-smooch font-extrabold top-[80px] flex flex-col i
           <div className="text-left">{line5}</div>
         </div>
         
-      {/* front end developer */}
+      {/* WEB SERVICE ANALYST */}
         <motion.div 
       style={{ opacity: timeopacity, fontSize: 'clamp(1.625rem, 2.1vw, 2.125rem)' }} 
       className='text-white fixed top-[85%] left-12 text-[24px] leading-9'
     >
       <div className=''>
-        F<span className="font-gridular text-[1.02em] ">R</span>ONT
+        W<span className="font-gridular text-[1.02em] ">E</span>B
       </div>
       <div>
-        EN<span className="font-gridular text-[1.02em] ">D</span>
+        SE<span className="font-gridular text-[1.02em] ">R</span>VICE
       </div>
       <div>
-        DE<span className="font-gridular text-[1.02em] ">V</span>EOPER
+        AN<span className="font-gridular text-[1.02em] ">A</span>LYST
       </div>
     </motion.div>
 
@@ -698,26 +698,23 @@ className="absolute w-full font-smooch font-extrabold top-[80px] flex flex-col i
       {/* 프런트앤드 개발자 */}
 <motion.div className='fixed bottom-[10%] left-1/2 -translate-x-1/2' style={{ y: divY2 }}>
 <div className="flex gap-1 text-7xl text-opacity-50 font-bold text-white">
-  <motion.span style={{ y: yFrontF, opacity: opacityFrontF }}>F</motion.span>
-  <motion.span style={{ y: yFrontR, opacity: opacityFrontR }}>R</motion.span>
-  <motion.span style={{ y: yFrontO, opacity: opacityFrontO }}>O</motion.span>
-  <motion.span className="font-gridular" style={{ y: yFrontN, opacity: opacityFrontN }}>N</motion.span>
-  <motion.span style={{ y: yFrontT, opacity: opacityFrontT }}>T</motion.span>
+  <motion.span style={{ y: yFrontF, opacity: opacityFrontF }}>S</motion.span>
+  <motion.span style={{ y: yFrontR, opacity: opacityFrontR }}>E</motion.span>
+  <motion.span style={{ y: yFrontO, opacity: opacityFrontO }}>R</motion.span>
+  <motion.span className="font-gridular" style={{ y: yFrontN, opacity: opacityFrontN }}>V</motion.span>
+  <motion.span style={{ y: yFrontT, opacity: opacityFrontT }}>I</motion.span>
   <motion.span style={{ y: yFrontSpace, opacity: opacityFrontSpace }}>&nbsp;</motion.span>
-  <motion.span className="font-gridular" style={{ y: yEndE, opacity: opacityEndE }}>E</motion.span>
-  <motion.span style={{ y: yEndN, opacity: opacityEndN }}>N</motion.span>
-  <motion.span style={{ y: yEndD, opacity: opacityEndD }}>D</motion.span>
+  <motion.span className="font-gridular" style={{ y: yEndE, opacity: opacityEndE }}>C</motion.span>
+  <motion.span style={{ y: yEndN, opacity: opacityEndN }}>E</motion.span>
 </div>
 <div className="flex gap-1 text-7xl font-bold text-white">
-  <motion.span style={{ y: yDevD, opacity: opacityDevD }}>D</motion.span>
-  <motion.span style={{ y: yDevE, opacity: opacityDevE }}>E</motion.span>
-  <motion.span className="font-gridular" style={{ y: yDevV, opacity: opacityDevV }}>V</motion.span>
-  <motion.span style={{ y: yDevE2, opacity: opacityDevE2 }}>E</motion.span>
-  <motion.span style={{ y: yDevL, opacity: opacityDevL }}>L</motion.span>
-  <motion.span style={{ y: yDevO, opacity: opacityDevO }}>O</motion.span>
-  <motion.span className="font-gridular" style={{ y: yDevP, opacity: opacityDevP }}>P</motion.span>
-  <motion.span style={{ y: yDevE3, opacity: opacityDevE3 }}>E</motion.span>
-  <motion.span style={{ y: yDevR, opacity: opacityDevR }}>R</motion.span>
+  <motion.span style={{ y: yDevD, opacity: opacityDevD }}>A</motion.span>
+  <motion.span style={{ y: yDevE, opacity: opacityDevE }}>N</motion.span>
+  <motion.span className="font-gridular" style={{ y: yDevV, opacity: opacityDevV }}>A</motion.span>
+  <motion.span style={{ y: yDevE2, opacity: opacityDevE2 }}>L</motion.span>
+  <motion.span style={{ y: yDevL, opacity: opacityDevL }}>Y</motion.span>
+  <motion.span className="font-gridular" style={{ y: yDevP, opacity: opacityDevP }}>S</motion.span>
+  <motion.span style={{ y: yDevE3, opacity: opacityDevE3 }}>T</motion.span>
 </div>
 </motion.div>
 </div>
