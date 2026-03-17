@@ -71,7 +71,7 @@ const item = {
       <a  href="https://www.samsung.com/ca_fr/smartphones/galaxy-s26-ultra/buy/" target="_blank"  rel="noopener noreferrer" className="relative w-full">
         <div className="w-full">
           <img
-            src={`${process.env.PUBLIC_URL}/Unpack.jpg`}
+            src={`${process.env.PUBLIC_URL}/unpack.jpg`}
             className="w-full block pointer-events-auto"
             onMouseMove={(e) => {
               const blur = e.currentTarget.querySelector(".blur-circle");
