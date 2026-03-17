@@ -280,9 +280,9 @@ const [isMenuOpen, setIsMenuOpen] = useState(false);
   </h1>
 
   <div className="flex gap-[6vw] mt-0 opacity-75">
-    <h4 className="text-[4vw]">F<span className='font-gridular'>R</span>ONT END</h4>
+    <h4 className="text-[4vw]"><span className='font-gridular'>Q</span>A</h4>
     <h4 className="text-[4vw]">UI/U<span className='font-gridular'>X</span></h4>
-    <h4 className="text-[4vw]">DE<span className='font-gridular'>V</span>ELOPE</h4>
+    <h4 className="text-[4vw]">IN<span className='font-gridular'>S</span>IGHTS</h4>
     <h4 className="text-[4vw]">CR<span className='font-gridular'>E</span>ATIVE</h4>
   </div>
 </div>

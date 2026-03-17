@@ -176,7 +176,7 @@ const View02 = () => {
         Netmarble Games, SM Entertainment, 그리고 Trauma Center까지.
       </motion.p>
       <motion.p custom={3} initial={{ opacity: 0, y: 20 }} animate={controls2}>
-        차이를 만드는 경험을 디자인합니다.
+        인턴십과 다양한 프로젝트를 경험했습니다.
       </motion.p>
     </div>
 <div className='absolute top-0 right-20 flex items-start gap-8'>
@@ -246,6 +246,10 @@ const View02 = () => {
 
       <div className="absolute top-40 left-20 z-20 text-white opacity-50">
         <div>FrontEnd Project = 3</div>
+        <div className="ml-32"></div>
+      </div>
+      <div className="absolute top-60 right-40 z-20 text-white opacity-50">
+        <div>Unpack Project = 1</div>
         <div className="ml-32"></div>
       </div>
 

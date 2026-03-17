@@ -160,7 +160,7 @@ const Moblie05 = () => {
 
       <div className="flex justify-between text-xs text-gray-400 mt-10">
         <span>Privacy & Cookies Policy</span>
-        <span>Myeong Chul © 1999</span>
+        <span>Myeong Cheol © 1999</span>
       </div>
     </section>
     </>

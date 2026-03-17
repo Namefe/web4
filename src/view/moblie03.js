@@ -182,9 +182,38 @@ const Moblie03 = () => {
       </div>
     </div>
   </div>
+  {/* EXPERIENCE 섹션 */}
+  <div className='relative -translate-y-14'>
+  <div class="line1">
+<div className='line-flex'>
+  <div className='linewrapperleft'>
+    <div className='line-divider'></div>
+  </div>
+  <div className='line-divider line2'></div>
+</div>
+<div className='line-divider column-5'></div>
+</div>
+
+    <div className='grid grid-cols-6'>
+      <div className='col-span-3 flex items-start -translate-y-5 md:-translate-y-5'>
+        <svg width='1.5rem' viewBox='0 0 33 32' fill='none' className='mr-1'>
+          <path d='M16.5039 0L18.2236 14.2803L32.5039 16L18.2236 17.7197L16.5039 32L14.7842 17.7197L0.503906 16L14.7842 14.2803L16.5039 0Z' fill='white' />
+        </svg>
+        <div className='text-white text-[16px] md:text-[32px] md:leading-none leading-1'>EXPERIENCE</div>
+      </div>
+      <div className='col-span-3 text-white'>
+        <div className='w-full '>
+          <div className='flex justify-between items-center mt-3 mb-3'>
+            <span className='text-[16px] md:text-[32px] break-keep'>PTKOREA</span>
+            <span className='opacity-50 text-[13px]'>2025.12~2026.03</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
         {/*skill영역 */}
 
-        <div className='relative -translate-y-14'>
+        <div className='relative -translate-y-20'>
         <div class="line1">
 <div className='line-flex'>
   <div className='linewrapperleft'>

@@ -23,6 +23,10 @@ const z3 = useTransform(imageProgress, [0.30, 0.35, 0.40], [-900, 0, 2200]);
 const scale3 = useTransform(imageProgress, [0.20, 0.35, 0.38], [0.3, 1.4, 4.5]);
 const opacity3 = useTransform(imageProgress, [0.18, 0.23, 0.35 ], [0, 1, 1, ]);
 
+const z4 = useTransform(imageProgress, [0.30, 0.35, 0.40], [-900, 0, 2200]);
+const scale4 = useTransform(imageProgress, [0.20, 0.35, 0.38], [0.3, 1.4, 4.5]);
+const opacity4 = useTransform(imageProgress, [0.18, 0.23, 0.35 ], [0, 1, 1, ]);
+
 const nextOpacity = useTransform(imageProgress, [0.4, 0.5], [0, 1]);
 const nextScale = useTransform(imageProgress, [0.4, 0.5], [0.6, 1]);
 const blurValue = useTransform(imageProgress, [0.4, 0.53], [60, 0]);
@@ -31,6 +35,7 @@ const blurStyle = useMotionTemplate`blur(${blurValue}px)`;
 const [hovered, setHovered] = useState(false);
 const [hovered2, setHovered2] = useState(false);
 const [hovered3, setHovered3] = useState(false);
+const [hovered4, setHovered4] = useState(false);
 
 const container = {
   hidden: {},
@@ -53,7 +58,64 @@ const item = {
          style={{ perspective: "1200px", transformStyle: "preserve-3d" }}>
 
    {/* 언팩 이미지 */}
-   
+      <motion.div
+      className="group relative absolute top-[30%] left-[80%] w-[250px] flex flex-col items-center pointer-events-auto"
+      style={{
+        transform: useMotionTemplate`translateZ(${z4}px) scale(${scale4})`,
+        opacity: opacity4,
+        transformOrigin: "center",
+      }}
+      onHoverStart={() => setHovered(true)}
+      onHoverEnd={() => setHovered(false)}
+    >
+      <a  href="https://www.samsung.com/ca_fr/smartphones/galaxy-s26-ultra/buy/" target="_blank"  rel="noopener noreferrer" className="relative w-full">
+        <div className="w-full">
+          <img
+            src={`${process.env.PUBLIC_URL}/Unpack.jpg`}
+            className="w-full block pointer-events-auto"
+            onMouseMove={(e) => {
+              const blur = e.currentTarget.querySelector(".blur-circle");
+              if (blur) {
+                const rect = e.currentTarget.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+                blur.style.left = `${x}px`;
+                blur.style.top = `${y}px`;
+              }
+            }}
+          />
+        </div>
+
+        <div className="relative mt-3 flex flex-col items-start z-10">
+        <div className="text-white text-sm font-extralight tracking-wide opacity-40 group-hover:opacity-100 transition-opacity duration-300">Publishing & QA</div>
+            <motion.div className="inline-flex gap-[2px] -mt-1" variants={container} initial="hidden" animate={hovered ? "show" : "hide"}>
+              {"SMASUNG UNPACK".split("").map((char, i) => (
+                <motion.span key={i} className="text-white font-bold" variants={item}>
+                  {char}
+                </motion.span>
+              ))}
+            </motion.div>
+        </div>
+
+        {[
+          { className: "bottom-[-8px] left-[-16px]", path: "M7 6V20H21", delay: 0 },
+          { className: "bottom-[-8px] right-[-16px]", path: "M20 6V20H6", delay: 0.05 },
+          { className: "top-[-15px] left-[-16px]", path: "M7 21V7H21", delay: 0.1 },
+          { className: "top-[-15px] right-[-16px]", path: "M20 21V7H6", delay: 0.15 },
+        ].map((item, i) => (
+          <motion.svg
+            key={i}
+            className={`absolute ${item.className} w-[20px] h-[20px] text-white opacity-0 group-hover:opacity-100 transition-all duration-500`}
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            style={{ zIndex: 20 }}
+          >
+            <path d={item.path} strokeWidth="1.5" />
+          </motion.svg>
+        ))}
+      </a>
+    </motion.div>
           
       {/* 이미지 1 */}
    <motion.div
